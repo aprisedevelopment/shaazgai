@@ -1,0 +1,304 @@
+// Tugeelt.mn - Prisma Schema
+// Maps to existing MySQL database: tugeeltm_db
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/pg"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Product {
+  id          Int       @id @default(autoincrement())
+  kod         String    @unique 
+  title       String    
+  body        String?   
+  image       String?   
+  une         Int       @default(0)
+  unehuuchin  Int       @default(0)
+  ontsloh     Int       @default(0)
+  duussan     Int       @default(0)
+  comments    Int       @default(0)
+  video       String?   
+  hurgelt     Int       @default(0)
+  catvars     String?   
+  options     String?   
+  nemsen      Int       @default(0)
+  publish     Int       @default(1)
+  uldegdel    Int       @default(0)
+  photos      Photo[]
+  cartItems   CartItem[]
+  productComments Comment[]
+  favorites   Favorite[]
+
+  @@index([publish])
+  @@index([ontsloh])
+  @@index([une])
+  @@index([nemsen])
+  @@index([publish, catvars])
+  @@map("srcms_baraa")
+}
+
+model Photo {
+  id          Int     @id @default(autoincrement())
+  bid         Int
+  image       String  
+  name        String? 
+  mainphoto   Int     @default(0)
+  product     Product @relation(fields: [bid], references: [id])
+
+  @@map("srcms_photos")
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  title       String    
+  cat         Int       @default(0)
+  image       String?   
+  publish     Int       @default(1)
+  list_order  Int       @default(0)
+
+  @@map("srcms_cats")
+}
+
+model CartItem {
+  id      Int     @id @default(autoincrement())
+  sesid   String  
+  bid     Int
+  hed     Int     @default(1)
+  songolt String? 
+  ognoo   Int     @default(0)
+  product Product @relation(fields: [bid], references: [id])
+
+  @@map("srcms_cart")
+}
+
+model CartDelivery {
+  id      Int     @id @default(autoincrement())
+  sesid   String  
+  gazar   Int     @default(0)
+  une     Int     @default(0)
+
+  @@map("srcms_cart2")
+}
+
+model Order {
+  id              Int     @id @default(autoincrement())
+  zid             Int     @unique
+  sesid           String  @map("userid") 
+  ner             String? 
+  utas1           String? 
+  utas2           String? 
+  ognoo           String? 
+  tsag            String? @map("avahtsag") 
+  hayag           String? 
+  comment         String? 
+  tolbor_helber   String? @default("1") 
+  noat            String? @map("noat_avah") @default("0") 
+  niitdun         String? 
+  tolov           String? @default("0") 
+  tolbor_tolson   String  @default("no") 
+  ajiltan         String? @default("0") 
+  ognoo2          String? @default("0") 
+  details         OrderDetail[]
+
+  @@map("srcms_zahialga")
+}
+
+model OrderDetail {
+  id      Int     @id @default(autoincrement())
+  zid     Int
+  bid     Int
+  title   String? @map("ner") 
+  kod     String? 
+  hed     Int     @map("shirheg") @default(1)
+  une     Int     @default(0)
+  songolt String? 
+  order   Order   @relation(fields: [zid], references: [zid])
+
+  @@map("srcms_zahialga_details")
+}
+
+model User {
+  id          Int       @id @default(autoincrement())
+  ner         String    
+  email       String    @unique 
+  pass        String    @map("password") 
+  huis        Int       @default(0)
+  birthday    String?   
+  utas        String?   
+  utas2       String?   
+  hayag       String?   
+  image       String?   
+  active      Int       @default(0)
+  active_kod  String?   
+  hyamdral    Int       @default(0)
+  ajiltan     Int       @default(0)
+  torol       Int       @default(0)
+  regognoo    Int       @default(0)
+  comments    Comment[]
+  favorites   Favorite[]
+
+  @@map("srcms_users")
+}
+
+model Banner {
+  id        Int     @id @default(autoincrement())
+  cat       Int     @default(1)
+  title     String? 
+  image     String? 
+  holboos   String? 
+  publish   Int     @default(1)
+
+  @@map("srcms_banners")
+}
+
+model Comment {
+  id        Int     @id @default(autoincrement())
+  bid       Int
+  userid    Int     @default(0)
+  ner       String? 
+  comment   String? 
+  replyid   Int     @default(0)
+  ipadd     String? 
+  ognoo     Int     @default(0)
+  product   Product @relation(fields: [bid], references: [id])
+  user      User?   @relation(fields: [userid], references: [id])
+
+  @@map("srcms_comments")
+}
+
+model DeliveryZone {
+  id      Int     @id @default(autoincrement())
+  title   String  
+  une     Int     @default(0)
+  unegui  Int     @default(0)
+
+  @@map("srcms_hurgelt_une")
+}
+
+model Page {
+  id          Int     @id @default(autoincrement())
+  title       String  
+  purl        String  @unique 
+  body        String? 
+  publish     Int     @default(1)
+  list_order  Int     @default(0)
+
+  @@map("srcms_pages")
+}
+
+model Lang {
+  id        Int     @id @default(autoincrement())
+  tulhuur   String  @unique 
+  mn        String? 
+
+  @@map("srcms_lang")
+}
+
+model OnlineUser {
+  id      Int     @id @default(autoincrement())
+  sesid   String  
+  ognoo   Int     @default(0)
+  userid  Int     @default(0)
+
+  @@map("srcms_online_users")
+}
+
+model QpayLog {
+  id          Int     @id @default(autoincrement())
+  ognoo       Int     @default(0)
+  ognoo2      String? 
+  dugaar      Int     @default(0)
+  dun         Int     @default(0)
+  tolov       Int     @default(0)
+  tolov_code  String? 
+  invoice_id  String? 
+  qrcode      String? 
+  qrimage     String? @map("qrcodeimage") 
+  ipadd       String? 
+  batalgaa    Int     @default(0)
+
+  @@map("qpay_logs")
+}
+
+model GolomtLog {
+  id          Int     @id @default(autoincrement())
+  ognoo       Int     @default(0)
+  ognoo2      String? 
+  dugaar      Int     @default(0)
+  dun         Int     @default(0)
+  tolov       Int     @default(0)
+  tolov_code  String? 
+  ipadd       String? 
+  batalgaa    Int     @default(0)
+
+  @@map("golomt_logs")
+}
+
+model HipayLog {
+  id                  Int     @id @default(autoincrement())
+  ognoo               Int     @default(0)
+  ognoo2              String? 
+  dugaar              Int     @default(0)
+  dun                 Int     @default(0)
+  tolov               Int     @default(0)
+  tolov_code          String? 
+  tolov_description   String? 
+  checkoutid          String? 
+  paymentid           String? 
+  ipadd               String? 
+
+  @@map("hipay_logs")
+}
+
+model LendmnLog {
+  id          Int     @id @default(autoincrement())
+  ognoo       Int     @default(0)
+  ognoo2      String? 
+  dugaar      Int     @default(0)
+  dun         Int     @default(0)
+  tolov       Int     @default(0)
+  tolov_code  String? 
+  invoice_id  String? 
+  ipadd       String? 
+  batalgaa    Int     @default(0)
+
+  @@map("lendmn_logs")
+}
+
+model Admin {
+  id        Int     @id @default(autoincrement())
+  username  String  @unique @map("name") 
+  password  String  
+  level     Int     @default(2)
+  perm      String? @map("permission") 
+
+  @@map("srcms_admins")
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  title     String   
+  message   String?  
+  type      String   @default("info") 
+  isRead    Boolean  @default(false)
+  link      String?  
+  createdAt DateTime @default(now())
+
+  @@map("srcms_notifications")
+}
+
+model Favorite {
+  id        Int      @id @default(autoincrement())
+  userid    Int      @default(0) // 0 means guest or use sesid for guests
+  sesid     String?  
+  bid       Int
+  createdAt DateTime @default(now())
+  product   Product  @relation(fields: [bid], references: [id], onDelete: Cascade)
+  user      User?    @relation(fields: [userid], references: [id], onDelete: Cascade)
+
+  @@map("srcms_favorites")
+}

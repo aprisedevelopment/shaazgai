@@ -1,0 +1,49 @@
+{
+  "name": "tugeelt-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "npx prisma generate --schema=prisma/schema-pg.prisma && next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@prisma/adapter-mariadb": "^7.9.0",
+    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "^7.9.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/nodemailer": "^8.0.1",
+    "bcryptjs": "^3.0.3",
+    "framer-motion": "^12.42.2",
+    "lucide-react": "^1.27.0",
+    "mariadb": "^3.5.3",
+    "md5": "^2.3.0",
+    "motion": "^12.42.2",
+    "mysql2": "^3.23.1",
+    "next": "16.2.12",
+    "next-auth": "^5.0.0-beta.32",
+    "nodemailer": "^8.0.11",
+    "pg": "^8.23.0",
+    "postcss": "^8.5.23",
+    "prisma": "^7.9.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-hot-toast": "^2.6.0",
+    "sharp": "^0.35.3",
+    "tailwindcss": "^4.3.3",
+    "xlsx": "^0.18.5",
+    "zod": "^4.4.3",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@types/md5": "^2.3.6",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.12",
+    "typescript": "^5"
+  }
+}

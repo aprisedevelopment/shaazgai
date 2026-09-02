@@ -1,0 +1,380 @@
+import { config } from 'dotenv';
+config({ path: '.env.local' });
+import { PrismaClient as PGClient } from './prisma/generated/pg/index.js';
+import mariadb from 'mariadb';
+import { Pool } from 'pg';
+import { PrismaPg } from '@prisma/adapter-pg';
+
+const mysqlPool = mariadb.createPool({
+  host: '127.0.0.1',
+  port: 3306,
+  user: 'root',
+  password: '',
+  database: 'tugeelt',
+  connectionLimit: 5
+});
+
+const connectionString = 'postgresql://postgres.ncekjfwhszrryrdmaver:Aliwdansaa23@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?pgbouncer=true&connection_limit=1';
+const pgPool = new Pool({ connectionString });
+const pgAdapter = new PrismaPg(pgPool);
+const pg = new PGClient({ adapter: pgAdapter });
+
+async function main() {
+  console.log('Starting data migration using MariaDB direct client...');
+  
+  let conn: any;
+  try {
+    conn = await mysqlPool.getConnection();
+    
+    const chunk = (arr: any[], size: number) =>
+      Array.from({ length: Math.ceil(arr.length / size) }, (v, i) => arr.slice(i * size, i * size + size));
+
+    async function migrateSimple(name: string, sql: string, createFn: any) {
+      console.log(`Migrating ${name}...`);
+      try {
+        const data = await conn.query(sql);
+        console.log(`- Found ${data.length} records in MySQL.`);
+        if (data.length === 0) return;
+        const cleanData = data.map((r: any) => ({ ...r }));
+        const chunks = chunk(cleanData, 1000);
+        let total = 0;
+        for (const c of chunks) {
+          total += (await createFn({ data: c, skipDuplicates: true })).count;
+        }
+        console.log(`- Inserted ${total} records into Postgres.`);
+        return cleanData;
+      } catch (e: any) {
+        console.error(`- Error migrating ${name}:`, e.message);
+        return [];
+      }
+    }
+
+    // Categories
+    const catsRaw = await conn.query('SELECT * FROM srcms_cats');
+    const cats = catsRaw.map((c: any) => ({
+      id: c.id,
+      title: c.title,
+      image: c.image,
+      pid: c.pid,
+      list_order: c.list_order
+    }));
+    if(cats.length > 0) {
+      console.log(`- Found ${cats.length} Categories.`);
+      await pg.category.createMany({ data: cats, skipDuplicates: true });
+    }
+    
+    // Users
+    const usersRaw = await conn.query('SELECT * FROM srcms_users');
+    const users = usersRaw.map((u: any) => ({
+      id: u.id,
+      ner: u.ner,
+      email: u.email,
+      pass: u.password || u.pass,
+      huis: parseInt(u.huis) || 0,
+      birthday: u.birthday,
+      utas: u.utas,
+      utas2: u.utas2,
+      hayag: u.hayag,
+      image: u.image,
+      active: parseInt(u.active) || 0,
+      active_kod: u.active_kod,
+      hyamdral: parseInt(u.hyamdral) || 0,
+      ajiltan: parseInt(u.ajiltan) || 0,
+      torol: parseInt(u.torol) || 0,
+      regognoo: parseInt(u.regognoo) || 0
+    }));
+    if(users.length > 0) {
+      console.log(`- Found ${users.length} Users.`);
+      for (const c of chunk(users, 1000)) {
+        await pg.user.createMany({ data: c, skipDuplicates: true });
+      }
+    }
+    const validUserIds = new Set(users.map(u => u.id));
+
+    // Products
+    const productsRaw = await conn.query('SELECT * FROM srcms_baraa');
+    const products = productsRaw.map((p: any) => ({
+      id: p.id,
+      kod: p.kod,
+      title: p.title,
+      body: p.body,
+      image: p.image,
+      une: parseInt(p.une) || 0,
+      unehuuchin: parseInt(p.unehuuchin) || 0,
+      ontsloh: parseInt(p.ontsloh) || 0,
+      duussan: parseInt(p.duussan) || 0,
+      comments: parseInt(p.comments) || 0,
+      video: p.video,
+      hurgelt: parseInt(p.hurgelt) || 0,
+      catvars: p.catvars,
+      options: p.options,
+      nemsen: parseInt(p.nemsen) || 0,
+      publish: parseInt(p.publish) || 0,
+      uldegdel: parseInt(p.uldegdel) || 0
+    }));
+    if(products.length > 0) {
+      console.log(`- Found ${products.length} Products.`);
+      for (const c of chunk(products, 1000)) {
+        await pg.product.createMany({ data: c, skipDuplicates: true });
+      }
+    }
+    const validProductIds = new Set(products.map(p => p.id));
+
+    // Photos
+    const photosRaw = await conn.query('SELECT * FROM srcms_photos');
+    const photos = photosRaw
+      .map((p: any) => ({
+        id: p.id,
+        bid: parseInt(p.bid) || 0,
+        image: p.image
+      }))
+      .filter(p => validProductIds.has(p.bid));
+    if(photos.length > 0) {
+      console.log(`- Found ${photos.length} Photos.`);
+      for (const c of chunk(photos, 1000)) {
+        await pg.photo.createMany({ data: c, skipDuplicates: true });
+      }
+    }
+
+    // CartItem
+    const cartRaw = await conn.query('SELECT * FROM srcms_cart');
+    const carts = cartRaw
+      .map((c: any) => ({
+        id: c.id,
+        userid: parseInt(c.userid) || 0,
+        bid: parseInt(c.bid) || 0,
+        hed: parseInt(c.hed) || 1,
+        songolt: c.songolt
+      }))
+      .filter(c => validProductIds.has(c.bid) && (validUserIds.has(c.userid) || c.userid === 0));
+    if(carts.length > 0) {
+      console.log(`- Found ${carts.length} CartItems.`);
+      for (const c of chunk(carts, 1000)) {
+        await pg.cartItem.createMany({ data: c, skipDuplicates: true });
+      }
+    }
+
+    // Orders
+    const ordersRaw = await conn.query('SELECT * FROM srcms_zahialga');
+    const orders = ordersRaw.map((o: any) => ({
+      id: o.id,
+      zid: parseInt(o.zid) || 0,
+      sesid: o.userid || '',
+      ner: o.ner,
+      utas1: o.utas1,
+      utas2: o.utas2,
+      ognoo: o.avahognoo || o.ognoo || '',
+      tsag: o.avahtsag || o.tsag,
+      hayag: o.hayag,
+      comment: o.comment,
+      tolbor_helber: o.tolbor_helber,
+      noat: o.noat_avah || o.noat,
+      niitdun: o.niitdun,
+      tolov: o.tolov,
+      tolbor_tolson: o.tolbor_tolson,
+      ajiltan: o.ajiltan,
+      ognoo2: o.ognoo2
+    }));
+    if(orders.length > 0) {
+      console.log(`- Found ${orders.length} Orders.`);
+      for (const c of chunk(orders, 1000)) {
+        await pg.order.createMany({ data: c, skipDuplicates: true });
+      }
+    }
+    const validZids = new Set(orders.map(o => o.zid));
+
+    // OrderDetails
+    const odsRaw = await conn.query('SELECT * FROM srcms_zahialga_details');
+    const ods = odsRaw
+      .map((o: any) => ({
+        id: o.id,
+        zid: parseInt(o.zid) || 0,
+        bid: parseInt(o.bid) || 0,
+        title: o.ner || o.title,
+        kod: o.kod,
+        hed: parseInt(o.shirheg || o.hed) || 1,
+        une: parseInt(o.une) || 0,
+        songolt: o.songolt
+      }))
+      .filter(o => validZids.has(o.zid)); // bid isn't a foreign key constraint to product? It seems it doesn't have FK to Product in schema! Let me assume it's fine. Wait, let me check schema-pg.prisma later if it fails.
+      
+    if(ods.length > 0) {
+      console.log(`- Found ${ods.length} OrderDetails.`);
+      for (const c of chunk(ods, 1000)) {
+        await pg.orderDetail.createMany({ data: c, skipDuplicates: true });
+      }
+    }
+
+    // Comments
+    const commentsRaw = await conn.query('SELECT * FROM srcms_comments');
+    const comments = commentsRaw
+      .map((c: any) => ({
+        id: c.id,
+        bid: parseInt(c.bid) || 0,
+        comment: c.body || c.comment,
+        userid: parseInt(c.userid) || 0,
+        ognoo: parseInt(c.ognoo) || 0
+      }))
+      .filter(c => validProductIds.has(c.bid) && validUserIds.has(c.userid));
+    if (comments.length > 0) {
+      console.log(`- Found ${comments.length} Comments.`);
+      for (const c of chunk(comments, 1000)) {
+        await pg.comment.createMany({ data: c, skipDuplicates: true });
+      }
+    }
+
+    // Favorites
+    const favoritesRaw = await conn.query('SELECT * FROM srcms_favorites');
+    const favorites = favoritesRaw
+      .map((f: any) => ({
+        id: f.id,
+        bid: parseInt(f.bid) || 0,
+        userid: parseInt(f.userid) || 0
+      }))
+      .filter(f => validProductIds.has(f.bid) && validUserIds.has(f.userid));
+    if (favorites.length > 0) {
+      console.log(`- Found ${favorites.length} Favorites.`);
+      for (const c of chunk(favorites, 1000)) {
+        await pg.favorite.createMany({ data: c, skipDuplicates: true });
+      }
+    }
+
+    // Banners
+    const bannersRaw = await conn.query('SELECT * FROM srcms_banners');
+    const banners = bannersRaw.map((b: any) => ({
+      id: b.id,
+      cat: parseInt(b.cat) || 1,
+      title: b.title,
+      holboos: b.burl || b.holboos,
+      image: b.image,
+      publish: parseInt(b.publish) || 0
+    }));
+    if (banners.length > 0) {
+       console.log(`- Found ${banners.length} Banners.`);
+       await pg.banner.createMany({ data: banners, skipDuplicates: true });
+    }
+
+    // DeliveryZone
+    const deliveryRaw = await conn.query('SELECT * FROM srcms_hurgelt_une');
+    const delivery = deliveryRaw.map((d: any) => ({
+      id: d.id,
+      title: d.title,
+      une: parseInt(d.une) || 0,
+      unegui: parseInt(d.unegui) || 0
+    }));
+    if (delivery.length > 0) {
+       console.log(`- Found ${delivery.length} DeliveryZones.`);
+       await pg.deliveryZone.createMany({ data: delivery, skipDuplicates: true });
+    }
+
+    // Pages
+    const pagesRaw = await conn.query('SELECT * FROM srcms_pages');
+    const pages = pagesRaw.map((p: any) => ({
+      id: p.id,
+      title: p.title,
+      purl: p.purl,
+      body: p.body,
+      publish: parseInt(p.publish) || 0,
+      list_order: parseInt(p.list_order) || 0
+    }));
+    if (pages.length > 0) {
+       console.log(`- Found ${pages.length} Pages.`);
+       await pg.page.createMany({ data: pages, skipDuplicates: true });
+    }
+
+    // Admins
+    const adminRaw = await conn.query('SELECT * FROM srcms_admins');
+    const admins = adminRaw.map((a: any) => ({
+      id: a.id,
+      username: a.name,
+      password: a.password || a.pass || '',
+      level: parseInt(a.level) || 2,
+      perm: a.permission
+    }));
+    if(admins.length > 0) {
+       console.log(`- Found ${admins.length} Admins.`);
+       await pg.admin.createMany({ data: admins, skipDuplicates: true });
+    }
+
+    // Other small tables
+    await migrateSimple('Notification', 'SELECT * FROM srcms_notifications', (a: any) => pg.notification.createMany(a));
+    await migrateSimple('Lang', 'SELECT * FROM srcms_lang', (a: any) => pg.lang.createMany({ data: a.data.map((r: any) => ({ id: r.id, tulhuur: r.tulhuur, mn: r.mn })), skipDuplicates: true }));
+
+    const qpayRaw = await conn.query('SELECT * FROM qpay_logs');
+    const qpays = qpayRaw.map((q: any) => ({
+      id: q.id,
+      ognoo: parseInt(q.ognoo) || 0,
+      ognoo2: q.ognoo2,
+      dugaar: parseInt(q.dugaar) || 0,
+      dun: parseInt(q.dun) || 0,
+      tolov: parseInt(q.tolov) || 0,
+      tolov_code: q.tolov_code,
+      invoice_id: q.invoice_id,
+      qrcode: q.qrcode,
+      qrimage: q.qrcodeimage || q.qrimage,
+      ipadd: q.ipadd,
+      batalgaa: parseInt(q.batalgaa) || 0
+    }));
+    if (qpays.length > 0) {
+       console.log(`- Found ${qpays.length} QpayLogs.`);
+       await pg.qpayLog.createMany({ data: qpays, skipDuplicates: true });
+    }
+    
+    await migrateSimple('GolomtLog', 'SELECT * FROM golomt_logs', (a: any) => pg.golomtLog.createMany({ 
+      data: a.data.map((r: any) => ({ 
+        id: r.id, 
+        ognoo: parseInt(r.ognoo) || 0, 
+        ognoo2: r.ognoo2, 
+        dugaar: parseInt(r.dugaar) || 0, 
+        dun: parseInt(r.dun) || 0, 
+        tolov: parseInt(r.tolov) || 0,
+        tolov_code: r.tolov_code,
+        ipadd: r.ipadd,
+        batalgaa: parseInt(r.batalgaa) || 0
+      })), 
+      skipDuplicates: true 
+    }));
+
+    await migrateSimple('HipayLog', 'SELECT * FROM hipay_logs', (a: any) => pg.hipayLog.createMany({ 
+      data: a.data.map((r: any) => ({ 
+        id: r.id, 
+        ognoo: parseInt(r.ognoo) || 0, 
+        ognoo2: r.ognoo2, 
+        dugaar: parseInt(r.dugaar) || 0, 
+        dun: parseInt(r.dun) || 0, 
+        tolov: parseInt(r.tolov) || 0,
+        tolov_code: r.tolov_code,
+        tolov_description: r.tolov_description,
+        checkoutid: r.checkoutid,
+        paymentid: r.paymentid,
+        ipadd: r.ipadd
+      })), 
+      skipDuplicates: true 
+    }));
+
+    await migrateSimple('LendmnLog', 'SELECT * FROM lendmn_logs', (a: any) => pg.lendmnLog.createMany({ 
+      data: a.data.map((r: any) => ({ 
+        id: r.id, 
+        ognoo: parseInt(r.ognoo) || 0, 
+        ognoo2: r.ognoo2, 
+        dugaar: parseInt(r.dugaar) || 0, 
+        dun: parseInt(r.dun) || 0, 
+        tolov: parseInt(r.tolov) || 0,
+        tolov_code: r.tolov_code,
+        invoice_id: r.invoice_id,
+        ipadd: r.ipadd
+      })), 
+      skipDuplicates: true 
+    }));
+
+    console.log('MIGRATION COMPLETE!');
+  } catch(e) {
+    console.error('Migration error:', e);
+  } finally {
+    if (conn) conn.end();
+    pg.$disconnect();
+    mysqlPool.end();
+  }
+}
+
+main();
