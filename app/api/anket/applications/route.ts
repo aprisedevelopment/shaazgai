@@ -79,6 +79,8 @@ export async function GET(req: NextRequest) {
       family_count: app.familyMembers?.length || 0,
       education_count: app.educationHistory?.length || 0,
       work_count: app.workExperience?.length || 0,
+      created_at: app.createdAt ? app.createdAt.toISOString() : null,
+      updated_at: app.updatedAt ? app.updatedAt.toISOString() : null,
     }));
 
     return NextResponse.json({

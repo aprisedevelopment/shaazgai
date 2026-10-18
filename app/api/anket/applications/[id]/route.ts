@@ -54,6 +54,8 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       skills: app.skills,
       extended_relatives: app.extendedRelatives,
       reference_persons: app.referencePersons,
+      created_at: app.createdAt ? app.createdAt.toISOString() : null,
+      updated_at: app.updatedAt ? app.updatedAt.toISOString() : null,
     };
 
     return NextResponse.json({ data: formatted });

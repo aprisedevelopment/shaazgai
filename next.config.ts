@@ -30,7 +30,7 @@ const nextConfig: NextConfig = {
       // Serve upload files from old PHP directory during migration
       {
         source: '/upload/:path*',
-        destination: 'http://localhost/tugeelt.mn/upload/:path*',
+        destination: '/uploads/:path*',
       },
     ]
   },
