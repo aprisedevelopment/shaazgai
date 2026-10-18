@@ -10,11 +10,18 @@ export async function POST(req: Request) {
     const orderId = Number(zid)
     const methodId = Number(h)
 
-    const order = await prisma.order.findUnique({ where: { id: orderId } })
+    const order = await prisma.order.findFirst({
+      where: {
+        OR: [
+          { zid: orderId },
+          { id: orderId }
+        ]
+      }
+    })
     if (!order) return NextResponse.json({ success: false, error: 'Захиалга олдсонгүй' })
 
     const amount = Number(order.niitdun || 0)
-    const orderCode = generateOrderCode(orderId)
+    const orderCode = String(order.zid)
 
     // Бэлэн (1), Данс (2) - Төлбөр тооцооны хуудас руу шууд үсрэнэ.
     if (methodId === 1 || methodId === 2) {
@@ -23,43 +30,100 @@ export async function POST(req: Request) {
 
     // QPay (4)
     if (methodId === 4) {
-      const qpayRes = await qpayCreateInvoice(orderId, amount)
-      if (qpayRes?.result_code === '0' && qpayRes.json_data) {
+      if (!process.env.QPAY_API_URL || !process.env.QPAY_USERNAME) {
         return NextResponse.json({
           success: true,
+          isFallbackToBank: true,
           orderCode,
           amount,
-          invoiceId: qpayRes.json_data.invoice_id,
-          qrCode: qpayRes.json_data.qPay_QRimage,
+          message: 'QPay гарц түр холбогдоогүй байгаа тул дансаар шилжүүлнэ үү.'
         })
       }
-      return NextResponse.json({ success: false, error: 'QPay нэхэмжлэх үүсгэхэд алдаа гарлаа' })
+      try {
+        const qpayRes = await qpayCreateInvoice(order.zid, amount)
+        if (qpayRes?.result_code === '0' && qpayRes.json_data) {
+          return NextResponse.json({
+            success: true,
+            orderCode,
+            amount,
+            invoiceId: qpayRes.json_data.invoice_id,
+            qrCode: qpayRes.json_data.qPay_QRimage,
+          })
+        }
+      } catch (err) {
+        console.error('QPay invoice error:', err)
+      }
+      return NextResponse.json({
+        success: true,
+        isFallbackToBank: true,
+        orderCode,
+        amount,
+        message: 'QPay нэхэмжлэх үүсгэх боломжгүй тул дансаар шилжүүлнэ үү.'
+      })
     }
 
     // LendMN (8)
     if (methodId === 8) {
-      const lendRes = await lendmnCreateInvoice(orderId, amount)
-      if (lendRes?.code === 0 && lendRes.qrString) {
+      if (!process.env.LENDMN_API_URL) {
         return NextResponse.json({
           success: true,
+          isFallbackToBank: true,
           orderCode,
           amount,
-          invoiceId: lendRes.invoiceNumber,
-          qrImage: lendRes.qrString,
+          message: 'LendMN гарц түр холбогдоогүй байгаа тул дансаар шилжүүлнэ үү.'
         })
       }
-      return NextResponse.json({ success: false, error: lendRes?.errorDescription || 'LendMN нэхэмжлэх үүсгэхэд алдаа гарлаа' })
+      try {
+        const lendRes = await lendmnCreateInvoice(order.zid, amount)
+        if (lendRes?.code === 0 && lendRes.qrString) {
+          return NextResponse.json({
+            success: true,
+            orderCode,
+            amount,
+            invoiceId: lendRes.invoiceNumber,
+            qrImage: lendRes.qrString,
+          })
+        }
+      } catch (err) {
+        console.error('LendMN invoice error:', err)
+      }
+      return NextResponse.json({
+        success: true,
+        isFallbackToBank: true,
+        orderCode,
+        amount,
+        message: 'LendMN үйлчилгээ түр ажиллахгүй байгаа тул дансаар шилжүүлнэ үү.'
+      })
     }
 
     // HiPay (7)
     if (methodId === 7) {
-      const hipayRes = await hipayCreateCheckout(amount)
-      if (hipayRes?.checkoutId) {
-        const callbackUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/payment/callback/hipay?zid=${orderId}`
-        const redirectUrl = hipayPaymentUrl(hipayRes.checkoutId, callbackUrl, callbackUrl)
-        return NextResponse.json({ success: true, redirectUrl })
+      if (!process.env.HIPAY_API_URL) {
+        return NextResponse.json({
+          success: true,
+          isFallbackToBank: true,
+          orderCode,
+          amount,
+          message: 'HiPay гарц түр холбогдоогүй байгаа тул дансаар шилжүүлнэ үү.'
+        })
       }
-      return NextResponse.json({ success: false, error: 'HiPay системтэй холбогдоход алдаа гарлаа' })
+      try {
+        const hipayRes = await hipayCreateCheckout(amount)
+        if (hipayRes?.checkoutId) {
+          const callbackUrl = `${process.env.NEXT_PUBLIC_SITE_URL || ''}/api/payment/callback/hipay?zid=${order.zid}`
+          const redirectUrl = hipayPaymentUrl(hipayRes.checkoutId, callbackUrl, callbackUrl)
+          return NextResponse.json({ success: true, redirectUrl })
+        }
+      } catch (err) {
+        console.error('HiPay error:', err)
+      }
+      return NextResponse.json({
+        success: true,
+        isFallbackToBank: true,
+        orderCode,
+        amount,
+        message: 'HiPay системтэй холбогдох боломжгүй байна.'
+      })
     }
 
     // Golomt / SocialPay (5, 6)

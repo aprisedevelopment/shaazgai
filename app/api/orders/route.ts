@@ -45,18 +45,21 @@ export async function POST(req: Request) {
 
     // Create order details and decrement stock
     for (const item of items) {
+      const product = await prisma.product.findUnique({ where: { id: item.productId } })
+      
       await prisma.orderDetail.create({
         data: {
-          zid: order.id,
+          zid: order.zid,
           bid: item.productId,
+          title: item.title || product?.title || '',
+          kod: item.kod || product?.kod || '',
           hed: item.hed,
           une: item.une,
           songolt: item.songolt || ''
         }
       })
       
-      // Decrement stock
-      const product = await prisma.product.findUnique({ where: { id: item.productId } })
+      // Decrement stock if product exists
       if (product) {
         const newUldegdel = Math.max(0, product.uldegdel - item.hed)
         await prisma.product.update({
@@ -69,7 +72,12 @@ export async function POST(req: Request) {
       }
     }
 
-    return NextResponse.json({ success: true, zid: order.id })
+    return NextResponse.json({
+      success: true,
+      zid: order.zid,
+      orderId: order.id,
+      orderCode: order.zid
+    })
   } catch (error) {
     console.error('Order creation error:', error)
     return NextResponse.json({ success: false, error: 'Захиалга үүсгэхэд алдаа гарлаа' }, { status: 500 })

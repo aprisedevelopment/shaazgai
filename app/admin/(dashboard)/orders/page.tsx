@@ -12,10 +12,11 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
 
   const where: any = {}
   if (q) {
+    const qNum = Number(q)
     where.OR = [
-      { ner: { contains: q } },
+      { ner: { contains: q, mode: 'insensitive' } },
       { utas1: { contains: q } },
-      { id: Number(q) || undefined }
+      ...(isNaN(qNum) ? [] : [{ id: qNum }, { zid: qNum }])
     ]
   }
   if (status) {

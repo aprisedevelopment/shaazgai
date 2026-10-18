@@ -6,8 +6,14 @@ import Link from 'next/link'
 export default async function AdminOrderDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   
-  const order = await prisma.order.findUnique({
-    where: { id: Number(id) },
+  const numId = Number(id)
+  const order = await prisma.order.findFirst({
+    where: {
+      OR: [
+        { id: numId },
+        { zid: numId }
+      ]
+    },
     include: {
       details: true
     }
@@ -20,7 +26,7 @@ export default async function AdminOrderDetailPage({ params }: { params: Promise
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-        <h1 style={{ fontSize: 22, fontWeight: 800 }}>Захиалга #{order.id} дэлгэрэнгүй</h1>
+        <h1 style={{ fontSize: 22, fontWeight: 800 }}>Захиалга #{order.zid || order.id} дэлгэрэнгүй</h1>
         <Link href="/admin/orders" className="btn btn-outline">Буцах</Link>
       </div>
 

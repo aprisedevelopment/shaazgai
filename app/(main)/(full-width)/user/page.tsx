@@ -82,7 +82,7 @@ export default async function ProfilePage() {
               {orders.map((o) => (
                 <div key={o.id} style={{ padding: 16, border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
-                    <div style={{ fontWeight: 600, marginBottom: 4 }}>Захиалга #{o.id}</div>
+                    <div style={{ fontWeight: 600, marginBottom: 4 }}>Захиалга #{o.zid || o.id}</div>
                     <div style={{ fontSize: 12, color: 'var(--text-light)' }}>
                       {timeAgo(Number(o.ognoo))}
                     </div>

@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useCartStore } from '@/store/cartStore'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
@@ -32,6 +32,12 @@ export default function CheckoutPage() {
   const [tolbor, setTolbor] = useState<PaymentMethod>(4)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    if (session?.user?.name && !form.ner) {
+      setForm((f) => ({ ...f, ner: session.user?.name || '' }))
+    }
+  }, [session?.user?.name])
 
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }))
@@ -112,6 +118,42 @@ export default function CheckoutPage() {
         {/* Main Content (Left side - 8 cols) */}
         <div className="lg:col-span-8 space-y-6">
           
+          {/* User Status Banner */}
+          {!session?.user ? (
+            <div className="bg-blue-50/80 border border-blue-200/80 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm">
+              <div className="flex items-center gap-2.5 text-blue-900">
+                <User className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>
+                  Та өөрийн бүртгэлээр захиалбал захиалгын түүх тань хадгалагдана.
+                </span>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <Link
+                  href="/user/login?callbackUrl=/cart/checkout"
+                  className="px-3.5 py-1.5 bg-blue-600 text-white rounded-lg font-bold text-xs hover:bg-blue-700 transition-colors shadow-sm"
+                >
+                  Нэвтрэх
+                </Link>
+                <Link
+                  href="/user/register?callbackUrl=/cart/checkout"
+                  className="px-3.5 py-1.5 bg-white text-blue-700 border border-blue-300 rounded-lg font-bold text-xs hover:bg-blue-50 transition-colors"
+                >
+                  Бүртгүүлэх
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-3.5 flex items-center justify-between text-xs sm:text-sm text-emerald-900">
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-emerald-600" />
+                <span>Нэвтэрсэн хэрэглэгч: <b>{session.user?.name || session.user?.email}</b></span>
+              </div>
+              <Link href="/user" className="text-xs text-emerald-700 font-bold hover:underline">
+                Профайл харах
+              </Link>
+            </div>
+          )}
+
           {error && (
             <div className="bg-rose-50 border border-rose-200 text-rose-700 p-4 rounded-xl flex items-center gap-3">
               <AlertCircle className="w-5 h-5 shrink-0" />
