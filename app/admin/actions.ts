@@ -136,3 +136,139 @@ export async function bulkUpdateProducts(productIds: number[], actionType: 'dele
     return { success: false, error: 'Үйлдэл хийхэд алдаа гарлаа' }
   }
 }
+
+// Category Actions
+export async function createCategory(formData: FormData) {
+  try {
+    const title = formData.get('title') as string
+    const cat = Number(formData.get('cat')) || 0
+    const list_order = Number(formData.get('list_order')) || 0
+
+    if (!title) return { success: false, error: 'Ангиллын нэр оруулна уу' }
+
+    await prisma.category.create({
+      data: {
+        title,
+        cat,
+        list_order,
+        publish: 1,
+      }
+    })
+    revalidatePath('/admin/categories')
+    return { success: true }
+  } catch (error) {
+    console.error(error)
+    return { success: false, error: 'Ангилал үүсгэхэд алдаа гарлаа' }
+  }
+}
+
+export async function deleteCategory(id: number) {
+  try {
+    await prisma.category.delete({ where: { id } })
+    revalidatePath('/admin/categories')
+    return { success: true }
+  } catch (error) {
+    console.error(error)
+    return { success: false, error: 'Ангилал устгахад алдаа гарлаа' }
+  }
+}
+
+export async function toggleCategoryPublish(id: number, publish: number) {
+  try {
+    await prisma.category.update({
+      where: { id },
+      data: { publish }
+    })
+    revalidatePath('/admin/categories')
+    return { success: true }
+  } catch (error) {
+    console.error(error)
+    return { success: false, error: 'Ангиллын төлөв өөрчлөхөд алдаа гарлаа' }
+  }
+}
+
+// Banner Actions
+export async function createBanner(formData: FormData) {
+  try {
+    const title = formData.get('title') as string
+    const holboos = formData.get('holboos') as string
+    const image = formData.get('image') as string
+
+    await prisma.banner.create({
+      data: {
+        title,
+        holboos,
+        image,
+        publish: 1,
+        cat: 1,
+      }
+    })
+    revalidatePath('/admin/banners')
+    return { success: true }
+  } catch (error) {
+    console.error(error)
+    return { success: false, error: 'Баннер нэмэхэд алдаа гарлаа' }
+  }
+}
+
+export async function deleteBanner(id: number) {
+  try {
+    await prisma.banner.delete({ where: { id } })
+    revalidatePath('/admin/banners')
+    return { success: true }
+  } catch (error) {
+    console.error(error)
+    return { success: false, error: 'Баннер устгахад алдаа гарлаа' }
+  }
+}
+
+export async function toggleBannerPublish(id: number, publish: number) {
+  try {
+    await prisma.banner.update({
+      where: { id },
+      data: { publish }
+    })
+    revalidatePath('/admin/banners')
+    return { success: true }
+  } catch (error) {
+    console.error(error)
+    return { success: false, error: 'Баннерын төлөв өөрчлөхөд алдаа гарлаа' }
+  }
+}
+
+// Page Actions
+export async function createPageAction(formData: FormData) {
+  try {
+    const title = formData.get('title') as string
+    const purl = formData.get('purl') as string
+    const body = formData.get('body') as string
+
+    if (!title || !purl) return { success: false, error: 'Гарчиг болон URL оруулна уу' }
+
+    await prisma.page.create({
+      data: {
+        title,
+        purl,
+        body,
+        publish: 1,
+      }
+    })
+    revalidatePath('/admin/pages')
+    return { success: true }
+  } catch (error) {
+    console.error(error)
+    return { success: false, error: 'Хуудас үүсгэхэд алдаа гарлаа' }
+  }
+}
+
+export async function deletePageAction(id: number) {
+  try {
+    await prisma.page.delete({ where: { id } })
+    revalidatePath('/admin/pages')
+    return { success: true }
+  } catch (error) {
+    console.error(error)
+    return { success: false, error: 'Хуудас устгахад алдаа гарлаа' }
+  }
+}
+

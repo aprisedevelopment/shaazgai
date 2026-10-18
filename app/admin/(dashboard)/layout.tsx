@@ -14,7 +14,19 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       {/* Sidebar */}
       <aside className="admin-sidebar">
         <div className="admin-logo">
-          <Link href="/admin"><img src={`https://tugeelt.mn/images/logo-white.png`} alt="Admin" style={{ height: 32 }} /></Link>
+          <Link href="/admin" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+            <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, borderRadius: 8, background: 'var(--primary)', color: '#fff', fontSize: 18, fontWeight: 'bold' }}>
+              Т
+            </span>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span style={{ fontSize: 16, fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+                ТҮГЭЭЛТ<span style={{ color: 'var(--accent)' }}>.МН</span>
+              </span>
+              <span style={{ fontSize: 10, color: '#94a3b8', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                Админ удирдлага
+              </span>
+            </div>
+          </Link>
         </div>
         <nav className="admin-nav">
           <div className="admin-nav-group">Дэлгүүр</div>
@@ -28,7 +40,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <span className="nav-icon">🗂️</span> Ангилал
           </Link>
           
-          <div className="admin-nav-group" style={{ marginTop: 16 }}>Удирдлага</div>
+          <div className="admin-nav-group">Удирдлага</div>
           <Link href="/admin/users">
             <span className="nav-icon">👥</span> Хэрэглэгчид
           </Link>
@@ -36,7 +48,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <span className="nav-icon">💳</span> Төлбөр тооцоо
           </Link>
           
-          <div className="admin-nav-group" style={{ marginTop: 16 }}>Агуулга</div>
+          <div className="admin-nav-group">Агуулга</div>
           <Link href="/admin/banners">
             <span className="nav-icon">🖼️</span> Баннер
           </Link>
@@ -47,12 +59,12 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <span className="nav-icon">💬</span> Сэтгэгдэл
           </Link>
         </nav>
-        <div style={{ padding: 20, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+        <div style={{ padding: '16px 20px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <form action={async () => {
             'use server'
-            await signOut({ redirectTo: '/' })
+            await signOut({ redirectTo: '/admin/login' })
           }}>
-            <button className="btn btn-outline btn-block" style={{ color: 'rgba(255,255,255,0.7)', borderColor: 'rgba(255,255,255,0.2)' }} type="submit">
+            <button className="btn btn-outline btn-block" style={{ color: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.2)', fontSize: 13 }} type="submit">
               Гарах
             </button>
           </form>

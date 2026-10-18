@@ -24,8 +24,7 @@ export default function AdminLoginPage() {
       if (res?.error) {
         setError('Нэвтрэх нэр эсвэл нууц үг буруу байна.')
       } else {
-        router.push('/admin')
-        router.refresh()
+        window.location.href = '/admin'
       }
     } catch {
       setError('Алдаа гарлаа. Дахин оролдоно уу.')

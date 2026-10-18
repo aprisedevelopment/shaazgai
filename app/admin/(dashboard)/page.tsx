@@ -55,13 +55,13 @@ export default async function AdminDashboard() {
           <tbody>
             {recentOrders.map((o) => (
               <tr key={o.id}>
-                <td><b>#{o.id}</b></td>
+                <td><Link href={`/admin/orders/${o.id}`} style={{ fontWeight: 700, color: 'var(--primary)', textDecoration: 'underline' }}>#{o.id}</Link></td>
                 <td>{o.ognoo} {o.tsag}</td>
-                <td>{o.ner}</td>
-                <td>{o.utas1}</td>
-                <td style={{ fontWeight: 600, color: 'var(--primary)' }}>{o.niitdun ? formatPrice(Number(o.niitdun)) : '-'}</td>
+                <td><span style={{ fontWeight: 600 }}>{o.ner || '-'}</span></td>
+                <td>{o.utas1 || '-'}</td>
+                <td style={{ fontWeight: 700, color: 'var(--primary)' }}>{o.niitdun ? formatPrice(Number(o.niitdun)) : '-'}</td>
                 <td>
-                  <span style={{ fontSize: 11, background: Number(o.tolov) === 1 ? 'var(--success)' : Number(o.tolov) === 2 ? 'var(--danger)' : 'var(--warning)', color: Number(o.tolov) === 1 || Number(o.tolov) === 2 ? '#fff' : '#000', padding: '3px 8px', borderRadius: 10 }}>
+                  <span className={`badge ${Number(o.tolov) === 1 ? 'badge-success' : Number(o.tolov) === 2 ? 'badge-danger' : 'badge-warning'}`}>
                     {Number(o.tolov) === 1 ? 'Хүргэгдсэн' : Number(o.tolov) === 2 ? 'Цуцлагдсан' : 'Хүлээгдэж буй'}
                   </span>
                 </td>
