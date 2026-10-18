@@ -13,7 +13,7 @@ import {
   ChevronRight, Heart, ShoppingCart, Zap, CheckCircle2, Star, ShieldCheck, Minus, Plus, Sparkles
 } from 'lucide-react'
 
-const UPLOAD = process.env.NEXT_PUBLIC_UPLOAD_URL || '/upload'
+const UPLOAD = process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'
 
 function ProductImages({ product }: { product: Product & { photos: any[] } }) {
   const [main, setMain] = useState(product.image)

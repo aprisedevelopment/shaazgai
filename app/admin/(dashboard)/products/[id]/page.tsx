@@ -5,7 +5,8 @@ export default async function AdminEditProductPage({ params }: { params: Promise
   const { id } = await params
   
   const product = await prisma.product.findUnique({
-    where: { id: Number(id) }
+    where: { id: Number(id) },
+    include: { photos: true }
   })
   
   if (!product) {
@@ -39,6 +40,7 @@ export default async function AdminEditProductPage({ params }: { params: Promise
           'use server'
           const kod = formData.get('kod') as string
           const title = formData.get('title') as string
+          const image = (formData.get('image') as string)?.trim() || null
           const une = Number(formData.get('une')) || 0
           const unehuuchin = Number(formData.get('unehuuchin')) || 0
           const catvars = formData.get('catvars') as string
@@ -51,6 +53,7 @@ export default async function AdminEditProductPage({ params }: { params: Promise
             data: {
               kod,
               title,
+              image: image !== null ? image : product.image,
               une,
               unehuuchin,
               catvars,
@@ -62,6 +65,53 @@ export default async function AdminEditProductPage({ params }: { params: Promise
           const { redirect } = await import('next/navigation')
           redirect('/admin/products')
         }}>
+          {/* Product Image & Gallery */}
+          <div style={{ display: 'flex', gap: 20, marginBottom: 24, padding: 16, background: '#f8fafc', borderRadius: 8, border: '1px solid #e2e8f0', alignItems: 'flex-start' }}>
+            <div style={{ width: 100, height: 100, borderRadius: 8, overflow: 'hidden', border: '1px solid #cbd5e1', background: '#fff', flexShrink: 0 }}>
+              {product.image ? (
+                <img 
+                  src={`/uploads/baraa/small/${product.image}`} 
+                  alt={product.title} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+              ) : (
+                <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', fontSize: 12 }}>Зураггүй</div>
+              )}
+            </div>
+            <div style={{ flex: 1 }}>
+              <label style={{ display: 'block', marginBottom: 6, fontWeight: 600 }}>Үндсэн зургийн файл</label>
+              <input 
+                type="text" 
+                name="image" 
+                defaultValue={product.image || ""} 
+                placeholder="Жишээ: 4_50_8244384.jpg" 
+                className="form-control" 
+                style={{ width: '100%', marginBottom: 6 }} 
+              />
+              <div style={{ fontSize: 12, color: '#64748b' }}>
+                Зам: <code>/uploads/baraa/{product.image || 'байхгүй'}</code>
+              </div>
+            </div>
+          </div>
+
+          {/* Gallery Photos */}
+          {product.photos && product.photos.length > 0 && (
+            <div style={{ marginBottom: 24, padding: 16, background: '#f8fafc', borderRadius: 8, border: '1px solid #e2e8f0' }}>
+              <label style={{ display: 'block', marginBottom: 10, fontWeight: 600 }}>Цомгийн нэмэлт зургууд ({product.photos.length})</label>
+              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                {product.photos.map(ph => (
+                  <div key={ph.id} style={{ width: 64, height: 64, borderRadius: 6, overflow: 'hidden', border: '1px solid #cbd5e1', background: '#fff' }} title={ph.image}>
+                    <img 
+                      src={`/uploads/baraa/small/${ph.image}`} 
+                      alt="" 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div style={{ display: 'flex', gap: 20, marginBottom: 16 }}>
             <div style={{ flex: 1 }}>
               <label style={{ display: 'block', marginBottom: 8, fontWeight: 600 }}>Барааны код (Давтагдахгүй)</label>

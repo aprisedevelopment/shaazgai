@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import type { Banner } from '@/types'
 
-const UPLOAD = process.env.NEXT_PUBLIC_UPLOAD_URL || '/upload'
+const UPLOAD = process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'
 
 export function HeroSlider({ banners }: { banners: Banner[] }) {
   const [current, setCurrent] = useState(0)

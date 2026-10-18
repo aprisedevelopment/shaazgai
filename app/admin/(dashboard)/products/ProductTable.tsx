@@ -85,8 +85,15 @@ export function ProductTable({ products, categories }: ProductTableProps) {
                 <td>
                   <div style={{ width: 40, height: 40, borderRadius: 6, overflow: 'hidden', background: 'var(--bg-section)' }}>
                     {p.image ? (
-                      <img src={`${process.env.NEXT_PUBLIC_UPLOAD_URL}/baraa/small/${p.image}`} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    ) : null}
+                      <img 
+                        src={`${process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'}/baraa/small/${p.image}`} 
+                        alt={p.title} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        onError={(e) => { (e.currentTarget.style.display = 'none') }}
+                      />
+                    ) : (
+                      <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', fontSize: 10 }}>Зураггүй</div>
+                    )}
                   </div>
                 </td>
                 <td>

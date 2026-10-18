@@ -8,6 +8,7 @@ interface Category {
   id: number
   title: string
   cat: number
+  image?: string | null
   publish: number
   list_order: number
   isSub?: boolean
@@ -76,13 +77,23 @@ export function CategoryManager({ categories, mainCategories }: { categories: Ca
               <tr key={c.id} style={{ background: c.isSub ? '#fbfcfe' : 'transparent' }}>
                 <td><span style={{ opacity: c.isSub ? 0.6 : 1, fontSize: 12 }}>{c.id}</span></td>
                 <td style={{ paddingLeft: c.isSub ? 36 : 16 }}>
-                  {c.isSub ? (
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-                      <span style={{ color: '#94a3b8' }}>↳</span> {c.title}
-                    </span>
-                  ) : (
-                    <b style={{ color: '#0f172a' }}>{c.title}</b>
-                  )}
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+                    {c.image ? (
+                      <img 
+                        src={`/uploads/cats/${c.image}`} 
+                        alt="" 
+                        style={{ width: 24, height: 24, objectFit: 'contain' }}
+                        onError={(e) => { (e.currentTarget.style.display = 'none') }}
+                      />
+                    ) : null}
+                    {c.isSub ? (
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                        <span style={{ color: '#94a3b8' }}>↳</span> {c.title}
+                      </span>
+                    ) : (
+                      <b style={{ color: '#0f172a' }}>{c.title}</b>
+                    )}
+                  </div>
                 </td>
                 <td>
                   <button 

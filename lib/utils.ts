@@ -33,7 +33,7 @@ export function timeAgo(timestamp: number): string {
 
 /** Барааны зургийн URL */
 export function productImageUrl(image?: string | null, size: 'full' | 'small' = 'full'): string {
-  const base = process.env.NEXT_PUBLIC_UPLOAD_URL || '/upload'
+  const base = process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'
   if (!image) return `${base}/images/nophoto.jpg`
   if (size === 'small') return `${base}/baraa/small/${image}`
   return `${base}/baraa/${image}`
@@ -41,21 +41,21 @@ export function productImageUrl(image?: string | null, size: 'full' | 'small' = 
 
 /** Хэрэглэгчийн аватар URL */
 export function userAvatarUrl(image?: string | null): string {
-  const base = process.env.NEXT_PUBLIC_UPLOAD_URL || '/upload'
+  const base = process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'
   if (!image) return `${base}/images/noavatar.jpg`
   return `${base}/users/${image}`
 }
 
 /** Баннерийн URL */
 export function bannerImageUrl(image?: string | null): string {
-  const base = process.env.NEXT_PUBLIC_UPLOAD_URL || '/upload'
+  const base = process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'
   if (!image) return ''
   return `${base}/banners/${image}`
 }
 
 /** Ангилалын зургийн URL */
 export function categoryImageUrl(image?: string | null): string {
-  const base = process.env.NEXT_PUBLIC_UPLOAD_URL || '/upload'
+  const base = process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'
   if (!image) return ''
   return `${base}/cats/${image}`
 }

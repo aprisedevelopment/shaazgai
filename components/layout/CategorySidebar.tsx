@@ -54,7 +54,16 @@ function CatItem({ cat, depth = 0, currentId }: { cat: Category; depth?: number;
         <div className="flex items-center gap-3 truncate">
           {depth === 0 && (
             <div className="w-6 h-6 rounded bg-slate-100 flex items-center justify-center shrink-0 group-hover:bg-blue-100/60 transition-colors overflow-hidden">
-              {getCategoryIconByTitle(cat.title, "w-4 h-4 text-slate-500 group-hover:text-blue-600")}
+              {cat.image ? (
+                <img 
+                  src={`/uploads/cats/${cat.image}`} 
+                  alt="" 
+                  className="w-4 h-4 object-contain"
+                  onError={(e) => { (e.currentTarget.style.display = 'none') }}
+                />
+              ) : (
+                getCategoryIconByTitle(cat.title, "w-4 h-4 text-slate-500 group-hover:text-blue-600")
+              )}
             </div>
           )}
           <span className="truncate">{cat.title}</span>
