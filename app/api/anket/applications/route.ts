@@ -6,7 +6,8 @@ export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
     const page = parseInt(searchParams.get("page") || "1");
-    const limit = parseInt(searchParams.get("limit") || "100");
+    const limitParam = searchParams.get("limit");
+    const limit = limitParam && limitParam !== "all" ? parseInt(limitParam) : 500;
     const status = searchParams.get("status");
     const position = searchParams.get("position");
     const search = searchParams.get("search");

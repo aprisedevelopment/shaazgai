@@ -28,7 +28,7 @@ export default function AdminJobsPage() {
   const fetchPositions = async () => {
     setLoading(true);
     try {
-      const response = await jobsApi.list();
+      const response = await jobsApi.list(true);
       setPositions(response.data || []);
     } catch (error: any) {
       console.error(error);
@@ -179,7 +179,9 @@ export default function AdminJobsPage() {
                     <div className="flex items-center gap-1.5 text-slate-400 text-xs font-medium">
                       <Calendar className="w-3.5 h-3.5" />
                       <span className="tabular-nums">
-                        {new Date(pos.created_at).toLocaleDateString()}
+                        {pos.created_at || (pos as any).createdAt
+                          ? new Date(pos.created_at || (pos as any).createdAt).toLocaleDateString()
+                          : "-"}
                       </span>
                     </div>
                   </TableCell>

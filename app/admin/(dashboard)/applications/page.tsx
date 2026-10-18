@@ -44,7 +44,7 @@ export default function ApplicationsAdminPage() {
   const fetchApplications = async () => {
     setLoading(true);
     try {
-      const response = await applicationsApi.list();
+      const response = await applicationsApi.list({ limit: 1000 });
       setApplications(response.data || []);
     } catch (error: any) {
       console.error(error);

@@ -18,6 +18,8 @@ export async function GET(req: NextRequest) {
       salary_range: j.salaryRange,
       image_url: j.imageUrl,
       is_active: j.isActive,
+      created_at: j.createdAt,
+      updated_at: j.updatedAt,
     }));
 
     return NextResponse.json({ data: formatted });
