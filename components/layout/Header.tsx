@@ -4,7 +4,7 @@ import { useRouter, usePathname } from 'next/navigation'
 import { useState, useRef, useEffect } from 'react'
 import { useCartStore } from '@/store/cartStore'
 import { useSession } from 'next-auth/react'
-import { Search, Phone, User, ShoppingBag, Sparkles, X } from 'lucide-react'
+import { Search, Phone, User, ShoppingBag, Sparkles, X, Briefcase } from 'lucide-react'
 import type { Page } from '@/types'
 
 export function Header({ pages }: { pages: Page[] }) {
@@ -188,6 +188,17 @@ export function Header({ pages }: { pages: Page[] }) {
               }`}
             >
               Хүргэлт үгүй
+            </Link>
+            <Link
+              href="/jobs"
+              className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+                pathname?.startsWith('/jobs') || pathname?.startsWith('/anket')
+                  ? 'bg-emerald-600 text-white font-bold shadow-sm'
+                  : 'text-emerald-300 hover:bg-white/10 hover:text-white'
+              }`}
+            >
+              <Briefcase className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Ажлын байр</span>
             </Link>
           </div>
 

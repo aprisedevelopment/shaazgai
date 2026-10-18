@@ -118,6 +118,51 @@ export type Notification = $Result.DefaultSelection<Prisma.$NotificationPayload>
  * 
  */
 export type Favorite = $Result.DefaultSelection<Prisma.$FavoritePayload>
+/**
+ * Model Application
+ * 
+ */
+export type Application = $Result.DefaultSelection<Prisma.$ApplicationPayload>
+/**
+ * Model FamilyMember
+ * 
+ */
+export type FamilyMember = $Result.DefaultSelection<Prisma.$FamilyMemberPayload>
+/**
+ * Model EducationHistory
+ * 
+ */
+export type EducationHistory = $Result.DefaultSelection<Prisma.$EducationHistoryPayload>
+/**
+ * Model WorkExperience
+ * 
+ */
+export type WorkExperience = $Result.DefaultSelection<Prisma.$WorkExperiencePayload>
+/**
+ * Model Skill
+ * 
+ */
+export type Skill = $Result.DefaultSelection<Prisma.$SkillPayload>
+/**
+ * Model ExtendedRelative
+ * 
+ */
+export type ExtendedRelative = $Result.DefaultSelection<Prisma.$ExtendedRelativePayload>
+/**
+ * Model ReferencePerson
+ * 
+ */
+export type ReferencePerson = $Result.DefaultSelection<Prisma.$ReferencePersonPayload>
+/**
+ * Model JobPosition
+ * 
+ */
+export type JobPosition = $Result.DefaultSelection<Prisma.$JobPositionPayload>
+/**
+ * Model LegacyAnket
+ * 
+ */
+export type LegacyAnket = $Result.DefaultSelection<Prisma.$LegacyAnketPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -449,6 +494,96 @@ export class PrismaClient<
     * ```
     */
   get favorite(): Prisma.FavoriteDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.application`: Exposes CRUD operations for the **Application** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Applications
+    * const applications = await prisma.application.findMany()
+    * ```
+    */
+  get application(): Prisma.ApplicationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.familyMember`: Exposes CRUD operations for the **FamilyMember** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FamilyMembers
+    * const familyMembers = await prisma.familyMember.findMany()
+    * ```
+    */
+  get familyMember(): Prisma.FamilyMemberDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.educationHistory`: Exposes CRUD operations for the **EducationHistory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EducationHistories
+    * const educationHistories = await prisma.educationHistory.findMany()
+    * ```
+    */
+  get educationHistory(): Prisma.EducationHistoryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.workExperience`: Exposes CRUD operations for the **WorkExperience** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more WorkExperiences
+    * const workExperiences = await prisma.workExperience.findMany()
+    * ```
+    */
+  get workExperience(): Prisma.WorkExperienceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.skill`: Exposes CRUD operations for the **Skill** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Skills
+    * const skills = await prisma.skill.findMany()
+    * ```
+    */
+  get skill(): Prisma.SkillDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.extendedRelative`: Exposes CRUD operations for the **ExtendedRelative** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ExtendedRelatives
+    * const extendedRelatives = await prisma.extendedRelative.findMany()
+    * ```
+    */
+  get extendedRelative(): Prisma.ExtendedRelativeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.referencePerson`: Exposes CRUD operations for the **ReferencePerson** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ReferencePeople
+    * const referencePeople = await prisma.referencePerson.findMany()
+    * ```
+    */
+  get referencePerson(): Prisma.ReferencePersonDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.jobPosition`: Exposes CRUD operations for the **JobPosition** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JobPositions
+    * const jobPositions = await prisma.jobPosition.findMany()
+    * ```
+    */
+  get jobPosition(): Prisma.JobPositionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.legacyAnket`: Exposes CRUD operations for the **LegacyAnket** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LegacyAnkets
+    * const legacyAnkets = await prisma.legacyAnket.findMany()
+    * ```
+    */
+  get legacyAnket(): Prisma.LegacyAnketDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -916,7 +1051,16 @@ export namespace Prisma {
     LendmnLog: 'LendmnLog',
     Admin: 'Admin',
     Notification: 'Notification',
-    Favorite: 'Favorite'
+    Favorite: 'Favorite',
+    Application: 'Application',
+    FamilyMember: 'FamilyMember',
+    EducationHistory: 'EducationHistory',
+    WorkExperience: 'WorkExperience',
+    Skill: 'Skill',
+    ExtendedRelative: 'ExtendedRelative',
+    ReferencePerson: 'ReferencePerson',
+    JobPosition: 'JobPosition',
+    LegacyAnket: 'LegacyAnket'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -932,7 +1076,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "product" | "photo" | "category" | "cartItem" | "cartDelivery" | "order" | "orderDetail" | "user" | "banner" | "comment" | "deliveryZone" | "page" | "lang" | "onlineUser" | "qpayLog" | "golomtLog" | "hipayLog" | "lendmnLog" | "admin" | "notification" | "favorite"
+      modelProps: "product" | "photo" | "category" | "cartItem" | "cartDelivery" | "order" | "orderDetail" | "user" | "banner" | "comment" | "deliveryZone" | "page" | "lang" | "onlineUser" | "qpayLog" | "golomtLog" | "hipayLog" | "lendmnLog" | "admin" | "notification" | "favorite" | "application" | "familyMember" | "educationHistory" | "workExperience" | "skill" | "extendedRelative" | "referencePerson" | "jobPosition" | "legacyAnket"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2490,6 +2634,672 @@ export namespace Prisma {
           }
         }
       }
+      Application: {
+        payload: Prisma.$ApplicationPayload<ExtArgs>
+        fields: Prisma.ApplicationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ApplicationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ApplicationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationPayload>
+          }
+          findFirst: {
+            args: Prisma.ApplicationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ApplicationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationPayload>
+          }
+          findMany: {
+            args: Prisma.ApplicationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationPayload>[]
+          }
+          create: {
+            args: Prisma.ApplicationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationPayload>
+          }
+          createMany: {
+            args: Prisma.ApplicationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ApplicationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationPayload>[]
+          }
+          delete: {
+            args: Prisma.ApplicationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationPayload>
+          }
+          update: {
+            args: Prisma.ApplicationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationPayload>
+          }
+          deleteMany: {
+            args: Prisma.ApplicationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ApplicationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ApplicationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationPayload>[]
+          }
+          upsert: {
+            args: Prisma.ApplicationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationPayload>
+          }
+          aggregate: {
+            args: Prisma.ApplicationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateApplication>
+          }
+          groupBy: {
+            args: Prisma.ApplicationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ApplicationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ApplicationCountArgs<ExtArgs>
+            result: $Utils.Optional<ApplicationCountAggregateOutputType> | number
+          }
+        }
+      }
+      FamilyMember: {
+        payload: Prisma.$FamilyMemberPayload<ExtArgs>
+        fields: Prisma.FamilyMemberFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FamilyMemberFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FamilyMemberPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FamilyMemberFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FamilyMemberPayload>
+          }
+          findFirst: {
+            args: Prisma.FamilyMemberFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FamilyMemberPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FamilyMemberFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FamilyMemberPayload>
+          }
+          findMany: {
+            args: Prisma.FamilyMemberFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FamilyMemberPayload>[]
+          }
+          create: {
+            args: Prisma.FamilyMemberCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FamilyMemberPayload>
+          }
+          createMany: {
+            args: Prisma.FamilyMemberCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FamilyMemberCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FamilyMemberPayload>[]
+          }
+          delete: {
+            args: Prisma.FamilyMemberDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FamilyMemberPayload>
+          }
+          update: {
+            args: Prisma.FamilyMemberUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FamilyMemberPayload>
+          }
+          deleteMany: {
+            args: Prisma.FamilyMemberDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FamilyMemberUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FamilyMemberUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FamilyMemberPayload>[]
+          }
+          upsert: {
+            args: Prisma.FamilyMemberUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FamilyMemberPayload>
+          }
+          aggregate: {
+            args: Prisma.FamilyMemberAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFamilyMember>
+          }
+          groupBy: {
+            args: Prisma.FamilyMemberGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FamilyMemberGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FamilyMemberCountArgs<ExtArgs>
+            result: $Utils.Optional<FamilyMemberCountAggregateOutputType> | number
+          }
+        }
+      }
+      EducationHistory: {
+        payload: Prisma.$EducationHistoryPayload<ExtArgs>
+        fields: Prisma.EducationHistoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EducationHistoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationHistoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EducationHistoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationHistoryPayload>
+          }
+          findFirst: {
+            args: Prisma.EducationHistoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationHistoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EducationHistoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationHistoryPayload>
+          }
+          findMany: {
+            args: Prisma.EducationHistoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationHistoryPayload>[]
+          }
+          create: {
+            args: Prisma.EducationHistoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationHistoryPayload>
+          }
+          createMany: {
+            args: Prisma.EducationHistoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EducationHistoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationHistoryPayload>[]
+          }
+          delete: {
+            args: Prisma.EducationHistoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationHistoryPayload>
+          }
+          update: {
+            args: Prisma.EducationHistoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationHistoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.EducationHistoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EducationHistoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EducationHistoryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationHistoryPayload>[]
+          }
+          upsert: {
+            args: Prisma.EducationHistoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationHistoryPayload>
+          }
+          aggregate: {
+            args: Prisma.EducationHistoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEducationHistory>
+          }
+          groupBy: {
+            args: Prisma.EducationHistoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EducationHistoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EducationHistoryCountArgs<ExtArgs>
+            result: $Utils.Optional<EducationHistoryCountAggregateOutputType> | number
+          }
+        }
+      }
+      WorkExperience: {
+        payload: Prisma.$WorkExperiencePayload<ExtArgs>
+        fields: Prisma.WorkExperienceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.WorkExperienceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkExperiencePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WorkExperienceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkExperiencePayload>
+          }
+          findFirst: {
+            args: Prisma.WorkExperienceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkExperiencePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.WorkExperienceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkExperiencePayload>
+          }
+          findMany: {
+            args: Prisma.WorkExperienceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkExperiencePayload>[]
+          }
+          create: {
+            args: Prisma.WorkExperienceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkExperiencePayload>
+          }
+          createMany: {
+            args: Prisma.WorkExperienceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.WorkExperienceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkExperiencePayload>[]
+          }
+          delete: {
+            args: Prisma.WorkExperienceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkExperiencePayload>
+          }
+          update: {
+            args: Prisma.WorkExperienceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkExperiencePayload>
+          }
+          deleteMany: {
+            args: Prisma.WorkExperienceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.WorkExperienceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.WorkExperienceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkExperiencePayload>[]
+          }
+          upsert: {
+            args: Prisma.WorkExperienceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WorkExperiencePayload>
+          }
+          aggregate: {
+            args: Prisma.WorkExperienceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWorkExperience>
+          }
+          groupBy: {
+            args: Prisma.WorkExperienceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WorkExperienceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.WorkExperienceCountArgs<ExtArgs>
+            result: $Utils.Optional<WorkExperienceCountAggregateOutputType> | number
+          }
+        }
+      }
+      Skill: {
+        payload: Prisma.$SkillPayload<ExtArgs>
+        fields: Prisma.SkillFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SkillFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SkillFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>
+          }
+          findFirst: {
+            args: Prisma.SkillFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SkillFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>
+          }
+          findMany: {
+            args: Prisma.SkillFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>[]
+          }
+          create: {
+            args: Prisma.SkillCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>
+          }
+          createMany: {
+            args: Prisma.SkillCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SkillCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>[]
+          }
+          delete: {
+            args: Prisma.SkillDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>
+          }
+          update: {
+            args: Prisma.SkillUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>
+          }
+          deleteMany: {
+            args: Prisma.SkillDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SkillUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SkillUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>[]
+          }
+          upsert: {
+            args: Prisma.SkillUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>
+          }
+          aggregate: {
+            args: Prisma.SkillAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSkill>
+          }
+          groupBy: {
+            args: Prisma.SkillGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SkillGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SkillCountArgs<ExtArgs>
+            result: $Utils.Optional<SkillCountAggregateOutputType> | number
+          }
+        }
+      }
+      ExtendedRelative: {
+        payload: Prisma.$ExtendedRelativePayload<ExtArgs>
+        fields: Prisma.ExtendedRelativeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ExtendedRelativeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExtendedRelativePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ExtendedRelativeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExtendedRelativePayload>
+          }
+          findFirst: {
+            args: Prisma.ExtendedRelativeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExtendedRelativePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ExtendedRelativeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExtendedRelativePayload>
+          }
+          findMany: {
+            args: Prisma.ExtendedRelativeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExtendedRelativePayload>[]
+          }
+          create: {
+            args: Prisma.ExtendedRelativeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExtendedRelativePayload>
+          }
+          createMany: {
+            args: Prisma.ExtendedRelativeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ExtendedRelativeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExtendedRelativePayload>[]
+          }
+          delete: {
+            args: Prisma.ExtendedRelativeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExtendedRelativePayload>
+          }
+          update: {
+            args: Prisma.ExtendedRelativeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExtendedRelativePayload>
+          }
+          deleteMany: {
+            args: Prisma.ExtendedRelativeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ExtendedRelativeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ExtendedRelativeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExtendedRelativePayload>[]
+          }
+          upsert: {
+            args: Prisma.ExtendedRelativeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExtendedRelativePayload>
+          }
+          aggregate: {
+            args: Prisma.ExtendedRelativeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateExtendedRelative>
+          }
+          groupBy: {
+            args: Prisma.ExtendedRelativeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ExtendedRelativeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ExtendedRelativeCountArgs<ExtArgs>
+            result: $Utils.Optional<ExtendedRelativeCountAggregateOutputType> | number
+          }
+        }
+      }
+      ReferencePerson: {
+        payload: Prisma.$ReferencePersonPayload<ExtArgs>
+        fields: Prisma.ReferencePersonFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ReferencePersonFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePersonPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ReferencePersonFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePersonPayload>
+          }
+          findFirst: {
+            args: Prisma.ReferencePersonFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePersonPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ReferencePersonFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePersonPayload>
+          }
+          findMany: {
+            args: Prisma.ReferencePersonFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePersonPayload>[]
+          }
+          create: {
+            args: Prisma.ReferencePersonCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePersonPayload>
+          }
+          createMany: {
+            args: Prisma.ReferencePersonCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ReferencePersonCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePersonPayload>[]
+          }
+          delete: {
+            args: Prisma.ReferencePersonDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePersonPayload>
+          }
+          update: {
+            args: Prisma.ReferencePersonUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePersonPayload>
+          }
+          deleteMany: {
+            args: Prisma.ReferencePersonDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ReferencePersonUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ReferencePersonUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePersonPayload>[]
+          }
+          upsert: {
+            args: Prisma.ReferencePersonUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePersonPayload>
+          }
+          aggregate: {
+            args: Prisma.ReferencePersonAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateReferencePerson>
+          }
+          groupBy: {
+            args: Prisma.ReferencePersonGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ReferencePersonGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ReferencePersonCountArgs<ExtArgs>
+            result: $Utils.Optional<ReferencePersonCountAggregateOutputType> | number
+          }
+        }
+      }
+      JobPosition: {
+        payload: Prisma.$JobPositionPayload<ExtArgs>
+        fields: Prisma.JobPositionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JobPositionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobPositionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JobPositionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobPositionPayload>
+          }
+          findFirst: {
+            args: Prisma.JobPositionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobPositionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JobPositionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobPositionPayload>
+          }
+          findMany: {
+            args: Prisma.JobPositionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobPositionPayload>[]
+          }
+          create: {
+            args: Prisma.JobPositionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobPositionPayload>
+          }
+          createMany: {
+            args: Prisma.JobPositionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.JobPositionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobPositionPayload>[]
+          }
+          delete: {
+            args: Prisma.JobPositionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobPositionPayload>
+          }
+          update: {
+            args: Prisma.JobPositionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobPositionPayload>
+          }
+          deleteMany: {
+            args: Prisma.JobPositionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JobPositionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.JobPositionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobPositionPayload>[]
+          }
+          upsert: {
+            args: Prisma.JobPositionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobPositionPayload>
+          }
+          aggregate: {
+            args: Prisma.JobPositionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJobPosition>
+          }
+          groupBy: {
+            args: Prisma.JobPositionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JobPositionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JobPositionCountArgs<ExtArgs>
+            result: $Utils.Optional<JobPositionCountAggregateOutputType> | number
+          }
+        }
+      }
+      LegacyAnket: {
+        payload: Prisma.$LegacyAnketPayload<ExtArgs>
+        fields: Prisma.LegacyAnketFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LegacyAnketFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegacyAnketPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LegacyAnketFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegacyAnketPayload>
+          }
+          findFirst: {
+            args: Prisma.LegacyAnketFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegacyAnketPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LegacyAnketFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegacyAnketPayload>
+          }
+          findMany: {
+            args: Prisma.LegacyAnketFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegacyAnketPayload>[]
+          }
+          create: {
+            args: Prisma.LegacyAnketCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegacyAnketPayload>
+          }
+          createMany: {
+            args: Prisma.LegacyAnketCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LegacyAnketCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegacyAnketPayload>[]
+          }
+          delete: {
+            args: Prisma.LegacyAnketDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegacyAnketPayload>
+          }
+          update: {
+            args: Prisma.LegacyAnketUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegacyAnketPayload>
+          }
+          deleteMany: {
+            args: Prisma.LegacyAnketDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LegacyAnketUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LegacyAnketUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegacyAnketPayload>[]
+          }
+          upsert: {
+            args: Prisma.LegacyAnketUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegacyAnketPayload>
+          }
+          aggregate: {
+            args: Prisma.LegacyAnketAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLegacyAnket>
+          }
+          groupBy: {
+            args: Prisma.LegacyAnketGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LegacyAnketGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LegacyAnketCountArgs<ExtArgs>
+            result: $Utils.Optional<LegacyAnketCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2634,6 +3444,15 @@ export namespace Prisma {
     admin?: AdminOmit
     notification?: NotificationOmit
     favorite?: FavoriteOmit
+    application?: ApplicationOmit
+    familyMember?: FamilyMemberOmit
+    educationHistory?: EducationHistoryOmit
+    workExperience?: WorkExperienceOmit
+    skill?: SkillOmit
+    extendedRelative?: ExtendedRelativeOmit
+    referencePerson?: ReferencePersonOmit
+    jobPosition?: JobPositionOmit
+    legacyAnket?: LegacyAnketOmit
   }
 
   /* Types for Logging */
@@ -2835,6 +3654,73 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountFavoritesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FavoriteWhereInput
+  }
+
+
+  /**
+   * Count Type ApplicationCountOutputType
+   */
+
+  export type ApplicationCountOutputType = {
+    familyMembers: number
+    educationHistory: number
+    workExperience: number
+    extendedRelatives: number
+    referencePersons: number
+  }
+
+  export type ApplicationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    familyMembers?: boolean | ApplicationCountOutputTypeCountFamilyMembersArgs
+    educationHistory?: boolean | ApplicationCountOutputTypeCountEducationHistoryArgs
+    workExperience?: boolean | ApplicationCountOutputTypeCountWorkExperienceArgs
+    extendedRelatives?: boolean | ApplicationCountOutputTypeCountExtendedRelativesArgs
+    referencePersons?: boolean | ApplicationCountOutputTypeCountReferencePersonsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ApplicationCountOutputType without action
+   */
+  export type ApplicationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationCountOutputType
+     */
+    select?: ApplicationCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ApplicationCountOutputType without action
+   */
+  export type ApplicationCountOutputTypeCountFamilyMembersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FamilyMemberWhereInput
+  }
+
+  /**
+   * ApplicationCountOutputType without action
+   */
+  export type ApplicationCountOutputTypeCountEducationHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EducationHistoryWhereInput
+  }
+
+  /**
+   * ApplicationCountOutputType without action
+   */
+  export type ApplicationCountOutputTypeCountWorkExperienceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WorkExperienceWhereInput
+  }
+
+  /**
+   * ApplicationCountOutputType without action
+   */
+  export type ApplicationCountOutputTypeCountExtendedRelativesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ExtendedRelativeWhereInput
+  }
+
+  /**
+   * ApplicationCountOutputType without action
+   */
+  export type ApplicationCountOutputTypeCountReferencePersonsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReferencePersonWhereInput
   }
 
 
@@ -26351,6 +27237,10782 @@ export namespace Prisma {
 
 
   /**
+   * Model Application
+   */
+
+  export type AggregateApplication = {
+    _count: ApplicationCountAggregateOutputType | null
+    _avg: ApplicationAvgAggregateOutputType | null
+    _sum: ApplicationSumAggregateOutputType | null
+    _min: ApplicationMinAggregateOutputType | null
+    _max: ApplicationMaxAggregateOutputType | null
+  }
+
+  export type ApplicationAvgAggregateOutputType = {
+    legacyId: number | null
+  }
+
+  export type ApplicationSumAggregateOutputType = {
+    legacyId: number | null
+  }
+
+  export type ApplicationMinAggregateOutputType = {
+    id: string | null
+    surname: string | null
+    lastName: string | null
+    firstName: string | null
+    registerNumber: string | null
+    birthDate: string | null
+    birthYear: string | null
+    birthPlace: string | null
+    gender: string | null
+    maritalStatus: string | null
+    email: string | null
+    facebookUrl: string | null
+    phone: string | null
+    phoneMobile: string | null
+    phoneHome: string | null
+    phoneWork: string | null
+    addressCurrent: string | null
+    addressTemp: string | null
+    applyingFor: string | null
+    photoUrl: string | null
+    idCardUrl: string | null
+    diplomaUrl: string | null
+    proLicenseUrl: string | null
+    videoUrl: string | null
+    truckDetails: string | null
+    criminalRecord: boolean | null
+    criminalRecordDetails: string | null
+    militaryStatus: string | null
+    desiredSalary: string | null
+    availableDate: string | null
+    futureGoals: string | null
+    strengths: string | null
+    weaknesses: string | null
+    referralSource: string | null
+    referralSourceDetails: string | null
+    internalReferral: boolean | null
+    internalReferralDetails: string | null
+    unemploymentReason: string | null
+    hobbies: string | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    legacyId: number | null
+  }
+
+  export type ApplicationMaxAggregateOutputType = {
+    id: string | null
+    surname: string | null
+    lastName: string | null
+    firstName: string | null
+    registerNumber: string | null
+    birthDate: string | null
+    birthYear: string | null
+    birthPlace: string | null
+    gender: string | null
+    maritalStatus: string | null
+    email: string | null
+    facebookUrl: string | null
+    phone: string | null
+    phoneMobile: string | null
+    phoneHome: string | null
+    phoneWork: string | null
+    addressCurrent: string | null
+    addressTemp: string | null
+    applyingFor: string | null
+    photoUrl: string | null
+    idCardUrl: string | null
+    diplomaUrl: string | null
+    proLicenseUrl: string | null
+    videoUrl: string | null
+    truckDetails: string | null
+    criminalRecord: boolean | null
+    criminalRecordDetails: string | null
+    militaryStatus: string | null
+    desiredSalary: string | null
+    availableDate: string | null
+    futureGoals: string | null
+    strengths: string | null
+    weaknesses: string | null
+    referralSource: string | null
+    referralSourceDetails: string | null
+    internalReferral: boolean | null
+    internalReferralDetails: string | null
+    unemploymentReason: string | null
+    hobbies: string | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    legacyId: number | null
+  }
+
+  export type ApplicationCountAggregateOutputType = {
+    id: number
+    surname: number
+    lastName: number
+    firstName: number
+    registerNumber: number
+    birthDate: number
+    birthYear: number
+    birthPlace: number
+    gender: number
+    maritalStatus: number
+    email: number
+    facebookUrl: number
+    phone: number
+    phoneMobile: number
+    phoneHome: number
+    phoneWork: number
+    addressCurrent: number
+    addressTemp: number
+    applyingFor: number
+    photoUrl: number
+    idCardUrl: number
+    diplomaUrl: number
+    proLicenseUrl: number
+    videoUrl: number
+    truckDetails: number
+    truckPhotos: number
+    healthInfo: number
+    criminalRecord: number
+    criminalRecordDetails: number
+    militaryStatus: number
+    desiredSalary: number
+    availableDate: number
+    futureGoals: number
+    strengths: number
+    weaknesses: number
+    referralSource: number
+    referralSourceDetails: number
+    internalReferral: number
+    internalReferralDetails: number
+    unemploymentReason: number
+    hobbies: number
+    emergencyContact: number
+    status: number
+    createdAt: number
+    updatedAt: number
+    legacyId: number
+    _all: number
+  }
+
+
+  export type ApplicationAvgAggregateInputType = {
+    legacyId?: true
+  }
+
+  export type ApplicationSumAggregateInputType = {
+    legacyId?: true
+  }
+
+  export type ApplicationMinAggregateInputType = {
+    id?: true
+    surname?: true
+    lastName?: true
+    firstName?: true
+    registerNumber?: true
+    birthDate?: true
+    birthYear?: true
+    birthPlace?: true
+    gender?: true
+    maritalStatus?: true
+    email?: true
+    facebookUrl?: true
+    phone?: true
+    phoneMobile?: true
+    phoneHome?: true
+    phoneWork?: true
+    addressCurrent?: true
+    addressTemp?: true
+    applyingFor?: true
+    photoUrl?: true
+    idCardUrl?: true
+    diplomaUrl?: true
+    proLicenseUrl?: true
+    videoUrl?: true
+    truckDetails?: true
+    criminalRecord?: true
+    criminalRecordDetails?: true
+    militaryStatus?: true
+    desiredSalary?: true
+    availableDate?: true
+    futureGoals?: true
+    strengths?: true
+    weaknesses?: true
+    referralSource?: true
+    referralSourceDetails?: true
+    internalReferral?: true
+    internalReferralDetails?: true
+    unemploymentReason?: true
+    hobbies?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    legacyId?: true
+  }
+
+  export type ApplicationMaxAggregateInputType = {
+    id?: true
+    surname?: true
+    lastName?: true
+    firstName?: true
+    registerNumber?: true
+    birthDate?: true
+    birthYear?: true
+    birthPlace?: true
+    gender?: true
+    maritalStatus?: true
+    email?: true
+    facebookUrl?: true
+    phone?: true
+    phoneMobile?: true
+    phoneHome?: true
+    phoneWork?: true
+    addressCurrent?: true
+    addressTemp?: true
+    applyingFor?: true
+    photoUrl?: true
+    idCardUrl?: true
+    diplomaUrl?: true
+    proLicenseUrl?: true
+    videoUrl?: true
+    truckDetails?: true
+    criminalRecord?: true
+    criminalRecordDetails?: true
+    militaryStatus?: true
+    desiredSalary?: true
+    availableDate?: true
+    futureGoals?: true
+    strengths?: true
+    weaknesses?: true
+    referralSource?: true
+    referralSourceDetails?: true
+    internalReferral?: true
+    internalReferralDetails?: true
+    unemploymentReason?: true
+    hobbies?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    legacyId?: true
+  }
+
+  export type ApplicationCountAggregateInputType = {
+    id?: true
+    surname?: true
+    lastName?: true
+    firstName?: true
+    registerNumber?: true
+    birthDate?: true
+    birthYear?: true
+    birthPlace?: true
+    gender?: true
+    maritalStatus?: true
+    email?: true
+    facebookUrl?: true
+    phone?: true
+    phoneMobile?: true
+    phoneHome?: true
+    phoneWork?: true
+    addressCurrent?: true
+    addressTemp?: true
+    applyingFor?: true
+    photoUrl?: true
+    idCardUrl?: true
+    diplomaUrl?: true
+    proLicenseUrl?: true
+    videoUrl?: true
+    truckDetails?: true
+    truckPhotos?: true
+    healthInfo?: true
+    criminalRecord?: true
+    criminalRecordDetails?: true
+    militaryStatus?: true
+    desiredSalary?: true
+    availableDate?: true
+    futureGoals?: true
+    strengths?: true
+    weaknesses?: true
+    referralSource?: true
+    referralSourceDetails?: true
+    internalReferral?: true
+    internalReferralDetails?: true
+    unemploymentReason?: true
+    hobbies?: true
+    emergencyContact?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    legacyId?: true
+    _all?: true
+  }
+
+  export type ApplicationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Application to aggregate.
+     */
+    where?: ApplicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Applications to fetch.
+     */
+    orderBy?: ApplicationOrderByWithRelationInput | ApplicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ApplicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Applications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Applications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Applications
+    **/
+    _count?: true | ApplicationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ApplicationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ApplicationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ApplicationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ApplicationMaxAggregateInputType
+  }
+
+  export type GetApplicationAggregateType<T extends ApplicationAggregateArgs> = {
+        [P in keyof T & keyof AggregateApplication]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateApplication[P]>
+      : GetScalarType<T[P], AggregateApplication[P]>
+  }
+
+
+
+
+  export type ApplicationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApplicationWhereInput
+    orderBy?: ApplicationOrderByWithAggregationInput | ApplicationOrderByWithAggregationInput[]
+    by: ApplicationScalarFieldEnum[] | ApplicationScalarFieldEnum
+    having?: ApplicationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ApplicationCountAggregateInputType | true
+    _avg?: ApplicationAvgAggregateInputType
+    _sum?: ApplicationSumAggregateInputType
+    _min?: ApplicationMinAggregateInputType
+    _max?: ApplicationMaxAggregateInputType
+  }
+
+  export type ApplicationGroupByOutputType = {
+    id: string
+    surname: string | null
+    lastName: string
+    firstName: string
+    registerNumber: string | null
+    birthDate: string | null
+    birthYear: string | null
+    birthPlace: string | null
+    gender: string | null
+    maritalStatus: string | null
+    email: string | null
+    facebookUrl: string | null
+    phone: string | null
+    phoneMobile: string | null
+    phoneHome: string | null
+    phoneWork: string | null
+    addressCurrent: string | null
+    addressTemp: string | null
+    applyingFor: string | null
+    photoUrl: string | null
+    idCardUrl: string | null
+    diplomaUrl: string | null
+    proLicenseUrl: string | null
+    videoUrl: string | null
+    truckDetails: string | null
+    truckPhotos: JsonValue | null
+    healthInfo: JsonValue | null
+    criminalRecord: boolean
+    criminalRecordDetails: string | null
+    militaryStatus: string | null
+    desiredSalary: string | null
+    availableDate: string | null
+    futureGoals: string | null
+    strengths: string | null
+    weaknesses: string | null
+    referralSource: string | null
+    referralSourceDetails: string | null
+    internalReferral: boolean
+    internalReferralDetails: string | null
+    unemploymentReason: string | null
+    hobbies: string | null
+    emergencyContact: JsonValue | null
+    status: string
+    createdAt: Date
+    updatedAt: Date
+    legacyId: number | null
+    _count: ApplicationCountAggregateOutputType | null
+    _avg: ApplicationAvgAggregateOutputType | null
+    _sum: ApplicationSumAggregateOutputType | null
+    _min: ApplicationMinAggregateOutputType | null
+    _max: ApplicationMaxAggregateOutputType | null
+  }
+
+  type GetApplicationGroupByPayload<T extends ApplicationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ApplicationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ApplicationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ApplicationGroupByOutputType[P]>
+            : GetScalarType<T[P], ApplicationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ApplicationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    surname?: boolean
+    lastName?: boolean
+    firstName?: boolean
+    registerNumber?: boolean
+    birthDate?: boolean
+    birthYear?: boolean
+    birthPlace?: boolean
+    gender?: boolean
+    maritalStatus?: boolean
+    email?: boolean
+    facebookUrl?: boolean
+    phone?: boolean
+    phoneMobile?: boolean
+    phoneHome?: boolean
+    phoneWork?: boolean
+    addressCurrent?: boolean
+    addressTemp?: boolean
+    applyingFor?: boolean
+    photoUrl?: boolean
+    idCardUrl?: boolean
+    diplomaUrl?: boolean
+    proLicenseUrl?: boolean
+    videoUrl?: boolean
+    truckDetails?: boolean
+    truckPhotos?: boolean
+    healthInfo?: boolean
+    criminalRecord?: boolean
+    criminalRecordDetails?: boolean
+    militaryStatus?: boolean
+    desiredSalary?: boolean
+    availableDate?: boolean
+    futureGoals?: boolean
+    strengths?: boolean
+    weaknesses?: boolean
+    referralSource?: boolean
+    referralSourceDetails?: boolean
+    internalReferral?: boolean
+    internalReferralDetails?: boolean
+    unemploymentReason?: boolean
+    hobbies?: boolean
+    emergencyContact?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    legacyId?: boolean
+    familyMembers?: boolean | Application$familyMembersArgs<ExtArgs>
+    educationHistory?: boolean | Application$educationHistoryArgs<ExtArgs>
+    workExperience?: boolean | Application$workExperienceArgs<ExtArgs>
+    skills?: boolean | Application$skillsArgs<ExtArgs>
+    extendedRelatives?: boolean | Application$extendedRelativesArgs<ExtArgs>
+    referencePersons?: boolean | Application$referencePersonsArgs<ExtArgs>
+    _count?: boolean | ApplicationCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["application"]>
+
+  export type ApplicationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    surname?: boolean
+    lastName?: boolean
+    firstName?: boolean
+    registerNumber?: boolean
+    birthDate?: boolean
+    birthYear?: boolean
+    birthPlace?: boolean
+    gender?: boolean
+    maritalStatus?: boolean
+    email?: boolean
+    facebookUrl?: boolean
+    phone?: boolean
+    phoneMobile?: boolean
+    phoneHome?: boolean
+    phoneWork?: boolean
+    addressCurrent?: boolean
+    addressTemp?: boolean
+    applyingFor?: boolean
+    photoUrl?: boolean
+    idCardUrl?: boolean
+    diplomaUrl?: boolean
+    proLicenseUrl?: boolean
+    videoUrl?: boolean
+    truckDetails?: boolean
+    truckPhotos?: boolean
+    healthInfo?: boolean
+    criminalRecord?: boolean
+    criminalRecordDetails?: boolean
+    militaryStatus?: boolean
+    desiredSalary?: boolean
+    availableDate?: boolean
+    futureGoals?: boolean
+    strengths?: boolean
+    weaknesses?: boolean
+    referralSource?: boolean
+    referralSourceDetails?: boolean
+    internalReferral?: boolean
+    internalReferralDetails?: boolean
+    unemploymentReason?: boolean
+    hobbies?: boolean
+    emergencyContact?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    legacyId?: boolean
+  }, ExtArgs["result"]["application"]>
+
+  export type ApplicationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    surname?: boolean
+    lastName?: boolean
+    firstName?: boolean
+    registerNumber?: boolean
+    birthDate?: boolean
+    birthYear?: boolean
+    birthPlace?: boolean
+    gender?: boolean
+    maritalStatus?: boolean
+    email?: boolean
+    facebookUrl?: boolean
+    phone?: boolean
+    phoneMobile?: boolean
+    phoneHome?: boolean
+    phoneWork?: boolean
+    addressCurrent?: boolean
+    addressTemp?: boolean
+    applyingFor?: boolean
+    photoUrl?: boolean
+    idCardUrl?: boolean
+    diplomaUrl?: boolean
+    proLicenseUrl?: boolean
+    videoUrl?: boolean
+    truckDetails?: boolean
+    truckPhotos?: boolean
+    healthInfo?: boolean
+    criminalRecord?: boolean
+    criminalRecordDetails?: boolean
+    militaryStatus?: boolean
+    desiredSalary?: boolean
+    availableDate?: boolean
+    futureGoals?: boolean
+    strengths?: boolean
+    weaknesses?: boolean
+    referralSource?: boolean
+    referralSourceDetails?: boolean
+    internalReferral?: boolean
+    internalReferralDetails?: boolean
+    unemploymentReason?: boolean
+    hobbies?: boolean
+    emergencyContact?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    legacyId?: boolean
+  }, ExtArgs["result"]["application"]>
+
+  export type ApplicationSelectScalar = {
+    id?: boolean
+    surname?: boolean
+    lastName?: boolean
+    firstName?: boolean
+    registerNumber?: boolean
+    birthDate?: boolean
+    birthYear?: boolean
+    birthPlace?: boolean
+    gender?: boolean
+    maritalStatus?: boolean
+    email?: boolean
+    facebookUrl?: boolean
+    phone?: boolean
+    phoneMobile?: boolean
+    phoneHome?: boolean
+    phoneWork?: boolean
+    addressCurrent?: boolean
+    addressTemp?: boolean
+    applyingFor?: boolean
+    photoUrl?: boolean
+    idCardUrl?: boolean
+    diplomaUrl?: boolean
+    proLicenseUrl?: boolean
+    videoUrl?: boolean
+    truckDetails?: boolean
+    truckPhotos?: boolean
+    healthInfo?: boolean
+    criminalRecord?: boolean
+    criminalRecordDetails?: boolean
+    militaryStatus?: boolean
+    desiredSalary?: boolean
+    availableDate?: boolean
+    futureGoals?: boolean
+    strengths?: boolean
+    weaknesses?: boolean
+    referralSource?: boolean
+    referralSourceDetails?: boolean
+    internalReferral?: boolean
+    internalReferralDetails?: boolean
+    unemploymentReason?: boolean
+    hobbies?: boolean
+    emergencyContact?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    legacyId?: boolean
+  }
+
+  export type ApplicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "surname" | "lastName" | "firstName" | "registerNumber" | "birthDate" | "birthYear" | "birthPlace" | "gender" | "maritalStatus" | "email" | "facebookUrl" | "phone" | "phoneMobile" | "phoneHome" | "phoneWork" | "addressCurrent" | "addressTemp" | "applyingFor" | "photoUrl" | "idCardUrl" | "diplomaUrl" | "proLicenseUrl" | "videoUrl" | "truckDetails" | "truckPhotos" | "healthInfo" | "criminalRecord" | "criminalRecordDetails" | "militaryStatus" | "desiredSalary" | "availableDate" | "futureGoals" | "strengths" | "weaknesses" | "referralSource" | "referralSourceDetails" | "internalReferral" | "internalReferralDetails" | "unemploymentReason" | "hobbies" | "emergencyContact" | "status" | "createdAt" | "updatedAt" | "legacyId", ExtArgs["result"]["application"]>
+  export type ApplicationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    familyMembers?: boolean | Application$familyMembersArgs<ExtArgs>
+    educationHistory?: boolean | Application$educationHistoryArgs<ExtArgs>
+    workExperience?: boolean | Application$workExperienceArgs<ExtArgs>
+    skills?: boolean | Application$skillsArgs<ExtArgs>
+    extendedRelatives?: boolean | Application$extendedRelativesArgs<ExtArgs>
+    referencePersons?: boolean | Application$referencePersonsArgs<ExtArgs>
+    _count?: boolean | ApplicationCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ApplicationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ApplicationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $ApplicationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Application"
+    objects: {
+      familyMembers: Prisma.$FamilyMemberPayload<ExtArgs>[]
+      educationHistory: Prisma.$EducationHistoryPayload<ExtArgs>[]
+      workExperience: Prisma.$WorkExperiencePayload<ExtArgs>[]
+      skills: Prisma.$SkillPayload<ExtArgs> | null
+      extendedRelatives: Prisma.$ExtendedRelativePayload<ExtArgs>[]
+      referencePersons: Prisma.$ReferencePersonPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      surname: string | null
+      lastName: string
+      firstName: string
+      registerNumber: string | null
+      birthDate: string | null
+      birthYear: string | null
+      birthPlace: string | null
+      gender: string | null
+      maritalStatus: string | null
+      email: string | null
+      facebookUrl: string | null
+      phone: string | null
+      phoneMobile: string | null
+      phoneHome: string | null
+      phoneWork: string | null
+      addressCurrent: string | null
+      addressTemp: string | null
+      applyingFor: string | null
+      photoUrl: string | null
+      idCardUrl: string | null
+      diplomaUrl: string | null
+      proLicenseUrl: string | null
+      videoUrl: string | null
+      truckDetails: string | null
+      truckPhotos: Prisma.JsonValue | null
+      healthInfo: Prisma.JsonValue | null
+      criminalRecord: boolean
+      criminalRecordDetails: string | null
+      militaryStatus: string | null
+      desiredSalary: string | null
+      availableDate: string | null
+      futureGoals: string | null
+      strengths: string | null
+      weaknesses: string | null
+      referralSource: string | null
+      referralSourceDetails: string | null
+      internalReferral: boolean
+      internalReferralDetails: string | null
+      unemploymentReason: string | null
+      hobbies: string | null
+      emergencyContact: Prisma.JsonValue | null
+      status: string
+      createdAt: Date
+      updatedAt: Date
+      legacyId: number | null
+    }, ExtArgs["result"]["application"]>
+    composites: {}
+  }
+
+  type ApplicationGetPayload<S extends boolean | null | undefined | ApplicationDefaultArgs> = $Result.GetResult<Prisma.$ApplicationPayload, S>
+
+  type ApplicationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ApplicationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ApplicationCountAggregateInputType | true
+    }
+
+  export interface ApplicationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Application'], meta: { name: 'Application' } }
+    /**
+     * Find zero or one Application that matches the filter.
+     * @param {ApplicationFindUniqueArgs} args - Arguments to find a Application
+     * @example
+     * // Get one Application
+     * const application = await prisma.application.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ApplicationFindUniqueArgs>(args: SelectSubset<T, ApplicationFindUniqueArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Application that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ApplicationFindUniqueOrThrowArgs} args - Arguments to find a Application
+     * @example
+     * // Get one Application
+     * const application = await prisma.application.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ApplicationFindUniqueOrThrowArgs>(args: SelectSubset<T, ApplicationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Application that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationFindFirstArgs} args - Arguments to find a Application
+     * @example
+     * // Get one Application
+     * const application = await prisma.application.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ApplicationFindFirstArgs>(args?: SelectSubset<T, ApplicationFindFirstArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Application that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationFindFirstOrThrowArgs} args - Arguments to find a Application
+     * @example
+     * // Get one Application
+     * const application = await prisma.application.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ApplicationFindFirstOrThrowArgs>(args?: SelectSubset<T, ApplicationFindFirstOrThrowArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Applications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Applications
+     * const applications = await prisma.application.findMany()
+     * 
+     * // Get first 10 Applications
+     * const applications = await prisma.application.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const applicationWithIdOnly = await prisma.application.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ApplicationFindManyArgs>(args?: SelectSubset<T, ApplicationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Application.
+     * @param {ApplicationCreateArgs} args - Arguments to create a Application.
+     * @example
+     * // Create one Application
+     * const Application = await prisma.application.create({
+     *   data: {
+     *     // ... data to create a Application
+     *   }
+     * })
+     * 
+     */
+    create<T extends ApplicationCreateArgs>(args: SelectSubset<T, ApplicationCreateArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Applications.
+     * @param {ApplicationCreateManyArgs} args - Arguments to create many Applications.
+     * @example
+     * // Create many Applications
+     * const application = await prisma.application.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ApplicationCreateManyArgs>(args?: SelectSubset<T, ApplicationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Applications and returns the data saved in the database.
+     * @param {ApplicationCreateManyAndReturnArgs} args - Arguments to create many Applications.
+     * @example
+     * // Create many Applications
+     * const application = await prisma.application.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Applications and only return the `id`
+     * const applicationWithIdOnly = await prisma.application.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ApplicationCreateManyAndReturnArgs>(args?: SelectSubset<T, ApplicationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Application.
+     * @param {ApplicationDeleteArgs} args - Arguments to delete one Application.
+     * @example
+     * // Delete one Application
+     * const Application = await prisma.application.delete({
+     *   where: {
+     *     // ... filter to delete one Application
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ApplicationDeleteArgs>(args: SelectSubset<T, ApplicationDeleteArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Application.
+     * @param {ApplicationUpdateArgs} args - Arguments to update one Application.
+     * @example
+     * // Update one Application
+     * const application = await prisma.application.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ApplicationUpdateArgs>(args: SelectSubset<T, ApplicationUpdateArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Applications.
+     * @param {ApplicationDeleteManyArgs} args - Arguments to filter Applications to delete.
+     * @example
+     * // Delete a few Applications
+     * const { count } = await prisma.application.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ApplicationDeleteManyArgs>(args?: SelectSubset<T, ApplicationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Applications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Applications
+     * const application = await prisma.application.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ApplicationUpdateManyArgs>(args: SelectSubset<T, ApplicationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Applications and returns the data updated in the database.
+     * @param {ApplicationUpdateManyAndReturnArgs} args - Arguments to update many Applications.
+     * @example
+     * // Update many Applications
+     * const application = await prisma.application.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Applications and only return the `id`
+     * const applicationWithIdOnly = await prisma.application.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ApplicationUpdateManyAndReturnArgs>(args: SelectSubset<T, ApplicationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Application.
+     * @param {ApplicationUpsertArgs} args - Arguments to update or create a Application.
+     * @example
+     * // Update or create a Application
+     * const application = await prisma.application.upsert({
+     *   create: {
+     *     // ... data to create a Application
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Application we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ApplicationUpsertArgs>(args: SelectSubset<T, ApplicationUpsertArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Applications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationCountArgs} args - Arguments to filter Applications to count.
+     * @example
+     * // Count the number of Applications
+     * const count = await prisma.application.count({
+     *   where: {
+     *     // ... the filter for the Applications we want to count
+     *   }
+     * })
+    **/
+    count<T extends ApplicationCountArgs>(
+      args?: Subset<T, ApplicationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ApplicationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Application.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ApplicationAggregateArgs>(args: Subset<T, ApplicationAggregateArgs>): Prisma.PrismaPromise<GetApplicationAggregateType<T>>
+
+    /**
+     * Group by Application.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ApplicationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ApplicationGroupByArgs['orderBy'] }
+        : { orderBy?: ApplicationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ApplicationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetApplicationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Application model
+   */
+  readonly fields: ApplicationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Application.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ApplicationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    familyMembers<T extends Application$familyMembersArgs<ExtArgs> = {}>(args?: Subset<T, Application$familyMembersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    educationHistory<T extends Application$educationHistoryArgs<ExtArgs> = {}>(args?: Subset<T, Application$educationHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EducationHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    workExperience<T extends Application$workExperienceArgs<ExtArgs> = {}>(args?: Subset<T, Application$workExperienceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkExperiencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    skills<T extends Application$skillsArgs<ExtArgs> = {}>(args?: Subset<T, Application$skillsArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    extendedRelatives<T extends Application$extendedRelativesArgs<ExtArgs> = {}>(args?: Subset<T, Application$extendedRelativesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExtendedRelativePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    referencePersons<T extends Application$referencePersonsArgs<ExtArgs> = {}>(args?: Subset<T, Application$referencePersonsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferencePersonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Application model
+   */
+  interface ApplicationFieldRefs {
+    readonly id: FieldRef<"Application", 'String'>
+    readonly surname: FieldRef<"Application", 'String'>
+    readonly lastName: FieldRef<"Application", 'String'>
+    readonly firstName: FieldRef<"Application", 'String'>
+    readonly registerNumber: FieldRef<"Application", 'String'>
+    readonly birthDate: FieldRef<"Application", 'String'>
+    readonly birthYear: FieldRef<"Application", 'String'>
+    readonly birthPlace: FieldRef<"Application", 'String'>
+    readonly gender: FieldRef<"Application", 'String'>
+    readonly maritalStatus: FieldRef<"Application", 'String'>
+    readonly email: FieldRef<"Application", 'String'>
+    readonly facebookUrl: FieldRef<"Application", 'String'>
+    readonly phone: FieldRef<"Application", 'String'>
+    readonly phoneMobile: FieldRef<"Application", 'String'>
+    readonly phoneHome: FieldRef<"Application", 'String'>
+    readonly phoneWork: FieldRef<"Application", 'String'>
+    readonly addressCurrent: FieldRef<"Application", 'String'>
+    readonly addressTemp: FieldRef<"Application", 'String'>
+    readonly applyingFor: FieldRef<"Application", 'String'>
+    readonly photoUrl: FieldRef<"Application", 'String'>
+    readonly idCardUrl: FieldRef<"Application", 'String'>
+    readonly diplomaUrl: FieldRef<"Application", 'String'>
+    readonly proLicenseUrl: FieldRef<"Application", 'String'>
+    readonly videoUrl: FieldRef<"Application", 'String'>
+    readonly truckDetails: FieldRef<"Application", 'String'>
+    readonly truckPhotos: FieldRef<"Application", 'Json'>
+    readonly healthInfo: FieldRef<"Application", 'Json'>
+    readonly criminalRecord: FieldRef<"Application", 'Boolean'>
+    readonly criminalRecordDetails: FieldRef<"Application", 'String'>
+    readonly militaryStatus: FieldRef<"Application", 'String'>
+    readonly desiredSalary: FieldRef<"Application", 'String'>
+    readonly availableDate: FieldRef<"Application", 'String'>
+    readonly futureGoals: FieldRef<"Application", 'String'>
+    readonly strengths: FieldRef<"Application", 'String'>
+    readonly weaknesses: FieldRef<"Application", 'String'>
+    readonly referralSource: FieldRef<"Application", 'String'>
+    readonly referralSourceDetails: FieldRef<"Application", 'String'>
+    readonly internalReferral: FieldRef<"Application", 'Boolean'>
+    readonly internalReferralDetails: FieldRef<"Application", 'String'>
+    readonly unemploymentReason: FieldRef<"Application", 'String'>
+    readonly hobbies: FieldRef<"Application", 'String'>
+    readonly emergencyContact: FieldRef<"Application", 'Json'>
+    readonly status: FieldRef<"Application", 'String'>
+    readonly createdAt: FieldRef<"Application", 'DateTime'>
+    readonly updatedAt: FieldRef<"Application", 'DateTime'>
+    readonly legacyId: FieldRef<"Application", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Application findUnique
+   */
+  export type ApplicationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Application
+     */
+    select?: ApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Application
+     */
+    omit?: ApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationInclude<ExtArgs> | null
+    /**
+     * Filter, which Application to fetch.
+     */
+    where: ApplicationWhereUniqueInput
+  }
+
+  /**
+   * Application findUniqueOrThrow
+   */
+  export type ApplicationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Application
+     */
+    select?: ApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Application
+     */
+    omit?: ApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationInclude<ExtArgs> | null
+    /**
+     * Filter, which Application to fetch.
+     */
+    where: ApplicationWhereUniqueInput
+  }
+
+  /**
+   * Application findFirst
+   */
+  export type ApplicationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Application
+     */
+    select?: ApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Application
+     */
+    omit?: ApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationInclude<ExtArgs> | null
+    /**
+     * Filter, which Application to fetch.
+     */
+    where?: ApplicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Applications to fetch.
+     */
+    orderBy?: ApplicationOrderByWithRelationInput | ApplicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Applications.
+     */
+    cursor?: ApplicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Applications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Applications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Applications.
+     */
+    distinct?: ApplicationScalarFieldEnum | ApplicationScalarFieldEnum[]
+  }
+
+  /**
+   * Application findFirstOrThrow
+   */
+  export type ApplicationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Application
+     */
+    select?: ApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Application
+     */
+    omit?: ApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationInclude<ExtArgs> | null
+    /**
+     * Filter, which Application to fetch.
+     */
+    where?: ApplicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Applications to fetch.
+     */
+    orderBy?: ApplicationOrderByWithRelationInput | ApplicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Applications.
+     */
+    cursor?: ApplicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Applications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Applications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Applications.
+     */
+    distinct?: ApplicationScalarFieldEnum | ApplicationScalarFieldEnum[]
+  }
+
+  /**
+   * Application findMany
+   */
+  export type ApplicationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Application
+     */
+    select?: ApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Application
+     */
+    omit?: ApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationInclude<ExtArgs> | null
+    /**
+     * Filter, which Applications to fetch.
+     */
+    where?: ApplicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Applications to fetch.
+     */
+    orderBy?: ApplicationOrderByWithRelationInput | ApplicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Applications.
+     */
+    cursor?: ApplicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Applications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Applications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Applications.
+     */
+    distinct?: ApplicationScalarFieldEnum | ApplicationScalarFieldEnum[]
+  }
+
+  /**
+   * Application create
+   */
+  export type ApplicationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Application
+     */
+    select?: ApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Application
+     */
+    omit?: ApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Application.
+     */
+    data: XOR<ApplicationCreateInput, ApplicationUncheckedCreateInput>
+  }
+
+  /**
+   * Application createMany
+   */
+  export type ApplicationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Applications.
+     */
+    data: ApplicationCreateManyInput | ApplicationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Application createManyAndReturn
+   */
+  export type ApplicationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Application
+     */
+    select?: ApplicationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Application
+     */
+    omit?: ApplicationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Applications.
+     */
+    data: ApplicationCreateManyInput | ApplicationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Application update
+   */
+  export type ApplicationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Application
+     */
+    select?: ApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Application
+     */
+    omit?: ApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Application.
+     */
+    data: XOR<ApplicationUpdateInput, ApplicationUncheckedUpdateInput>
+    /**
+     * Choose, which Application to update.
+     */
+    where: ApplicationWhereUniqueInput
+  }
+
+  /**
+   * Application updateMany
+   */
+  export type ApplicationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Applications.
+     */
+    data: XOR<ApplicationUpdateManyMutationInput, ApplicationUncheckedUpdateManyInput>
+    /**
+     * Filter which Applications to update
+     */
+    where?: ApplicationWhereInput
+    /**
+     * Limit how many Applications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Application updateManyAndReturn
+   */
+  export type ApplicationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Application
+     */
+    select?: ApplicationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Application
+     */
+    omit?: ApplicationOmit<ExtArgs> | null
+    /**
+     * The data used to update Applications.
+     */
+    data: XOR<ApplicationUpdateManyMutationInput, ApplicationUncheckedUpdateManyInput>
+    /**
+     * Filter which Applications to update
+     */
+    where?: ApplicationWhereInput
+    /**
+     * Limit how many Applications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Application upsert
+   */
+  export type ApplicationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Application
+     */
+    select?: ApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Application
+     */
+    omit?: ApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Application to update in case it exists.
+     */
+    where: ApplicationWhereUniqueInput
+    /**
+     * In case the Application found by the `where` argument doesn't exist, create a new Application with this data.
+     */
+    create: XOR<ApplicationCreateInput, ApplicationUncheckedCreateInput>
+    /**
+     * In case the Application was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ApplicationUpdateInput, ApplicationUncheckedUpdateInput>
+  }
+
+  /**
+   * Application delete
+   */
+  export type ApplicationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Application
+     */
+    select?: ApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Application
+     */
+    omit?: ApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationInclude<ExtArgs> | null
+    /**
+     * Filter which Application to delete.
+     */
+    where: ApplicationWhereUniqueInput
+  }
+
+  /**
+   * Application deleteMany
+   */
+  export type ApplicationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Applications to delete
+     */
+    where?: ApplicationWhereInput
+    /**
+     * Limit how many Applications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Application.familyMembers
+   */
+  export type Application$familyMembersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberInclude<ExtArgs> | null
+    where?: FamilyMemberWhereInput
+    orderBy?: FamilyMemberOrderByWithRelationInput | FamilyMemberOrderByWithRelationInput[]
+    cursor?: FamilyMemberWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FamilyMemberScalarFieldEnum | FamilyMemberScalarFieldEnum[]
+  }
+
+  /**
+   * Application.educationHistory
+   */
+  export type Application$educationHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryInclude<ExtArgs> | null
+    where?: EducationHistoryWhereInput
+    orderBy?: EducationHistoryOrderByWithRelationInput | EducationHistoryOrderByWithRelationInput[]
+    cursor?: EducationHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EducationHistoryScalarFieldEnum | EducationHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * Application.workExperience
+   */
+  export type Application$workExperienceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceInclude<ExtArgs> | null
+    where?: WorkExperienceWhereInput
+    orderBy?: WorkExperienceOrderByWithRelationInput | WorkExperienceOrderByWithRelationInput[]
+    cursor?: WorkExperienceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WorkExperienceScalarFieldEnum | WorkExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * Application.skills
+   */
+  export type Application$skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    where?: SkillWhereInput
+  }
+
+  /**
+   * Application.extendedRelatives
+   */
+  export type Application$extendedRelativesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeInclude<ExtArgs> | null
+    where?: ExtendedRelativeWhereInput
+    orderBy?: ExtendedRelativeOrderByWithRelationInput | ExtendedRelativeOrderByWithRelationInput[]
+    cursor?: ExtendedRelativeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ExtendedRelativeScalarFieldEnum | ExtendedRelativeScalarFieldEnum[]
+  }
+
+  /**
+   * Application.referencePersons
+   */
+  export type Application$referencePersonsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonInclude<ExtArgs> | null
+    where?: ReferencePersonWhereInput
+    orderBy?: ReferencePersonOrderByWithRelationInput | ReferencePersonOrderByWithRelationInput[]
+    cursor?: ReferencePersonWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ReferencePersonScalarFieldEnum | ReferencePersonScalarFieldEnum[]
+  }
+
+  /**
+   * Application without action
+   */
+  export type ApplicationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Application
+     */
+    select?: ApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Application
+     */
+    omit?: ApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FamilyMember
+   */
+
+  export type AggregateFamilyMember = {
+    _count: FamilyMemberCountAggregateOutputType | null
+    _avg: FamilyMemberAvgAggregateOutputType | null
+    _sum: FamilyMemberSumAggregateOutputType | null
+    _min: FamilyMemberMinAggregateOutputType | null
+    _max: FamilyMemberMaxAggregateOutputType | null
+  }
+
+  export type FamilyMemberAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type FamilyMemberSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type FamilyMemberMinAggregateOutputType = {
+    id: number | null
+    applicationId: string | null
+    relation: string | null
+    lastName: string | null
+    firstName: string | null
+    birthYear: string | null
+    occupation: string | null
+    workplaceSchool: string | null
+    phone: string | null
+    registerNumber: string | null
+  }
+
+  export type FamilyMemberMaxAggregateOutputType = {
+    id: number | null
+    applicationId: string | null
+    relation: string | null
+    lastName: string | null
+    firstName: string | null
+    birthYear: string | null
+    occupation: string | null
+    workplaceSchool: string | null
+    phone: string | null
+    registerNumber: string | null
+  }
+
+  export type FamilyMemberCountAggregateOutputType = {
+    id: number
+    applicationId: number
+    relation: number
+    lastName: number
+    firstName: number
+    birthYear: number
+    occupation: number
+    workplaceSchool: number
+    phone: number
+    registerNumber: number
+    _all: number
+  }
+
+
+  export type FamilyMemberAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type FamilyMemberSumAggregateInputType = {
+    id?: true
+  }
+
+  export type FamilyMemberMinAggregateInputType = {
+    id?: true
+    applicationId?: true
+    relation?: true
+    lastName?: true
+    firstName?: true
+    birthYear?: true
+    occupation?: true
+    workplaceSchool?: true
+    phone?: true
+    registerNumber?: true
+  }
+
+  export type FamilyMemberMaxAggregateInputType = {
+    id?: true
+    applicationId?: true
+    relation?: true
+    lastName?: true
+    firstName?: true
+    birthYear?: true
+    occupation?: true
+    workplaceSchool?: true
+    phone?: true
+    registerNumber?: true
+  }
+
+  export type FamilyMemberCountAggregateInputType = {
+    id?: true
+    applicationId?: true
+    relation?: true
+    lastName?: true
+    firstName?: true
+    birthYear?: true
+    occupation?: true
+    workplaceSchool?: true
+    phone?: true
+    registerNumber?: true
+    _all?: true
+  }
+
+  export type FamilyMemberAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FamilyMember to aggregate.
+     */
+    where?: FamilyMemberWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FamilyMembers to fetch.
+     */
+    orderBy?: FamilyMemberOrderByWithRelationInput | FamilyMemberOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FamilyMemberWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FamilyMembers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FamilyMembers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FamilyMembers
+    **/
+    _count?: true | FamilyMemberCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FamilyMemberAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FamilyMemberSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FamilyMemberMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FamilyMemberMaxAggregateInputType
+  }
+
+  export type GetFamilyMemberAggregateType<T extends FamilyMemberAggregateArgs> = {
+        [P in keyof T & keyof AggregateFamilyMember]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFamilyMember[P]>
+      : GetScalarType<T[P], AggregateFamilyMember[P]>
+  }
+
+
+
+
+  export type FamilyMemberGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FamilyMemberWhereInput
+    orderBy?: FamilyMemberOrderByWithAggregationInput | FamilyMemberOrderByWithAggregationInput[]
+    by: FamilyMemberScalarFieldEnum[] | FamilyMemberScalarFieldEnum
+    having?: FamilyMemberScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FamilyMemberCountAggregateInputType | true
+    _avg?: FamilyMemberAvgAggregateInputType
+    _sum?: FamilyMemberSumAggregateInputType
+    _min?: FamilyMemberMinAggregateInputType
+    _max?: FamilyMemberMaxAggregateInputType
+  }
+
+  export type FamilyMemberGroupByOutputType = {
+    id: number
+    applicationId: string
+    relation: string | null
+    lastName: string | null
+    firstName: string | null
+    birthYear: string | null
+    occupation: string | null
+    workplaceSchool: string | null
+    phone: string | null
+    registerNumber: string | null
+    _count: FamilyMemberCountAggregateOutputType | null
+    _avg: FamilyMemberAvgAggregateOutputType | null
+    _sum: FamilyMemberSumAggregateOutputType | null
+    _min: FamilyMemberMinAggregateOutputType | null
+    _max: FamilyMemberMaxAggregateOutputType | null
+  }
+
+  type GetFamilyMemberGroupByPayload<T extends FamilyMemberGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FamilyMemberGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FamilyMemberGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FamilyMemberGroupByOutputType[P]>
+            : GetScalarType<T[P], FamilyMemberGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FamilyMemberSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    relation?: boolean
+    lastName?: boolean
+    firstName?: boolean
+    birthYear?: boolean
+    occupation?: boolean
+    workplaceSchool?: boolean
+    phone?: boolean
+    registerNumber?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["familyMember"]>
+
+  export type FamilyMemberSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    relation?: boolean
+    lastName?: boolean
+    firstName?: boolean
+    birthYear?: boolean
+    occupation?: boolean
+    workplaceSchool?: boolean
+    phone?: boolean
+    registerNumber?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["familyMember"]>
+
+  export type FamilyMemberSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    relation?: boolean
+    lastName?: boolean
+    firstName?: boolean
+    birthYear?: boolean
+    occupation?: boolean
+    workplaceSchool?: boolean
+    phone?: boolean
+    registerNumber?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["familyMember"]>
+
+  export type FamilyMemberSelectScalar = {
+    id?: boolean
+    applicationId?: boolean
+    relation?: boolean
+    lastName?: boolean
+    firstName?: boolean
+    birthYear?: boolean
+    occupation?: boolean
+    workplaceSchool?: boolean
+    phone?: boolean
+    registerNumber?: boolean
+  }
+
+  export type FamilyMemberOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "applicationId" | "relation" | "lastName" | "firstName" | "birthYear" | "occupation" | "workplaceSchool" | "phone" | "registerNumber", ExtArgs["result"]["familyMember"]>
+  export type FamilyMemberInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+  export type FamilyMemberIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+  export type FamilyMemberIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+
+  export type $FamilyMemberPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FamilyMember"
+    objects: {
+      application: Prisma.$ApplicationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      applicationId: string
+      relation: string | null
+      lastName: string | null
+      firstName: string | null
+      birthYear: string | null
+      occupation: string | null
+      workplaceSchool: string | null
+      phone: string | null
+      registerNumber: string | null
+    }, ExtArgs["result"]["familyMember"]>
+    composites: {}
+  }
+
+  type FamilyMemberGetPayload<S extends boolean | null | undefined | FamilyMemberDefaultArgs> = $Result.GetResult<Prisma.$FamilyMemberPayload, S>
+
+  type FamilyMemberCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FamilyMemberFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FamilyMemberCountAggregateInputType | true
+    }
+
+  export interface FamilyMemberDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FamilyMember'], meta: { name: 'FamilyMember' } }
+    /**
+     * Find zero or one FamilyMember that matches the filter.
+     * @param {FamilyMemberFindUniqueArgs} args - Arguments to find a FamilyMember
+     * @example
+     * // Get one FamilyMember
+     * const familyMember = await prisma.familyMember.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FamilyMemberFindUniqueArgs>(args: SelectSubset<T, FamilyMemberFindUniqueArgs<ExtArgs>>): Prisma__FamilyMemberClient<$Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FamilyMember that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FamilyMemberFindUniqueOrThrowArgs} args - Arguments to find a FamilyMember
+     * @example
+     * // Get one FamilyMember
+     * const familyMember = await prisma.familyMember.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FamilyMemberFindUniqueOrThrowArgs>(args: SelectSubset<T, FamilyMemberFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FamilyMemberClient<$Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FamilyMember that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FamilyMemberFindFirstArgs} args - Arguments to find a FamilyMember
+     * @example
+     * // Get one FamilyMember
+     * const familyMember = await prisma.familyMember.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FamilyMemberFindFirstArgs>(args?: SelectSubset<T, FamilyMemberFindFirstArgs<ExtArgs>>): Prisma__FamilyMemberClient<$Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FamilyMember that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FamilyMemberFindFirstOrThrowArgs} args - Arguments to find a FamilyMember
+     * @example
+     * // Get one FamilyMember
+     * const familyMember = await prisma.familyMember.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FamilyMemberFindFirstOrThrowArgs>(args?: SelectSubset<T, FamilyMemberFindFirstOrThrowArgs<ExtArgs>>): Prisma__FamilyMemberClient<$Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FamilyMembers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FamilyMemberFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FamilyMembers
+     * const familyMembers = await prisma.familyMember.findMany()
+     * 
+     * // Get first 10 FamilyMembers
+     * const familyMembers = await prisma.familyMember.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const familyMemberWithIdOnly = await prisma.familyMember.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FamilyMemberFindManyArgs>(args?: SelectSubset<T, FamilyMemberFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FamilyMember.
+     * @param {FamilyMemberCreateArgs} args - Arguments to create a FamilyMember.
+     * @example
+     * // Create one FamilyMember
+     * const FamilyMember = await prisma.familyMember.create({
+     *   data: {
+     *     // ... data to create a FamilyMember
+     *   }
+     * })
+     * 
+     */
+    create<T extends FamilyMemberCreateArgs>(args: SelectSubset<T, FamilyMemberCreateArgs<ExtArgs>>): Prisma__FamilyMemberClient<$Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FamilyMembers.
+     * @param {FamilyMemberCreateManyArgs} args - Arguments to create many FamilyMembers.
+     * @example
+     * // Create many FamilyMembers
+     * const familyMember = await prisma.familyMember.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FamilyMemberCreateManyArgs>(args?: SelectSubset<T, FamilyMemberCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FamilyMembers and returns the data saved in the database.
+     * @param {FamilyMemberCreateManyAndReturnArgs} args - Arguments to create many FamilyMembers.
+     * @example
+     * // Create many FamilyMembers
+     * const familyMember = await prisma.familyMember.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FamilyMembers and only return the `id`
+     * const familyMemberWithIdOnly = await prisma.familyMember.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FamilyMemberCreateManyAndReturnArgs>(args?: SelectSubset<T, FamilyMemberCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FamilyMember.
+     * @param {FamilyMemberDeleteArgs} args - Arguments to delete one FamilyMember.
+     * @example
+     * // Delete one FamilyMember
+     * const FamilyMember = await prisma.familyMember.delete({
+     *   where: {
+     *     // ... filter to delete one FamilyMember
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FamilyMemberDeleteArgs>(args: SelectSubset<T, FamilyMemberDeleteArgs<ExtArgs>>): Prisma__FamilyMemberClient<$Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FamilyMember.
+     * @param {FamilyMemberUpdateArgs} args - Arguments to update one FamilyMember.
+     * @example
+     * // Update one FamilyMember
+     * const familyMember = await prisma.familyMember.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FamilyMemberUpdateArgs>(args: SelectSubset<T, FamilyMemberUpdateArgs<ExtArgs>>): Prisma__FamilyMemberClient<$Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FamilyMembers.
+     * @param {FamilyMemberDeleteManyArgs} args - Arguments to filter FamilyMembers to delete.
+     * @example
+     * // Delete a few FamilyMembers
+     * const { count } = await prisma.familyMember.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FamilyMemberDeleteManyArgs>(args?: SelectSubset<T, FamilyMemberDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FamilyMembers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FamilyMemberUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FamilyMembers
+     * const familyMember = await prisma.familyMember.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FamilyMemberUpdateManyArgs>(args: SelectSubset<T, FamilyMemberUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FamilyMembers and returns the data updated in the database.
+     * @param {FamilyMemberUpdateManyAndReturnArgs} args - Arguments to update many FamilyMembers.
+     * @example
+     * // Update many FamilyMembers
+     * const familyMember = await prisma.familyMember.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FamilyMembers and only return the `id`
+     * const familyMemberWithIdOnly = await prisma.familyMember.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FamilyMemberUpdateManyAndReturnArgs>(args: SelectSubset<T, FamilyMemberUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FamilyMember.
+     * @param {FamilyMemberUpsertArgs} args - Arguments to update or create a FamilyMember.
+     * @example
+     * // Update or create a FamilyMember
+     * const familyMember = await prisma.familyMember.upsert({
+     *   create: {
+     *     // ... data to create a FamilyMember
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FamilyMember we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FamilyMemberUpsertArgs>(args: SelectSubset<T, FamilyMemberUpsertArgs<ExtArgs>>): Prisma__FamilyMemberClient<$Result.GetResult<Prisma.$FamilyMemberPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FamilyMembers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FamilyMemberCountArgs} args - Arguments to filter FamilyMembers to count.
+     * @example
+     * // Count the number of FamilyMembers
+     * const count = await prisma.familyMember.count({
+     *   where: {
+     *     // ... the filter for the FamilyMembers we want to count
+     *   }
+     * })
+    **/
+    count<T extends FamilyMemberCountArgs>(
+      args?: Subset<T, FamilyMemberCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FamilyMemberCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FamilyMember.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FamilyMemberAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FamilyMemberAggregateArgs>(args: Subset<T, FamilyMemberAggregateArgs>): Prisma.PrismaPromise<GetFamilyMemberAggregateType<T>>
+
+    /**
+     * Group by FamilyMember.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FamilyMemberGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FamilyMemberGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FamilyMemberGroupByArgs['orderBy'] }
+        : { orderBy?: FamilyMemberGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FamilyMemberGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFamilyMemberGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FamilyMember model
+   */
+  readonly fields: FamilyMemberFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FamilyMember.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FamilyMemberClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    application<T extends ApplicationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ApplicationDefaultArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FamilyMember model
+   */
+  interface FamilyMemberFieldRefs {
+    readonly id: FieldRef<"FamilyMember", 'Int'>
+    readonly applicationId: FieldRef<"FamilyMember", 'String'>
+    readonly relation: FieldRef<"FamilyMember", 'String'>
+    readonly lastName: FieldRef<"FamilyMember", 'String'>
+    readonly firstName: FieldRef<"FamilyMember", 'String'>
+    readonly birthYear: FieldRef<"FamilyMember", 'String'>
+    readonly occupation: FieldRef<"FamilyMember", 'String'>
+    readonly workplaceSchool: FieldRef<"FamilyMember", 'String'>
+    readonly phone: FieldRef<"FamilyMember", 'String'>
+    readonly registerNumber: FieldRef<"FamilyMember", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FamilyMember findUnique
+   */
+  export type FamilyMemberFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberInclude<ExtArgs> | null
+    /**
+     * Filter, which FamilyMember to fetch.
+     */
+    where: FamilyMemberWhereUniqueInput
+  }
+
+  /**
+   * FamilyMember findUniqueOrThrow
+   */
+  export type FamilyMemberFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberInclude<ExtArgs> | null
+    /**
+     * Filter, which FamilyMember to fetch.
+     */
+    where: FamilyMemberWhereUniqueInput
+  }
+
+  /**
+   * FamilyMember findFirst
+   */
+  export type FamilyMemberFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberInclude<ExtArgs> | null
+    /**
+     * Filter, which FamilyMember to fetch.
+     */
+    where?: FamilyMemberWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FamilyMembers to fetch.
+     */
+    orderBy?: FamilyMemberOrderByWithRelationInput | FamilyMemberOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FamilyMembers.
+     */
+    cursor?: FamilyMemberWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FamilyMembers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FamilyMembers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FamilyMembers.
+     */
+    distinct?: FamilyMemberScalarFieldEnum | FamilyMemberScalarFieldEnum[]
+  }
+
+  /**
+   * FamilyMember findFirstOrThrow
+   */
+  export type FamilyMemberFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberInclude<ExtArgs> | null
+    /**
+     * Filter, which FamilyMember to fetch.
+     */
+    where?: FamilyMemberWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FamilyMembers to fetch.
+     */
+    orderBy?: FamilyMemberOrderByWithRelationInput | FamilyMemberOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FamilyMembers.
+     */
+    cursor?: FamilyMemberWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FamilyMembers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FamilyMembers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FamilyMembers.
+     */
+    distinct?: FamilyMemberScalarFieldEnum | FamilyMemberScalarFieldEnum[]
+  }
+
+  /**
+   * FamilyMember findMany
+   */
+  export type FamilyMemberFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberInclude<ExtArgs> | null
+    /**
+     * Filter, which FamilyMembers to fetch.
+     */
+    where?: FamilyMemberWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FamilyMembers to fetch.
+     */
+    orderBy?: FamilyMemberOrderByWithRelationInput | FamilyMemberOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FamilyMembers.
+     */
+    cursor?: FamilyMemberWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FamilyMembers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FamilyMembers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FamilyMembers.
+     */
+    distinct?: FamilyMemberScalarFieldEnum | FamilyMemberScalarFieldEnum[]
+  }
+
+  /**
+   * FamilyMember create
+   */
+  export type FamilyMemberCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FamilyMember.
+     */
+    data: XOR<FamilyMemberCreateInput, FamilyMemberUncheckedCreateInput>
+  }
+
+  /**
+   * FamilyMember createMany
+   */
+  export type FamilyMemberCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FamilyMembers.
+     */
+    data: FamilyMemberCreateManyInput | FamilyMemberCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FamilyMember createManyAndReturn
+   */
+  export type FamilyMemberCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * The data used to create many FamilyMembers.
+     */
+    data: FamilyMemberCreateManyInput | FamilyMemberCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FamilyMember update
+   */
+  export type FamilyMemberUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FamilyMember.
+     */
+    data: XOR<FamilyMemberUpdateInput, FamilyMemberUncheckedUpdateInput>
+    /**
+     * Choose, which FamilyMember to update.
+     */
+    where: FamilyMemberWhereUniqueInput
+  }
+
+  /**
+   * FamilyMember updateMany
+   */
+  export type FamilyMemberUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FamilyMembers.
+     */
+    data: XOR<FamilyMemberUpdateManyMutationInput, FamilyMemberUncheckedUpdateManyInput>
+    /**
+     * Filter which FamilyMembers to update
+     */
+    where?: FamilyMemberWhereInput
+    /**
+     * Limit how many FamilyMembers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FamilyMember updateManyAndReturn
+   */
+  export type FamilyMemberUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * The data used to update FamilyMembers.
+     */
+    data: XOR<FamilyMemberUpdateManyMutationInput, FamilyMemberUncheckedUpdateManyInput>
+    /**
+     * Filter which FamilyMembers to update
+     */
+    where?: FamilyMemberWhereInput
+    /**
+     * Limit how many FamilyMembers to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FamilyMember upsert
+   */
+  export type FamilyMemberUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FamilyMember to update in case it exists.
+     */
+    where: FamilyMemberWhereUniqueInput
+    /**
+     * In case the FamilyMember found by the `where` argument doesn't exist, create a new FamilyMember with this data.
+     */
+    create: XOR<FamilyMemberCreateInput, FamilyMemberUncheckedCreateInput>
+    /**
+     * In case the FamilyMember was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FamilyMemberUpdateInput, FamilyMemberUncheckedUpdateInput>
+  }
+
+  /**
+   * FamilyMember delete
+   */
+  export type FamilyMemberDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberInclude<ExtArgs> | null
+    /**
+     * Filter which FamilyMember to delete.
+     */
+    where: FamilyMemberWhereUniqueInput
+  }
+
+  /**
+   * FamilyMember deleteMany
+   */
+  export type FamilyMemberDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FamilyMembers to delete
+     */
+    where?: FamilyMemberWhereInput
+    /**
+     * Limit how many FamilyMembers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * FamilyMember without action
+   */
+  export type FamilyMemberDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FamilyMember
+     */
+    select?: FamilyMemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FamilyMember
+     */
+    omit?: FamilyMemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FamilyMemberInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model EducationHistory
+   */
+
+  export type AggregateEducationHistory = {
+    _count: EducationHistoryCountAggregateOutputType | null
+    _avg: EducationHistoryAvgAggregateOutputType | null
+    _sum: EducationHistorySumAggregateOutputType | null
+    _min: EducationHistoryMinAggregateOutputType | null
+    _max: EducationHistoryMaxAggregateOutputType | null
+  }
+
+  export type EducationHistoryAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type EducationHistorySumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type EducationHistoryMinAggregateOutputType = {
+    id: number | null
+    applicationId: string | null
+    schoolName: string | null
+    schoolType: string | null
+    degree: string | null
+    major: string | null
+    entryYear: string | null
+    graduationYear: string | null
+    gpa: string | null
+  }
+
+  export type EducationHistoryMaxAggregateOutputType = {
+    id: number | null
+    applicationId: string | null
+    schoolName: string | null
+    schoolType: string | null
+    degree: string | null
+    major: string | null
+    entryYear: string | null
+    graduationYear: string | null
+    gpa: string | null
+  }
+
+  export type EducationHistoryCountAggregateOutputType = {
+    id: number
+    applicationId: number
+    schoolName: number
+    schoolType: number
+    degree: number
+    major: number
+    entryYear: number
+    graduationYear: number
+    gpa: number
+    _all: number
+  }
+
+
+  export type EducationHistoryAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type EducationHistorySumAggregateInputType = {
+    id?: true
+  }
+
+  export type EducationHistoryMinAggregateInputType = {
+    id?: true
+    applicationId?: true
+    schoolName?: true
+    schoolType?: true
+    degree?: true
+    major?: true
+    entryYear?: true
+    graduationYear?: true
+    gpa?: true
+  }
+
+  export type EducationHistoryMaxAggregateInputType = {
+    id?: true
+    applicationId?: true
+    schoolName?: true
+    schoolType?: true
+    degree?: true
+    major?: true
+    entryYear?: true
+    graduationYear?: true
+    gpa?: true
+  }
+
+  export type EducationHistoryCountAggregateInputType = {
+    id?: true
+    applicationId?: true
+    schoolName?: true
+    schoolType?: true
+    degree?: true
+    major?: true
+    entryYear?: true
+    graduationYear?: true
+    gpa?: true
+    _all?: true
+  }
+
+  export type EducationHistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EducationHistory to aggregate.
+     */
+    where?: EducationHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EducationHistories to fetch.
+     */
+    orderBy?: EducationHistoryOrderByWithRelationInput | EducationHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EducationHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EducationHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EducationHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EducationHistories
+    **/
+    _count?: true | EducationHistoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EducationHistoryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EducationHistorySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EducationHistoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EducationHistoryMaxAggregateInputType
+  }
+
+  export type GetEducationHistoryAggregateType<T extends EducationHistoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateEducationHistory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEducationHistory[P]>
+      : GetScalarType<T[P], AggregateEducationHistory[P]>
+  }
+
+
+
+
+  export type EducationHistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EducationHistoryWhereInput
+    orderBy?: EducationHistoryOrderByWithAggregationInput | EducationHistoryOrderByWithAggregationInput[]
+    by: EducationHistoryScalarFieldEnum[] | EducationHistoryScalarFieldEnum
+    having?: EducationHistoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EducationHistoryCountAggregateInputType | true
+    _avg?: EducationHistoryAvgAggregateInputType
+    _sum?: EducationHistorySumAggregateInputType
+    _min?: EducationHistoryMinAggregateInputType
+    _max?: EducationHistoryMaxAggregateInputType
+  }
+
+  export type EducationHistoryGroupByOutputType = {
+    id: number
+    applicationId: string
+    schoolName: string | null
+    schoolType: string | null
+    degree: string | null
+    major: string | null
+    entryYear: string | null
+    graduationYear: string | null
+    gpa: string | null
+    _count: EducationHistoryCountAggregateOutputType | null
+    _avg: EducationHistoryAvgAggregateOutputType | null
+    _sum: EducationHistorySumAggregateOutputType | null
+    _min: EducationHistoryMinAggregateOutputType | null
+    _max: EducationHistoryMaxAggregateOutputType | null
+  }
+
+  type GetEducationHistoryGroupByPayload<T extends EducationHistoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EducationHistoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EducationHistoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EducationHistoryGroupByOutputType[P]>
+            : GetScalarType<T[P], EducationHistoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EducationHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    schoolName?: boolean
+    schoolType?: boolean
+    degree?: boolean
+    major?: boolean
+    entryYear?: boolean
+    graduationYear?: boolean
+    gpa?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["educationHistory"]>
+
+  export type EducationHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    schoolName?: boolean
+    schoolType?: boolean
+    degree?: boolean
+    major?: boolean
+    entryYear?: boolean
+    graduationYear?: boolean
+    gpa?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["educationHistory"]>
+
+  export type EducationHistorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    schoolName?: boolean
+    schoolType?: boolean
+    degree?: boolean
+    major?: boolean
+    entryYear?: boolean
+    graduationYear?: boolean
+    gpa?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["educationHistory"]>
+
+  export type EducationHistorySelectScalar = {
+    id?: boolean
+    applicationId?: boolean
+    schoolName?: boolean
+    schoolType?: boolean
+    degree?: boolean
+    major?: boolean
+    entryYear?: boolean
+    graduationYear?: boolean
+    gpa?: boolean
+  }
+
+  export type EducationHistoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "applicationId" | "schoolName" | "schoolType" | "degree" | "major" | "entryYear" | "graduationYear" | "gpa", ExtArgs["result"]["educationHistory"]>
+  export type EducationHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+  export type EducationHistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+  export type EducationHistoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+
+  export type $EducationHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EducationHistory"
+    objects: {
+      application: Prisma.$ApplicationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      applicationId: string
+      schoolName: string | null
+      schoolType: string | null
+      degree: string | null
+      major: string | null
+      entryYear: string | null
+      graduationYear: string | null
+      gpa: string | null
+    }, ExtArgs["result"]["educationHistory"]>
+    composites: {}
+  }
+
+  type EducationHistoryGetPayload<S extends boolean | null | undefined | EducationHistoryDefaultArgs> = $Result.GetResult<Prisma.$EducationHistoryPayload, S>
+
+  type EducationHistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EducationHistoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EducationHistoryCountAggregateInputType | true
+    }
+
+  export interface EducationHistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EducationHistory'], meta: { name: 'EducationHistory' } }
+    /**
+     * Find zero or one EducationHistory that matches the filter.
+     * @param {EducationHistoryFindUniqueArgs} args - Arguments to find a EducationHistory
+     * @example
+     * // Get one EducationHistory
+     * const educationHistory = await prisma.educationHistory.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EducationHistoryFindUniqueArgs>(args: SelectSubset<T, EducationHistoryFindUniqueArgs<ExtArgs>>): Prisma__EducationHistoryClient<$Result.GetResult<Prisma.$EducationHistoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one EducationHistory that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EducationHistoryFindUniqueOrThrowArgs} args - Arguments to find a EducationHistory
+     * @example
+     * // Get one EducationHistory
+     * const educationHistory = await prisma.educationHistory.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EducationHistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, EducationHistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EducationHistoryClient<$Result.GetResult<Prisma.$EducationHistoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EducationHistory that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationHistoryFindFirstArgs} args - Arguments to find a EducationHistory
+     * @example
+     * // Get one EducationHistory
+     * const educationHistory = await prisma.educationHistory.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EducationHistoryFindFirstArgs>(args?: SelectSubset<T, EducationHistoryFindFirstArgs<ExtArgs>>): Prisma__EducationHistoryClient<$Result.GetResult<Prisma.$EducationHistoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EducationHistory that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationHistoryFindFirstOrThrowArgs} args - Arguments to find a EducationHistory
+     * @example
+     * // Get one EducationHistory
+     * const educationHistory = await prisma.educationHistory.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EducationHistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, EducationHistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__EducationHistoryClient<$Result.GetResult<Prisma.$EducationHistoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more EducationHistories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationHistoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EducationHistories
+     * const educationHistories = await prisma.educationHistory.findMany()
+     * 
+     * // Get first 10 EducationHistories
+     * const educationHistories = await prisma.educationHistory.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const educationHistoryWithIdOnly = await prisma.educationHistory.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EducationHistoryFindManyArgs>(args?: SelectSubset<T, EducationHistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EducationHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a EducationHistory.
+     * @param {EducationHistoryCreateArgs} args - Arguments to create a EducationHistory.
+     * @example
+     * // Create one EducationHistory
+     * const EducationHistory = await prisma.educationHistory.create({
+     *   data: {
+     *     // ... data to create a EducationHistory
+     *   }
+     * })
+     * 
+     */
+    create<T extends EducationHistoryCreateArgs>(args: SelectSubset<T, EducationHistoryCreateArgs<ExtArgs>>): Prisma__EducationHistoryClient<$Result.GetResult<Prisma.$EducationHistoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many EducationHistories.
+     * @param {EducationHistoryCreateManyArgs} args - Arguments to create many EducationHistories.
+     * @example
+     * // Create many EducationHistories
+     * const educationHistory = await prisma.educationHistory.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EducationHistoryCreateManyArgs>(args?: SelectSubset<T, EducationHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many EducationHistories and returns the data saved in the database.
+     * @param {EducationHistoryCreateManyAndReturnArgs} args - Arguments to create many EducationHistories.
+     * @example
+     * // Create many EducationHistories
+     * const educationHistory = await prisma.educationHistory.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many EducationHistories and only return the `id`
+     * const educationHistoryWithIdOnly = await prisma.educationHistory.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EducationHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, EducationHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EducationHistoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a EducationHistory.
+     * @param {EducationHistoryDeleteArgs} args - Arguments to delete one EducationHistory.
+     * @example
+     * // Delete one EducationHistory
+     * const EducationHistory = await prisma.educationHistory.delete({
+     *   where: {
+     *     // ... filter to delete one EducationHistory
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EducationHistoryDeleteArgs>(args: SelectSubset<T, EducationHistoryDeleteArgs<ExtArgs>>): Prisma__EducationHistoryClient<$Result.GetResult<Prisma.$EducationHistoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one EducationHistory.
+     * @param {EducationHistoryUpdateArgs} args - Arguments to update one EducationHistory.
+     * @example
+     * // Update one EducationHistory
+     * const educationHistory = await prisma.educationHistory.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EducationHistoryUpdateArgs>(args: SelectSubset<T, EducationHistoryUpdateArgs<ExtArgs>>): Prisma__EducationHistoryClient<$Result.GetResult<Prisma.$EducationHistoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more EducationHistories.
+     * @param {EducationHistoryDeleteManyArgs} args - Arguments to filter EducationHistories to delete.
+     * @example
+     * // Delete a few EducationHistories
+     * const { count } = await prisma.educationHistory.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EducationHistoryDeleteManyArgs>(args?: SelectSubset<T, EducationHistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EducationHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationHistoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EducationHistories
+     * const educationHistory = await prisma.educationHistory.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EducationHistoryUpdateManyArgs>(args: SelectSubset<T, EducationHistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EducationHistories and returns the data updated in the database.
+     * @param {EducationHistoryUpdateManyAndReturnArgs} args - Arguments to update many EducationHistories.
+     * @example
+     * // Update many EducationHistories
+     * const educationHistory = await prisma.educationHistory.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more EducationHistories and only return the `id`
+     * const educationHistoryWithIdOnly = await prisma.educationHistory.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EducationHistoryUpdateManyAndReturnArgs>(args: SelectSubset<T, EducationHistoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EducationHistoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one EducationHistory.
+     * @param {EducationHistoryUpsertArgs} args - Arguments to update or create a EducationHistory.
+     * @example
+     * // Update or create a EducationHistory
+     * const educationHistory = await prisma.educationHistory.upsert({
+     *   create: {
+     *     // ... data to create a EducationHistory
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EducationHistory we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EducationHistoryUpsertArgs>(args: SelectSubset<T, EducationHistoryUpsertArgs<ExtArgs>>): Prisma__EducationHistoryClient<$Result.GetResult<Prisma.$EducationHistoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of EducationHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationHistoryCountArgs} args - Arguments to filter EducationHistories to count.
+     * @example
+     * // Count the number of EducationHistories
+     * const count = await prisma.educationHistory.count({
+     *   where: {
+     *     // ... the filter for the EducationHistories we want to count
+     *   }
+     * })
+    **/
+    count<T extends EducationHistoryCountArgs>(
+      args?: Subset<T, EducationHistoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EducationHistoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EducationHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationHistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EducationHistoryAggregateArgs>(args: Subset<T, EducationHistoryAggregateArgs>): Prisma.PrismaPromise<GetEducationHistoryAggregateType<T>>
+
+    /**
+     * Group by EducationHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationHistoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EducationHistoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EducationHistoryGroupByArgs['orderBy'] }
+        : { orderBy?: EducationHistoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EducationHistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEducationHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EducationHistory model
+   */
+  readonly fields: EducationHistoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EducationHistory.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EducationHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    application<T extends ApplicationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ApplicationDefaultArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the EducationHistory model
+   */
+  interface EducationHistoryFieldRefs {
+    readonly id: FieldRef<"EducationHistory", 'Int'>
+    readonly applicationId: FieldRef<"EducationHistory", 'String'>
+    readonly schoolName: FieldRef<"EducationHistory", 'String'>
+    readonly schoolType: FieldRef<"EducationHistory", 'String'>
+    readonly degree: FieldRef<"EducationHistory", 'String'>
+    readonly major: FieldRef<"EducationHistory", 'String'>
+    readonly entryYear: FieldRef<"EducationHistory", 'String'>
+    readonly graduationYear: FieldRef<"EducationHistory", 'String'>
+    readonly gpa: FieldRef<"EducationHistory", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * EducationHistory findUnique
+   */
+  export type EducationHistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which EducationHistory to fetch.
+     */
+    where: EducationHistoryWhereUniqueInput
+  }
+
+  /**
+   * EducationHistory findUniqueOrThrow
+   */
+  export type EducationHistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which EducationHistory to fetch.
+     */
+    where: EducationHistoryWhereUniqueInput
+  }
+
+  /**
+   * EducationHistory findFirst
+   */
+  export type EducationHistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which EducationHistory to fetch.
+     */
+    where?: EducationHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EducationHistories to fetch.
+     */
+    orderBy?: EducationHistoryOrderByWithRelationInput | EducationHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EducationHistories.
+     */
+    cursor?: EducationHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EducationHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EducationHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EducationHistories.
+     */
+    distinct?: EducationHistoryScalarFieldEnum | EducationHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * EducationHistory findFirstOrThrow
+   */
+  export type EducationHistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which EducationHistory to fetch.
+     */
+    where?: EducationHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EducationHistories to fetch.
+     */
+    orderBy?: EducationHistoryOrderByWithRelationInput | EducationHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EducationHistories.
+     */
+    cursor?: EducationHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EducationHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EducationHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EducationHistories.
+     */
+    distinct?: EducationHistoryScalarFieldEnum | EducationHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * EducationHistory findMany
+   */
+  export type EducationHistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which EducationHistories to fetch.
+     */
+    where?: EducationHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EducationHistories to fetch.
+     */
+    orderBy?: EducationHistoryOrderByWithRelationInput | EducationHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EducationHistories.
+     */
+    cursor?: EducationHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EducationHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EducationHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EducationHistories.
+     */
+    distinct?: EducationHistoryScalarFieldEnum | EducationHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * EducationHistory create
+   */
+  export type EducationHistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a EducationHistory.
+     */
+    data: XOR<EducationHistoryCreateInput, EducationHistoryUncheckedCreateInput>
+  }
+
+  /**
+   * EducationHistory createMany
+   */
+  export type EducationHistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EducationHistories.
+     */
+    data: EducationHistoryCreateManyInput | EducationHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * EducationHistory createManyAndReturn
+   */
+  export type EducationHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * The data used to create many EducationHistories.
+     */
+    data: EducationHistoryCreateManyInput | EducationHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EducationHistory update
+   */
+  export type EducationHistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a EducationHistory.
+     */
+    data: XOR<EducationHistoryUpdateInput, EducationHistoryUncheckedUpdateInput>
+    /**
+     * Choose, which EducationHistory to update.
+     */
+    where: EducationHistoryWhereUniqueInput
+  }
+
+  /**
+   * EducationHistory updateMany
+   */
+  export type EducationHistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EducationHistories.
+     */
+    data: XOR<EducationHistoryUpdateManyMutationInput, EducationHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which EducationHistories to update
+     */
+    where?: EducationHistoryWhereInput
+    /**
+     * Limit how many EducationHistories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * EducationHistory updateManyAndReturn
+   */
+  export type EducationHistoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * The data used to update EducationHistories.
+     */
+    data: XOR<EducationHistoryUpdateManyMutationInput, EducationHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which EducationHistories to update
+     */
+    where?: EducationHistoryWhereInput
+    /**
+     * Limit how many EducationHistories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EducationHistory upsert
+   */
+  export type EducationHistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the EducationHistory to update in case it exists.
+     */
+    where: EducationHistoryWhereUniqueInput
+    /**
+     * In case the EducationHistory found by the `where` argument doesn't exist, create a new EducationHistory with this data.
+     */
+    create: XOR<EducationHistoryCreateInput, EducationHistoryUncheckedCreateInput>
+    /**
+     * In case the EducationHistory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EducationHistoryUpdateInput, EducationHistoryUncheckedUpdateInput>
+  }
+
+  /**
+   * EducationHistory delete
+   */
+  export type EducationHistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryInclude<ExtArgs> | null
+    /**
+     * Filter which EducationHistory to delete.
+     */
+    where: EducationHistoryWhereUniqueInput
+  }
+
+  /**
+   * EducationHistory deleteMany
+   */
+  export type EducationHistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EducationHistories to delete
+     */
+    where?: EducationHistoryWhereInput
+    /**
+     * Limit how many EducationHistories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * EducationHistory without action
+   */
+  export type EducationHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EducationHistory
+     */
+    select?: EducationHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EducationHistory
+     */
+    omit?: EducationHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationHistoryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model WorkExperience
+   */
+
+  export type AggregateWorkExperience = {
+    _count: WorkExperienceCountAggregateOutputType | null
+    _avg: WorkExperienceAvgAggregateOutputType | null
+    _sum: WorkExperienceSumAggregateOutputType | null
+    _min: WorkExperienceMinAggregateOutputType | null
+    _max: WorkExperienceMaxAggregateOutputType | null
+  }
+
+  export type WorkExperienceAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type WorkExperienceSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type WorkExperienceMinAggregateOutputType = {
+    id: number | null
+    applicationId: string | null
+    companyName: string | null
+    position: string | null
+    startDate: string | null
+    endDate: string | null
+    salary: string | null
+    reasonForLeaving: string | null
+  }
+
+  export type WorkExperienceMaxAggregateOutputType = {
+    id: number | null
+    applicationId: string | null
+    companyName: string | null
+    position: string | null
+    startDate: string | null
+    endDate: string | null
+    salary: string | null
+    reasonForLeaving: string | null
+  }
+
+  export type WorkExperienceCountAggregateOutputType = {
+    id: number
+    applicationId: number
+    companyName: number
+    position: number
+    startDate: number
+    endDate: number
+    salary: number
+    reasonForLeaving: number
+    _all: number
+  }
+
+
+  export type WorkExperienceAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type WorkExperienceSumAggregateInputType = {
+    id?: true
+  }
+
+  export type WorkExperienceMinAggregateInputType = {
+    id?: true
+    applicationId?: true
+    companyName?: true
+    position?: true
+    startDate?: true
+    endDate?: true
+    salary?: true
+    reasonForLeaving?: true
+  }
+
+  export type WorkExperienceMaxAggregateInputType = {
+    id?: true
+    applicationId?: true
+    companyName?: true
+    position?: true
+    startDate?: true
+    endDate?: true
+    salary?: true
+    reasonForLeaving?: true
+  }
+
+  export type WorkExperienceCountAggregateInputType = {
+    id?: true
+    applicationId?: true
+    companyName?: true
+    position?: true
+    startDate?: true
+    endDate?: true
+    salary?: true
+    reasonForLeaving?: true
+    _all?: true
+  }
+
+  export type WorkExperienceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WorkExperience to aggregate.
+     */
+    where?: WorkExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WorkExperiences to fetch.
+     */
+    orderBy?: WorkExperienceOrderByWithRelationInput | WorkExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WorkExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WorkExperiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WorkExperiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned WorkExperiences
+    **/
+    _count?: true | WorkExperienceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: WorkExperienceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: WorkExperienceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WorkExperienceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WorkExperienceMaxAggregateInputType
+  }
+
+  export type GetWorkExperienceAggregateType<T extends WorkExperienceAggregateArgs> = {
+        [P in keyof T & keyof AggregateWorkExperience]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWorkExperience[P]>
+      : GetScalarType<T[P], AggregateWorkExperience[P]>
+  }
+
+
+
+
+  export type WorkExperienceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WorkExperienceWhereInput
+    orderBy?: WorkExperienceOrderByWithAggregationInput | WorkExperienceOrderByWithAggregationInput[]
+    by: WorkExperienceScalarFieldEnum[] | WorkExperienceScalarFieldEnum
+    having?: WorkExperienceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WorkExperienceCountAggregateInputType | true
+    _avg?: WorkExperienceAvgAggregateInputType
+    _sum?: WorkExperienceSumAggregateInputType
+    _min?: WorkExperienceMinAggregateInputType
+    _max?: WorkExperienceMaxAggregateInputType
+  }
+
+  export type WorkExperienceGroupByOutputType = {
+    id: number
+    applicationId: string
+    companyName: string | null
+    position: string | null
+    startDate: string | null
+    endDate: string | null
+    salary: string | null
+    reasonForLeaving: string | null
+    _count: WorkExperienceCountAggregateOutputType | null
+    _avg: WorkExperienceAvgAggregateOutputType | null
+    _sum: WorkExperienceSumAggregateOutputType | null
+    _min: WorkExperienceMinAggregateOutputType | null
+    _max: WorkExperienceMaxAggregateOutputType | null
+  }
+
+  type GetWorkExperienceGroupByPayload<T extends WorkExperienceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WorkExperienceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WorkExperienceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WorkExperienceGroupByOutputType[P]>
+            : GetScalarType<T[P], WorkExperienceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WorkExperienceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    companyName?: boolean
+    position?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    salary?: boolean
+    reasonForLeaving?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["workExperience"]>
+
+  export type WorkExperienceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    companyName?: boolean
+    position?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    salary?: boolean
+    reasonForLeaving?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["workExperience"]>
+
+  export type WorkExperienceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    companyName?: boolean
+    position?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    salary?: boolean
+    reasonForLeaving?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["workExperience"]>
+
+  export type WorkExperienceSelectScalar = {
+    id?: boolean
+    applicationId?: boolean
+    companyName?: boolean
+    position?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    salary?: boolean
+    reasonForLeaving?: boolean
+  }
+
+  export type WorkExperienceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "applicationId" | "companyName" | "position" | "startDate" | "endDate" | "salary" | "reasonForLeaving", ExtArgs["result"]["workExperience"]>
+  export type WorkExperienceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+  export type WorkExperienceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+  export type WorkExperienceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+
+  export type $WorkExperiencePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "WorkExperience"
+    objects: {
+      application: Prisma.$ApplicationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      applicationId: string
+      companyName: string | null
+      position: string | null
+      startDate: string | null
+      endDate: string | null
+      salary: string | null
+      reasonForLeaving: string | null
+    }, ExtArgs["result"]["workExperience"]>
+    composites: {}
+  }
+
+  type WorkExperienceGetPayload<S extends boolean | null | undefined | WorkExperienceDefaultArgs> = $Result.GetResult<Prisma.$WorkExperiencePayload, S>
+
+  type WorkExperienceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WorkExperienceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WorkExperienceCountAggregateInputType | true
+    }
+
+  export interface WorkExperienceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['WorkExperience'], meta: { name: 'WorkExperience' } }
+    /**
+     * Find zero or one WorkExperience that matches the filter.
+     * @param {WorkExperienceFindUniqueArgs} args - Arguments to find a WorkExperience
+     * @example
+     * // Get one WorkExperience
+     * const workExperience = await prisma.workExperience.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WorkExperienceFindUniqueArgs>(args: SelectSubset<T, WorkExperienceFindUniqueArgs<ExtArgs>>): Prisma__WorkExperienceClient<$Result.GetResult<Prisma.$WorkExperiencePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one WorkExperience that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WorkExperienceFindUniqueOrThrowArgs} args - Arguments to find a WorkExperience
+     * @example
+     * // Get one WorkExperience
+     * const workExperience = await prisma.workExperience.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WorkExperienceFindUniqueOrThrowArgs>(args: SelectSubset<T, WorkExperienceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WorkExperienceClient<$Result.GetResult<Prisma.$WorkExperiencePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WorkExperience that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkExperienceFindFirstArgs} args - Arguments to find a WorkExperience
+     * @example
+     * // Get one WorkExperience
+     * const workExperience = await prisma.workExperience.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WorkExperienceFindFirstArgs>(args?: SelectSubset<T, WorkExperienceFindFirstArgs<ExtArgs>>): Prisma__WorkExperienceClient<$Result.GetResult<Prisma.$WorkExperiencePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WorkExperience that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkExperienceFindFirstOrThrowArgs} args - Arguments to find a WorkExperience
+     * @example
+     * // Get one WorkExperience
+     * const workExperience = await prisma.workExperience.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WorkExperienceFindFirstOrThrowArgs>(args?: SelectSubset<T, WorkExperienceFindFirstOrThrowArgs<ExtArgs>>): Prisma__WorkExperienceClient<$Result.GetResult<Prisma.$WorkExperiencePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more WorkExperiences that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkExperienceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all WorkExperiences
+     * const workExperiences = await prisma.workExperience.findMany()
+     * 
+     * // Get first 10 WorkExperiences
+     * const workExperiences = await prisma.workExperience.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const workExperienceWithIdOnly = await prisma.workExperience.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WorkExperienceFindManyArgs>(args?: SelectSubset<T, WorkExperienceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkExperiencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a WorkExperience.
+     * @param {WorkExperienceCreateArgs} args - Arguments to create a WorkExperience.
+     * @example
+     * // Create one WorkExperience
+     * const WorkExperience = await prisma.workExperience.create({
+     *   data: {
+     *     // ... data to create a WorkExperience
+     *   }
+     * })
+     * 
+     */
+    create<T extends WorkExperienceCreateArgs>(args: SelectSubset<T, WorkExperienceCreateArgs<ExtArgs>>): Prisma__WorkExperienceClient<$Result.GetResult<Prisma.$WorkExperiencePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many WorkExperiences.
+     * @param {WorkExperienceCreateManyArgs} args - Arguments to create many WorkExperiences.
+     * @example
+     * // Create many WorkExperiences
+     * const workExperience = await prisma.workExperience.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WorkExperienceCreateManyArgs>(args?: SelectSubset<T, WorkExperienceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many WorkExperiences and returns the data saved in the database.
+     * @param {WorkExperienceCreateManyAndReturnArgs} args - Arguments to create many WorkExperiences.
+     * @example
+     * // Create many WorkExperiences
+     * const workExperience = await prisma.workExperience.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many WorkExperiences and only return the `id`
+     * const workExperienceWithIdOnly = await prisma.workExperience.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WorkExperienceCreateManyAndReturnArgs>(args?: SelectSubset<T, WorkExperienceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkExperiencePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a WorkExperience.
+     * @param {WorkExperienceDeleteArgs} args - Arguments to delete one WorkExperience.
+     * @example
+     * // Delete one WorkExperience
+     * const WorkExperience = await prisma.workExperience.delete({
+     *   where: {
+     *     // ... filter to delete one WorkExperience
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WorkExperienceDeleteArgs>(args: SelectSubset<T, WorkExperienceDeleteArgs<ExtArgs>>): Prisma__WorkExperienceClient<$Result.GetResult<Prisma.$WorkExperiencePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one WorkExperience.
+     * @param {WorkExperienceUpdateArgs} args - Arguments to update one WorkExperience.
+     * @example
+     * // Update one WorkExperience
+     * const workExperience = await prisma.workExperience.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WorkExperienceUpdateArgs>(args: SelectSubset<T, WorkExperienceUpdateArgs<ExtArgs>>): Prisma__WorkExperienceClient<$Result.GetResult<Prisma.$WorkExperiencePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more WorkExperiences.
+     * @param {WorkExperienceDeleteManyArgs} args - Arguments to filter WorkExperiences to delete.
+     * @example
+     * // Delete a few WorkExperiences
+     * const { count } = await prisma.workExperience.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WorkExperienceDeleteManyArgs>(args?: SelectSubset<T, WorkExperienceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WorkExperiences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkExperienceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many WorkExperiences
+     * const workExperience = await prisma.workExperience.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WorkExperienceUpdateManyArgs>(args: SelectSubset<T, WorkExperienceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WorkExperiences and returns the data updated in the database.
+     * @param {WorkExperienceUpdateManyAndReturnArgs} args - Arguments to update many WorkExperiences.
+     * @example
+     * // Update many WorkExperiences
+     * const workExperience = await prisma.workExperience.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more WorkExperiences and only return the `id`
+     * const workExperienceWithIdOnly = await prisma.workExperience.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WorkExperienceUpdateManyAndReturnArgs>(args: SelectSubset<T, WorkExperienceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WorkExperiencePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one WorkExperience.
+     * @param {WorkExperienceUpsertArgs} args - Arguments to update or create a WorkExperience.
+     * @example
+     * // Update or create a WorkExperience
+     * const workExperience = await prisma.workExperience.upsert({
+     *   create: {
+     *     // ... data to create a WorkExperience
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the WorkExperience we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WorkExperienceUpsertArgs>(args: SelectSubset<T, WorkExperienceUpsertArgs<ExtArgs>>): Prisma__WorkExperienceClient<$Result.GetResult<Prisma.$WorkExperiencePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of WorkExperiences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkExperienceCountArgs} args - Arguments to filter WorkExperiences to count.
+     * @example
+     * // Count the number of WorkExperiences
+     * const count = await prisma.workExperience.count({
+     *   where: {
+     *     // ... the filter for the WorkExperiences we want to count
+     *   }
+     * })
+    **/
+    count<T extends WorkExperienceCountArgs>(
+      args?: Subset<T, WorkExperienceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WorkExperienceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a WorkExperience.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkExperienceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WorkExperienceAggregateArgs>(args: Subset<T, WorkExperienceAggregateArgs>): Prisma.PrismaPromise<GetWorkExperienceAggregateType<T>>
+
+    /**
+     * Group by WorkExperience.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WorkExperienceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WorkExperienceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WorkExperienceGroupByArgs['orderBy'] }
+        : { orderBy?: WorkExperienceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WorkExperienceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWorkExperienceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the WorkExperience model
+   */
+  readonly fields: WorkExperienceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for WorkExperience.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WorkExperienceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    application<T extends ApplicationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ApplicationDefaultArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the WorkExperience model
+   */
+  interface WorkExperienceFieldRefs {
+    readonly id: FieldRef<"WorkExperience", 'Int'>
+    readonly applicationId: FieldRef<"WorkExperience", 'String'>
+    readonly companyName: FieldRef<"WorkExperience", 'String'>
+    readonly position: FieldRef<"WorkExperience", 'String'>
+    readonly startDate: FieldRef<"WorkExperience", 'String'>
+    readonly endDate: FieldRef<"WorkExperience", 'String'>
+    readonly salary: FieldRef<"WorkExperience", 'String'>
+    readonly reasonForLeaving: FieldRef<"WorkExperience", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * WorkExperience findUnique
+   */
+  export type WorkExperienceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkExperience to fetch.
+     */
+    where: WorkExperienceWhereUniqueInput
+  }
+
+  /**
+   * WorkExperience findUniqueOrThrow
+   */
+  export type WorkExperienceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkExperience to fetch.
+     */
+    where: WorkExperienceWhereUniqueInput
+  }
+
+  /**
+   * WorkExperience findFirst
+   */
+  export type WorkExperienceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkExperience to fetch.
+     */
+    where?: WorkExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WorkExperiences to fetch.
+     */
+    orderBy?: WorkExperienceOrderByWithRelationInput | WorkExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WorkExperiences.
+     */
+    cursor?: WorkExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WorkExperiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WorkExperiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WorkExperiences.
+     */
+    distinct?: WorkExperienceScalarFieldEnum | WorkExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * WorkExperience findFirstOrThrow
+   */
+  export type WorkExperienceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkExperience to fetch.
+     */
+    where?: WorkExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WorkExperiences to fetch.
+     */
+    orderBy?: WorkExperienceOrderByWithRelationInput | WorkExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WorkExperiences.
+     */
+    cursor?: WorkExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WorkExperiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WorkExperiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WorkExperiences.
+     */
+    distinct?: WorkExperienceScalarFieldEnum | WorkExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * WorkExperience findMany
+   */
+  export type WorkExperienceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which WorkExperiences to fetch.
+     */
+    where?: WorkExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WorkExperiences to fetch.
+     */
+    orderBy?: WorkExperienceOrderByWithRelationInput | WorkExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing WorkExperiences.
+     */
+    cursor?: WorkExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WorkExperiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WorkExperiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WorkExperiences.
+     */
+    distinct?: WorkExperienceScalarFieldEnum | WorkExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * WorkExperience create
+   */
+  export type WorkExperienceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a WorkExperience.
+     */
+    data: XOR<WorkExperienceCreateInput, WorkExperienceUncheckedCreateInput>
+  }
+
+  /**
+   * WorkExperience createMany
+   */
+  export type WorkExperienceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many WorkExperiences.
+     */
+    data: WorkExperienceCreateManyInput | WorkExperienceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * WorkExperience createManyAndReturn
+   */
+  export type WorkExperienceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * The data used to create many WorkExperiences.
+     */
+    data: WorkExperienceCreateManyInput | WorkExperienceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * WorkExperience update
+   */
+  export type WorkExperienceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a WorkExperience.
+     */
+    data: XOR<WorkExperienceUpdateInput, WorkExperienceUncheckedUpdateInput>
+    /**
+     * Choose, which WorkExperience to update.
+     */
+    where: WorkExperienceWhereUniqueInput
+  }
+
+  /**
+   * WorkExperience updateMany
+   */
+  export type WorkExperienceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update WorkExperiences.
+     */
+    data: XOR<WorkExperienceUpdateManyMutationInput, WorkExperienceUncheckedUpdateManyInput>
+    /**
+     * Filter which WorkExperiences to update
+     */
+    where?: WorkExperienceWhereInput
+    /**
+     * Limit how many WorkExperiences to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * WorkExperience updateManyAndReturn
+   */
+  export type WorkExperienceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * The data used to update WorkExperiences.
+     */
+    data: XOR<WorkExperienceUpdateManyMutationInput, WorkExperienceUncheckedUpdateManyInput>
+    /**
+     * Filter which WorkExperiences to update
+     */
+    where?: WorkExperienceWhereInput
+    /**
+     * Limit how many WorkExperiences to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * WorkExperience upsert
+   */
+  export type WorkExperienceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the WorkExperience to update in case it exists.
+     */
+    where: WorkExperienceWhereUniqueInput
+    /**
+     * In case the WorkExperience found by the `where` argument doesn't exist, create a new WorkExperience with this data.
+     */
+    create: XOR<WorkExperienceCreateInput, WorkExperienceUncheckedCreateInput>
+    /**
+     * In case the WorkExperience was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<WorkExperienceUpdateInput, WorkExperienceUncheckedUpdateInput>
+  }
+
+  /**
+   * WorkExperience delete
+   */
+  export type WorkExperienceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceInclude<ExtArgs> | null
+    /**
+     * Filter which WorkExperience to delete.
+     */
+    where: WorkExperienceWhereUniqueInput
+  }
+
+  /**
+   * WorkExperience deleteMany
+   */
+  export type WorkExperienceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WorkExperiences to delete
+     */
+    where?: WorkExperienceWhereInput
+    /**
+     * Limit how many WorkExperiences to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * WorkExperience without action
+   */
+  export type WorkExperienceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WorkExperience
+     */
+    select?: WorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WorkExperience
+     */
+    omit?: WorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WorkExperienceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Skill
+   */
+
+  export type AggregateSkill = {
+    _count: SkillCountAggregateOutputType | null
+    _avg: SkillAvgAggregateOutputType | null
+    _sum: SkillSumAggregateOutputType | null
+    _min: SkillMinAggregateOutputType | null
+    _max: SkillMaxAggregateOutputType | null
+  }
+
+  export type SkillAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type SkillSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type SkillMinAggregateOutputType = {
+    id: number | null
+    applicationId: string | null
+  }
+
+  export type SkillMaxAggregateOutputType = {
+    id: number | null
+    applicationId: string | null
+  }
+
+  export type SkillCountAggregateOutputType = {
+    id: number
+    applicationId: number
+    languageMatrix: number
+    pcMatrix: number
+    _all: number
+  }
+
+
+  export type SkillAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type SkillSumAggregateInputType = {
+    id?: true
+  }
+
+  export type SkillMinAggregateInputType = {
+    id?: true
+    applicationId?: true
+  }
+
+  export type SkillMaxAggregateInputType = {
+    id?: true
+    applicationId?: true
+  }
+
+  export type SkillCountAggregateInputType = {
+    id?: true
+    applicationId?: true
+    languageMatrix?: true
+    pcMatrix?: true
+    _all?: true
+  }
+
+  export type SkillAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Skill to aggregate.
+     */
+    where?: SkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Skills to fetch.
+     */
+    orderBy?: SkillOrderByWithRelationInput | SkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Skills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Skills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Skills
+    **/
+    _count?: true | SkillCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SkillAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SkillSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SkillMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SkillMaxAggregateInputType
+  }
+
+  export type GetSkillAggregateType<T extends SkillAggregateArgs> = {
+        [P in keyof T & keyof AggregateSkill]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSkill[P]>
+      : GetScalarType<T[P], AggregateSkill[P]>
+  }
+
+
+
+
+  export type SkillGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SkillWhereInput
+    orderBy?: SkillOrderByWithAggregationInput | SkillOrderByWithAggregationInput[]
+    by: SkillScalarFieldEnum[] | SkillScalarFieldEnum
+    having?: SkillScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SkillCountAggregateInputType | true
+    _avg?: SkillAvgAggregateInputType
+    _sum?: SkillSumAggregateInputType
+    _min?: SkillMinAggregateInputType
+    _max?: SkillMaxAggregateInputType
+  }
+
+  export type SkillGroupByOutputType = {
+    id: number
+    applicationId: string
+    languageMatrix: JsonValue | null
+    pcMatrix: JsonValue | null
+    _count: SkillCountAggregateOutputType | null
+    _avg: SkillAvgAggregateOutputType | null
+    _sum: SkillSumAggregateOutputType | null
+    _min: SkillMinAggregateOutputType | null
+    _max: SkillMaxAggregateOutputType | null
+  }
+
+  type GetSkillGroupByPayload<T extends SkillGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SkillGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SkillGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SkillGroupByOutputType[P]>
+            : GetScalarType<T[P], SkillGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SkillSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    languageMatrix?: boolean
+    pcMatrix?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["skill"]>
+
+  export type SkillSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    languageMatrix?: boolean
+    pcMatrix?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["skill"]>
+
+  export type SkillSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    languageMatrix?: boolean
+    pcMatrix?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["skill"]>
+
+  export type SkillSelectScalar = {
+    id?: boolean
+    applicationId?: boolean
+    languageMatrix?: boolean
+    pcMatrix?: boolean
+  }
+
+  export type SkillOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "applicationId" | "languageMatrix" | "pcMatrix", ExtArgs["result"]["skill"]>
+  export type SkillInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+  export type SkillIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+  export type SkillIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+
+  export type $SkillPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Skill"
+    objects: {
+      application: Prisma.$ApplicationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      applicationId: string
+      languageMatrix: Prisma.JsonValue | null
+      pcMatrix: Prisma.JsonValue | null
+    }, ExtArgs["result"]["skill"]>
+    composites: {}
+  }
+
+  type SkillGetPayload<S extends boolean | null | undefined | SkillDefaultArgs> = $Result.GetResult<Prisma.$SkillPayload, S>
+
+  type SkillCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SkillFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SkillCountAggregateInputType | true
+    }
+
+  export interface SkillDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Skill'], meta: { name: 'Skill' } }
+    /**
+     * Find zero or one Skill that matches the filter.
+     * @param {SkillFindUniqueArgs} args - Arguments to find a Skill
+     * @example
+     * // Get one Skill
+     * const skill = await prisma.skill.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SkillFindUniqueArgs>(args: SelectSubset<T, SkillFindUniqueArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Skill that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SkillFindUniqueOrThrowArgs} args - Arguments to find a Skill
+     * @example
+     * // Get one Skill
+     * const skill = await prisma.skill.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SkillFindUniqueOrThrowArgs>(args: SelectSubset<T, SkillFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Skill that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillFindFirstArgs} args - Arguments to find a Skill
+     * @example
+     * // Get one Skill
+     * const skill = await prisma.skill.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SkillFindFirstArgs>(args?: SelectSubset<T, SkillFindFirstArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Skill that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillFindFirstOrThrowArgs} args - Arguments to find a Skill
+     * @example
+     * // Get one Skill
+     * const skill = await prisma.skill.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SkillFindFirstOrThrowArgs>(args?: SelectSubset<T, SkillFindFirstOrThrowArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Skills that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Skills
+     * const skills = await prisma.skill.findMany()
+     * 
+     * // Get first 10 Skills
+     * const skills = await prisma.skill.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const skillWithIdOnly = await prisma.skill.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SkillFindManyArgs>(args?: SelectSubset<T, SkillFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Skill.
+     * @param {SkillCreateArgs} args - Arguments to create a Skill.
+     * @example
+     * // Create one Skill
+     * const Skill = await prisma.skill.create({
+     *   data: {
+     *     // ... data to create a Skill
+     *   }
+     * })
+     * 
+     */
+    create<T extends SkillCreateArgs>(args: SelectSubset<T, SkillCreateArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Skills.
+     * @param {SkillCreateManyArgs} args - Arguments to create many Skills.
+     * @example
+     * // Create many Skills
+     * const skill = await prisma.skill.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SkillCreateManyArgs>(args?: SelectSubset<T, SkillCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Skills and returns the data saved in the database.
+     * @param {SkillCreateManyAndReturnArgs} args - Arguments to create many Skills.
+     * @example
+     * // Create many Skills
+     * const skill = await prisma.skill.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Skills and only return the `id`
+     * const skillWithIdOnly = await prisma.skill.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SkillCreateManyAndReturnArgs>(args?: SelectSubset<T, SkillCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Skill.
+     * @param {SkillDeleteArgs} args - Arguments to delete one Skill.
+     * @example
+     * // Delete one Skill
+     * const Skill = await prisma.skill.delete({
+     *   where: {
+     *     // ... filter to delete one Skill
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SkillDeleteArgs>(args: SelectSubset<T, SkillDeleteArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Skill.
+     * @param {SkillUpdateArgs} args - Arguments to update one Skill.
+     * @example
+     * // Update one Skill
+     * const skill = await prisma.skill.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SkillUpdateArgs>(args: SelectSubset<T, SkillUpdateArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Skills.
+     * @param {SkillDeleteManyArgs} args - Arguments to filter Skills to delete.
+     * @example
+     * // Delete a few Skills
+     * const { count } = await prisma.skill.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SkillDeleteManyArgs>(args?: SelectSubset<T, SkillDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Skills.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Skills
+     * const skill = await prisma.skill.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SkillUpdateManyArgs>(args: SelectSubset<T, SkillUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Skills and returns the data updated in the database.
+     * @param {SkillUpdateManyAndReturnArgs} args - Arguments to update many Skills.
+     * @example
+     * // Update many Skills
+     * const skill = await prisma.skill.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Skills and only return the `id`
+     * const skillWithIdOnly = await prisma.skill.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SkillUpdateManyAndReturnArgs>(args: SelectSubset<T, SkillUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Skill.
+     * @param {SkillUpsertArgs} args - Arguments to update or create a Skill.
+     * @example
+     * // Update or create a Skill
+     * const skill = await prisma.skill.upsert({
+     *   create: {
+     *     // ... data to create a Skill
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Skill we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SkillUpsertArgs>(args: SelectSubset<T, SkillUpsertArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Skills.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillCountArgs} args - Arguments to filter Skills to count.
+     * @example
+     * // Count the number of Skills
+     * const count = await prisma.skill.count({
+     *   where: {
+     *     // ... the filter for the Skills we want to count
+     *   }
+     * })
+    **/
+    count<T extends SkillCountArgs>(
+      args?: Subset<T, SkillCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SkillCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Skill.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SkillAggregateArgs>(args: Subset<T, SkillAggregateArgs>): Prisma.PrismaPromise<GetSkillAggregateType<T>>
+
+    /**
+     * Group by Skill.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SkillGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SkillGroupByArgs['orderBy'] }
+        : { orderBy?: SkillGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SkillGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSkillGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Skill model
+   */
+  readonly fields: SkillFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Skill.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SkillClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    application<T extends ApplicationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ApplicationDefaultArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Skill model
+   */
+  interface SkillFieldRefs {
+    readonly id: FieldRef<"Skill", 'Int'>
+    readonly applicationId: FieldRef<"Skill", 'String'>
+    readonly languageMatrix: FieldRef<"Skill", 'Json'>
+    readonly pcMatrix: FieldRef<"Skill", 'Json'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Skill findUnique
+   */
+  export type SkillFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * Filter, which Skill to fetch.
+     */
+    where: SkillWhereUniqueInput
+  }
+
+  /**
+   * Skill findUniqueOrThrow
+   */
+  export type SkillFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * Filter, which Skill to fetch.
+     */
+    where: SkillWhereUniqueInput
+  }
+
+  /**
+   * Skill findFirst
+   */
+  export type SkillFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * Filter, which Skill to fetch.
+     */
+    where?: SkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Skills to fetch.
+     */
+    orderBy?: SkillOrderByWithRelationInput | SkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Skills.
+     */
+    cursor?: SkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Skills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Skills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Skills.
+     */
+    distinct?: SkillScalarFieldEnum | SkillScalarFieldEnum[]
+  }
+
+  /**
+   * Skill findFirstOrThrow
+   */
+  export type SkillFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * Filter, which Skill to fetch.
+     */
+    where?: SkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Skills to fetch.
+     */
+    orderBy?: SkillOrderByWithRelationInput | SkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Skills.
+     */
+    cursor?: SkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Skills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Skills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Skills.
+     */
+    distinct?: SkillScalarFieldEnum | SkillScalarFieldEnum[]
+  }
+
+  /**
+   * Skill findMany
+   */
+  export type SkillFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * Filter, which Skills to fetch.
+     */
+    where?: SkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Skills to fetch.
+     */
+    orderBy?: SkillOrderByWithRelationInput | SkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Skills.
+     */
+    cursor?: SkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Skills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Skills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Skills.
+     */
+    distinct?: SkillScalarFieldEnum | SkillScalarFieldEnum[]
+  }
+
+  /**
+   * Skill create
+   */
+  export type SkillCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Skill.
+     */
+    data: XOR<SkillCreateInput, SkillUncheckedCreateInput>
+  }
+
+  /**
+   * Skill createMany
+   */
+  export type SkillCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Skills.
+     */
+    data: SkillCreateManyInput | SkillCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Skill createManyAndReturn
+   */
+  export type SkillCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * The data used to create many Skills.
+     */
+    data: SkillCreateManyInput | SkillCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Skill update
+   */
+  export type SkillUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Skill.
+     */
+    data: XOR<SkillUpdateInput, SkillUncheckedUpdateInput>
+    /**
+     * Choose, which Skill to update.
+     */
+    where: SkillWhereUniqueInput
+  }
+
+  /**
+   * Skill updateMany
+   */
+  export type SkillUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Skills.
+     */
+    data: XOR<SkillUpdateManyMutationInput, SkillUncheckedUpdateManyInput>
+    /**
+     * Filter which Skills to update
+     */
+    where?: SkillWhereInput
+    /**
+     * Limit how many Skills to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Skill updateManyAndReturn
+   */
+  export type SkillUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * The data used to update Skills.
+     */
+    data: XOR<SkillUpdateManyMutationInput, SkillUncheckedUpdateManyInput>
+    /**
+     * Filter which Skills to update
+     */
+    where?: SkillWhereInput
+    /**
+     * Limit how many Skills to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Skill upsert
+   */
+  export type SkillUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Skill to update in case it exists.
+     */
+    where: SkillWhereUniqueInput
+    /**
+     * In case the Skill found by the `where` argument doesn't exist, create a new Skill with this data.
+     */
+    create: XOR<SkillCreateInput, SkillUncheckedCreateInput>
+    /**
+     * In case the Skill was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SkillUpdateInput, SkillUncheckedUpdateInput>
+  }
+
+  /**
+   * Skill delete
+   */
+  export type SkillDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * Filter which Skill to delete.
+     */
+    where: SkillWhereUniqueInput
+  }
+
+  /**
+   * Skill deleteMany
+   */
+  export type SkillDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Skills to delete
+     */
+    where?: SkillWhereInput
+    /**
+     * Limit how many Skills to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Skill without action
+   */
+  export type SkillDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ExtendedRelative
+   */
+
+  export type AggregateExtendedRelative = {
+    _count: ExtendedRelativeCountAggregateOutputType | null
+    _avg: ExtendedRelativeAvgAggregateOutputType | null
+    _sum: ExtendedRelativeSumAggregateOutputType | null
+    _min: ExtendedRelativeMinAggregateOutputType | null
+    _max: ExtendedRelativeMaxAggregateOutputType | null
+  }
+
+  export type ExtendedRelativeAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ExtendedRelativeSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ExtendedRelativeMinAggregateOutputType = {
+    id: number | null
+    applicationId: string | null
+    relation: string | null
+    fullName: string | null
+    occupation: string | null
+    workplace: string | null
+    contactInfo: string | null
+  }
+
+  export type ExtendedRelativeMaxAggregateOutputType = {
+    id: number | null
+    applicationId: string | null
+    relation: string | null
+    fullName: string | null
+    occupation: string | null
+    workplace: string | null
+    contactInfo: string | null
+  }
+
+  export type ExtendedRelativeCountAggregateOutputType = {
+    id: number
+    applicationId: number
+    relation: number
+    fullName: number
+    occupation: number
+    workplace: number
+    contactInfo: number
+    _all: number
+  }
+
+
+  export type ExtendedRelativeAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type ExtendedRelativeSumAggregateInputType = {
+    id?: true
+  }
+
+  export type ExtendedRelativeMinAggregateInputType = {
+    id?: true
+    applicationId?: true
+    relation?: true
+    fullName?: true
+    occupation?: true
+    workplace?: true
+    contactInfo?: true
+  }
+
+  export type ExtendedRelativeMaxAggregateInputType = {
+    id?: true
+    applicationId?: true
+    relation?: true
+    fullName?: true
+    occupation?: true
+    workplace?: true
+    contactInfo?: true
+  }
+
+  export type ExtendedRelativeCountAggregateInputType = {
+    id?: true
+    applicationId?: true
+    relation?: true
+    fullName?: true
+    occupation?: true
+    workplace?: true
+    contactInfo?: true
+    _all?: true
+  }
+
+  export type ExtendedRelativeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ExtendedRelative to aggregate.
+     */
+    where?: ExtendedRelativeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ExtendedRelatives to fetch.
+     */
+    orderBy?: ExtendedRelativeOrderByWithRelationInput | ExtendedRelativeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ExtendedRelativeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ExtendedRelatives from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ExtendedRelatives.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ExtendedRelatives
+    **/
+    _count?: true | ExtendedRelativeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ExtendedRelativeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ExtendedRelativeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ExtendedRelativeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ExtendedRelativeMaxAggregateInputType
+  }
+
+  export type GetExtendedRelativeAggregateType<T extends ExtendedRelativeAggregateArgs> = {
+        [P in keyof T & keyof AggregateExtendedRelative]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateExtendedRelative[P]>
+      : GetScalarType<T[P], AggregateExtendedRelative[P]>
+  }
+
+
+
+
+  export type ExtendedRelativeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ExtendedRelativeWhereInput
+    orderBy?: ExtendedRelativeOrderByWithAggregationInput | ExtendedRelativeOrderByWithAggregationInput[]
+    by: ExtendedRelativeScalarFieldEnum[] | ExtendedRelativeScalarFieldEnum
+    having?: ExtendedRelativeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ExtendedRelativeCountAggregateInputType | true
+    _avg?: ExtendedRelativeAvgAggregateInputType
+    _sum?: ExtendedRelativeSumAggregateInputType
+    _min?: ExtendedRelativeMinAggregateInputType
+    _max?: ExtendedRelativeMaxAggregateInputType
+  }
+
+  export type ExtendedRelativeGroupByOutputType = {
+    id: number
+    applicationId: string
+    relation: string | null
+    fullName: string | null
+    occupation: string | null
+    workplace: string | null
+    contactInfo: string | null
+    _count: ExtendedRelativeCountAggregateOutputType | null
+    _avg: ExtendedRelativeAvgAggregateOutputType | null
+    _sum: ExtendedRelativeSumAggregateOutputType | null
+    _min: ExtendedRelativeMinAggregateOutputType | null
+    _max: ExtendedRelativeMaxAggregateOutputType | null
+  }
+
+  type GetExtendedRelativeGroupByPayload<T extends ExtendedRelativeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ExtendedRelativeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ExtendedRelativeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ExtendedRelativeGroupByOutputType[P]>
+            : GetScalarType<T[P], ExtendedRelativeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ExtendedRelativeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    relation?: boolean
+    fullName?: boolean
+    occupation?: boolean
+    workplace?: boolean
+    contactInfo?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["extendedRelative"]>
+
+  export type ExtendedRelativeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    relation?: boolean
+    fullName?: boolean
+    occupation?: boolean
+    workplace?: boolean
+    contactInfo?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["extendedRelative"]>
+
+  export type ExtendedRelativeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    relation?: boolean
+    fullName?: boolean
+    occupation?: boolean
+    workplace?: boolean
+    contactInfo?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["extendedRelative"]>
+
+  export type ExtendedRelativeSelectScalar = {
+    id?: boolean
+    applicationId?: boolean
+    relation?: boolean
+    fullName?: boolean
+    occupation?: boolean
+    workplace?: boolean
+    contactInfo?: boolean
+  }
+
+  export type ExtendedRelativeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "applicationId" | "relation" | "fullName" | "occupation" | "workplace" | "contactInfo", ExtArgs["result"]["extendedRelative"]>
+  export type ExtendedRelativeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+  export type ExtendedRelativeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+  export type ExtendedRelativeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+
+  export type $ExtendedRelativePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ExtendedRelative"
+    objects: {
+      application: Prisma.$ApplicationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      applicationId: string
+      relation: string | null
+      fullName: string | null
+      occupation: string | null
+      workplace: string | null
+      contactInfo: string | null
+    }, ExtArgs["result"]["extendedRelative"]>
+    composites: {}
+  }
+
+  type ExtendedRelativeGetPayload<S extends boolean | null | undefined | ExtendedRelativeDefaultArgs> = $Result.GetResult<Prisma.$ExtendedRelativePayload, S>
+
+  type ExtendedRelativeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ExtendedRelativeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ExtendedRelativeCountAggregateInputType | true
+    }
+
+  export interface ExtendedRelativeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ExtendedRelative'], meta: { name: 'ExtendedRelative' } }
+    /**
+     * Find zero or one ExtendedRelative that matches the filter.
+     * @param {ExtendedRelativeFindUniqueArgs} args - Arguments to find a ExtendedRelative
+     * @example
+     * // Get one ExtendedRelative
+     * const extendedRelative = await prisma.extendedRelative.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ExtendedRelativeFindUniqueArgs>(args: SelectSubset<T, ExtendedRelativeFindUniqueArgs<ExtArgs>>): Prisma__ExtendedRelativeClient<$Result.GetResult<Prisma.$ExtendedRelativePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ExtendedRelative that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ExtendedRelativeFindUniqueOrThrowArgs} args - Arguments to find a ExtendedRelative
+     * @example
+     * // Get one ExtendedRelative
+     * const extendedRelative = await prisma.extendedRelative.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ExtendedRelativeFindUniqueOrThrowArgs>(args: SelectSubset<T, ExtendedRelativeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ExtendedRelativeClient<$Result.GetResult<Prisma.$ExtendedRelativePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ExtendedRelative that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExtendedRelativeFindFirstArgs} args - Arguments to find a ExtendedRelative
+     * @example
+     * // Get one ExtendedRelative
+     * const extendedRelative = await prisma.extendedRelative.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ExtendedRelativeFindFirstArgs>(args?: SelectSubset<T, ExtendedRelativeFindFirstArgs<ExtArgs>>): Prisma__ExtendedRelativeClient<$Result.GetResult<Prisma.$ExtendedRelativePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ExtendedRelative that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExtendedRelativeFindFirstOrThrowArgs} args - Arguments to find a ExtendedRelative
+     * @example
+     * // Get one ExtendedRelative
+     * const extendedRelative = await prisma.extendedRelative.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ExtendedRelativeFindFirstOrThrowArgs>(args?: SelectSubset<T, ExtendedRelativeFindFirstOrThrowArgs<ExtArgs>>): Prisma__ExtendedRelativeClient<$Result.GetResult<Prisma.$ExtendedRelativePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ExtendedRelatives that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExtendedRelativeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ExtendedRelatives
+     * const extendedRelatives = await prisma.extendedRelative.findMany()
+     * 
+     * // Get first 10 ExtendedRelatives
+     * const extendedRelatives = await prisma.extendedRelative.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const extendedRelativeWithIdOnly = await prisma.extendedRelative.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ExtendedRelativeFindManyArgs>(args?: SelectSubset<T, ExtendedRelativeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExtendedRelativePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ExtendedRelative.
+     * @param {ExtendedRelativeCreateArgs} args - Arguments to create a ExtendedRelative.
+     * @example
+     * // Create one ExtendedRelative
+     * const ExtendedRelative = await prisma.extendedRelative.create({
+     *   data: {
+     *     // ... data to create a ExtendedRelative
+     *   }
+     * })
+     * 
+     */
+    create<T extends ExtendedRelativeCreateArgs>(args: SelectSubset<T, ExtendedRelativeCreateArgs<ExtArgs>>): Prisma__ExtendedRelativeClient<$Result.GetResult<Prisma.$ExtendedRelativePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ExtendedRelatives.
+     * @param {ExtendedRelativeCreateManyArgs} args - Arguments to create many ExtendedRelatives.
+     * @example
+     * // Create many ExtendedRelatives
+     * const extendedRelative = await prisma.extendedRelative.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ExtendedRelativeCreateManyArgs>(args?: SelectSubset<T, ExtendedRelativeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ExtendedRelatives and returns the data saved in the database.
+     * @param {ExtendedRelativeCreateManyAndReturnArgs} args - Arguments to create many ExtendedRelatives.
+     * @example
+     * // Create many ExtendedRelatives
+     * const extendedRelative = await prisma.extendedRelative.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ExtendedRelatives and only return the `id`
+     * const extendedRelativeWithIdOnly = await prisma.extendedRelative.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ExtendedRelativeCreateManyAndReturnArgs>(args?: SelectSubset<T, ExtendedRelativeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExtendedRelativePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ExtendedRelative.
+     * @param {ExtendedRelativeDeleteArgs} args - Arguments to delete one ExtendedRelative.
+     * @example
+     * // Delete one ExtendedRelative
+     * const ExtendedRelative = await prisma.extendedRelative.delete({
+     *   where: {
+     *     // ... filter to delete one ExtendedRelative
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ExtendedRelativeDeleteArgs>(args: SelectSubset<T, ExtendedRelativeDeleteArgs<ExtArgs>>): Prisma__ExtendedRelativeClient<$Result.GetResult<Prisma.$ExtendedRelativePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ExtendedRelative.
+     * @param {ExtendedRelativeUpdateArgs} args - Arguments to update one ExtendedRelative.
+     * @example
+     * // Update one ExtendedRelative
+     * const extendedRelative = await prisma.extendedRelative.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ExtendedRelativeUpdateArgs>(args: SelectSubset<T, ExtendedRelativeUpdateArgs<ExtArgs>>): Prisma__ExtendedRelativeClient<$Result.GetResult<Prisma.$ExtendedRelativePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ExtendedRelatives.
+     * @param {ExtendedRelativeDeleteManyArgs} args - Arguments to filter ExtendedRelatives to delete.
+     * @example
+     * // Delete a few ExtendedRelatives
+     * const { count } = await prisma.extendedRelative.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ExtendedRelativeDeleteManyArgs>(args?: SelectSubset<T, ExtendedRelativeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ExtendedRelatives.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExtendedRelativeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ExtendedRelatives
+     * const extendedRelative = await prisma.extendedRelative.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ExtendedRelativeUpdateManyArgs>(args: SelectSubset<T, ExtendedRelativeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ExtendedRelatives and returns the data updated in the database.
+     * @param {ExtendedRelativeUpdateManyAndReturnArgs} args - Arguments to update many ExtendedRelatives.
+     * @example
+     * // Update many ExtendedRelatives
+     * const extendedRelative = await prisma.extendedRelative.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ExtendedRelatives and only return the `id`
+     * const extendedRelativeWithIdOnly = await prisma.extendedRelative.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ExtendedRelativeUpdateManyAndReturnArgs>(args: SelectSubset<T, ExtendedRelativeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExtendedRelativePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ExtendedRelative.
+     * @param {ExtendedRelativeUpsertArgs} args - Arguments to update or create a ExtendedRelative.
+     * @example
+     * // Update or create a ExtendedRelative
+     * const extendedRelative = await prisma.extendedRelative.upsert({
+     *   create: {
+     *     // ... data to create a ExtendedRelative
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ExtendedRelative we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ExtendedRelativeUpsertArgs>(args: SelectSubset<T, ExtendedRelativeUpsertArgs<ExtArgs>>): Prisma__ExtendedRelativeClient<$Result.GetResult<Prisma.$ExtendedRelativePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ExtendedRelatives.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExtendedRelativeCountArgs} args - Arguments to filter ExtendedRelatives to count.
+     * @example
+     * // Count the number of ExtendedRelatives
+     * const count = await prisma.extendedRelative.count({
+     *   where: {
+     *     // ... the filter for the ExtendedRelatives we want to count
+     *   }
+     * })
+    **/
+    count<T extends ExtendedRelativeCountArgs>(
+      args?: Subset<T, ExtendedRelativeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ExtendedRelativeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ExtendedRelative.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExtendedRelativeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ExtendedRelativeAggregateArgs>(args: Subset<T, ExtendedRelativeAggregateArgs>): Prisma.PrismaPromise<GetExtendedRelativeAggregateType<T>>
+
+    /**
+     * Group by ExtendedRelative.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExtendedRelativeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ExtendedRelativeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ExtendedRelativeGroupByArgs['orderBy'] }
+        : { orderBy?: ExtendedRelativeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ExtendedRelativeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetExtendedRelativeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ExtendedRelative model
+   */
+  readonly fields: ExtendedRelativeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ExtendedRelative.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ExtendedRelativeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    application<T extends ApplicationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ApplicationDefaultArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ExtendedRelative model
+   */
+  interface ExtendedRelativeFieldRefs {
+    readonly id: FieldRef<"ExtendedRelative", 'Int'>
+    readonly applicationId: FieldRef<"ExtendedRelative", 'String'>
+    readonly relation: FieldRef<"ExtendedRelative", 'String'>
+    readonly fullName: FieldRef<"ExtendedRelative", 'String'>
+    readonly occupation: FieldRef<"ExtendedRelative", 'String'>
+    readonly workplace: FieldRef<"ExtendedRelative", 'String'>
+    readonly contactInfo: FieldRef<"ExtendedRelative", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ExtendedRelative findUnique
+   */
+  export type ExtendedRelativeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeInclude<ExtArgs> | null
+    /**
+     * Filter, which ExtendedRelative to fetch.
+     */
+    where: ExtendedRelativeWhereUniqueInput
+  }
+
+  /**
+   * ExtendedRelative findUniqueOrThrow
+   */
+  export type ExtendedRelativeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeInclude<ExtArgs> | null
+    /**
+     * Filter, which ExtendedRelative to fetch.
+     */
+    where: ExtendedRelativeWhereUniqueInput
+  }
+
+  /**
+   * ExtendedRelative findFirst
+   */
+  export type ExtendedRelativeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeInclude<ExtArgs> | null
+    /**
+     * Filter, which ExtendedRelative to fetch.
+     */
+    where?: ExtendedRelativeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ExtendedRelatives to fetch.
+     */
+    orderBy?: ExtendedRelativeOrderByWithRelationInput | ExtendedRelativeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ExtendedRelatives.
+     */
+    cursor?: ExtendedRelativeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ExtendedRelatives from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ExtendedRelatives.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ExtendedRelatives.
+     */
+    distinct?: ExtendedRelativeScalarFieldEnum | ExtendedRelativeScalarFieldEnum[]
+  }
+
+  /**
+   * ExtendedRelative findFirstOrThrow
+   */
+  export type ExtendedRelativeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeInclude<ExtArgs> | null
+    /**
+     * Filter, which ExtendedRelative to fetch.
+     */
+    where?: ExtendedRelativeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ExtendedRelatives to fetch.
+     */
+    orderBy?: ExtendedRelativeOrderByWithRelationInput | ExtendedRelativeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ExtendedRelatives.
+     */
+    cursor?: ExtendedRelativeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ExtendedRelatives from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ExtendedRelatives.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ExtendedRelatives.
+     */
+    distinct?: ExtendedRelativeScalarFieldEnum | ExtendedRelativeScalarFieldEnum[]
+  }
+
+  /**
+   * ExtendedRelative findMany
+   */
+  export type ExtendedRelativeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeInclude<ExtArgs> | null
+    /**
+     * Filter, which ExtendedRelatives to fetch.
+     */
+    where?: ExtendedRelativeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ExtendedRelatives to fetch.
+     */
+    orderBy?: ExtendedRelativeOrderByWithRelationInput | ExtendedRelativeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ExtendedRelatives.
+     */
+    cursor?: ExtendedRelativeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ExtendedRelatives from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ExtendedRelatives.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ExtendedRelatives.
+     */
+    distinct?: ExtendedRelativeScalarFieldEnum | ExtendedRelativeScalarFieldEnum[]
+  }
+
+  /**
+   * ExtendedRelative create
+   */
+  export type ExtendedRelativeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ExtendedRelative.
+     */
+    data: XOR<ExtendedRelativeCreateInput, ExtendedRelativeUncheckedCreateInput>
+  }
+
+  /**
+   * ExtendedRelative createMany
+   */
+  export type ExtendedRelativeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ExtendedRelatives.
+     */
+    data: ExtendedRelativeCreateManyInput | ExtendedRelativeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ExtendedRelative createManyAndReturn
+   */
+  export type ExtendedRelativeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * The data used to create many ExtendedRelatives.
+     */
+    data: ExtendedRelativeCreateManyInput | ExtendedRelativeCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ExtendedRelative update
+   */
+  export type ExtendedRelativeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ExtendedRelative.
+     */
+    data: XOR<ExtendedRelativeUpdateInput, ExtendedRelativeUncheckedUpdateInput>
+    /**
+     * Choose, which ExtendedRelative to update.
+     */
+    where: ExtendedRelativeWhereUniqueInput
+  }
+
+  /**
+   * ExtendedRelative updateMany
+   */
+  export type ExtendedRelativeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ExtendedRelatives.
+     */
+    data: XOR<ExtendedRelativeUpdateManyMutationInput, ExtendedRelativeUncheckedUpdateManyInput>
+    /**
+     * Filter which ExtendedRelatives to update
+     */
+    where?: ExtendedRelativeWhereInput
+    /**
+     * Limit how many ExtendedRelatives to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ExtendedRelative updateManyAndReturn
+   */
+  export type ExtendedRelativeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * The data used to update ExtendedRelatives.
+     */
+    data: XOR<ExtendedRelativeUpdateManyMutationInput, ExtendedRelativeUncheckedUpdateManyInput>
+    /**
+     * Filter which ExtendedRelatives to update
+     */
+    where?: ExtendedRelativeWhereInput
+    /**
+     * Limit how many ExtendedRelatives to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ExtendedRelative upsert
+   */
+  export type ExtendedRelativeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ExtendedRelative to update in case it exists.
+     */
+    where: ExtendedRelativeWhereUniqueInput
+    /**
+     * In case the ExtendedRelative found by the `where` argument doesn't exist, create a new ExtendedRelative with this data.
+     */
+    create: XOR<ExtendedRelativeCreateInput, ExtendedRelativeUncheckedCreateInput>
+    /**
+     * In case the ExtendedRelative was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ExtendedRelativeUpdateInput, ExtendedRelativeUncheckedUpdateInput>
+  }
+
+  /**
+   * ExtendedRelative delete
+   */
+  export type ExtendedRelativeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeInclude<ExtArgs> | null
+    /**
+     * Filter which ExtendedRelative to delete.
+     */
+    where: ExtendedRelativeWhereUniqueInput
+  }
+
+  /**
+   * ExtendedRelative deleteMany
+   */
+  export type ExtendedRelativeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ExtendedRelatives to delete
+     */
+    where?: ExtendedRelativeWhereInput
+    /**
+     * Limit how many ExtendedRelatives to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ExtendedRelative without action
+   */
+  export type ExtendedRelativeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExtendedRelative
+     */
+    select?: ExtendedRelativeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExtendedRelative
+     */
+    omit?: ExtendedRelativeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExtendedRelativeInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ReferencePerson
+   */
+
+  export type AggregateReferencePerson = {
+    _count: ReferencePersonCountAggregateOutputType | null
+    _avg: ReferencePersonAvgAggregateOutputType | null
+    _sum: ReferencePersonSumAggregateOutputType | null
+    _min: ReferencePersonMinAggregateOutputType | null
+    _max: ReferencePersonMaxAggregateOutputType | null
+  }
+
+  export type ReferencePersonAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ReferencePersonSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ReferencePersonMinAggregateOutputType = {
+    id: number | null
+    applicationId: string | null
+    fullName: string | null
+    occupation: string | null
+    workplace: string | null
+    contactInfo: string | null
+  }
+
+  export type ReferencePersonMaxAggregateOutputType = {
+    id: number | null
+    applicationId: string | null
+    fullName: string | null
+    occupation: string | null
+    workplace: string | null
+    contactInfo: string | null
+  }
+
+  export type ReferencePersonCountAggregateOutputType = {
+    id: number
+    applicationId: number
+    fullName: number
+    occupation: number
+    workplace: number
+    contactInfo: number
+    _all: number
+  }
+
+
+  export type ReferencePersonAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type ReferencePersonSumAggregateInputType = {
+    id?: true
+  }
+
+  export type ReferencePersonMinAggregateInputType = {
+    id?: true
+    applicationId?: true
+    fullName?: true
+    occupation?: true
+    workplace?: true
+    contactInfo?: true
+  }
+
+  export type ReferencePersonMaxAggregateInputType = {
+    id?: true
+    applicationId?: true
+    fullName?: true
+    occupation?: true
+    workplace?: true
+    contactInfo?: true
+  }
+
+  export type ReferencePersonCountAggregateInputType = {
+    id?: true
+    applicationId?: true
+    fullName?: true
+    occupation?: true
+    workplace?: true
+    contactInfo?: true
+    _all?: true
+  }
+
+  export type ReferencePersonAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ReferencePerson to aggregate.
+     */
+    where?: ReferencePersonWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ReferencePeople to fetch.
+     */
+    orderBy?: ReferencePersonOrderByWithRelationInput | ReferencePersonOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ReferencePersonWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ReferencePeople from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ReferencePeople.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ReferencePeople
+    **/
+    _count?: true | ReferencePersonCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ReferencePersonAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ReferencePersonSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ReferencePersonMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ReferencePersonMaxAggregateInputType
+  }
+
+  export type GetReferencePersonAggregateType<T extends ReferencePersonAggregateArgs> = {
+        [P in keyof T & keyof AggregateReferencePerson]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateReferencePerson[P]>
+      : GetScalarType<T[P], AggregateReferencePerson[P]>
+  }
+
+
+
+
+  export type ReferencePersonGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReferencePersonWhereInput
+    orderBy?: ReferencePersonOrderByWithAggregationInput | ReferencePersonOrderByWithAggregationInput[]
+    by: ReferencePersonScalarFieldEnum[] | ReferencePersonScalarFieldEnum
+    having?: ReferencePersonScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ReferencePersonCountAggregateInputType | true
+    _avg?: ReferencePersonAvgAggregateInputType
+    _sum?: ReferencePersonSumAggregateInputType
+    _min?: ReferencePersonMinAggregateInputType
+    _max?: ReferencePersonMaxAggregateInputType
+  }
+
+  export type ReferencePersonGroupByOutputType = {
+    id: number
+    applicationId: string
+    fullName: string | null
+    occupation: string | null
+    workplace: string | null
+    contactInfo: string | null
+    _count: ReferencePersonCountAggregateOutputType | null
+    _avg: ReferencePersonAvgAggregateOutputType | null
+    _sum: ReferencePersonSumAggregateOutputType | null
+    _min: ReferencePersonMinAggregateOutputType | null
+    _max: ReferencePersonMaxAggregateOutputType | null
+  }
+
+  type GetReferencePersonGroupByPayload<T extends ReferencePersonGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ReferencePersonGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ReferencePersonGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ReferencePersonGroupByOutputType[P]>
+            : GetScalarType<T[P], ReferencePersonGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ReferencePersonSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    fullName?: boolean
+    occupation?: boolean
+    workplace?: boolean
+    contactInfo?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["referencePerson"]>
+
+  export type ReferencePersonSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    fullName?: boolean
+    occupation?: boolean
+    workplace?: boolean
+    contactInfo?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["referencePerson"]>
+
+  export type ReferencePersonSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    applicationId?: boolean
+    fullName?: boolean
+    occupation?: boolean
+    workplace?: boolean
+    contactInfo?: boolean
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["referencePerson"]>
+
+  export type ReferencePersonSelectScalar = {
+    id?: boolean
+    applicationId?: boolean
+    fullName?: boolean
+    occupation?: boolean
+    workplace?: boolean
+    contactInfo?: boolean
+  }
+
+  export type ReferencePersonOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "applicationId" | "fullName" | "occupation" | "workplace" | "contactInfo", ExtArgs["result"]["referencePerson"]>
+  export type ReferencePersonInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+  export type ReferencePersonIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+  export type ReferencePersonIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationDefaultArgs<ExtArgs>
+  }
+
+  export type $ReferencePersonPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ReferencePerson"
+    objects: {
+      application: Prisma.$ApplicationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      applicationId: string
+      fullName: string | null
+      occupation: string | null
+      workplace: string | null
+      contactInfo: string | null
+    }, ExtArgs["result"]["referencePerson"]>
+    composites: {}
+  }
+
+  type ReferencePersonGetPayload<S extends boolean | null | undefined | ReferencePersonDefaultArgs> = $Result.GetResult<Prisma.$ReferencePersonPayload, S>
+
+  type ReferencePersonCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ReferencePersonFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ReferencePersonCountAggregateInputType | true
+    }
+
+  export interface ReferencePersonDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ReferencePerson'], meta: { name: 'ReferencePerson' } }
+    /**
+     * Find zero or one ReferencePerson that matches the filter.
+     * @param {ReferencePersonFindUniqueArgs} args - Arguments to find a ReferencePerson
+     * @example
+     * // Get one ReferencePerson
+     * const referencePerson = await prisma.referencePerson.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ReferencePersonFindUniqueArgs>(args: SelectSubset<T, ReferencePersonFindUniqueArgs<ExtArgs>>): Prisma__ReferencePersonClient<$Result.GetResult<Prisma.$ReferencePersonPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ReferencePerson that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ReferencePersonFindUniqueOrThrowArgs} args - Arguments to find a ReferencePerson
+     * @example
+     * // Get one ReferencePerson
+     * const referencePerson = await prisma.referencePerson.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ReferencePersonFindUniqueOrThrowArgs>(args: SelectSubset<T, ReferencePersonFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ReferencePersonClient<$Result.GetResult<Prisma.$ReferencePersonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ReferencePerson that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencePersonFindFirstArgs} args - Arguments to find a ReferencePerson
+     * @example
+     * // Get one ReferencePerson
+     * const referencePerson = await prisma.referencePerson.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ReferencePersonFindFirstArgs>(args?: SelectSubset<T, ReferencePersonFindFirstArgs<ExtArgs>>): Prisma__ReferencePersonClient<$Result.GetResult<Prisma.$ReferencePersonPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ReferencePerson that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencePersonFindFirstOrThrowArgs} args - Arguments to find a ReferencePerson
+     * @example
+     * // Get one ReferencePerson
+     * const referencePerson = await prisma.referencePerson.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ReferencePersonFindFirstOrThrowArgs>(args?: SelectSubset<T, ReferencePersonFindFirstOrThrowArgs<ExtArgs>>): Prisma__ReferencePersonClient<$Result.GetResult<Prisma.$ReferencePersonPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ReferencePeople that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencePersonFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ReferencePeople
+     * const referencePeople = await prisma.referencePerson.findMany()
+     * 
+     * // Get first 10 ReferencePeople
+     * const referencePeople = await prisma.referencePerson.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const referencePersonWithIdOnly = await prisma.referencePerson.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ReferencePersonFindManyArgs>(args?: SelectSubset<T, ReferencePersonFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferencePersonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ReferencePerson.
+     * @param {ReferencePersonCreateArgs} args - Arguments to create a ReferencePerson.
+     * @example
+     * // Create one ReferencePerson
+     * const ReferencePerson = await prisma.referencePerson.create({
+     *   data: {
+     *     // ... data to create a ReferencePerson
+     *   }
+     * })
+     * 
+     */
+    create<T extends ReferencePersonCreateArgs>(args: SelectSubset<T, ReferencePersonCreateArgs<ExtArgs>>): Prisma__ReferencePersonClient<$Result.GetResult<Prisma.$ReferencePersonPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ReferencePeople.
+     * @param {ReferencePersonCreateManyArgs} args - Arguments to create many ReferencePeople.
+     * @example
+     * // Create many ReferencePeople
+     * const referencePerson = await prisma.referencePerson.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ReferencePersonCreateManyArgs>(args?: SelectSubset<T, ReferencePersonCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ReferencePeople and returns the data saved in the database.
+     * @param {ReferencePersonCreateManyAndReturnArgs} args - Arguments to create many ReferencePeople.
+     * @example
+     * // Create many ReferencePeople
+     * const referencePerson = await prisma.referencePerson.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ReferencePeople and only return the `id`
+     * const referencePersonWithIdOnly = await prisma.referencePerson.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ReferencePersonCreateManyAndReturnArgs>(args?: SelectSubset<T, ReferencePersonCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferencePersonPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ReferencePerson.
+     * @param {ReferencePersonDeleteArgs} args - Arguments to delete one ReferencePerson.
+     * @example
+     * // Delete one ReferencePerson
+     * const ReferencePerson = await prisma.referencePerson.delete({
+     *   where: {
+     *     // ... filter to delete one ReferencePerson
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ReferencePersonDeleteArgs>(args: SelectSubset<T, ReferencePersonDeleteArgs<ExtArgs>>): Prisma__ReferencePersonClient<$Result.GetResult<Prisma.$ReferencePersonPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ReferencePerson.
+     * @param {ReferencePersonUpdateArgs} args - Arguments to update one ReferencePerson.
+     * @example
+     * // Update one ReferencePerson
+     * const referencePerson = await prisma.referencePerson.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ReferencePersonUpdateArgs>(args: SelectSubset<T, ReferencePersonUpdateArgs<ExtArgs>>): Prisma__ReferencePersonClient<$Result.GetResult<Prisma.$ReferencePersonPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ReferencePeople.
+     * @param {ReferencePersonDeleteManyArgs} args - Arguments to filter ReferencePeople to delete.
+     * @example
+     * // Delete a few ReferencePeople
+     * const { count } = await prisma.referencePerson.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ReferencePersonDeleteManyArgs>(args?: SelectSubset<T, ReferencePersonDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ReferencePeople.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencePersonUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ReferencePeople
+     * const referencePerson = await prisma.referencePerson.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ReferencePersonUpdateManyArgs>(args: SelectSubset<T, ReferencePersonUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ReferencePeople and returns the data updated in the database.
+     * @param {ReferencePersonUpdateManyAndReturnArgs} args - Arguments to update many ReferencePeople.
+     * @example
+     * // Update many ReferencePeople
+     * const referencePerson = await prisma.referencePerson.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ReferencePeople and only return the `id`
+     * const referencePersonWithIdOnly = await prisma.referencePerson.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ReferencePersonUpdateManyAndReturnArgs>(args: SelectSubset<T, ReferencePersonUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferencePersonPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ReferencePerson.
+     * @param {ReferencePersonUpsertArgs} args - Arguments to update or create a ReferencePerson.
+     * @example
+     * // Update or create a ReferencePerson
+     * const referencePerson = await prisma.referencePerson.upsert({
+     *   create: {
+     *     // ... data to create a ReferencePerson
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ReferencePerson we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ReferencePersonUpsertArgs>(args: SelectSubset<T, ReferencePersonUpsertArgs<ExtArgs>>): Prisma__ReferencePersonClient<$Result.GetResult<Prisma.$ReferencePersonPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ReferencePeople.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencePersonCountArgs} args - Arguments to filter ReferencePeople to count.
+     * @example
+     * // Count the number of ReferencePeople
+     * const count = await prisma.referencePerson.count({
+     *   where: {
+     *     // ... the filter for the ReferencePeople we want to count
+     *   }
+     * })
+    **/
+    count<T extends ReferencePersonCountArgs>(
+      args?: Subset<T, ReferencePersonCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ReferencePersonCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ReferencePerson.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencePersonAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ReferencePersonAggregateArgs>(args: Subset<T, ReferencePersonAggregateArgs>): Prisma.PrismaPromise<GetReferencePersonAggregateType<T>>
+
+    /**
+     * Group by ReferencePerson.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferencePersonGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ReferencePersonGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ReferencePersonGroupByArgs['orderBy'] }
+        : { orderBy?: ReferencePersonGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ReferencePersonGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetReferencePersonGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ReferencePerson model
+   */
+  readonly fields: ReferencePersonFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ReferencePerson.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ReferencePersonClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    application<T extends ApplicationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ApplicationDefaultArgs<ExtArgs>>): Prisma__ApplicationClient<$Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ReferencePerson model
+   */
+  interface ReferencePersonFieldRefs {
+    readonly id: FieldRef<"ReferencePerson", 'Int'>
+    readonly applicationId: FieldRef<"ReferencePerson", 'String'>
+    readonly fullName: FieldRef<"ReferencePerson", 'String'>
+    readonly occupation: FieldRef<"ReferencePerson", 'String'>
+    readonly workplace: FieldRef<"ReferencePerson", 'String'>
+    readonly contactInfo: FieldRef<"ReferencePerson", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ReferencePerson findUnique
+   */
+  export type ReferencePersonFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonInclude<ExtArgs> | null
+    /**
+     * Filter, which ReferencePerson to fetch.
+     */
+    where: ReferencePersonWhereUniqueInput
+  }
+
+  /**
+   * ReferencePerson findUniqueOrThrow
+   */
+  export type ReferencePersonFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonInclude<ExtArgs> | null
+    /**
+     * Filter, which ReferencePerson to fetch.
+     */
+    where: ReferencePersonWhereUniqueInput
+  }
+
+  /**
+   * ReferencePerson findFirst
+   */
+  export type ReferencePersonFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonInclude<ExtArgs> | null
+    /**
+     * Filter, which ReferencePerson to fetch.
+     */
+    where?: ReferencePersonWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ReferencePeople to fetch.
+     */
+    orderBy?: ReferencePersonOrderByWithRelationInput | ReferencePersonOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ReferencePeople.
+     */
+    cursor?: ReferencePersonWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ReferencePeople from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ReferencePeople.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ReferencePeople.
+     */
+    distinct?: ReferencePersonScalarFieldEnum | ReferencePersonScalarFieldEnum[]
+  }
+
+  /**
+   * ReferencePerson findFirstOrThrow
+   */
+  export type ReferencePersonFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonInclude<ExtArgs> | null
+    /**
+     * Filter, which ReferencePerson to fetch.
+     */
+    where?: ReferencePersonWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ReferencePeople to fetch.
+     */
+    orderBy?: ReferencePersonOrderByWithRelationInput | ReferencePersonOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ReferencePeople.
+     */
+    cursor?: ReferencePersonWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ReferencePeople from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ReferencePeople.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ReferencePeople.
+     */
+    distinct?: ReferencePersonScalarFieldEnum | ReferencePersonScalarFieldEnum[]
+  }
+
+  /**
+   * ReferencePerson findMany
+   */
+  export type ReferencePersonFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonInclude<ExtArgs> | null
+    /**
+     * Filter, which ReferencePeople to fetch.
+     */
+    where?: ReferencePersonWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ReferencePeople to fetch.
+     */
+    orderBy?: ReferencePersonOrderByWithRelationInput | ReferencePersonOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ReferencePeople.
+     */
+    cursor?: ReferencePersonWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ReferencePeople from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ReferencePeople.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ReferencePeople.
+     */
+    distinct?: ReferencePersonScalarFieldEnum | ReferencePersonScalarFieldEnum[]
+  }
+
+  /**
+   * ReferencePerson create
+   */
+  export type ReferencePersonCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ReferencePerson.
+     */
+    data: XOR<ReferencePersonCreateInput, ReferencePersonUncheckedCreateInput>
+  }
+
+  /**
+   * ReferencePerson createMany
+   */
+  export type ReferencePersonCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ReferencePeople.
+     */
+    data: ReferencePersonCreateManyInput | ReferencePersonCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ReferencePerson createManyAndReturn
+   */
+  export type ReferencePersonCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * The data used to create many ReferencePeople.
+     */
+    data: ReferencePersonCreateManyInput | ReferencePersonCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ReferencePerson update
+   */
+  export type ReferencePersonUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ReferencePerson.
+     */
+    data: XOR<ReferencePersonUpdateInput, ReferencePersonUncheckedUpdateInput>
+    /**
+     * Choose, which ReferencePerson to update.
+     */
+    where: ReferencePersonWhereUniqueInput
+  }
+
+  /**
+   * ReferencePerson updateMany
+   */
+  export type ReferencePersonUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ReferencePeople.
+     */
+    data: XOR<ReferencePersonUpdateManyMutationInput, ReferencePersonUncheckedUpdateManyInput>
+    /**
+     * Filter which ReferencePeople to update
+     */
+    where?: ReferencePersonWhereInput
+    /**
+     * Limit how many ReferencePeople to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ReferencePerson updateManyAndReturn
+   */
+  export type ReferencePersonUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * The data used to update ReferencePeople.
+     */
+    data: XOR<ReferencePersonUpdateManyMutationInput, ReferencePersonUncheckedUpdateManyInput>
+    /**
+     * Filter which ReferencePeople to update
+     */
+    where?: ReferencePersonWhereInput
+    /**
+     * Limit how many ReferencePeople to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ReferencePerson upsert
+   */
+  export type ReferencePersonUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ReferencePerson to update in case it exists.
+     */
+    where: ReferencePersonWhereUniqueInput
+    /**
+     * In case the ReferencePerson found by the `where` argument doesn't exist, create a new ReferencePerson with this data.
+     */
+    create: XOR<ReferencePersonCreateInput, ReferencePersonUncheckedCreateInput>
+    /**
+     * In case the ReferencePerson was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ReferencePersonUpdateInput, ReferencePersonUncheckedUpdateInput>
+  }
+
+  /**
+   * ReferencePerson delete
+   */
+  export type ReferencePersonDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonInclude<ExtArgs> | null
+    /**
+     * Filter which ReferencePerson to delete.
+     */
+    where: ReferencePersonWhereUniqueInput
+  }
+
+  /**
+   * ReferencePerson deleteMany
+   */
+  export type ReferencePersonDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ReferencePeople to delete
+     */
+    where?: ReferencePersonWhereInput
+    /**
+     * Limit how many ReferencePeople to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ReferencePerson without action
+   */
+  export type ReferencePersonDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReferencePerson
+     */
+    select?: ReferencePersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ReferencePerson
+     */
+    omit?: ReferencePersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferencePersonInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model JobPosition
+   */
+
+  export type AggregateJobPosition = {
+    _count: JobPositionCountAggregateOutputType | null
+    _min: JobPositionMinAggregateOutputType | null
+    _max: JobPositionMaxAggregateOutputType | null
+  }
+
+  export type JobPositionMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    department: string | null
+    location: string | null
+    employmentType: string | null
+    salaryRange: string | null
+    description: string | null
+    responsibilities: string | null
+    requirements: string | null
+    benefits: string | null
+    imageUrl: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type JobPositionMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    department: string | null
+    location: string | null
+    employmentType: string | null
+    salaryRange: string | null
+    description: string | null
+    responsibilities: string | null
+    requirements: string | null
+    benefits: string | null
+    imageUrl: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type JobPositionCountAggregateOutputType = {
+    id: number
+    title: number
+    department: number
+    location: number
+    employmentType: number
+    salaryRange: number
+    description: number
+    responsibilities: number
+    requirements: number
+    benefits: number
+    imageUrl: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type JobPositionMinAggregateInputType = {
+    id?: true
+    title?: true
+    department?: true
+    location?: true
+    employmentType?: true
+    salaryRange?: true
+    description?: true
+    responsibilities?: true
+    requirements?: true
+    benefits?: true
+    imageUrl?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type JobPositionMaxAggregateInputType = {
+    id?: true
+    title?: true
+    department?: true
+    location?: true
+    employmentType?: true
+    salaryRange?: true
+    description?: true
+    responsibilities?: true
+    requirements?: true
+    benefits?: true
+    imageUrl?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type JobPositionCountAggregateInputType = {
+    id?: true
+    title?: true
+    department?: true
+    location?: true
+    employmentType?: true
+    salaryRange?: true
+    description?: true
+    responsibilities?: true
+    requirements?: true
+    benefits?: true
+    imageUrl?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type JobPositionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JobPosition to aggregate.
+     */
+    where?: JobPositionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobPositions to fetch.
+     */
+    orderBy?: JobPositionOrderByWithRelationInput | JobPositionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JobPositionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobPositions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobPositions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JobPositions
+    **/
+    _count?: true | JobPositionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JobPositionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JobPositionMaxAggregateInputType
+  }
+
+  export type GetJobPositionAggregateType<T extends JobPositionAggregateArgs> = {
+        [P in keyof T & keyof AggregateJobPosition]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJobPosition[P]>
+      : GetScalarType<T[P], AggregateJobPosition[P]>
+  }
+
+
+
+
+  export type JobPositionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JobPositionWhereInput
+    orderBy?: JobPositionOrderByWithAggregationInput | JobPositionOrderByWithAggregationInput[]
+    by: JobPositionScalarFieldEnum[] | JobPositionScalarFieldEnum
+    having?: JobPositionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JobPositionCountAggregateInputType | true
+    _min?: JobPositionMinAggregateInputType
+    _max?: JobPositionMaxAggregateInputType
+  }
+
+  export type JobPositionGroupByOutputType = {
+    id: string
+    title: string
+    department: string | null
+    location: string | null
+    employmentType: string | null
+    salaryRange: string | null
+    description: string | null
+    responsibilities: string | null
+    requirements: string | null
+    benefits: string | null
+    imageUrl: string | null
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: JobPositionCountAggregateOutputType | null
+    _min: JobPositionMinAggregateOutputType | null
+    _max: JobPositionMaxAggregateOutputType | null
+  }
+
+  type GetJobPositionGroupByPayload<T extends JobPositionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JobPositionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JobPositionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JobPositionGroupByOutputType[P]>
+            : GetScalarType<T[P], JobPositionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JobPositionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    department?: boolean
+    location?: boolean
+    employmentType?: boolean
+    salaryRange?: boolean
+    description?: boolean
+    responsibilities?: boolean
+    requirements?: boolean
+    benefits?: boolean
+    imageUrl?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["jobPosition"]>
+
+  export type JobPositionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    department?: boolean
+    location?: boolean
+    employmentType?: boolean
+    salaryRange?: boolean
+    description?: boolean
+    responsibilities?: boolean
+    requirements?: boolean
+    benefits?: boolean
+    imageUrl?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["jobPosition"]>
+
+  export type JobPositionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    department?: boolean
+    location?: boolean
+    employmentType?: boolean
+    salaryRange?: boolean
+    description?: boolean
+    responsibilities?: boolean
+    requirements?: boolean
+    benefits?: boolean
+    imageUrl?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["jobPosition"]>
+
+  export type JobPositionSelectScalar = {
+    id?: boolean
+    title?: boolean
+    department?: boolean
+    location?: boolean
+    employmentType?: boolean
+    salaryRange?: boolean
+    description?: boolean
+    responsibilities?: boolean
+    requirements?: boolean
+    benefits?: boolean
+    imageUrl?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type JobPositionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "department" | "location" | "employmentType" | "salaryRange" | "description" | "responsibilities" | "requirements" | "benefits" | "imageUrl" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["jobPosition"]>
+
+  export type $JobPositionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JobPosition"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      department: string | null
+      location: string | null
+      employmentType: string | null
+      salaryRange: string | null
+      description: string | null
+      responsibilities: string | null
+      requirements: string | null
+      benefits: string | null
+      imageUrl: string | null
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["jobPosition"]>
+    composites: {}
+  }
+
+  type JobPositionGetPayload<S extends boolean | null | undefined | JobPositionDefaultArgs> = $Result.GetResult<Prisma.$JobPositionPayload, S>
+
+  type JobPositionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JobPositionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JobPositionCountAggregateInputType | true
+    }
+
+  export interface JobPositionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JobPosition'], meta: { name: 'JobPosition' } }
+    /**
+     * Find zero or one JobPosition that matches the filter.
+     * @param {JobPositionFindUniqueArgs} args - Arguments to find a JobPosition
+     * @example
+     * // Get one JobPosition
+     * const jobPosition = await prisma.jobPosition.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JobPositionFindUniqueArgs>(args: SelectSubset<T, JobPositionFindUniqueArgs<ExtArgs>>): Prisma__JobPositionClient<$Result.GetResult<Prisma.$JobPositionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JobPosition that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JobPositionFindUniqueOrThrowArgs} args - Arguments to find a JobPosition
+     * @example
+     * // Get one JobPosition
+     * const jobPosition = await prisma.jobPosition.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JobPositionFindUniqueOrThrowArgs>(args: SelectSubset<T, JobPositionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JobPositionClient<$Result.GetResult<Prisma.$JobPositionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JobPosition that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobPositionFindFirstArgs} args - Arguments to find a JobPosition
+     * @example
+     * // Get one JobPosition
+     * const jobPosition = await prisma.jobPosition.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JobPositionFindFirstArgs>(args?: SelectSubset<T, JobPositionFindFirstArgs<ExtArgs>>): Prisma__JobPositionClient<$Result.GetResult<Prisma.$JobPositionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JobPosition that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobPositionFindFirstOrThrowArgs} args - Arguments to find a JobPosition
+     * @example
+     * // Get one JobPosition
+     * const jobPosition = await prisma.jobPosition.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JobPositionFindFirstOrThrowArgs>(args?: SelectSubset<T, JobPositionFindFirstOrThrowArgs<ExtArgs>>): Prisma__JobPositionClient<$Result.GetResult<Prisma.$JobPositionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JobPositions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobPositionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JobPositions
+     * const jobPositions = await prisma.jobPosition.findMany()
+     * 
+     * // Get first 10 JobPositions
+     * const jobPositions = await prisma.jobPosition.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const jobPositionWithIdOnly = await prisma.jobPosition.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JobPositionFindManyArgs>(args?: SelectSubset<T, JobPositionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobPositionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JobPosition.
+     * @param {JobPositionCreateArgs} args - Arguments to create a JobPosition.
+     * @example
+     * // Create one JobPosition
+     * const JobPosition = await prisma.jobPosition.create({
+     *   data: {
+     *     // ... data to create a JobPosition
+     *   }
+     * })
+     * 
+     */
+    create<T extends JobPositionCreateArgs>(args: SelectSubset<T, JobPositionCreateArgs<ExtArgs>>): Prisma__JobPositionClient<$Result.GetResult<Prisma.$JobPositionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JobPositions.
+     * @param {JobPositionCreateManyArgs} args - Arguments to create many JobPositions.
+     * @example
+     * // Create many JobPositions
+     * const jobPosition = await prisma.jobPosition.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JobPositionCreateManyArgs>(args?: SelectSubset<T, JobPositionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many JobPositions and returns the data saved in the database.
+     * @param {JobPositionCreateManyAndReturnArgs} args - Arguments to create many JobPositions.
+     * @example
+     * // Create many JobPositions
+     * const jobPosition = await prisma.jobPosition.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many JobPositions and only return the `id`
+     * const jobPositionWithIdOnly = await prisma.jobPosition.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends JobPositionCreateManyAndReturnArgs>(args?: SelectSubset<T, JobPositionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobPositionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a JobPosition.
+     * @param {JobPositionDeleteArgs} args - Arguments to delete one JobPosition.
+     * @example
+     * // Delete one JobPosition
+     * const JobPosition = await prisma.jobPosition.delete({
+     *   where: {
+     *     // ... filter to delete one JobPosition
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JobPositionDeleteArgs>(args: SelectSubset<T, JobPositionDeleteArgs<ExtArgs>>): Prisma__JobPositionClient<$Result.GetResult<Prisma.$JobPositionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JobPosition.
+     * @param {JobPositionUpdateArgs} args - Arguments to update one JobPosition.
+     * @example
+     * // Update one JobPosition
+     * const jobPosition = await prisma.jobPosition.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JobPositionUpdateArgs>(args: SelectSubset<T, JobPositionUpdateArgs<ExtArgs>>): Prisma__JobPositionClient<$Result.GetResult<Prisma.$JobPositionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JobPositions.
+     * @param {JobPositionDeleteManyArgs} args - Arguments to filter JobPositions to delete.
+     * @example
+     * // Delete a few JobPositions
+     * const { count } = await prisma.jobPosition.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JobPositionDeleteManyArgs>(args?: SelectSubset<T, JobPositionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JobPositions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobPositionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JobPositions
+     * const jobPosition = await prisma.jobPosition.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JobPositionUpdateManyArgs>(args: SelectSubset<T, JobPositionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JobPositions and returns the data updated in the database.
+     * @param {JobPositionUpdateManyAndReturnArgs} args - Arguments to update many JobPositions.
+     * @example
+     * // Update many JobPositions
+     * const jobPosition = await prisma.jobPosition.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more JobPositions and only return the `id`
+     * const jobPositionWithIdOnly = await prisma.jobPosition.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends JobPositionUpdateManyAndReturnArgs>(args: SelectSubset<T, JobPositionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobPositionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one JobPosition.
+     * @param {JobPositionUpsertArgs} args - Arguments to update or create a JobPosition.
+     * @example
+     * // Update or create a JobPosition
+     * const jobPosition = await prisma.jobPosition.upsert({
+     *   create: {
+     *     // ... data to create a JobPosition
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JobPosition we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JobPositionUpsertArgs>(args: SelectSubset<T, JobPositionUpsertArgs<ExtArgs>>): Prisma__JobPositionClient<$Result.GetResult<Prisma.$JobPositionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of JobPositions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobPositionCountArgs} args - Arguments to filter JobPositions to count.
+     * @example
+     * // Count the number of JobPositions
+     * const count = await prisma.jobPosition.count({
+     *   where: {
+     *     // ... the filter for the JobPositions we want to count
+     *   }
+     * })
+    **/
+    count<T extends JobPositionCountArgs>(
+      args?: Subset<T, JobPositionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JobPositionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JobPosition.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobPositionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JobPositionAggregateArgs>(args: Subset<T, JobPositionAggregateArgs>): Prisma.PrismaPromise<GetJobPositionAggregateType<T>>
+
+    /**
+     * Group by JobPosition.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobPositionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JobPositionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JobPositionGroupByArgs['orderBy'] }
+        : { orderBy?: JobPositionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JobPositionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJobPositionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JobPosition model
+   */
+  readonly fields: JobPositionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JobPosition.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JobPositionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JobPosition model
+   */
+  interface JobPositionFieldRefs {
+    readonly id: FieldRef<"JobPosition", 'String'>
+    readonly title: FieldRef<"JobPosition", 'String'>
+    readonly department: FieldRef<"JobPosition", 'String'>
+    readonly location: FieldRef<"JobPosition", 'String'>
+    readonly employmentType: FieldRef<"JobPosition", 'String'>
+    readonly salaryRange: FieldRef<"JobPosition", 'String'>
+    readonly description: FieldRef<"JobPosition", 'String'>
+    readonly responsibilities: FieldRef<"JobPosition", 'String'>
+    readonly requirements: FieldRef<"JobPosition", 'String'>
+    readonly benefits: FieldRef<"JobPosition", 'String'>
+    readonly imageUrl: FieldRef<"JobPosition", 'String'>
+    readonly isActive: FieldRef<"JobPosition", 'Boolean'>
+    readonly createdAt: FieldRef<"JobPosition", 'DateTime'>
+    readonly updatedAt: FieldRef<"JobPosition", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JobPosition findUnique
+   */
+  export type JobPositionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobPosition
+     */
+    select?: JobPositionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobPosition
+     */
+    omit?: JobPositionOmit<ExtArgs> | null
+    /**
+     * Filter, which JobPosition to fetch.
+     */
+    where: JobPositionWhereUniqueInput
+  }
+
+  /**
+   * JobPosition findUniqueOrThrow
+   */
+  export type JobPositionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobPosition
+     */
+    select?: JobPositionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobPosition
+     */
+    omit?: JobPositionOmit<ExtArgs> | null
+    /**
+     * Filter, which JobPosition to fetch.
+     */
+    where: JobPositionWhereUniqueInput
+  }
+
+  /**
+   * JobPosition findFirst
+   */
+  export type JobPositionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobPosition
+     */
+    select?: JobPositionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobPosition
+     */
+    omit?: JobPositionOmit<ExtArgs> | null
+    /**
+     * Filter, which JobPosition to fetch.
+     */
+    where?: JobPositionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobPositions to fetch.
+     */
+    orderBy?: JobPositionOrderByWithRelationInput | JobPositionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JobPositions.
+     */
+    cursor?: JobPositionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobPositions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobPositions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JobPositions.
+     */
+    distinct?: JobPositionScalarFieldEnum | JobPositionScalarFieldEnum[]
+  }
+
+  /**
+   * JobPosition findFirstOrThrow
+   */
+  export type JobPositionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobPosition
+     */
+    select?: JobPositionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobPosition
+     */
+    omit?: JobPositionOmit<ExtArgs> | null
+    /**
+     * Filter, which JobPosition to fetch.
+     */
+    where?: JobPositionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobPositions to fetch.
+     */
+    orderBy?: JobPositionOrderByWithRelationInput | JobPositionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JobPositions.
+     */
+    cursor?: JobPositionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobPositions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobPositions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JobPositions.
+     */
+    distinct?: JobPositionScalarFieldEnum | JobPositionScalarFieldEnum[]
+  }
+
+  /**
+   * JobPosition findMany
+   */
+  export type JobPositionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobPosition
+     */
+    select?: JobPositionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobPosition
+     */
+    omit?: JobPositionOmit<ExtArgs> | null
+    /**
+     * Filter, which JobPositions to fetch.
+     */
+    where?: JobPositionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobPositions to fetch.
+     */
+    orderBy?: JobPositionOrderByWithRelationInput | JobPositionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JobPositions.
+     */
+    cursor?: JobPositionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobPositions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobPositions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JobPositions.
+     */
+    distinct?: JobPositionScalarFieldEnum | JobPositionScalarFieldEnum[]
+  }
+
+  /**
+   * JobPosition create
+   */
+  export type JobPositionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobPosition
+     */
+    select?: JobPositionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobPosition
+     */
+    omit?: JobPositionOmit<ExtArgs> | null
+    /**
+     * The data needed to create a JobPosition.
+     */
+    data: XOR<JobPositionCreateInput, JobPositionUncheckedCreateInput>
+  }
+
+  /**
+   * JobPosition createMany
+   */
+  export type JobPositionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JobPositions.
+     */
+    data: JobPositionCreateManyInput | JobPositionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JobPosition createManyAndReturn
+   */
+  export type JobPositionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobPosition
+     */
+    select?: JobPositionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobPosition
+     */
+    omit?: JobPositionOmit<ExtArgs> | null
+    /**
+     * The data used to create many JobPositions.
+     */
+    data: JobPositionCreateManyInput | JobPositionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JobPosition update
+   */
+  export type JobPositionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobPosition
+     */
+    select?: JobPositionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobPosition
+     */
+    omit?: JobPositionOmit<ExtArgs> | null
+    /**
+     * The data needed to update a JobPosition.
+     */
+    data: XOR<JobPositionUpdateInput, JobPositionUncheckedUpdateInput>
+    /**
+     * Choose, which JobPosition to update.
+     */
+    where: JobPositionWhereUniqueInput
+  }
+
+  /**
+   * JobPosition updateMany
+   */
+  export type JobPositionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JobPositions.
+     */
+    data: XOR<JobPositionUpdateManyMutationInput, JobPositionUncheckedUpdateManyInput>
+    /**
+     * Filter which JobPositions to update
+     */
+    where?: JobPositionWhereInput
+    /**
+     * Limit how many JobPositions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JobPosition updateManyAndReturn
+   */
+  export type JobPositionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobPosition
+     */
+    select?: JobPositionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobPosition
+     */
+    omit?: JobPositionOmit<ExtArgs> | null
+    /**
+     * The data used to update JobPositions.
+     */
+    data: XOR<JobPositionUpdateManyMutationInput, JobPositionUncheckedUpdateManyInput>
+    /**
+     * Filter which JobPositions to update
+     */
+    where?: JobPositionWhereInput
+    /**
+     * Limit how many JobPositions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JobPosition upsert
+   */
+  export type JobPositionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobPosition
+     */
+    select?: JobPositionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobPosition
+     */
+    omit?: JobPositionOmit<ExtArgs> | null
+    /**
+     * The filter to search for the JobPosition to update in case it exists.
+     */
+    where: JobPositionWhereUniqueInput
+    /**
+     * In case the JobPosition found by the `where` argument doesn't exist, create a new JobPosition with this data.
+     */
+    create: XOR<JobPositionCreateInput, JobPositionUncheckedCreateInput>
+    /**
+     * In case the JobPosition was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JobPositionUpdateInput, JobPositionUncheckedUpdateInput>
+  }
+
+  /**
+   * JobPosition delete
+   */
+  export type JobPositionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobPosition
+     */
+    select?: JobPositionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobPosition
+     */
+    omit?: JobPositionOmit<ExtArgs> | null
+    /**
+     * Filter which JobPosition to delete.
+     */
+    where: JobPositionWhereUniqueInput
+  }
+
+  /**
+   * JobPosition deleteMany
+   */
+  export type JobPositionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JobPositions to delete
+     */
+    where?: JobPositionWhereInput
+    /**
+     * Limit how many JobPositions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JobPosition without action
+   */
+  export type JobPositionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobPosition
+     */
+    select?: JobPositionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobPosition
+     */
+    omit?: JobPositionOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LegacyAnket
+   */
+
+  export type AggregateLegacyAnket = {
+    _count: LegacyAnketCountAggregateOutputType | null
+    _avg: LegacyAnketAvgAggregateOutputType | null
+    _sum: LegacyAnketSumAggregateOutputType | null
+    _min: LegacyAnketMinAggregateOutputType | null
+    _max: LegacyAnketMaxAggregateOutputType | null
+  }
+
+  export type LegacyAnketAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type LegacyAnketSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type LegacyAnketMinAggregateOutputType = {
+    id: number | null
+    ognoo: Date | null
+    image1: string | null
+    image2: string | null
+    image3: string | null
+    image4: string | null
+    ovog: string | null
+    ner: string | null
+    utas: string | null
+    regdugaar: string | null
+    email: string | null
+    sonirhoson: string | null
+    allhtml: string | null
+  }
+
+  export type LegacyAnketMaxAggregateOutputType = {
+    id: number | null
+    ognoo: Date | null
+    image1: string | null
+    image2: string | null
+    image3: string | null
+    image4: string | null
+    ovog: string | null
+    ner: string | null
+    utas: string | null
+    regdugaar: string | null
+    email: string | null
+    sonirhoson: string | null
+    allhtml: string | null
+  }
+
+  export type LegacyAnketCountAggregateOutputType = {
+    id: number
+    ognoo: number
+    image1: number
+    image2: number
+    image3: number
+    image4: number
+    ovog: number
+    ner: number
+    utas: number
+    regdugaar: number
+    email: number
+    sonirhoson: number
+    allhtml: number
+    _all: number
+  }
+
+
+  export type LegacyAnketAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type LegacyAnketSumAggregateInputType = {
+    id?: true
+  }
+
+  export type LegacyAnketMinAggregateInputType = {
+    id?: true
+    ognoo?: true
+    image1?: true
+    image2?: true
+    image3?: true
+    image4?: true
+    ovog?: true
+    ner?: true
+    utas?: true
+    regdugaar?: true
+    email?: true
+    sonirhoson?: true
+    allhtml?: true
+  }
+
+  export type LegacyAnketMaxAggregateInputType = {
+    id?: true
+    ognoo?: true
+    image1?: true
+    image2?: true
+    image3?: true
+    image4?: true
+    ovog?: true
+    ner?: true
+    utas?: true
+    regdugaar?: true
+    email?: true
+    sonirhoson?: true
+    allhtml?: true
+  }
+
+  export type LegacyAnketCountAggregateInputType = {
+    id?: true
+    ognoo?: true
+    image1?: true
+    image2?: true
+    image3?: true
+    image4?: true
+    ovog?: true
+    ner?: true
+    utas?: true
+    regdugaar?: true
+    email?: true
+    sonirhoson?: true
+    allhtml?: true
+    _all?: true
+  }
+
+  export type LegacyAnketAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LegacyAnket to aggregate.
+     */
+    where?: LegacyAnketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegacyAnkets to fetch.
+     */
+    orderBy?: LegacyAnketOrderByWithRelationInput | LegacyAnketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LegacyAnketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegacyAnkets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegacyAnkets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LegacyAnkets
+    **/
+    _count?: true | LegacyAnketCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LegacyAnketAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LegacyAnketSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LegacyAnketMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LegacyAnketMaxAggregateInputType
+  }
+
+  export type GetLegacyAnketAggregateType<T extends LegacyAnketAggregateArgs> = {
+        [P in keyof T & keyof AggregateLegacyAnket]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLegacyAnket[P]>
+      : GetScalarType<T[P], AggregateLegacyAnket[P]>
+  }
+
+
+
+
+  export type LegacyAnketGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegacyAnketWhereInput
+    orderBy?: LegacyAnketOrderByWithAggregationInput | LegacyAnketOrderByWithAggregationInput[]
+    by: LegacyAnketScalarFieldEnum[] | LegacyAnketScalarFieldEnum
+    having?: LegacyAnketScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LegacyAnketCountAggregateInputType | true
+    _avg?: LegacyAnketAvgAggregateInputType
+    _sum?: LegacyAnketSumAggregateInputType
+    _min?: LegacyAnketMinAggregateInputType
+    _max?: LegacyAnketMaxAggregateInputType
+  }
+
+  export type LegacyAnketGroupByOutputType = {
+    id: number
+    ognoo: Date | null
+    image1: string | null
+    image2: string | null
+    image3: string | null
+    image4: string | null
+    ovog: string | null
+    ner: string | null
+    utas: string | null
+    regdugaar: string | null
+    email: string | null
+    sonirhoson: string | null
+    allhtml: string | null
+    _count: LegacyAnketCountAggregateOutputType | null
+    _avg: LegacyAnketAvgAggregateOutputType | null
+    _sum: LegacyAnketSumAggregateOutputType | null
+    _min: LegacyAnketMinAggregateOutputType | null
+    _max: LegacyAnketMaxAggregateOutputType | null
+  }
+
+  type GetLegacyAnketGroupByPayload<T extends LegacyAnketGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LegacyAnketGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LegacyAnketGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LegacyAnketGroupByOutputType[P]>
+            : GetScalarType<T[P], LegacyAnketGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LegacyAnketSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ognoo?: boolean
+    image1?: boolean
+    image2?: boolean
+    image3?: boolean
+    image4?: boolean
+    ovog?: boolean
+    ner?: boolean
+    utas?: boolean
+    regdugaar?: boolean
+    email?: boolean
+    sonirhoson?: boolean
+    allhtml?: boolean
+  }, ExtArgs["result"]["legacyAnket"]>
+
+  export type LegacyAnketSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ognoo?: boolean
+    image1?: boolean
+    image2?: boolean
+    image3?: boolean
+    image4?: boolean
+    ovog?: boolean
+    ner?: boolean
+    utas?: boolean
+    regdugaar?: boolean
+    email?: boolean
+    sonirhoson?: boolean
+    allhtml?: boolean
+  }, ExtArgs["result"]["legacyAnket"]>
+
+  export type LegacyAnketSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ognoo?: boolean
+    image1?: boolean
+    image2?: boolean
+    image3?: boolean
+    image4?: boolean
+    ovog?: boolean
+    ner?: boolean
+    utas?: boolean
+    regdugaar?: boolean
+    email?: boolean
+    sonirhoson?: boolean
+    allhtml?: boolean
+  }, ExtArgs["result"]["legacyAnket"]>
+
+  export type LegacyAnketSelectScalar = {
+    id?: boolean
+    ognoo?: boolean
+    image1?: boolean
+    image2?: boolean
+    image3?: boolean
+    image4?: boolean
+    ovog?: boolean
+    ner?: boolean
+    utas?: boolean
+    regdugaar?: boolean
+    email?: boolean
+    sonirhoson?: boolean
+    allhtml?: boolean
+  }
+
+  export type LegacyAnketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ognoo" | "image1" | "image2" | "image3" | "image4" | "ovog" | "ner" | "utas" | "regdugaar" | "email" | "sonirhoson" | "allhtml", ExtArgs["result"]["legacyAnket"]>
+
+  export type $LegacyAnketPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LegacyAnket"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      ognoo: Date | null
+      image1: string | null
+      image2: string | null
+      image3: string | null
+      image4: string | null
+      ovog: string | null
+      ner: string | null
+      utas: string | null
+      regdugaar: string | null
+      email: string | null
+      sonirhoson: string | null
+      allhtml: string | null
+    }, ExtArgs["result"]["legacyAnket"]>
+    composites: {}
+  }
+
+  type LegacyAnketGetPayload<S extends boolean | null | undefined | LegacyAnketDefaultArgs> = $Result.GetResult<Prisma.$LegacyAnketPayload, S>
+
+  type LegacyAnketCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LegacyAnketFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LegacyAnketCountAggregateInputType | true
+    }
+
+  export interface LegacyAnketDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LegacyAnket'], meta: { name: 'LegacyAnket' } }
+    /**
+     * Find zero or one LegacyAnket that matches the filter.
+     * @param {LegacyAnketFindUniqueArgs} args - Arguments to find a LegacyAnket
+     * @example
+     * // Get one LegacyAnket
+     * const legacyAnket = await prisma.legacyAnket.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LegacyAnketFindUniqueArgs>(args: SelectSubset<T, LegacyAnketFindUniqueArgs<ExtArgs>>): Prisma__LegacyAnketClient<$Result.GetResult<Prisma.$LegacyAnketPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LegacyAnket that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LegacyAnketFindUniqueOrThrowArgs} args - Arguments to find a LegacyAnket
+     * @example
+     * // Get one LegacyAnket
+     * const legacyAnket = await prisma.legacyAnket.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LegacyAnketFindUniqueOrThrowArgs>(args: SelectSubset<T, LegacyAnketFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LegacyAnketClient<$Result.GetResult<Prisma.$LegacyAnketPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LegacyAnket that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegacyAnketFindFirstArgs} args - Arguments to find a LegacyAnket
+     * @example
+     * // Get one LegacyAnket
+     * const legacyAnket = await prisma.legacyAnket.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LegacyAnketFindFirstArgs>(args?: SelectSubset<T, LegacyAnketFindFirstArgs<ExtArgs>>): Prisma__LegacyAnketClient<$Result.GetResult<Prisma.$LegacyAnketPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LegacyAnket that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegacyAnketFindFirstOrThrowArgs} args - Arguments to find a LegacyAnket
+     * @example
+     * // Get one LegacyAnket
+     * const legacyAnket = await prisma.legacyAnket.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LegacyAnketFindFirstOrThrowArgs>(args?: SelectSubset<T, LegacyAnketFindFirstOrThrowArgs<ExtArgs>>): Prisma__LegacyAnketClient<$Result.GetResult<Prisma.$LegacyAnketPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LegacyAnkets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegacyAnketFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LegacyAnkets
+     * const legacyAnkets = await prisma.legacyAnket.findMany()
+     * 
+     * // Get first 10 LegacyAnkets
+     * const legacyAnkets = await prisma.legacyAnket.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const legacyAnketWithIdOnly = await prisma.legacyAnket.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LegacyAnketFindManyArgs>(args?: SelectSubset<T, LegacyAnketFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegacyAnketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LegacyAnket.
+     * @param {LegacyAnketCreateArgs} args - Arguments to create a LegacyAnket.
+     * @example
+     * // Create one LegacyAnket
+     * const LegacyAnket = await prisma.legacyAnket.create({
+     *   data: {
+     *     // ... data to create a LegacyAnket
+     *   }
+     * })
+     * 
+     */
+    create<T extends LegacyAnketCreateArgs>(args: SelectSubset<T, LegacyAnketCreateArgs<ExtArgs>>): Prisma__LegacyAnketClient<$Result.GetResult<Prisma.$LegacyAnketPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LegacyAnkets.
+     * @param {LegacyAnketCreateManyArgs} args - Arguments to create many LegacyAnkets.
+     * @example
+     * // Create many LegacyAnkets
+     * const legacyAnket = await prisma.legacyAnket.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LegacyAnketCreateManyArgs>(args?: SelectSubset<T, LegacyAnketCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LegacyAnkets and returns the data saved in the database.
+     * @param {LegacyAnketCreateManyAndReturnArgs} args - Arguments to create many LegacyAnkets.
+     * @example
+     * // Create many LegacyAnkets
+     * const legacyAnket = await prisma.legacyAnket.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LegacyAnkets and only return the `id`
+     * const legacyAnketWithIdOnly = await prisma.legacyAnket.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LegacyAnketCreateManyAndReturnArgs>(args?: SelectSubset<T, LegacyAnketCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegacyAnketPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LegacyAnket.
+     * @param {LegacyAnketDeleteArgs} args - Arguments to delete one LegacyAnket.
+     * @example
+     * // Delete one LegacyAnket
+     * const LegacyAnket = await prisma.legacyAnket.delete({
+     *   where: {
+     *     // ... filter to delete one LegacyAnket
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LegacyAnketDeleteArgs>(args: SelectSubset<T, LegacyAnketDeleteArgs<ExtArgs>>): Prisma__LegacyAnketClient<$Result.GetResult<Prisma.$LegacyAnketPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LegacyAnket.
+     * @param {LegacyAnketUpdateArgs} args - Arguments to update one LegacyAnket.
+     * @example
+     * // Update one LegacyAnket
+     * const legacyAnket = await prisma.legacyAnket.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LegacyAnketUpdateArgs>(args: SelectSubset<T, LegacyAnketUpdateArgs<ExtArgs>>): Prisma__LegacyAnketClient<$Result.GetResult<Prisma.$LegacyAnketPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LegacyAnkets.
+     * @param {LegacyAnketDeleteManyArgs} args - Arguments to filter LegacyAnkets to delete.
+     * @example
+     * // Delete a few LegacyAnkets
+     * const { count } = await prisma.legacyAnket.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LegacyAnketDeleteManyArgs>(args?: SelectSubset<T, LegacyAnketDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LegacyAnkets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegacyAnketUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LegacyAnkets
+     * const legacyAnket = await prisma.legacyAnket.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LegacyAnketUpdateManyArgs>(args: SelectSubset<T, LegacyAnketUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LegacyAnkets and returns the data updated in the database.
+     * @param {LegacyAnketUpdateManyAndReturnArgs} args - Arguments to update many LegacyAnkets.
+     * @example
+     * // Update many LegacyAnkets
+     * const legacyAnket = await prisma.legacyAnket.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LegacyAnkets and only return the `id`
+     * const legacyAnketWithIdOnly = await prisma.legacyAnket.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LegacyAnketUpdateManyAndReturnArgs>(args: SelectSubset<T, LegacyAnketUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegacyAnketPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LegacyAnket.
+     * @param {LegacyAnketUpsertArgs} args - Arguments to update or create a LegacyAnket.
+     * @example
+     * // Update or create a LegacyAnket
+     * const legacyAnket = await prisma.legacyAnket.upsert({
+     *   create: {
+     *     // ... data to create a LegacyAnket
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LegacyAnket we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LegacyAnketUpsertArgs>(args: SelectSubset<T, LegacyAnketUpsertArgs<ExtArgs>>): Prisma__LegacyAnketClient<$Result.GetResult<Prisma.$LegacyAnketPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LegacyAnkets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegacyAnketCountArgs} args - Arguments to filter LegacyAnkets to count.
+     * @example
+     * // Count the number of LegacyAnkets
+     * const count = await prisma.legacyAnket.count({
+     *   where: {
+     *     // ... the filter for the LegacyAnkets we want to count
+     *   }
+     * })
+    **/
+    count<T extends LegacyAnketCountArgs>(
+      args?: Subset<T, LegacyAnketCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LegacyAnketCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LegacyAnket.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegacyAnketAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LegacyAnketAggregateArgs>(args: Subset<T, LegacyAnketAggregateArgs>): Prisma.PrismaPromise<GetLegacyAnketAggregateType<T>>
+
+    /**
+     * Group by LegacyAnket.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegacyAnketGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LegacyAnketGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LegacyAnketGroupByArgs['orderBy'] }
+        : { orderBy?: LegacyAnketGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LegacyAnketGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLegacyAnketGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LegacyAnket model
+   */
+  readonly fields: LegacyAnketFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LegacyAnket.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LegacyAnketClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LegacyAnket model
+   */
+  interface LegacyAnketFieldRefs {
+    readonly id: FieldRef<"LegacyAnket", 'Int'>
+    readonly ognoo: FieldRef<"LegacyAnket", 'DateTime'>
+    readonly image1: FieldRef<"LegacyAnket", 'String'>
+    readonly image2: FieldRef<"LegacyAnket", 'String'>
+    readonly image3: FieldRef<"LegacyAnket", 'String'>
+    readonly image4: FieldRef<"LegacyAnket", 'String'>
+    readonly ovog: FieldRef<"LegacyAnket", 'String'>
+    readonly ner: FieldRef<"LegacyAnket", 'String'>
+    readonly utas: FieldRef<"LegacyAnket", 'String'>
+    readonly regdugaar: FieldRef<"LegacyAnket", 'String'>
+    readonly email: FieldRef<"LegacyAnket", 'String'>
+    readonly sonirhoson: FieldRef<"LegacyAnket", 'String'>
+    readonly allhtml: FieldRef<"LegacyAnket", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LegacyAnket findUnique
+   */
+  export type LegacyAnketFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegacyAnket
+     */
+    select?: LegacyAnketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegacyAnket
+     */
+    omit?: LegacyAnketOmit<ExtArgs> | null
+    /**
+     * Filter, which LegacyAnket to fetch.
+     */
+    where: LegacyAnketWhereUniqueInput
+  }
+
+  /**
+   * LegacyAnket findUniqueOrThrow
+   */
+  export type LegacyAnketFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegacyAnket
+     */
+    select?: LegacyAnketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegacyAnket
+     */
+    omit?: LegacyAnketOmit<ExtArgs> | null
+    /**
+     * Filter, which LegacyAnket to fetch.
+     */
+    where: LegacyAnketWhereUniqueInput
+  }
+
+  /**
+   * LegacyAnket findFirst
+   */
+  export type LegacyAnketFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegacyAnket
+     */
+    select?: LegacyAnketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegacyAnket
+     */
+    omit?: LegacyAnketOmit<ExtArgs> | null
+    /**
+     * Filter, which LegacyAnket to fetch.
+     */
+    where?: LegacyAnketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegacyAnkets to fetch.
+     */
+    orderBy?: LegacyAnketOrderByWithRelationInput | LegacyAnketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LegacyAnkets.
+     */
+    cursor?: LegacyAnketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegacyAnkets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegacyAnkets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegacyAnkets.
+     */
+    distinct?: LegacyAnketScalarFieldEnum | LegacyAnketScalarFieldEnum[]
+  }
+
+  /**
+   * LegacyAnket findFirstOrThrow
+   */
+  export type LegacyAnketFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegacyAnket
+     */
+    select?: LegacyAnketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegacyAnket
+     */
+    omit?: LegacyAnketOmit<ExtArgs> | null
+    /**
+     * Filter, which LegacyAnket to fetch.
+     */
+    where?: LegacyAnketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegacyAnkets to fetch.
+     */
+    orderBy?: LegacyAnketOrderByWithRelationInput | LegacyAnketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LegacyAnkets.
+     */
+    cursor?: LegacyAnketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegacyAnkets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegacyAnkets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegacyAnkets.
+     */
+    distinct?: LegacyAnketScalarFieldEnum | LegacyAnketScalarFieldEnum[]
+  }
+
+  /**
+   * LegacyAnket findMany
+   */
+  export type LegacyAnketFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegacyAnket
+     */
+    select?: LegacyAnketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegacyAnket
+     */
+    omit?: LegacyAnketOmit<ExtArgs> | null
+    /**
+     * Filter, which LegacyAnkets to fetch.
+     */
+    where?: LegacyAnketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegacyAnkets to fetch.
+     */
+    orderBy?: LegacyAnketOrderByWithRelationInput | LegacyAnketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LegacyAnkets.
+     */
+    cursor?: LegacyAnketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegacyAnkets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegacyAnkets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegacyAnkets.
+     */
+    distinct?: LegacyAnketScalarFieldEnum | LegacyAnketScalarFieldEnum[]
+  }
+
+  /**
+   * LegacyAnket create
+   */
+  export type LegacyAnketCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegacyAnket
+     */
+    select?: LegacyAnketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegacyAnket
+     */
+    omit?: LegacyAnketOmit<ExtArgs> | null
+    /**
+     * The data needed to create a LegacyAnket.
+     */
+    data?: XOR<LegacyAnketCreateInput, LegacyAnketUncheckedCreateInput>
+  }
+
+  /**
+   * LegacyAnket createMany
+   */
+  export type LegacyAnketCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LegacyAnkets.
+     */
+    data: LegacyAnketCreateManyInput | LegacyAnketCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LegacyAnket createManyAndReturn
+   */
+  export type LegacyAnketCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegacyAnket
+     */
+    select?: LegacyAnketSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegacyAnket
+     */
+    omit?: LegacyAnketOmit<ExtArgs> | null
+    /**
+     * The data used to create many LegacyAnkets.
+     */
+    data: LegacyAnketCreateManyInput | LegacyAnketCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LegacyAnket update
+   */
+  export type LegacyAnketUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegacyAnket
+     */
+    select?: LegacyAnketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegacyAnket
+     */
+    omit?: LegacyAnketOmit<ExtArgs> | null
+    /**
+     * The data needed to update a LegacyAnket.
+     */
+    data: XOR<LegacyAnketUpdateInput, LegacyAnketUncheckedUpdateInput>
+    /**
+     * Choose, which LegacyAnket to update.
+     */
+    where: LegacyAnketWhereUniqueInput
+  }
+
+  /**
+   * LegacyAnket updateMany
+   */
+  export type LegacyAnketUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LegacyAnkets.
+     */
+    data: XOR<LegacyAnketUpdateManyMutationInput, LegacyAnketUncheckedUpdateManyInput>
+    /**
+     * Filter which LegacyAnkets to update
+     */
+    where?: LegacyAnketWhereInput
+    /**
+     * Limit how many LegacyAnkets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegacyAnket updateManyAndReturn
+   */
+  export type LegacyAnketUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegacyAnket
+     */
+    select?: LegacyAnketSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegacyAnket
+     */
+    omit?: LegacyAnketOmit<ExtArgs> | null
+    /**
+     * The data used to update LegacyAnkets.
+     */
+    data: XOR<LegacyAnketUpdateManyMutationInput, LegacyAnketUncheckedUpdateManyInput>
+    /**
+     * Filter which LegacyAnkets to update
+     */
+    where?: LegacyAnketWhereInput
+    /**
+     * Limit how many LegacyAnkets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegacyAnket upsert
+   */
+  export type LegacyAnketUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegacyAnket
+     */
+    select?: LegacyAnketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegacyAnket
+     */
+    omit?: LegacyAnketOmit<ExtArgs> | null
+    /**
+     * The filter to search for the LegacyAnket to update in case it exists.
+     */
+    where: LegacyAnketWhereUniqueInput
+    /**
+     * In case the LegacyAnket found by the `where` argument doesn't exist, create a new LegacyAnket with this data.
+     */
+    create: XOR<LegacyAnketCreateInput, LegacyAnketUncheckedCreateInput>
+    /**
+     * In case the LegacyAnket was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LegacyAnketUpdateInput, LegacyAnketUncheckedUpdateInput>
+  }
+
+  /**
+   * LegacyAnket delete
+   */
+  export type LegacyAnketDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegacyAnket
+     */
+    select?: LegacyAnketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegacyAnket
+     */
+    omit?: LegacyAnketOmit<ExtArgs> | null
+    /**
+     * Filter which LegacyAnket to delete.
+     */
+    where: LegacyAnketWhereUniqueInput
+  }
+
+  /**
+   * LegacyAnket deleteMany
+   */
+  export type LegacyAnketDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LegacyAnkets to delete
+     */
+    where?: LegacyAnketWhereInput
+    /**
+     * Limit how many LegacyAnkets to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegacyAnket without action
+   */
+  export type LegacyAnketDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegacyAnket
+     */
+    select?: LegacyAnketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegacyAnket
+     */
+    omit?: LegacyAnketOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -26659,12 +38321,191 @@ export namespace Prisma {
   export type FavoriteScalarFieldEnum = (typeof FavoriteScalarFieldEnum)[keyof typeof FavoriteScalarFieldEnum]
 
 
+  export const ApplicationScalarFieldEnum: {
+    id: 'id',
+    surname: 'surname',
+    lastName: 'lastName',
+    firstName: 'firstName',
+    registerNumber: 'registerNumber',
+    birthDate: 'birthDate',
+    birthYear: 'birthYear',
+    birthPlace: 'birthPlace',
+    gender: 'gender',
+    maritalStatus: 'maritalStatus',
+    email: 'email',
+    facebookUrl: 'facebookUrl',
+    phone: 'phone',
+    phoneMobile: 'phoneMobile',
+    phoneHome: 'phoneHome',
+    phoneWork: 'phoneWork',
+    addressCurrent: 'addressCurrent',
+    addressTemp: 'addressTemp',
+    applyingFor: 'applyingFor',
+    photoUrl: 'photoUrl',
+    idCardUrl: 'idCardUrl',
+    diplomaUrl: 'diplomaUrl',
+    proLicenseUrl: 'proLicenseUrl',
+    videoUrl: 'videoUrl',
+    truckDetails: 'truckDetails',
+    truckPhotos: 'truckPhotos',
+    healthInfo: 'healthInfo',
+    criminalRecord: 'criminalRecord',
+    criminalRecordDetails: 'criminalRecordDetails',
+    militaryStatus: 'militaryStatus',
+    desiredSalary: 'desiredSalary',
+    availableDate: 'availableDate',
+    futureGoals: 'futureGoals',
+    strengths: 'strengths',
+    weaknesses: 'weaknesses',
+    referralSource: 'referralSource',
+    referralSourceDetails: 'referralSourceDetails',
+    internalReferral: 'internalReferral',
+    internalReferralDetails: 'internalReferralDetails',
+    unemploymentReason: 'unemploymentReason',
+    hobbies: 'hobbies',
+    emergencyContact: 'emergencyContact',
+    status: 'status',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    legacyId: 'legacyId'
+  };
+
+  export type ApplicationScalarFieldEnum = (typeof ApplicationScalarFieldEnum)[keyof typeof ApplicationScalarFieldEnum]
+
+
+  export const FamilyMemberScalarFieldEnum: {
+    id: 'id',
+    applicationId: 'applicationId',
+    relation: 'relation',
+    lastName: 'lastName',
+    firstName: 'firstName',
+    birthYear: 'birthYear',
+    occupation: 'occupation',
+    workplaceSchool: 'workplaceSchool',
+    phone: 'phone',
+    registerNumber: 'registerNumber'
+  };
+
+  export type FamilyMemberScalarFieldEnum = (typeof FamilyMemberScalarFieldEnum)[keyof typeof FamilyMemberScalarFieldEnum]
+
+
+  export const EducationHistoryScalarFieldEnum: {
+    id: 'id',
+    applicationId: 'applicationId',
+    schoolName: 'schoolName',
+    schoolType: 'schoolType',
+    degree: 'degree',
+    major: 'major',
+    entryYear: 'entryYear',
+    graduationYear: 'graduationYear',
+    gpa: 'gpa'
+  };
+
+  export type EducationHistoryScalarFieldEnum = (typeof EducationHistoryScalarFieldEnum)[keyof typeof EducationHistoryScalarFieldEnum]
+
+
+  export const WorkExperienceScalarFieldEnum: {
+    id: 'id',
+    applicationId: 'applicationId',
+    companyName: 'companyName',
+    position: 'position',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    salary: 'salary',
+    reasonForLeaving: 'reasonForLeaving'
+  };
+
+  export type WorkExperienceScalarFieldEnum = (typeof WorkExperienceScalarFieldEnum)[keyof typeof WorkExperienceScalarFieldEnum]
+
+
+  export const SkillScalarFieldEnum: {
+    id: 'id',
+    applicationId: 'applicationId',
+    languageMatrix: 'languageMatrix',
+    pcMatrix: 'pcMatrix'
+  };
+
+  export type SkillScalarFieldEnum = (typeof SkillScalarFieldEnum)[keyof typeof SkillScalarFieldEnum]
+
+
+  export const ExtendedRelativeScalarFieldEnum: {
+    id: 'id',
+    applicationId: 'applicationId',
+    relation: 'relation',
+    fullName: 'fullName',
+    occupation: 'occupation',
+    workplace: 'workplace',
+    contactInfo: 'contactInfo'
+  };
+
+  export type ExtendedRelativeScalarFieldEnum = (typeof ExtendedRelativeScalarFieldEnum)[keyof typeof ExtendedRelativeScalarFieldEnum]
+
+
+  export const ReferencePersonScalarFieldEnum: {
+    id: 'id',
+    applicationId: 'applicationId',
+    fullName: 'fullName',
+    occupation: 'occupation',
+    workplace: 'workplace',
+    contactInfo: 'contactInfo'
+  };
+
+  export type ReferencePersonScalarFieldEnum = (typeof ReferencePersonScalarFieldEnum)[keyof typeof ReferencePersonScalarFieldEnum]
+
+
+  export const JobPositionScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    department: 'department',
+    location: 'location',
+    employmentType: 'employmentType',
+    salaryRange: 'salaryRange',
+    description: 'description',
+    responsibilities: 'responsibilities',
+    requirements: 'requirements',
+    benefits: 'benefits',
+    imageUrl: 'imageUrl',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type JobPositionScalarFieldEnum = (typeof JobPositionScalarFieldEnum)[keyof typeof JobPositionScalarFieldEnum]
+
+
+  export const LegacyAnketScalarFieldEnum: {
+    id: 'id',
+    ognoo: 'ognoo',
+    image1: 'image1',
+    image2: 'image2',
+    image3: 'image3',
+    image4: 'image4',
+    ovog: 'ovog',
+    ner: 'ner',
+    utas: 'utas',
+    regdugaar: 'regdugaar',
+    email: 'email',
+    sonirhoson: 'sonirhoson',
+    allhtml: 'allhtml'
+  };
+
+  export type LegacyAnketScalarFieldEnum = (typeof LegacyAnketScalarFieldEnum)[keyof typeof LegacyAnketScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
   export const QueryMode: {
@@ -26681,6 +38522,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -26734,6 +38584,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -28248,6 +40112,886 @@ export namespace Prisma {
     sesid?: StringNullableWithAggregatesFilter<"Favorite"> | string | null
     bid?: IntWithAggregatesFilter<"Favorite"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Favorite"> | Date | string
+  }
+
+  export type ApplicationWhereInput = {
+    AND?: ApplicationWhereInput | ApplicationWhereInput[]
+    OR?: ApplicationWhereInput[]
+    NOT?: ApplicationWhereInput | ApplicationWhereInput[]
+    id?: StringFilter<"Application"> | string
+    surname?: StringNullableFilter<"Application"> | string | null
+    lastName?: StringFilter<"Application"> | string
+    firstName?: StringFilter<"Application"> | string
+    registerNumber?: StringNullableFilter<"Application"> | string | null
+    birthDate?: StringNullableFilter<"Application"> | string | null
+    birthYear?: StringNullableFilter<"Application"> | string | null
+    birthPlace?: StringNullableFilter<"Application"> | string | null
+    gender?: StringNullableFilter<"Application"> | string | null
+    maritalStatus?: StringNullableFilter<"Application"> | string | null
+    email?: StringNullableFilter<"Application"> | string | null
+    facebookUrl?: StringNullableFilter<"Application"> | string | null
+    phone?: StringNullableFilter<"Application"> | string | null
+    phoneMobile?: StringNullableFilter<"Application"> | string | null
+    phoneHome?: StringNullableFilter<"Application"> | string | null
+    phoneWork?: StringNullableFilter<"Application"> | string | null
+    addressCurrent?: StringNullableFilter<"Application"> | string | null
+    addressTemp?: StringNullableFilter<"Application"> | string | null
+    applyingFor?: StringNullableFilter<"Application"> | string | null
+    photoUrl?: StringNullableFilter<"Application"> | string | null
+    idCardUrl?: StringNullableFilter<"Application"> | string | null
+    diplomaUrl?: StringNullableFilter<"Application"> | string | null
+    proLicenseUrl?: StringNullableFilter<"Application"> | string | null
+    videoUrl?: StringNullableFilter<"Application"> | string | null
+    truckDetails?: StringNullableFilter<"Application"> | string | null
+    truckPhotos?: JsonNullableFilter<"Application">
+    healthInfo?: JsonNullableFilter<"Application">
+    criminalRecord?: BoolFilter<"Application"> | boolean
+    criminalRecordDetails?: StringNullableFilter<"Application"> | string | null
+    militaryStatus?: StringNullableFilter<"Application"> | string | null
+    desiredSalary?: StringNullableFilter<"Application"> | string | null
+    availableDate?: StringNullableFilter<"Application"> | string | null
+    futureGoals?: StringNullableFilter<"Application"> | string | null
+    strengths?: StringNullableFilter<"Application"> | string | null
+    weaknesses?: StringNullableFilter<"Application"> | string | null
+    referralSource?: StringNullableFilter<"Application"> | string | null
+    referralSourceDetails?: StringNullableFilter<"Application"> | string | null
+    internalReferral?: BoolFilter<"Application"> | boolean
+    internalReferralDetails?: StringNullableFilter<"Application"> | string | null
+    unemploymentReason?: StringNullableFilter<"Application"> | string | null
+    hobbies?: StringNullableFilter<"Application"> | string | null
+    emergencyContact?: JsonNullableFilter<"Application">
+    status?: StringFilter<"Application"> | string
+    createdAt?: DateTimeFilter<"Application"> | Date | string
+    updatedAt?: DateTimeFilter<"Application"> | Date | string
+    legacyId?: IntNullableFilter<"Application"> | number | null
+    familyMembers?: FamilyMemberListRelationFilter
+    educationHistory?: EducationHistoryListRelationFilter
+    workExperience?: WorkExperienceListRelationFilter
+    skills?: XOR<SkillNullableScalarRelationFilter, SkillWhereInput> | null
+    extendedRelatives?: ExtendedRelativeListRelationFilter
+    referencePersons?: ReferencePersonListRelationFilter
+  }
+
+  export type ApplicationOrderByWithRelationInput = {
+    id?: SortOrder
+    surname?: SortOrderInput | SortOrder
+    lastName?: SortOrder
+    firstName?: SortOrder
+    registerNumber?: SortOrderInput | SortOrder
+    birthDate?: SortOrderInput | SortOrder
+    birthYear?: SortOrderInput | SortOrder
+    birthPlace?: SortOrderInput | SortOrder
+    gender?: SortOrderInput | SortOrder
+    maritalStatus?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    facebookUrl?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
+    phoneMobile?: SortOrderInput | SortOrder
+    phoneHome?: SortOrderInput | SortOrder
+    phoneWork?: SortOrderInput | SortOrder
+    addressCurrent?: SortOrderInput | SortOrder
+    addressTemp?: SortOrderInput | SortOrder
+    applyingFor?: SortOrderInput | SortOrder
+    photoUrl?: SortOrderInput | SortOrder
+    idCardUrl?: SortOrderInput | SortOrder
+    diplomaUrl?: SortOrderInput | SortOrder
+    proLicenseUrl?: SortOrderInput | SortOrder
+    videoUrl?: SortOrderInput | SortOrder
+    truckDetails?: SortOrderInput | SortOrder
+    truckPhotos?: SortOrderInput | SortOrder
+    healthInfo?: SortOrderInput | SortOrder
+    criminalRecord?: SortOrder
+    criminalRecordDetails?: SortOrderInput | SortOrder
+    militaryStatus?: SortOrderInput | SortOrder
+    desiredSalary?: SortOrderInput | SortOrder
+    availableDate?: SortOrderInput | SortOrder
+    futureGoals?: SortOrderInput | SortOrder
+    strengths?: SortOrderInput | SortOrder
+    weaknesses?: SortOrderInput | SortOrder
+    referralSource?: SortOrderInput | SortOrder
+    referralSourceDetails?: SortOrderInput | SortOrder
+    internalReferral?: SortOrder
+    internalReferralDetails?: SortOrderInput | SortOrder
+    unemploymentReason?: SortOrderInput | SortOrder
+    hobbies?: SortOrderInput | SortOrder
+    emergencyContact?: SortOrderInput | SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    legacyId?: SortOrderInput | SortOrder
+    familyMembers?: FamilyMemberOrderByRelationAggregateInput
+    educationHistory?: EducationHistoryOrderByRelationAggregateInput
+    workExperience?: WorkExperienceOrderByRelationAggregateInput
+    skills?: SkillOrderByWithRelationInput
+    extendedRelatives?: ExtendedRelativeOrderByRelationAggregateInput
+    referencePersons?: ReferencePersonOrderByRelationAggregateInput
+  }
+
+  export type ApplicationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ApplicationWhereInput | ApplicationWhereInput[]
+    OR?: ApplicationWhereInput[]
+    NOT?: ApplicationWhereInput | ApplicationWhereInput[]
+    surname?: StringNullableFilter<"Application"> | string | null
+    lastName?: StringFilter<"Application"> | string
+    firstName?: StringFilter<"Application"> | string
+    registerNumber?: StringNullableFilter<"Application"> | string | null
+    birthDate?: StringNullableFilter<"Application"> | string | null
+    birthYear?: StringNullableFilter<"Application"> | string | null
+    birthPlace?: StringNullableFilter<"Application"> | string | null
+    gender?: StringNullableFilter<"Application"> | string | null
+    maritalStatus?: StringNullableFilter<"Application"> | string | null
+    email?: StringNullableFilter<"Application"> | string | null
+    facebookUrl?: StringNullableFilter<"Application"> | string | null
+    phone?: StringNullableFilter<"Application"> | string | null
+    phoneMobile?: StringNullableFilter<"Application"> | string | null
+    phoneHome?: StringNullableFilter<"Application"> | string | null
+    phoneWork?: StringNullableFilter<"Application"> | string | null
+    addressCurrent?: StringNullableFilter<"Application"> | string | null
+    addressTemp?: StringNullableFilter<"Application"> | string | null
+    applyingFor?: StringNullableFilter<"Application"> | string | null
+    photoUrl?: StringNullableFilter<"Application"> | string | null
+    idCardUrl?: StringNullableFilter<"Application"> | string | null
+    diplomaUrl?: StringNullableFilter<"Application"> | string | null
+    proLicenseUrl?: StringNullableFilter<"Application"> | string | null
+    videoUrl?: StringNullableFilter<"Application"> | string | null
+    truckDetails?: StringNullableFilter<"Application"> | string | null
+    truckPhotos?: JsonNullableFilter<"Application">
+    healthInfo?: JsonNullableFilter<"Application">
+    criminalRecord?: BoolFilter<"Application"> | boolean
+    criminalRecordDetails?: StringNullableFilter<"Application"> | string | null
+    militaryStatus?: StringNullableFilter<"Application"> | string | null
+    desiredSalary?: StringNullableFilter<"Application"> | string | null
+    availableDate?: StringNullableFilter<"Application"> | string | null
+    futureGoals?: StringNullableFilter<"Application"> | string | null
+    strengths?: StringNullableFilter<"Application"> | string | null
+    weaknesses?: StringNullableFilter<"Application"> | string | null
+    referralSource?: StringNullableFilter<"Application"> | string | null
+    referralSourceDetails?: StringNullableFilter<"Application"> | string | null
+    internalReferral?: BoolFilter<"Application"> | boolean
+    internalReferralDetails?: StringNullableFilter<"Application"> | string | null
+    unemploymentReason?: StringNullableFilter<"Application"> | string | null
+    hobbies?: StringNullableFilter<"Application"> | string | null
+    emergencyContact?: JsonNullableFilter<"Application">
+    status?: StringFilter<"Application"> | string
+    createdAt?: DateTimeFilter<"Application"> | Date | string
+    updatedAt?: DateTimeFilter<"Application"> | Date | string
+    legacyId?: IntNullableFilter<"Application"> | number | null
+    familyMembers?: FamilyMemberListRelationFilter
+    educationHistory?: EducationHistoryListRelationFilter
+    workExperience?: WorkExperienceListRelationFilter
+    skills?: XOR<SkillNullableScalarRelationFilter, SkillWhereInput> | null
+    extendedRelatives?: ExtendedRelativeListRelationFilter
+    referencePersons?: ReferencePersonListRelationFilter
+  }, "id">
+
+  export type ApplicationOrderByWithAggregationInput = {
+    id?: SortOrder
+    surname?: SortOrderInput | SortOrder
+    lastName?: SortOrder
+    firstName?: SortOrder
+    registerNumber?: SortOrderInput | SortOrder
+    birthDate?: SortOrderInput | SortOrder
+    birthYear?: SortOrderInput | SortOrder
+    birthPlace?: SortOrderInput | SortOrder
+    gender?: SortOrderInput | SortOrder
+    maritalStatus?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    facebookUrl?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
+    phoneMobile?: SortOrderInput | SortOrder
+    phoneHome?: SortOrderInput | SortOrder
+    phoneWork?: SortOrderInput | SortOrder
+    addressCurrent?: SortOrderInput | SortOrder
+    addressTemp?: SortOrderInput | SortOrder
+    applyingFor?: SortOrderInput | SortOrder
+    photoUrl?: SortOrderInput | SortOrder
+    idCardUrl?: SortOrderInput | SortOrder
+    diplomaUrl?: SortOrderInput | SortOrder
+    proLicenseUrl?: SortOrderInput | SortOrder
+    videoUrl?: SortOrderInput | SortOrder
+    truckDetails?: SortOrderInput | SortOrder
+    truckPhotos?: SortOrderInput | SortOrder
+    healthInfo?: SortOrderInput | SortOrder
+    criminalRecord?: SortOrder
+    criminalRecordDetails?: SortOrderInput | SortOrder
+    militaryStatus?: SortOrderInput | SortOrder
+    desiredSalary?: SortOrderInput | SortOrder
+    availableDate?: SortOrderInput | SortOrder
+    futureGoals?: SortOrderInput | SortOrder
+    strengths?: SortOrderInput | SortOrder
+    weaknesses?: SortOrderInput | SortOrder
+    referralSource?: SortOrderInput | SortOrder
+    referralSourceDetails?: SortOrderInput | SortOrder
+    internalReferral?: SortOrder
+    internalReferralDetails?: SortOrderInput | SortOrder
+    unemploymentReason?: SortOrderInput | SortOrder
+    hobbies?: SortOrderInput | SortOrder
+    emergencyContact?: SortOrderInput | SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    legacyId?: SortOrderInput | SortOrder
+    _count?: ApplicationCountOrderByAggregateInput
+    _avg?: ApplicationAvgOrderByAggregateInput
+    _max?: ApplicationMaxOrderByAggregateInput
+    _min?: ApplicationMinOrderByAggregateInput
+    _sum?: ApplicationSumOrderByAggregateInput
+  }
+
+  export type ApplicationScalarWhereWithAggregatesInput = {
+    AND?: ApplicationScalarWhereWithAggregatesInput | ApplicationScalarWhereWithAggregatesInput[]
+    OR?: ApplicationScalarWhereWithAggregatesInput[]
+    NOT?: ApplicationScalarWhereWithAggregatesInput | ApplicationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Application"> | string
+    surname?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    lastName?: StringWithAggregatesFilter<"Application"> | string
+    firstName?: StringWithAggregatesFilter<"Application"> | string
+    registerNumber?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    birthDate?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    birthYear?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    birthPlace?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    gender?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    maritalStatus?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    email?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    facebookUrl?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    phone?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    phoneMobile?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    phoneHome?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    phoneWork?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    addressCurrent?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    addressTemp?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    applyingFor?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    photoUrl?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    idCardUrl?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    diplomaUrl?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    proLicenseUrl?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    videoUrl?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    truckDetails?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    truckPhotos?: JsonNullableWithAggregatesFilter<"Application">
+    healthInfo?: JsonNullableWithAggregatesFilter<"Application">
+    criminalRecord?: BoolWithAggregatesFilter<"Application"> | boolean
+    criminalRecordDetails?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    militaryStatus?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    desiredSalary?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    availableDate?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    futureGoals?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    strengths?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    weaknesses?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    referralSource?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    referralSourceDetails?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    internalReferral?: BoolWithAggregatesFilter<"Application"> | boolean
+    internalReferralDetails?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    unemploymentReason?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    hobbies?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    emergencyContact?: JsonNullableWithAggregatesFilter<"Application">
+    status?: StringWithAggregatesFilter<"Application"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Application"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Application"> | Date | string
+    legacyId?: IntNullableWithAggregatesFilter<"Application"> | number | null
+  }
+
+  export type FamilyMemberWhereInput = {
+    AND?: FamilyMemberWhereInput | FamilyMemberWhereInput[]
+    OR?: FamilyMemberWhereInput[]
+    NOT?: FamilyMemberWhereInput | FamilyMemberWhereInput[]
+    id?: IntFilter<"FamilyMember"> | number
+    applicationId?: StringFilter<"FamilyMember"> | string
+    relation?: StringNullableFilter<"FamilyMember"> | string | null
+    lastName?: StringNullableFilter<"FamilyMember"> | string | null
+    firstName?: StringNullableFilter<"FamilyMember"> | string | null
+    birthYear?: StringNullableFilter<"FamilyMember"> | string | null
+    occupation?: StringNullableFilter<"FamilyMember"> | string | null
+    workplaceSchool?: StringNullableFilter<"FamilyMember"> | string | null
+    phone?: StringNullableFilter<"FamilyMember"> | string | null
+    registerNumber?: StringNullableFilter<"FamilyMember"> | string | null
+    application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
+  }
+
+  export type FamilyMemberOrderByWithRelationInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    relation?: SortOrderInput | SortOrder
+    lastName?: SortOrderInput | SortOrder
+    firstName?: SortOrderInput | SortOrder
+    birthYear?: SortOrderInput | SortOrder
+    occupation?: SortOrderInput | SortOrder
+    workplaceSchool?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
+    registerNumber?: SortOrderInput | SortOrder
+    application?: ApplicationOrderByWithRelationInput
+  }
+
+  export type FamilyMemberWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: FamilyMemberWhereInput | FamilyMemberWhereInput[]
+    OR?: FamilyMemberWhereInput[]
+    NOT?: FamilyMemberWhereInput | FamilyMemberWhereInput[]
+    applicationId?: StringFilter<"FamilyMember"> | string
+    relation?: StringNullableFilter<"FamilyMember"> | string | null
+    lastName?: StringNullableFilter<"FamilyMember"> | string | null
+    firstName?: StringNullableFilter<"FamilyMember"> | string | null
+    birthYear?: StringNullableFilter<"FamilyMember"> | string | null
+    occupation?: StringNullableFilter<"FamilyMember"> | string | null
+    workplaceSchool?: StringNullableFilter<"FamilyMember"> | string | null
+    phone?: StringNullableFilter<"FamilyMember"> | string | null
+    registerNumber?: StringNullableFilter<"FamilyMember"> | string | null
+    application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
+  }, "id">
+
+  export type FamilyMemberOrderByWithAggregationInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    relation?: SortOrderInput | SortOrder
+    lastName?: SortOrderInput | SortOrder
+    firstName?: SortOrderInput | SortOrder
+    birthYear?: SortOrderInput | SortOrder
+    occupation?: SortOrderInput | SortOrder
+    workplaceSchool?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
+    registerNumber?: SortOrderInput | SortOrder
+    _count?: FamilyMemberCountOrderByAggregateInput
+    _avg?: FamilyMemberAvgOrderByAggregateInput
+    _max?: FamilyMemberMaxOrderByAggregateInput
+    _min?: FamilyMemberMinOrderByAggregateInput
+    _sum?: FamilyMemberSumOrderByAggregateInput
+  }
+
+  export type FamilyMemberScalarWhereWithAggregatesInput = {
+    AND?: FamilyMemberScalarWhereWithAggregatesInput | FamilyMemberScalarWhereWithAggregatesInput[]
+    OR?: FamilyMemberScalarWhereWithAggregatesInput[]
+    NOT?: FamilyMemberScalarWhereWithAggregatesInput | FamilyMemberScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"FamilyMember"> | number
+    applicationId?: StringWithAggregatesFilter<"FamilyMember"> | string
+    relation?: StringNullableWithAggregatesFilter<"FamilyMember"> | string | null
+    lastName?: StringNullableWithAggregatesFilter<"FamilyMember"> | string | null
+    firstName?: StringNullableWithAggregatesFilter<"FamilyMember"> | string | null
+    birthYear?: StringNullableWithAggregatesFilter<"FamilyMember"> | string | null
+    occupation?: StringNullableWithAggregatesFilter<"FamilyMember"> | string | null
+    workplaceSchool?: StringNullableWithAggregatesFilter<"FamilyMember"> | string | null
+    phone?: StringNullableWithAggregatesFilter<"FamilyMember"> | string | null
+    registerNumber?: StringNullableWithAggregatesFilter<"FamilyMember"> | string | null
+  }
+
+  export type EducationHistoryWhereInput = {
+    AND?: EducationHistoryWhereInput | EducationHistoryWhereInput[]
+    OR?: EducationHistoryWhereInput[]
+    NOT?: EducationHistoryWhereInput | EducationHistoryWhereInput[]
+    id?: IntFilter<"EducationHistory"> | number
+    applicationId?: StringFilter<"EducationHistory"> | string
+    schoolName?: StringNullableFilter<"EducationHistory"> | string | null
+    schoolType?: StringNullableFilter<"EducationHistory"> | string | null
+    degree?: StringNullableFilter<"EducationHistory"> | string | null
+    major?: StringNullableFilter<"EducationHistory"> | string | null
+    entryYear?: StringNullableFilter<"EducationHistory"> | string | null
+    graduationYear?: StringNullableFilter<"EducationHistory"> | string | null
+    gpa?: StringNullableFilter<"EducationHistory"> | string | null
+    application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
+  }
+
+  export type EducationHistoryOrderByWithRelationInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    schoolName?: SortOrderInput | SortOrder
+    schoolType?: SortOrderInput | SortOrder
+    degree?: SortOrderInput | SortOrder
+    major?: SortOrderInput | SortOrder
+    entryYear?: SortOrderInput | SortOrder
+    graduationYear?: SortOrderInput | SortOrder
+    gpa?: SortOrderInput | SortOrder
+    application?: ApplicationOrderByWithRelationInput
+  }
+
+  export type EducationHistoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: EducationHistoryWhereInput | EducationHistoryWhereInput[]
+    OR?: EducationHistoryWhereInput[]
+    NOT?: EducationHistoryWhereInput | EducationHistoryWhereInput[]
+    applicationId?: StringFilter<"EducationHistory"> | string
+    schoolName?: StringNullableFilter<"EducationHistory"> | string | null
+    schoolType?: StringNullableFilter<"EducationHistory"> | string | null
+    degree?: StringNullableFilter<"EducationHistory"> | string | null
+    major?: StringNullableFilter<"EducationHistory"> | string | null
+    entryYear?: StringNullableFilter<"EducationHistory"> | string | null
+    graduationYear?: StringNullableFilter<"EducationHistory"> | string | null
+    gpa?: StringNullableFilter<"EducationHistory"> | string | null
+    application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
+  }, "id">
+
+  export type EducationHistoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    schoolName?: SortOrderInput | SortOrder
+    schoolType?: SortOrderInput | SortOrder
+    degree?: SortOrderInput | SortOrder
+    major?: SortOrderInput | SortOrder
+    entryYear?: SortOrderInput | SortOrder
+    graduationYear?: SortOrderInput | SortOrder
+    gpa?: SortOrderInput | SortOrder
+    _count?: EducationHistoryCountOrderByAggregateInput
+    _avg?: EducationHistoryAvgOrderByAggregateInput
+    _max?: EducationHistoryMaxOrderByAggregateInput
+    _min?: EducationHistoryMinOrderByAggregateInput
+    _sum?: EducationHistorySumOrderByAggregateInput
+  }
+
+  export type EducationHistoryScalarWhereWithAggregatesInput = {
+    AND?: EducationHistoryScalarWhereWithAggregatesInput | EducationHistoryScalarWhereWithAggregatesInput[]
+    OR?: EducationHistoryScalarWhereWithAggregatesInput[]
+    NOT?: EducationHistoryScalarWhereWithAggregatesInput | EducationHistoryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"EducationHistory"> | number
+    applicationId?: StringWithAggregatesFilter<"EducationHistory"> | string
+    schoolName?: StringNullableWithAggregatesFilter<"EducationHistory"> | string | null
+    schoolType?: StringNullableWithAggregatesFilter<"EducationHistory"> | string | null
+    degree?: StringNullableWithAggregatesFilter<"EducationHistory"> | string | null
+    major?: StringNullableWithAggregatesFilter<"EducationHistory"> | string | null
+    entryYear?: StringNullableWithAggregatesFilter<"EducationHistory"> | string | null
+    graduationYear?: StringNullableWithAggregatesFilter<"EducationHistory"> | string | null
+    gpa?: StringNullableWithAggregatesFilter<"EducationHistory"> | string | null
+  }
+
+  export type WorkExperienceWhereInput = {
+    AND?: WorkExperienceWhereInput | WorkExperienceWhereInput[]
+    OR?: WorkExperienceWhereInput[]
+    NOT?: WorkExperienceWhereInput | WorkExperienceWhereInput[]
+    id?: IntFilter<"WorkExperience"> | number
+    applicationId?: StringFilter<"WorkExperience"> | string
+    companyName?: StringNullableFilter<"WorkExperience"> | string | null
+    position?: StringNullableFilter<"WorkExperience"> | string | null
+    startDate?: StringNullableFilter<"WorkExperience"> | string | null
+    endDate?: StringNullableFilter<"WorkExperience"> | string | null
+    salary?: StringNullableFilter<"WorkExperience"> | string | null
+    reasonForLeaving?: StringNullableFilter<"WorkExperience"> | string | null
+    application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
+  }
+
+  export type WorkExperienceOrderByWithRelationInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    companyName?: SortOrderInput | SortOrder
+    position?: SortOrderInput | SortOrder
+    startDate?: SortOrderInput | SortOrder
+    endDate?: SortOrderInput | SortOrder
+    salary?: SortOrderInput | SortOrder
+    reasonForLeaving?: SortOrderInput | SortOrder
+    application?: ApplicationOrderByWithRelationInput
+  }
+
+  export type WorkExperienceWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: WorkExperienceWhereInput | WorkExperienceWhereInput[]
+    OR?: WorkExperienceWhereInput[]
+    NOT?: WorkExperienceWhereInput | WorkExperienceWhereInput[]
+    applicationId?: StringFilter<"WorkExperience"> | string
+    companyName?: StringNullableFilter<"WorkExperience"> | string | null
+    position?: StringNullableFilter<"WorkExperience"> | string | null
+    startDate?: StringNullableFilter<"WorkExperience"> | string | null
+    endDate?: StringNullableFilter<"WorkExperience"> | string | null
+    salary?: StringNullableFilter<"WorkExperience"> | string | null
+    reasonForLeaving?: StringNullableFilter<"WorkExperience"> | string | null
+    application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
+  }, "id">
+
+  export type WorkExperienceOrderByWithAggregationInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    companyName?: SortOrderInput | SortOrder
+    position?: SortOrderInput | SortOrder
+    startDate?: SortOrderInput | SortOrder
+    endDate?: SortOrderInput | SortOrder
+    salary?: SortOrderInput | SortOrder
+    reasonForLeaving?: SortOrderInput | SortOrder
+    _count?: WorkExperienceCountOrderByAggregateInput
+    _avg?: WorkExperienceAvgOrderByAggregateInput
+    _max?: WorkExperienceMaxOrderByAggregateInput
+    _min?: WorkExperienceMinOrderByAggregateInput
+    _sum?: WorkExperienceSumOrderByAggregateInput
+  }
+
+  export type WorkExperienceScalarWhereWithAggregatesInput = {
+    AND?: WorkExperienceScalarWhereWithAggregatesInput | WorkExperienceScalarWhereWithAggregatesInput[]
+    OR?: WorkExperienceScalarWhereWithAggregatesInput[]
+    NOT?: WorkExperienceScalarWhereWithAggregatesInput | WorkExperienceScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"WorkExperience"> | number
+    applicationId?: StringWithAggregatesFilter<"WorkExperience"> | string
+    companyName?: StringNullableWithAggregatesFilter<"WorkExperience"> | string | null
+    position?: StringNullableWithAggregatesFilter<"WorkExperience"> | string | null
+    startDate?: StringNullableWithAggregatesFilter<"WorkExperience"> | string | null
+    endDate?: StringNullableWithAggregatesFilter<"WorkExperience"> | string | null
+    salary?: StringNullableWithAggregatesFilter<"WorkExperience"> | string | null
+    reasonForLeaving?: StringNullableWithAggregatesFilter<"WorkExperience"> | string | null
+  }
+
+  export type SkillWhereInput = {
+    AND?: SkillWhereInput | SkillWhereInput[]
+    OR?: SkillWhereInput[]
+    NOT?: SkillWhereInput | SkillWhereInput[]
+    id?: IntFilter<"Skill"> | number
+    applicationId?: StringFilter<"Skill"> | string
+    languageMatrix?: JsonNullableFilter<"Skill">
+    pcMatrix?: JsonNullableFilter<"Skill">
+    application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
+  }
+
+  export type SkillOrderByWithRelationInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    languageMatrix?: SortOrderInput | SortOrder
+    pcMatrix?: SortOrderInput | SortOrder
+    application?: ApplicationOrderByWithRelationInput
+  }
+
+  export type SkillWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    applicationId?: string
+    AND?: SkillWhereInput | SkillWhereInput[]
+    OR?: SkillWhereInput[]
+    NOT?: SkillWhereInput | SkillWhereInput[]
+    languageMatrix?: JsonNullableFilter<"Skill">
+    pcMatrix?: JsonNullableFilter<"Skill">
+    application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
+  }, "id" | "applicationId">
+
+  export type SkillOrderByWithAggregationInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    languageMatrix?: SortOrderInput | SortOrder
+    pcMatrix?: SortOrderInput | SortOrder
+    _count?: SkillCountOrderByAggregateInput
+    _avg?: SkillAvgOrderByAggregateInput
+    _max?: SkillMaxOrderByAggregateInput
+    _min?: SkillMinOrderByAggregateInput
+    _sum?: SkillSumOrderByAggregateInput
+  }
+
+  export type SkillScalarWhereWithAggregatesInput = {
+    AND?: SkillScalarWhereWithAggregatesInput | SkillScalarWhereWithAggregatesInput[]
+    OR?: SkillScalarWhereWithAggregatesInput[]
+    NOT?: SkillScalarWhereWithAggregatesInput | SkillScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Skill"> | number
+    applicationId?: StringWithAggregatesFilter<"Skill"> | string
+    languageMatrix?: JsonNullableWithAggregatesFilter<"Skill">
+    pcMatrix?: JsonNullableWithAggregatesFilter<"Skill">
+  }
+
+  export type ExtendedRelativeWhereInput = {
+    AND?: ExtendedRelativeWhereInput | ExtendedRelativeWhereInput[]
+    OR?: ExtendedRelativeWhereInput[]
+    NOT?: ExtendedRelativeWhereInput | ExtendedRelativeWhereInput[]
+    id?: IntFilter<"ExtendedRelative"> | number
+    applicationId?: StringFilter<"ExtendedRelative"> | string
+    relation?: StringNullableFilter<"ExtendedRelative"> | string | null
+    fullName?: StringNullableFilter<"ExtendedRelative"> | string | null
+    occupation?: StringNullableFilter<"ExtendedRelative"> | string | null
+    workplace?: StringNullableFilter<"ExtendedRelative"> | string | null
+    contactInfo?: StringNullableFilter<"ExtendedRelative"> | string | null
+    application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
+  }
+
+  export type ExtendedRelativeOrderByWithRelationInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    relation?: SortOrderInput | SortOrder
+    fullName?: SortOrderInput | SortOrder
+    occupation?: SortOrderInput | SortOrder
+    workplace?: SortOrderInput | SortOrder
+    contactInfo?: SortOrderInput | SortOrder
+    application?: ApplicationOrderByWithRelationInput
+  }
+
+  export type ExtendedRelativeWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ExtendedRelativeWhereInput | ExtendedRelativeWhereInput[]
+    OR?: ExtendedRelativeWhereInput[]
+    NOT?: ExtendedRelativeWhereInput | ExtendedRelativeWhereInput[]
+    applicationId?: StringFilter<"ExtendedRelative"> | string
+    relation?: StringNullableFilter<"ExtendedRelative"> | string | null
+    fullName?: StringNullableFilter<"ExtendedRelative"> | string | null
+    occupation?: StringNullableFilter<"ExtendedRelative"> | string | null
+    workplace?: StringNullableFilter<"ExtendedRelative"> | string | null
+    contactInfo?: StringNullableFilter<"ExtendedRelative"> | string | null
+    application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
+  }, "id">
+
+  export type ExtendedRelativeOrderByWithAggregationInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    relation?: SortOrderInput | SortOrder
+    fullName?: SortOrderInput | SortOrder
+    occupation?: SortOrderInput | SortOrder
+    workplace?: SortOrderInput | SortOrder
+    contactInfo?: SortOrderInput | SortOrder
+    _count?: ExtendedRelativeCountOrderByAggregateInput
+    _avg?: ExtendedRelativeAvgOrderByAggregateInput
+    _max?: ExtendedRelativeMaxOrderByAggregateInput
+    _min?: ExtendedRelativeMinOrderByAggregateInput
+    _sum?: ExtendedRelativeSumOrderByAggregateInput
+  }
+
+  export type ExtendedRelativeScalarWhereWithAggregatesInput = {
+    AND?: ExtendedRelativeScalarWhereWithAggregatesInput | ExtendedRelativeScalarWhereWithAggregatesInput[]
+    OR?: ExtendedRelativeScalarWhereWithAggregatesInput[]
+    NOT?: ExtendedRelativeScalarWhereWithAggregatesInput | ExtendedRelativeScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ExtendedRelative"> | number
+    applicationId?: StringWithAggregatesFilter<"ExtendedRelative"> | string
+    relation?: StringNullableWithAggregatesFilter<"ExtendedRelative"> | string | null
+    fullName?: StringNullableWithAggregatesFilter<"ExtendedRelative"> | string | null
+    occupation?: StringNullableWithAggregatesFilter<"ExtendedRelative"> | string | null
+    workplace?: StringNullableWithAggregatesFilter<"ExtendedRelative"> | string | null
+    contactInfo?: StringNullableWithAggregatesFilter<"ExtendedRelative"> | string | null
+  }
+
+  export type ReferencePersonWhereInput = {
+    AND?: ReferencePersonWhereInput | ReferencePersonWhereInput[]
+    OR?: ReferencePersonWhereInput[]
+    NOT?: ReferencePersonWhereInput | ReferencePersonWhereInput[]
+    id?: IntFilter<"ReferencePerson"> | number
+    applicationId?: StringFilter<"ReferencePerson"> | string
+    fullName?: StringNullableFilter<"ReferencePerson"> | string | null
+    occupation?: StringNullableFilter<"ReferencePerson"> | string | null
+    workplace?: StringNullableFilter<"ReferencePerson"> | string | null
+    contactInfo?: StringNullableFilter<"ReferencePerson"> | string | null
+    application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
+  }
+
+  export type ReferencePersonOrderByWithRelationInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    fullName?: SortOrderInput | SortOrder
+    occupation?: SortOrderInput | SortOrder
+    workplace?: SortOrderInput | SortOrder
+    contactInfo?: SortOrderInput | SortOrder
+    application?: ApplicationOrderByWithRelationInput
+  }
+
+  export type ReferencePersonWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ReferencePersonWhereInput | ReferencePersonWhereInput[]
+    OR?: ReferencePersonWhereInput[]
+    NOT?: ReferencePersonWhereInput | ReferencePersonWhereInput[]
+    applicationId?: StringFilter<"ReferencePerson"> | string
+    fullName?: StringNullableFilter<"ReferencePerson"> | string | null
+    occupation?: StringNullableFilter<"ReferencePerson"> | string | null
+    workplace?: StringNullableFilter<"ReferencePerson"> | string | null
+    contactInfo?: StringNullableFilter<"ReferencePerson"> | string | null
+    application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
+  }, "id">
+
+  export type ReferencePersonOrderByWithAggregationInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    fullName?: SortOrderInput | SortOrder
+    occupation?: SortOrderInput | SortOrder
+    workplace?: SortOrderInput | SortOrder
+    contactInfo?: SortOrderInput | SortOrder
+    _count?: ReferencePersonCountOrderByAggregateInput
+    _avg?: ReferencePersonAvgOrderByAggregateInput
+    _max?: ReferencePersonMaxOrderByAggregateInput
+    _min?: ReferencePersonMinOrderByAggregateInput
+    _sum?: ReferencePersonSumOrderByAggregateInput
+  }
+
+  export type ReferencePersonScalarWhereWithAggregatesInput = {
+    AND?: ReferencePersonScalarWhereWithAggregatesInput | ReferencePersonScalarWhereWithAggregatesInput[]
+    OR?: ReferencePersonScalarWhereWithAggregatesInput[]
+    NOT?: ReferencePersonScalarWhereWithAggregatesInput | ReferencePersonScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ReferencePerson"> | number
+    applicationId?: StringWithAggregatesFilter<"ReferencePerson"> | string
+    fullName?: StringNullableWithAggregatesFilter<"ReferencePerson"> | string | null
+    occupation?: StringNullableWithAggregatesFilter<"ReferencePerson"> | string | null
+    workplace?: StringNullableWithAggregatesFilter<"ReferencePerson"> | string | null
+    contactInfo?: StringNullableWithAggregatesFilter<"ReferencePerson"> | string | null
+  }
+
+  export type JobPositionWhereInput = {
+    AND?: JobPositionWhereInput | JobPositionWhereInput[]
+    OR?: JobPositionWhereInput[]
+    NOT?: JobPositionWhereInput | JobPositionWhereInput[]
+    id?: StringFilter<"JobPosition"> | string
+    title?: StringFilter<"JobPosition"> | string
+    department?: StringNullableFilter<"JobPosition"> | string | null
+    location?: StringNullableFilter<"JobPosition"> | string | null
+    employmentType?: StringNullableFilter<"JobPosition"> | string | null
+    salaryRange?: StringNullableFilter<"JobPosition"> | string | null
+    description?: StringNullableFilter<"JobPosition"> | string | null
+    responsibilities?: StringNullableFilter<"JobPosition"> | string | null
+    requirements?: StringNullableFilter<"JobPosition"> | string | null
+    benefits?: StringNullableFilter<"JobPosition"> | string | null
+    imageUrl?: StringNullableFilter<"JobPosition"> | string | null
+    isActive?: BoolFilter<"JobPosition"> | boolean
+    createdAt?: DateTimeFilter<"JobPosition"> | Date | string
+    updatedAt?: DateTimeFilter<"JobPosition"> | Date | string
+  }
+
+  export type JobPositionOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    department?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    employmentType?: SortOrderInput | SortOrder
+    salaryRange?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    responsibilities?: SortOrderInput | SortOrder
+    requirements?: SortOrderInput | SortOrder
+    benefits?: SortOrderInput | SortOrder
+    imageUrl?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JobPositionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: JobPositionWhereInput | JobPositionWhereInput[]
+    OR?: JobPositionWhereInput[]
+    NOT?: JobPositionWhereInput | JobPositionWhereInput[]
+    title?: StringFilter<"JobPosition"> | string
+    department?: StringNullableFilter<"JobPosition"> | string | null
+    location?: StringNullableFilter<"JobPosition"> | string | null
+    employmentType?: StringNullableFilter<"JobPosition"> | string | null
+    salaryRange?: StringNullableFilter<"JobPosition"> | string | null
+    description?: StringNullableFilter<"JobPosition"> | string | null
+    responsibilities?: StringNullableFilter<"JobPosition"> | string | null
+    requirements?: StringNullableFilter<"JobPosition"> | string | null
+    benefits?: StringNullableFilter<"JobPosition"> | string | null
+    imageUrl?: StringNullableFilter<"JobPosition"> | string | null
+    isActive?: BoolFilter<"JobPosition"> | boolean
+    createdAt?: DateTimeFilter<"JobPosition"> | Date | string
+    updatedAt?: DateTimeFilter<"JobPosition"> | Date | string
+  }, "id">
+
+  export type JobPositionOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    department?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    employmentType?: SortOrderInput | SortOrder
+    salaryRange?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    responsibilities?: SortOrderInput | SortOrder
+    requirements?: SortOrderInput | SortOrder
+    benefits?: SortOrderInput | SortOrder
+    imageUrl?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: JobPositionCountOrderByAggregateInput
+    _max?: JobPositionMaxOrderByAggregateInput
+    _min?: JobPositionMinOrderByAggregateInput
+  }
+
+  export type JobPositionScalarWhereWithAggregatesInput = {
+    AND?: JobPositionScalarWhereWithAggregatesInput | JobPositionScalarWhereWithAggregatesInput[]
+    OR?: JobPositionScalarWhereWithAggregatesInput[]
+    NOT?: JobPositionScalarWhereWithAggregatesInput | JobPositionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"JobPosition"> | string
+    title?: StringWithAggregatesFilter<"JobPosition"> | string
+    department?: StringNullableWithAggregatesFilter<"JobPosition"> | string | null
+    location?: StringNullableWithAggregatesFilter<"JobPosition"> | string | null
+    employmentType?: StringNullableWithAggregatesFilter<"JobPosition"> | string | null
+    salaryRange?: StringNullableWithAggregatesFilter<"JobPosition"> | string | null
+    description?: StringNullableWithAggregatesFilter<"JobPosition"> | string | null
+    responsibilities?: StringNullableWithAggregatesFilter<"JobPosition"> | string | null
+    requirements?: StringNullableWithAggregatesFilter<"JobPosition"> | string | null
+    benefits?: StringNullableWithAggregatesFilter<"JobPosition"> | string | null
+    imageUrl?: StringNullableWithAggregatesFilter<"JobPosition"> | string | null
+    isActive?: BoolWithAggregatesFilter<"JobPosition"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"JobPosition"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"JobPosition"> | Date | string
+  }
+
+  export type LegacyAnketWhereInput = {
+    AND?: LegacyAnketWhereInput | LegacyAnketWhereInput[]
+    OR?: LegacyAnketWhereInput[]
+    NOT?: LegacyAnketWhereInput | LegacyAnketWhereInput[]
+    id?: IntFilter<"LegacyAnket"> | number
+    ognoo?: DateTimeNullableFilter<"LegacyAnket"> | Date | string | null
+    image1?: StringNullableFilter<"LegacyAnket"> | string | null
+    image2?: StringNullableFilter<"LegacyAnket"> | string | null
+    image3?: StringNullableFilter<"LegacyAnket"> | string | null
+    image4?: StringNullableFilter<"LegacyAnket"> | string | null
+    ovog?: StringNullableFilter<"LegacyAnket"> | string | null
+    ner?: StringNullableFilter<"LegacyAnket"> | string | null
+    utas?: StringNullableFilter<"LegacyAnket"> | string | null
+    regdugaar?: StringNullableFilter<"LegacyAnket"> | string | null
+    email?: StringNullableFilter<"LegacyAnket"> | string | null
+    sonirhoson?: StringNullableFilter<"LegacyAnket"> | string | null
+    allhtml?: StringNullableFilter<"LegacyAnket"> | string | null
+  }
+
+  export type LegacyAnketOrderByWithRelationInput = {
+    id?: SortOrder
+    ognoo?: SortOrderInput | SortOrder
+    image1?: SortOrderInput | SortOrder
+    image2?: SortOrderInput | SortOrder
+    image3?: SortOrderInput | SortOrder
+    image4?: SortOrderInput | SortOrder
+    ovog?: SortOrderInput | SortOrder
+    ner?: SortOrderInput | SortOrder
+    utas?: SortOrderInput | SortOrder
+    regdugaar?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    sonirhoson?: SortOrderInput | SortOrder
+    allhtml?: SortOrderInput | SortOrder
+  }
+
+  export type LegacyAnketWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: LegacyAnketWhereInput | LegacyAnketWhereInput[]
+    OR?: LegacyAnketWhereInput[]
+    NOT?: LegacyAnketWhereInput | LegacyAnketWhereInput[]
+    ognoo?: DateTimeNullableFilter<"LegacyAnket"> | Date | string | null
+    image1?: StringNullableFilter<"LegacyAnket"> | string | null
+    image2?: StringNullableFilter<"LegacyAnket"> | string | null
+    image3?: StringNullableFilter<"LegacyAnket"> | string | null
+    image4?: StringNullableFilter<"LegacyAnket"> | string | null
+    ovog?: StringNullableFilter<"LegacyAnket"> | string | null
+    ner?: StringNullableFilter<"LegacyAnket"> | string | null
+    utas?: StringNullableFilter<"LegacyAnket"> | string | null
+    regdugaar?: StringNullableFilter<"LegacyAnket"> | string | null
+    email?: StringNullableFilter<"LegacyAnket"> | string | null
+    sonirhoson?: StringNullableFilter<"LegacyAnket"> | string | null
+    allhtml?: StringNullableFilter<"LegacyAnket"> | string | null
+  }, "id">
+
+  export type LegacyAnketOrderByWithAggregationInput = {
+    id?: SortOrder
+    ognoo?: SortOrderInput | SortOrder
+    image1?: SortOrderInput | SortOrder
+    image2?: SortOrderInput | SortOrder
+    image3?: SortOrderInput | SortOrder
+    image4?: SortOrderInput | SortOrder
+    ovog?: SortOrderInput | SortOrder
+    ner?: SortOrderInput | SortOrder
+    utas?: SortOrderInput | SortOrder
+    regdugaar?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    sonirhoson?: SortOrderInput | SortOrder
+    allhtml?: SortOrderInput | SortOrder
+    _count?: LegacyAnketCountOrderByAggregateInput
+    _avg?: LegacyAnketAvgOrderByAggregateInput
+    _max?: LegacyAnketMaxOrderByAggregateInput
+    _min?: LegacyAnketMinOrderByAggregateInput
+    _sum?: LegacyAnketSumOrderByAggregateInput
+  }
+
+  export type LegacyAnketScalarWhereWithAggregatesInput = {
+    AND?: LegacyAnketScalarWhereWithAggregatesInput | LegacyAnketScalarWhereWithAggregatesInput[]
+    OR?: LegacyAnketScalarWhereWithAggregatesInput[]
+    NOT?: LegacyAnketScalarWhereWithAggregatesInput | LegacyAnketScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"LegacyAnket"> | number
+    ognoo?: DateTimeNullableWithAggregatesFilter<"LegacyAnket"> | Date | string | null
+    image1?: StringNullableWithAggregatesFilter<"LegacyAnket"> | string | null
+    image2?: StringNullableWithAggregatesFilter<"LegacyAnket"> | string | null
+    image3?: StringNullableWithAggregatesFilter<"LegacyAnket"> | string | null
+    image4?: StringNullableWithAggregatesFilter<"LegacyAnket"> | string | null
+    ovog?: StringNullableWithAggregatesFilter<"LegacyAnket"> | string | null
+    ner?: StringNullableWithAggregatesFilter<"LegacyAnket"> | string | null
+    utas?: StringNullableWithAggregatesFilter<"LegacyAnket"> | string | null
+    regdugaar?: StringNullableWithAggregatesFilter<"LegacyAnket"> | string | null
+    email?: StringNullableWithAggregatesFilter<"LegacyAnket"> | string | null
+    sonirhoson?: StringNullableWithAggregatesFilter<"LegacyAnket"> | string | null
+    allhtml?: StringNullableWithAggregatesFilter<"LegacyAnket"> | string | null
   }
 
   export type ProductCreateInput = {
@@ -29832,6 +42576,1011 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type ApplicationCreateInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    familyMembers?: FamilyMemberCreateNestedManyWithoutApplicationInput
+    educationHistory?: EducationHistoryCreateNestedManyWithoutApplicationInput
+    workExperience?: WorkExperienceCreateNestedManyWithoutApplicationInput
+    skills?: SkillCreateNestedOneWithoutApplicationInput
+    extendedRelatives?: ExtendedRelativeCreateNestedManyWithoutApplicationInput
+    referencePersons?: ReferencePersonCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationUncheckedCreateInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    familyMembers?: FamilyMemberUncheckedCreateNestedManyWithoutApplicationInput
+    educationHistory?: EducationHistoryUncheckedCreateNestedManyWithoutApplicationInput
+    workExperience?: WorkExperienceUncheckedCreateNestedManyWithoutApplicationInput
+    skills?: SkillUncheckedCreateNestedOneWithoutApplicationInput
+    extendedRelatives?: ExtendedRelativeUncheckedCreateNestedManyWithoutApplicationInput
+    referencePersons?: ReferencePersonUncheckedCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    familyMembers?: FamilyMemberUpdateManyWithoutApplicationNestedInput
+    educationHistory?: EducationHistoryUpdateManyWithoutApplicationNestedInput
+    workExperience?: WorkExperienceUpdateManyWithoutApplicationNestedInput
+    skills?: SkillUpdateOneWithoutApplicationNestedInput
+    extendedRelatives?: ExtendedRelativeUpdateManyWithoutApplicationNestedInput
+    referencePersons?: ReferencePersonUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    familyMembers?: FamilyMemberUncheckedUpdateManyWithoutApplicationNestedInput
+    educationHistory?: EducationHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+    workExperience?: WorkExperienceUncheckedUpdateManyWithoutApplicationNestedInput
+    skills?: SkillUncheckedUpdateOneWithoutApplicationNestedInput
+    extendedRelatives?: ExtendedRelativeUncheckedUpdateManyWithoutApplicationNestedInput
+    referencePersons?: ReferencePersonUncheckedUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationCreateManyInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+  }
+
+  export type ApplicationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type ApplicationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type FamilyMemberCreateInput = {
+    relation?: string | null
+    lastName?: string | null
+    firstName?: string | null
+    birthYear?: string | null
+    occupation?: string | null
+    workplaceSchool?: string | null
+    phone?: string | null
+    registerNumber?: string | null
+    application: ApplicationCreateNestedOneWithoutFamilyMembersInput
+  }
+
+  export type FamilyMemberUncheckedCreateInput = {
+    id?: number
+    applicationId: string
+    relation?: string | null
+    lastName?: string | null
+    firstName?: string | null
+    birthYear?: string | null
+    occupation?: string | null
+    workplaceSchool?: string | null
+    phone?: string | null
+    registerNumber?: string | null
+  }
+
+  export type FamilyMemberUpdateInput = {
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplaceSchool?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    application?: ApplicationUpdateOneRequiredWithoutFamilyMembersNestedInput
+  }
+
+  export type FamilyMemberUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    applicationId?: StringFieldUpdateOperationsInput | string
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplaceSchool?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FamilyMemberCreateManyInput = {
+    id?: number
+    applicationId: string
+    relation?: string | null
+    lastName?: string | null
+    firstName?: string | null
+    birthYear?: string | null
+    occupation?: string | null
+    workplaceSchool?: string | null
+    phone?: string | null
+    registerNumber?: string | null
+  }
+
+  export type FamilyMemberUpdateManyMutationInput = {
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplaceSchool?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FamilyMemberUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    applicationId?: StringFieldUpdateOperationsInput | string
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplaceSchool?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type EducationHistoryCreateInput = {
+    schoolName?: string | null
+    schoolType?: string | null
+    degree?: string | null
+    major?: string | null
+    entryYear?: string | null
+    graduationYear?: string | null
+    gpa?: string | null
+    application: ApplicationCreateNestedOneWithoutEducationHistoryInput
+  }
+
+  export type EducationHistoryUncheckedCreateInput = {
+    id?: number
+    applicationId: string
+    schoolName?: string | null
+    schoolType?: string | null
+    degree?: string | null
+    major?: string | null
+    entryYear?: string | null
+    graduationYear?: string | null
+    gpa?: string | null
+  }
+
+  export type EducationHistoryUpdateInput = {
+    schoolName?: NullableStringFieldUpdateOperationsInput | string | null
+    schoolType?: NullableStringFieldUpdateOperationsInput | string | null
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    major?: NullableStringFieldUpdateOperationsInput | string | null
+    entryYear?: NullableStringFieldUpdateOperationsInput | string | null
+    graduationYear?: NullableStringFieldUpdateOperationsInput | string | null
+    gpa?: NullableStringFieldUpdateOperationsInput | string | null
+    application?: ApplicationUpdateOneRequiredWithoutEducationHistoryNestedInput
+  }
+
+  export type EducationHistoryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    applicationId?: StringFieldUpdateOperationsInput | string
+    schoolName?: NullableStringFieldUpdateOperationsInput | string | null
+    schoolType?: NullableStringFieldUpdateOperationsInput | string | null
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    major?: NullableStringFieldUpdateOperationsInput | string | null
+    entryYear?: NullableStringFieldUpdateOperationsInput | string | null
+    graduationYear?: NullableStringFieldUpdateOperationsInput | string | null
+    gpa?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type EducationHistoryCreateManyInput = {
+    id?: number
+    applicationId: string
+    schoolName?: string | null
+    schoolType?: string | null
+    degree?: string | null
+    major?: string | null
+    entryYear?: string | null
+    graduationYear?: string | null
+    gpa?: string | null
+  }
+
+  export type EducationHistoryUpdateManyMutationInput = {
+    schoolName?: NullableStringFieldUpdateOperationsInput | string | null
+    schoolType?: NullableStringFieldUpdateOperationsInput | string | null
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    major?: NullableStringFieldUpdateOperationsInput | string | null
+    entryYear?: NullableStringFieldUpdateOperationsInput | string | null
+    graduationYear?: NullableStringFieldUpdateOperationsInput | string | null
+    gpa?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type EducationHistoryUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    applicationId?: StringFieldUpdateOperationsInput | string
+    schoolName?: NullableStringFieldUpdateOperationsInput | string | null
+    schoolType?: NullableStringFieldUpdateOperationsInput | string | null
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    major?: NullableStringFieldUpdateOperationsInput | string | null
+    entryYear?: NullableStringFieldUpdateOperationsInput | string | null
+    graduationYear?: NullableStringFieldUpdateOperationsInput | string | null
+    gpa?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type WorkExperienceCreateInput = {
+    companyName?: string | null
+    position?: string | null
+    startDate?: string | null
+    endDate?: string | null
+    salary?: string | null
+    reasonForLeaving?: string | null
+    application: ApplicationCreateNestedOneWithoutWorkExperienceInput
+  }
+
+  export type WorkExperienceUncheckedCreateInput = {
+    id?: number
+    applicationId: string
+    companyName?: string | null
+    position?: string | null
+    startDate?: string | null
+    endDate?: string | null
+    salary?: string | null
+    reasonForLeaving?: string | null
+  }
+
+  export type WorkExperienceUpdateInput = {
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableStringFieldUpdateOperationsInput | string | null
+    reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+    application?: ApplicationUpdateOneRequiredWithoutWorkExperienceNestedInput
+  }
+
+  export type WorkExperienceUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    applicationId?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableStringFieldUpdateOperationsInput | string | null
+    reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type WorkExperienceCreateManyInput = {
+    id?: number
+    applicationId: string
+    companyName?: string | null
+    position?: string | null
+    startDate?: string | null
+    endDate?: string | null
+    salary?: string | null
+    reasonForLeaving?: string | null
+  }
+
+  export type WorkExperienceUpdateManyMutationInput = {
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableStringFieldUpdateOperationsInput | string | null
+    reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type WorkExperienceUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    applicationId?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableStringFieldUpdateOperationsInput | string | null
+    reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SkillCreateInput = {
+    languageMatrix?: NullableJsonNullValueInput | InputJsonValue
+    pcMatrix?: NullableJsonNullValueInput | InputJsonValue
+    application: ApplicationCreateNestedOneWithoutSkillsInput
+  }
+
+  export type SkillUncheckedCreateInput = {
+    id?: number
+    applicationId: string
+    languageMatrix?: NullableJsonNullValueInput | InputJsonValue
+    pcMatrix?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SkillUpdateInput = {
+    languageMatrix?: NullableJsonNullValueInput | InputJsonValue
+    pcMatrix?: NullableJsonNullValueInput | InputJsonValue
+    application?: ApplicationUpdateOneRequiredWithoutSkillsNestedInput
+  }
+
+  export type SkillUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    applicationId?: StringFieldUpdateOperationsInput | string
+    languageMatrix?: NullableJsonNullValueInput | InputJsonValue
+    pcMatrix?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SkillCreateManyInput = {
+    id?: number
+    applicationId: string
+    languageMatrix?: NullableJsonNullValueInput | InputJsonValue
+    pcMatrix?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SkillUpdateManyMutationInput = {
+    languageMatrix?: NullableJsonNullValueInput | InputJsonValue
+    pcMatrix?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SkillUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    applicationId?: StringFieldUpdateOperationsInput | string
+    languageMatrix?: NullableJsonNullValueInput | InputJsonValue
+    pcMatrix?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type ExtendedRelativeCreateInput = {
+    relation?: string | null
+    fullName?: string | null
+    occupation?: string | null
+    workplace?: string | null
+    contactInfo?: string | null
+    application: ApplicationCreateNestedOneWithoutExtendedRelativesInput
+  }
+
+  export type ExtendedRelativeUncheckedCreateInput = {
+    id?: number
+    applicationId: string
+    relation?: string | null
+    fullName?: string | null
+    occupation?: string | null
+    workplace?: string | null
+    contactInfo?: string | null
+  }
+
+  export type ExtendedRelativeUpdateInput = {
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+    application?: ApplicationUpdateOneRequiredWithoutExtendedRelativesNestedInput
+  }
+
+  export type ExtendedRelativeUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    applicationId?: StringFieldUpdateOperationsInput | string
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ExtendedRelativeCreateManyInput = {
+    id?: number
+    applicationId: string
+    relation?: string | null
+    fullName?: string | null
+    occupation?: string | null
+    workplace?: string | null
+    contactInfo?: string | null
+  }
+
+  export type ExtendedRelativeUpdateManyMutationInput = {
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ExtendedRelativeUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    applicationId?: StringFieldUpdateOperationsInput | string
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ReferencePersonCreateInput = {
+    fullName?: string | null
+    occupation?: string | null
+    workplace?: string | null
+    contactInfo?: string | null
+    application: ApplicationCreateNestedOneWithoutReferencePersonsInput
+  }
+
+  export type ReferencePersonUncheckedCreateInput = {
+    id?: number
+    applicationId: string
+    fullName?: string | null
+    occupation?: string | null
+    workplace?: string | null
+    contactInfo?: string | null
+  }
+
+  export type ReferencePersonUpdateInput = {
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+    application?: ApplicationUpdateOneRequiredWithoutReferencePersonsNestedInput
+  }
+
+  export type ReferencePersonUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    applicationId?: StringFieldUpdateOperationsInput | string
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ReferencePersonCreateManyInput = {
+    id?: number
+    applicationId: string
+    fullName?: string | null
+    occupation?: string | null
+    workplace?: string | null
+    contactInfo?: string | null
+  }
+
+  export type ReferencePersonUpdateManyMutationInput = {
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ReferencePersonUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    applicationId?: StringFieldUpdateOperationsInput | string
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type JobPositionCreateInput = {
+    id?: string
+    title: string
+    department?: string | null
+    location?: string | null
+    employmentType?: string | null
+    salaryRange?: string | null
+    description?: string | null
+    responsibilities?: string | null
+    requirements?: string | null
+    benefits?: string | null
+    imageUrl?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JobPositionUncheckedCreateInput = {
+    id?: string
+    title: string
+    department?: string | null
+    location?: string | null
+    employmentType?: string | null
+    salaryRange?: string | null
+    description?: string | null
+    responsibilities?: string | null
+    requirements?: string | null
+    benefits?: string | null
+    imageUrl?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JobPositionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    employmentType?: NullableStringFieldUpdateOperationsInput | string | null
+    salaryRange?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    responsibilities?: NullableStringFieldUpdateOperationsInput | string | null
+    requirements?: NullableStringFieldUpdateOperationsInput | string | null
+    benefits?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JobPositionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    employmentType?: NullableStringFieldUpdateOperationsInput | string | null
+    salaryRange?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    responsibilities?: NullableStringFieldUpdateOperationsInput | string | null
+    requirements?: NullableStringFieldUpdateOperationsInput | string | null
+    benefits?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JobPositionCreateManyInput = {
+    id?: string
+    title: string
+    department?: string | null
+    location?: string | null
+    employmentType?: string | null
+    salaryRange?: string | null
+    description?: string | null
+    responsibilities?: string | null
+    requirements?: string | null
+    benefits?: string | null
+    imageUrl?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JobPositionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    employmentType?: NullableStringFieldUpdateOperationsInput | string | null
+    salaryRange?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    responsibilities?: NullableStringFieldUpdateOperationsInput | string | null
+    requirements?: NullableStringFieldUpdateOperationsInput | string | null
+    benefits?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JobPositionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    employmentType?: NullableStringFieldUpdateOperationsInput | string | null
+    salaryRange?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    responsibilities?: NullableStringFieldUpdateOperationsInput | string | null
+    requirements?: NullableStringFieldUpdateOperationsInput | string | null
+    benefits?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LegacyAnketCreateInput = {
+    ognoo?: Date | string | null
+    image1?: string | null
+    image2?: string | null
+    image3?: string | null
+    image4?: string | null
+    ovog?: string | null
+    ner?: string | null
+    utas?: string | null
+    regdugaar?: string | null
+    email?: string | null
+    sonirhoson?: string | null
+    allhtml?: string | null
+  }
+
+  export type LegacyAnketUncheckedCreateInput = {
+    id?: number
+    ognoo?: Date | string | null
+    image1?: string | null
+    image2?: string | null
+    image3?: string | null
+    image4?: string | null
+    ovog?: string | null
+    ner?: string | null
+    utas?: string | null
+    regdugaar?: string | null
+    email?: string | null
+    sonirhoson?: string | null
+    allhtml?: string | null
+  }
+
+  export type LegacyAnketUpdateInput = {
+    ognoo?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image1?: NullableStringFieldUpdateOperationsInput | string | null
+    image2?: NullableStringFieldUpdateOperationsInput | string | null
+    image3?: NullableStringFieldUpdateOperationsInput | string | null
+    image4?: NullableStringFieldUpdateOperationsInput | string | null
+    ovog?: NullableStringFieldUpdateOperationsInput | string | null
+    ner?: NullableStringFieldUpdateOperationsInput | string | null
+    utas?: NullableStringFieldUpdateOperationsInput | string | null
+    regdugaar?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    sonirhoson?: NullableStringFieldUpdateOperationsInput | string | null
+    allhtml?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LegacyAnketUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ognoo?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image1?: NullableStringFieldUpdateOperationsInput | string | null
+    image2?: NullableStringFieldUpdateOperationsInput | string | null
+    image3?: NullableStringFieldUpdateOperationsInput | string | null
+    image4?: NullableStringFieldUpdateOperationsInput | string | null
+    ovog?: NullableStringFieldUpdateOperationsInput | string | null
+    ner?: NullableStringFieldUpdateOperationsInput | string | null
+    utas?: NullableStringFieldUpdateOperationsInput | string | null
+    regdugaar?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    sonirhoson?: NullableStringFieldUpdateOperationsInput | string | null
+    allhtml?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LegacyAnketCreateManyInput = {
+    id?: number
+    ognoo?: Date | string | null
+    image1?: string | null
+    image2?: string | null
+    image3?: string | null
+    image4?: string | null
+    ovog?: string | null
+    ner?: string | null
+    utas?: string | null
+    regdugaar?: string | null
+    email?: string | null
+    sonirhoson?: string | null
+    allhtml?: string | null
+  }
+
+  export type LegacyAnketUpdateManyMutationInput = {
+    ognoo?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image1?: NullableStringFieldUpdateOperationsInput | string | null
+    image2?: NullableStringFieldUpdateOperationsInput | string | null
+    image3?: NullableStringFieldUpdateOperationsInput | string | null
+    image4?: NullableStringFieldUpdateOperationsInput | string | null
+    ovog?: NullableStringFieldUpdateOperationsInput | string | null
+    ner?: NullableStringFieldUpdateOperationsInput | string | null
+    utas?: NullableStringFieldUpdateOperationsInput | string | null
+    regdugaar?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    sonirhoson?: NullableStringFieldUpdateOperationsInput | string | null
+    allhtml?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LegacyAnketUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ognoo?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image1?: NullableStringFieldUpdateOperationsInput | string | null
+    image2?: NullableStringFieldUpdateOperationsInput | string | null
+    image3?: NullableStringFieldUpdateOperationsInput | string | null
+    image4?: NullableStringFieldUpdateOperationsInput | string | null
+    ovog?: NullableStringFieldUpdateOperationsInput | string | null
+    ner?: NullableStringFieldUpdateOperationsInput | string | null
+    utas?: NullableStringFieldUpdateOperationsInput | string | null
+    regdugaar?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    sonirhoson?: NullableStringFieldUpdateOperationsInput | string | null
+    allhtml?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -31024,6 +44773,653 @@ export namespace Prisma {
     userid?: SortOrder
     bid?: SortOrder
   }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type FamilyMemberListRelationFilter = {
+    every?: FamilyMemberWhereInput
+    some?: FamilyMemberWhereInput
+    none?: FamilyMemberWhereInput
+  }
+
+  export type EducationHistoryListRelationFilter = {
+    every?: EducationHistoryWhereInput
+    some?: EducationHistoryWhereInput
+    none?: EducationHistoryWhereInput
+  }
+
+  export type WorkExperienceListRelationFilter = {
+    every?: WorkExperienceWhereInput
+    some?: WorkExperienceWhereInput
+    none?: WorkExperienceWhereInput
+  }
+
+  export type SkillNullableScalarRelationFilter = {
+    is?: SkillWhereInput | null
+    isNot?: SkillWhereInput | null
+  }
+
+  export type ExtendedRelativeListRelationFilter = {
+    every?: ExtendedRelativeWhereInput
+    some?: ExtendedRelativeWhereInput
+    none?: ExtendedRelativeWhereInput
+  }
+
+  export type ReferencePersonListRelationFilter = {
+    every?: ReferencePersonWhereInput
+    some?: ReferencePersonWhereInput
+    none?: ReferencePersonWhereInput
+  }
+
+  export type FamilyMemberOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type EducationHistoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type WorkExperienceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ExtendedRelativeOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ReferencePersonOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ApplicationCountOrderByAggregateInput = {
+    id?: SortOrder
+    surname?: SortOrder
+    lastName?: SortOrder
+    firstName?: SortOrder
+    registerNumber?: SortOrder
+    birthDate?: SortOrder
+    birthYear?: SortOrder
+    birthPlace?: SortOrder
+    gender?: SortOrder
+    maritalStatus?: SortOrder
+    email?: SortOrder
+    facebookUrl?: SortOrder
+    phone?: SortOrder
+    phoneMobile?: SortOrder
+    phoneHome?: SortOrder
+    phoneWork?: SortOrder
+    addressCurrent?: SortOrder
+    addressTemp?: SortOrder
+    applyingFor?: SortOrder
+    photoUrl?: SortOrder
+    idCardUrl?: SortOrder
+    diplomaUrl?: SortOrder
+    proLicenseUrl?: SortOrder
+    videoUrl?: SortOrder
+    truckDetails?: SortOrder
+    truckPhotos?: SortOrder
+    healthInfo?: SortOrder
+    criminalRecord?: SortOrder
+    criminalRecordDetails?: SortOrder
+    militaryStatus?: SortOrder
+    desiredSalary?: SortOrder
+    availableDate?: SortOrder
+    futureGoals?: SortOrder
+    strengths?: SortOrder
+    weaknesses?: SortOrder
+    referralSource?: SortOrder
+    referralSourceDetails?: SortOrder
+    internalReferral?: SortOrder
+    internalReferralDetails?: SortOrder
+    unemploymentReason?: SortOrder
+    hobbies?: SortOrder
+    emergencyContact?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    legacyId?: SortOrder
+  }
+
+  export type ApplicationAvgOrderByAggregateInput = {
+    legacyId?: SortOrder
+  }
+
+  export type ApplicationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    surname?: SortOrder
+    lastName?: SortOrder
+    firstName?: SortOrder
+    registerNumber?: SortOrder
+    birthDate?: SortOrder
+    birthYear?: SortOrder
+    birthPlace?: SortOrder
+    gender?: SortOrder
+    maritalStatus?: SortOrder
+    email?: SortOrder
+    facebookUrl?: SortOrder
+    phone?: SortOrder
+    phoneMobile?: SortOrder
+    phoneHome?: SortOrder
+    phoneWork?: SortOrder
+    addressCurrent?: SortOrder
+    addressTemp?: SortOrder
+    applyingFor?: SortOrder
+    photoUrl?: SortOrder
+    idCardUrl?: SortOrder
+    diplomaUrl?: SortOrder
+    proLicenseUrl?: SortOrder
+    videoUrl?: SortOrder
+    truckDetails?: SortOrder
+    criminalRecord?: SortOrder
+    criminalRecordDetails?: SortOrder
+    militaryStatus?: SortOrder
+    desiredSalary?: SortOrder
+    availableDate?: SortOrder
+    futureGoals?: SortOrder
+    strengths?: SortOrder
+    weaknesses?: SortOrder
+    referralSource?: SortOrder
+    referralSourceDetails?: SortOrder
+    internalReferral?: SortOrder
+    internalReferralDetails?: SortOrder
+    unemploymentReason?: SortOrder
+    hobbies?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    legacyId?: SortOrder
+  }
+
+  export type ApplicationMinOrderByAggregateInput = {
+    id?: SortOrder
+    surname?: SortOrder
+    lastName?: SortOrder
+    firstName?: SortOrder
+    registerNumber?: SortOrder
+    birthDate?: SortOrder
+    birthYear?: SortOrder
+    birthPlace?: SortOrder
+    gender?: SortOrder
+    maritalStatus?: SortOrder
+    email?: SortOrder
+    facebookUrl?: SortOrder
+    phone?: SortOrder
+    phoneMobile?: SortOrder
+    phoneHome?: SortOrder
+    phoneWork?: SortOrder
+    addressCurrent?: SortOrder
+    addressTemp?: SortOrder
+    applyingFor?: SortOrder
+    photoUrl?: SortOrder
+    idCardUrl?: SortOrder
+    diplomaUrl?: SortOrder
+    proLicenseUrl?: SortOrder
+    videoUrl?: SortOrder
+    truckDetails?: SortOrder
+    criminalRecord?: SortOrder
+    criminalRecordDetails?: SortOrder
+    militaryStatus?: SortOrder
+    desiredSalary?: SortOrder
+    availableDate?: SortOrder
+    futureGoals?: SortOrder
+    strengths?: SortOrder
+    weaknesses?: SortOrder
+    referralSource?: SortOrder
+    referralSourceDetails?: SortOrder
+    internalReferral?: SortOrder
+    internalReferralDetails?: SortOrder
+    unemploymentReason?: SortOrder
+    hobbies?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    legacyId?: SortOrder
+  }
+
+  export type ApplicationSumOrderByAggregateInput = {
+    legacyId?: SortOrder
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type ApplicationScalarRelationFilter = {
+    is?: ApplicationWhereInput
+    isNot?: ApplicationWhereInput
+  }
+
+  export type FamilyMemberCountOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    relation?: SortOrder
+    lastName?: SortOrder
+    firstName?: SortOrder
+    birthYear?: SortOrder
+    occupation?: SortOrder
+    workplaceSchool?: SortOrder
+    phone?: SortOrder
+    registerNumber?: SortOrder
+  }
+
+  export type FamilyMemberAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type FamilyMemberMaxOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    relation?: SortOrder
+    lastName?: SortOrder
+    firstName?: SortOrder
+    birthYear?: SortOrder
+    occupation?: SortOrder
+    workplaceSchool?: SortOrder
+    phone?: SortOrder
+    registerNumber?: SortOrder
+  }
+
+  export type FamilyMemberMinOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    relation?: SortOrder
+    lastName?: SortOrder
+    firstName?: SortOrder
+    birthYear?: SortOrder
+    occupation?: SortOrder
+    workplaceSchool?: SortOrder
+    phone?: SortOrder
+    registerNumber?: SortOrder
+  }
+
+  export type FamilyMemberSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type EducationHistoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    schoolName?: SortOrder
+    schoolType?: SortOrder
+    degree?: SortOrder
+    major?: SortOrder
+    entryYear?: SortOrder
+    graduationYear?: SortOrder
+    gpa?: SortOrder
+  }
+
+  export type EducationHistoryAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type EducationHistoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    schoolName?: SortOrder
+    schoolType?: SortOrder
+    degree?: SortOrder
+    major?: SortOrder
+    entryYear?: SortOrder
+    graduationYear?: SortOrder
+    gpa?: SortOrder
+  }
+
+  export type EducationHistoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    schoolName?: SortOrder
+    schoolType?: SortOrder
+    degree?: SortOrder
+    major?: SortOrder
+    entryYear?: SortOrder
+    graduationYear?: SortOrder
+    gpa?: SortOrder
+  }
+
+  export type EducationHistorySumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type WorkExperienceCountOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    companyName?: SortOrder
+    position?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    salary?: SortOrder
+    reasonForLeaving?: SortOrder
+  }
+
+  export type WorkExperienceAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type WorkExperienceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    companyName?: SortOrder
+    position?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    salary?: SortOrder
+    reasonForLeaving?: SortOrder
+  }
+
+  export type WorkExperienceMinOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    companyName?: SortOrder
+    position?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    salary?: SortOrder
+    reasonForLeaving?: SortOrder
+  }
+
+  export type WorkExperienceSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type SkillCountOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    languageMatrix?: SortOrder
+    pcMatrix?: SortOrder
+  }
+
+  export type SkillAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type SkillMaxOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+  }
+
+  export type SkillMinOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+  }
+
+  export type SkillSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ExtendedRelativeCountOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    relation?: SortOrder
+    fullName?: SortOrder
+    occupation?: SortOrder
+    workplace?: SortOrder
+    contactInfo?: SortOrder
+  }
+
+  export type ExtendedRelativeAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ExtendedRelativeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    relation?: SortOrder
+    fullName?: SortOrder
+    occupation?: SortOrder
+    workplace?: SortOrder
+    contactInfo?: SortOrder
+  }
+
+  export type ExtendedRelativeMinOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    relation?: SortOrder
+    fullName?: SortOrder
+    occupation?: SortOrder
+    workplace?: SortOrder
+    contactInfo?: SortOrder
+  }
+
+  export type ExtendedRelativeSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ReferencePersonCountOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    fullName?: SortOrder
+    occupation?: SortOrder
+    workplace?: SortOrder
+    contactInfo?: SortOrder
+  }
+
+  export type ReferencePersonAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ReferencePersonMaxOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    fullName?: SortOrder
+    occupation?: SortOrder
+    workplace?: SortOrder
+    contactInfo?: SortOrder
+  }
+
+  export type ReferencePersonMinOrderByAggregateInput = {
+    id?: SortOrder
+    applicationId?: SortOrder
+    fullName?: SortOrder
+    occupation?: SortOrder
+    workplace?: SortOrder
+    contactInfo?: SortOrder
+  }
+
+  export type ReferencePersonSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type JobPositionCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    department?: SortOrder
+    location?: SortOrder
+    employmentType?: SortOrder
+    salaryRange?: SortOrder
+    description?: SortOrder
+    responsibilities?: SortOrder
+    requirements?: SortOrder
+    benefits?: SortOrder
+    imageUrl?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JobPositionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    department?: SortOrder
+    location?: SortOrder
+    employmentType?: SortOrder
+    salaryRange?: SortOrder
+    description?: SortOrder
+    responsibilities?: SortOrder
+    requirements?: SortOrder
+    benefits?: SortOrder
+    imageUrl?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JobPositionMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    department?: SortOrder
+    location?: SortOrder
+    employmentType?: SortOrder
+    salaryRange?: SortOrder
+    description?: SortOrder
+    responsibilities?: SortOrder
+    requirements?: SortOrder
+    benefits?: SortOrder
+    imageUrl?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type LegacyAnketCountOrderByAggregateInput = {
+    id?: SortOrder
+    ognoo?: SortOrder
+    image1?: SortOrder
+    image2?: SortOrder
+    image3?: SortOrder
+    image4?: SortOrder
+    ovog?: SortOrder
+    ner?: SortOrder
+    utas?: SortOrder
+    regdugaar?: SortOrder
+    email?: SortOrder
+    sonirhoson?: SortOrder
+    allhtml?: SortOrder
+  }
+
+  export type LegacyAnketAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type LegacyAnketMaxOrderByAggregateInput = {
+    id?: SortOrder
+    ognoo?: SortOrder
+    image1?: SortOrder
+    image2?: SortOrder
+    image3?: SortOrder
+    image4?: SortOrder
+    ovog?: SortOrder
+    ner?: SortOrder
+    utas?: SortOrder
+    regdugaar?: SortOrder
+    email?: SortOrder
+    sonirhoson?: SortOrder
+    allhtml?: SortOrder
+  }
+
+  export type LegacyAnketMinOrderByAggregateInput = {
+    id?: SortOrder
+    ognoo?: SortOrder
+    image1?: SortOrder
+    image2?: SortOrder
+    image3?: SortOrder
+    image4?: SortOrder
+    ovog?: SortOrder
+    ner?: SortOrder
+    utas?: SortOrder
+    regdugaar?: SortOrder
+    email?: SortOrder
+    sonirhoson?: SortOrder
+    allhtml?: SortOrder
+  }
+
+  export type LegacyAnketSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
 
   export type PhotoCreateNestedManyWithoutProductInput = {
     create?: XOR<PhotoCreateWithoutProductInput, PhotoUncheckedCreateWithoutProductInput> | PhotoCreateWithoutProductInput[] | PhotoUncheckedCreateWithoutProductInput[]
@@ -31445,6 +45841,344 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFavoritesInput, UserUpdateWithoutFavoritesInput>, UserUncheckedUpdateWithoutFavoritesInput>
   }
 
+  export type FamilyMemberCreateNestedManyWithoutApplicationInput = {
+    create?: XOR<FamilyMemberCreateWithoutApplicationInput, FamilyMemberUncheckedCreateWithoutApplicationInput> | FamilyMemberCreateWithoutApplicationInput[] | FamilyMemberUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: FamilyMemberCreateOrConnectWithoutApplicationInput | FamilyMemberCreateOrConnectWithoutApplicationInput[]
+    createMany?: FamilyMemberCreateManyApplicationInputEnvelope
+    connect?: FamilyMemberWhereUniqueInput | FamilyMemberWhereUniqueInput[]
+  }
+
+  export type EducationHistoryCreateNestedManyWithoutApplicationInput = {
+    create?: XOR<EducationHistoryCreateWithoutApplicationInput, EducationHistoryUncheckedCreateWithoutApplicationInput> | EducationHistoryCreateWithoutApplicationInput[] | EducationHistoryUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: EducationHistoryCreateOrConnectWithoutApplicationInput | EducationHistoryCreateOrConnectWithoutApplicationInput[]
+    createMany?: EducationHistoryCreateManyApplicationInputEnvelope
+    connect?: EducationHistoryWhereUniqueInput | EducationHistoryWhereUniqueInput[]
+  }
+
+  export type WorkExperienceCreateNestedManyWithoutApplicationInput = {
+    create?: XOR<WorkExperienceCreateWithoutApplicationInput, WorkExperienceUncheckedCreateWithoutApplicationInput> | WorkExperienceCreateWithoutApplicationInput[] | WorkExperienceUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: WorkExperienceCreateOrConnectWithoutApplicationInput | WorkExperienceCreateOrConnectWithoutApplicationInput[]
+    createMany?: WorkExperienceCreateManyApplicationInputEnvelope
+    connect?: WorkExperienceWhereUniqueInput | WorkExperienceWhereUniqueInput[]
+  }
+
+  export type SkillCreateNestedOneWithoutApplicationInput = {
+    create?: XOR<SkillCreateWithoutApplicationInput, SkillUncheckedCreateWithoutApplicationInput>
+    connectOrCreate?: SkillCreateOrConnectWithoutApplicationInput
+    connect?: SkillWhereUniqueInput
+  }
+
+  export type ExtendedRelativeCreateNestedManyWithoutApplicationInput = {
+    create?: XOR<ExtendedRelativeCreateWithoutApplicationInput, ExtendedRelativeUncheckedCreateWithoutApplicationInput> | ExtendedRelativeCreateWithoutApplicationInput[] | ExtendedRelativeUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: ExtendedRelativeCreateOrConnectWithoutApplicationInput | ExtendedRelativeCreateOrConnectWithoutApplicationInput[]
+    createMany?: ExtendedRelativeCreateManyApplicationInputEnvelope
+    connect?: ExtendedRelativeWhereUniqueInput | ExtendedRelativeWhereUniqueInput[]
+  }
+
+  export type ReferencePersonCreateNestedManyWithoutApplicationInput = {
+    create?: XOR<ReferencePersonCreateWithoutApplicationInput, ReferencePersonUncheckedCreateWithoutApplicationInput> | ReferencePersonCreateWithoutApplicationInput[] | ReferencePersonUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: ReferencePersonCreateOrConnectWithoutApplicationInput | ReferencePersonCreateOrConnectWithoutApplicationInput[]
+    createMany?: ReferencePersonCreateManyApplicationInputEnvelope
+    connect?: ReferencePersonWhereUniqueInput | ReferencePersonWhereUniqueInput[]
+  }
+
+  export type FamilyMemberUncheckedCreateNestedManyWithoutApplicationInput = {
+    create?: XOR<FamilyMemberCreateWithoutApplicationInput, FamilyMemberUncheckedCreateWithoutApplicationInput> | FamilyMemberCreateWithoutApplicationInput[] | FamilyMemberUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: FamilyMemberCreateOrConnectWithoutApplicationInput | FamilyMemberCreateOrConnectWithoutApplicationInput[]
+    createMany?: FamilyMemberCreateManyApplicationInputEnvelope
+    connect?: FamilyMemberWhereUniqueInput | FamilyMemberWhereUniqueInput[]
+  }
+
+  export type EducationHistoryUncheckedCreateNestedManyWithoutApplicationInput = {
+    create?: XOR<EducationHistoryCreateWithoutApplicationInput, EducationHistoryUncheckedCreateWithoutApplicationInput> | EducationHistoryCreateWithoutApplicationInput[] | EducationHistoryUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: EducationHistoryCreateOrConnectWithoutApplicationInput | EducationHistoryCreateOrConnectWithoutApplicationInput[]
+    createMany?: EducationHistoryCreateManyApplicationInputEnvelope
+    connect?: EducationHistoryWhereUniqueInput | EducationHistoryWhereUniqueInput[]
+  }
+
+  export type WorkExperienceUncheckedCreateNestedManyWithoutApplicationInput = {
+    create?: XOR<WorkExperienceCreateWithoutApplicationInput, WorkExperienceUncheckedCreateWithoutApplicationInput> | WorkExperienceCreateWithoutApplicationInput[] | WorkExperienceUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: WorkExperienceCreateOrConnectWithoutApplicationInput | WorkExperienceCreateOrConnectWithoutApplicationInput[]
+    createMany?: WorkExperienceCreateManyApplicationInputEnvelope
+    connect?: WorkExperienceWhereUniqueInput | WorkExperienceWhereUniqueInput[]
+  }
+
+  export type SkillUncheckedCreateNestedOneWithoutApplicationInput = {
+    create?: XOR<SkillCreateWithoutApplicationInput, SkillUncheckedCreateWithoutApplicationInput>
+    connectOrCreate?: SkillCreateOrConnectWithoutApplicationInput
+    connect?: SkillWhereUniqueInput
+  }
+
+  export type ExtendedRelativeUncheckedCreateNestedManyWithoutApplicationInput = {
+    create?: XOR<ExtendedRelativeCreateWithoutApplicationInput, ExtendedRelativeUncheckedCreateWithoutApplicationInput> | ExtendedRelativeCreateWithoutApplicationInput[] | ExtendedRelativeUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: ExtendedRelativeCreateOrConnectWithoutApplicationInput | ExtendedRelativeCreateOrConnectWithoutApplicationInput[]
+    createMany?: ExtendedRelativeCreateManyApplicationInputEnvelope
+    connect?: ExtendedRelativeWhereUniqueInput | ExtendedRelativeWhereUniqueInput[]
+  }
+
+  export type ReferencePersonUncheckedCreateNestedManyWithoutApplicationInput = {
+    create?: XOR<ReferencePersonCreateWithoutApplicationInput, ReferencePersonUncheckedCreateWithoutApplicationInput> | ReferencePersonCreateWithoutApplicationInput[] | ReferencePersonUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: ReferencePersonCreateOrConnectWithoutApplicationInput | ReferencePersonCreateOrConnectWithoutApplicationInput[]
+    createMany?: ReferencePersonCreateManyApplicationInputEnvelope
+    connect?: ReferencePersonWhereUniqueInput | ReferencePersonWhereUniqueInput[]
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type FamilyMemberUpdateManyWithoutApplicationNestedInput = {
+    create?: XOR<FamilyMemberCreateWithoutApplicationInput, FamilyMemberUncheckedCreateWithoutApplicationInput> | FamilyMemberCreateWithoutApplicationInput[] | FamilyMemberUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: FamilyMemberCreateOrConnectWithoutApplicationInput | FamilyMemberCreateOrConnectWithoutApplicationInput[]
+    upsert?: FamilyMemberUpsertWithWhereUniqueWithoutApplicationInput | FamilyMemberUpsertWithWhereUniqueWithoutApplicationInput[]
+    createMany?: FamilyMemberCreateManyApplicationInputEnvelope
+    set?: FamilyMemberWhereUniqueInput | FamilyMemberWhereUniqueInput[]
+    disconnect?: FamilyMemberWhereUniqueInput | FamilyMemberWhereUniqueInput[]
+    delete?: FamilyMemberWhereUniqueInput | FamilyMemberWhereUniqueInput[]
+    connect?: FamilyMemberWhereUniqueInput | FamilyMemberWhereUniqueInput[]
+    update?: FamilyMemberUpdateWithWhereUniqueWithoutApplicationInput | FamilyMemberUpdateWithWhereUniqueWithoutApplicationInput[]
+    updateMany?: FamilyMemberUpdateManyWithWhereWithoutApplicationInput | FamilyMemberUpdateManyWithWhereWithoutApplicationInput[]
+    deleteMany?: FamilyMemberScalarWhereInput | FamilyMemberScalarWhereInput[]
+  }
+
+  export type EducationHistoryUpdateManyWithoutApplicationNestedInput = {
+    create?: XOR<EducationHistoryCreateWithoutApplicationInput, EducationHistoryUncheckedCreateWithoutApplicationInput> | EducationHistoryCreateWithoutApplicationInput[] | EducationHistoryUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: EducationHistoryCreateOrConnectWithoutApplicationInput | EducationHistoryCreateOrConnectWithoutApplicationInput[]
+    upsert?: EducationHistoryUpsertWithWhereUniqueWithoutApplicationInput | EducationHistoryUpsertWithWhereUniqueWithoutApplicationInput[]
+    createMany?: EducationHistoryCreateManyApplicationInputEnvelope
+    set?: EducationHistoryWhereUniqueInput | EducationHistoryWhereUniqueInput[]
+    disconnect?: EducationHistoryWhereUniqueInput | EducationHistoryWhereUniqueInput[]
+    delete?: EducationHistoryWhereUniqueInput | EducationHistoryWhereUniqueInput[]
+    connect?: EducationHistoryWhereUniqueInput | EducationHistoryWhereUniqueInput[]
+    update?: EducationHistoryUpdateWithWhereUniqueWithoutApplicationInput | EducationHistoryUpdateWithWhereUniqueWithoutApplicationInput[]
+    updateMany?: EducationHistoryUpdateManyWithWhereWithoutApplicationInput | EducationHistoryUpdateManyWithWhereWithoutApplicationInput[]
+    deleteMany?: EducationHistoryScalarWhereInput | EducationHistoryScalarWhereInput[]
+  }
+
+  export type WorkExperienceUpdateManyWithoutApplicationNestedInput = {
+    create?: XOR<WorkExperienceCreateWithoutApplicationInput, WorkExperienceUncheckedCreateWithoutApplicationInput> | WorkExperienceCreateWithoutApplicationInput[] | WorkExperienceUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: WorkExperienceCreateOrConnectWithoutApplicationInput | WorkExperienceCreateOrConnectWithoutApplicationInput[]
+    upsert?: WorkExperienceUpsertWithWhereUniqueWithoutApplicationInput | WorkExperienceUpsertWithWhereUniqueWithoutApplicationInput[]
+    createMany?: WorkExperienceCreateManyApplicationInputEnvelope
+    set?: WorkExperienceWhereUniqueInput | WorkExperienceWhereUniqueInput[]
+    disconnect?: WorkExperienceWhereUniqueInput | WorkExperienceWhereUniqueInput[]
+    delete?: WorkExperienceWhereUniqueInput | WorkExperienceWhereUniqueInput[]
+    connect?: WorkExperienceWhereUniqueInput | WorkExperienceWhereUniqueInput[]
+    update?: WorkExperienceUpdateWithWhereUniqueWithoutApplicationInput | WorkExperienceUpdateWithWhereUniqueWithoutApplicationInput[]
+    updateMany?: WorkExperienceUpdateManyWithWhereWithoutApplicationInput | WorkExperienceUpdateManyWithWhereWithoutApplicationInput[]
+    deleteMany?: WorkExperienceScalarWhereInput | WorkExperienceScalarWhereInput[]
+  }
+
+  export type SkillUpdateOneWithoutApplicationNestedInput = {
+    create?: XOR<SkillCreateWithoutApplicationInput, SkillUncheckedCreateWithoutApplicationInput>
+    connectOrCreate?: SkillCreateOrConnectWithoutApplicationInput
+    upsert?: SkillUpsertWithoutApplicationInput
+    disconnect?: SkillWhereInput | boolean
+    delete?: SkillWhereInput | boolean
+    connect?: SkillWhereUniqueInput
+    update?: XOR<XOR<SkillUpdateToOneWithWhereWithoutApplicationInput, SkillUpdateWithoutApplicationInput>, SkillUncheckedUpdateWithoutApplicationInput>
+  }
+
+  export type ExtendedRelativeUpdateManyWithoutApplicationNestedInput = {
+    create?: XOR<ExtendedRelativeCreateWithoutApplicationInput, ExtendedRelativeUncheckedCreateWithoutApplicationInput> | ExtendedRelativeCreateWithoutApplicationInput[] | ExtendedRelativeUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: ExtendedRelativeCreateOrConnectWithoutApplicationInput | ExtendedRelativeCreateOrConnectWithoutApplicationInput[]
+    upsert?: ExtendedRelativeUpsertWithWhereUniqueWithoutApplicationInput | ExtendedRelativeUpsertWithWhereUniqueWithoutApplicationInput[]
+    createMany?: ExtendedRelativeCreateManyApplicationInputEnvelope
+    set?: ExtendedRelativeWhereUniqueInput | ExtendedRelativeWhereUniqueInput[]
+    disconnect?: ExtendedRelativeWhereUniqueInput | ExtendedRelativeWhereUniqueInput[]
+    delete?: ExtendedRelativeWhereUniqueInput | ExtendedRelativeWhereUniqueInput[]
+    connect?: ExtendedRelativeWhereUniqueInput | ExtendedRelativeWhereUniqueInput[]
+    update?: ExtendedRelativeUpdateWithWhereUniqueWithoutApplicationInput | ExtendedRelativeUpdateWithWhereUniqueWithoutApplicationInput[]
+    updateMany?: ExtendedRelativeUpdateManyWithWhereWithoutApplicationInput | ExtendedRelativeUpdateManyWithWhereWithoutApplicationInput[]
+    deleteMany?: ExtendedRelativeScalarWhereInput | ExtendedRelativeScalarWhereInput[]
+  }
+
+  export type ReferencePersonUpdateManyWithoutApplicationNestedInput = {
+    create?: XOR<ReferencePersonCreateWithoutApplicationInput, ReferencePersonUncheckedCreateWithoutApplicationInput> | ReferencePersonCreateWithoutApplicationInput[] | ReferencePersonUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: ReferencePersonCreateOrConnectWithoutApplicationInput | ReferencePersonCreateOrConnectWithoutApplicationInput[]
+    upsert?: ReferencePersonUpsertWithWhereUniqueWithoutApplicationInput | ReferencePersonUpsertWithWhereUniqueWithoutApplicationInput[]
+    createMany?: ReferencePersonCreateManyApplicationInputEnvelope
+    set?: ReferencePersonWhereUniqueInput | ReferencePersonWhereUniqueInput[]
+    disconnect?: ReferencePersonWhereUniqueInput | ReferencePersonWhereUniqueInput[]
+    delete?: ReferencePersonWhereUniqueInput | ReferencePersonWhereUniqueInput[]
+    connect?: ReferencePersonWhereUniqueInput | ReferencePersonWhereUniqueInput[]
+    update?: ReferencePersonUpdateWithWhereUniqueWithoutApplicationInput | ReferencePersonUpdateWithWhereUniqueWithoutApplicationInput[]
+    updateMany?: ReferencePersonUpdateManyWithWhereWithoutApplicationInput | ReferencePersonUpdateManyWithWhereWithoutApplicationInput[]
+    deleteMany?: ReferencePersonScalarWhereInput | ReferencePersonScalarWhereInput[]
+  }
+
+  export type FamilyMemberUncheckedUpdateManyWithoutApplicationNestedInput = {
+    create?: XOR<FamilyMemberCreateWithoutApplicationInput, FamilyMemberUncheckedCreateWithoutApplicationInput> | FamilyMemberCreateWithoutApplicationInput[] | FamilyMemberUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: FamilyMemberCreateOrConnectWithoutApplicationInput | FamilyMemberCreateOrConnectWithoutApplicationInput[]
+    upsert?: FamilyMemberUpsertWithWhereUniqueWithoutApplicationInput | FamilyMemberUpsertWithWhereUniqueWithoutApplicationInput[]
+    createMany?: FamilyMemberCreateManyApplicationInputEnvelope
+    set?: FamilyMemberWhereUniqueInput | FamilyMemberWhereUniqueInput[]
+    disconnect?: FamilyMemberWhereUniqueInput | FamilyMemberWhereUniqueInput[]
+    delete?: FamilyMemberWhereUniqueInput | FamilyMemberWhereUniqueInput[]
+    connect?: FamilyMemberWhereUniqueInput | FamilyMemberWhereUniqueInput[]
+    update?: FamilyMemberUpdateWithWhereUniqueWithoutApplicationInput | FamilyMemberUpdateWithWhereUniqueWithoutApplicationInput[]
+    updateMany?: FamilyMemberUpdateManyWithWhereWithoutApplicationInput | FamilyMemberUpdateManyWithWhereWithoutApplicationInput[]
+    deleteMany?: FamilyMemberScalarWhereInput | FamilyMemberScalarWhereInput[]
+  }
+
+  export type EducationHistoryUncheckedUpdateManyWithoutApplicationNestedInput = {
+    create?: XOR<EducationHistoryCreateWithoutApplicationInput, EducationHistoryUncheckedCreateWithoutApplicationInput> | EducationHistoryCreateWithoutApplicationInput[] | EducationHistoryUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: EducationHistoryCreateOrConnectWithoutApplicationInput | EducationHistoryCreateOrConnectWithoutApplicationInput[]
+    upsert?: EducationHistoryUpsertWithWhereUniqueWithoutApplicationInput | EducationHistoryUpsertWithWhereUniqueWithoutApplicationInput[]
+    createMany?: EducationHistoryCreateManyApplicationInputEnvelope
+    set?: EducationHistoryWhereUniqueInput | EducationHistoryWhereUniqueInput[]
+    disconnect?: EducationHistoryWhereUniqueInput | EducationHistoryWhereUniqueInput[]
+    delete?: EducationHistoryWhereUniqueInput | EducationHistoryWhereUniqueInput[]
+    connect?: EducationHistoryWhereUniqueInput | EducationHistoryWhereUniqueInput[]
+    update?: EducationHistoryUpdateWithWhereUniqueWithoutApplicationInput | EducationHistoryUpdateWithWhereUniqueWithoutApplicationInput[]
+    updateMany?: EducationHistoryUpdateManyWithWhereWithoutApplicationInput | EducationHistoryUpdateManyWithWhereWithoutApplicationInput[]
+    deleteMany?: EducationHistoryScalarWhereInput | EducationHistoryScalarWhereInput[]
+  }
+
+  export type WorkExperienceUncheckedUpdateManyWithoutApplicationNestedInput = {
+    create?: XOR<WorkExperienceCreateWithoutApplicationInput, WorkExperienceUncheckedCreateWithoutApplicationInput> | WorkExperienceCreateWithoutApplicationInput[] | WorkExperienceUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: WorkExperienceCreateOrConnectWithoutApplicationInput | WorkExperienceCreateOrConnectWithoutApplicationInput[]
+    upsert?: WorkExperienceUpsertWithWhereUniqueWithoutApplicationInput | WorkExperienceUpsertWithWhereUniqueWithoutApplicationInput[]
+    createMany?: WorkExperienceCreateManyApplicationInputEnvelope
+    set?: WorkExperienceWhereUniqueInput | WorkExperienceWhereUniqueInput[]
+    disconnect?: WorkExperienceWhereUniqueInput | WorkExperienceWhereUniqueInput[]
+    delete?: WorkExperienceWhereUniqueInput | WorkExperienceWhereUniqueInput[]
+    connect?: WorkExperienceWhereUniqueInput | WorkExperienceWhereUniqueInput[]
+    update?: WorkExperienceUpdateWithWhereUniqueWithoutApplicationInput | WorkExperienceUpdateWithWhereUniqueWithoutApplicationInput[]
+    updateMany?: WorkExperienceUpdateManyWithWhereWithoutApplicationInput | WorkExperienceUpdateManyWithWhereWithoutApplicationInput[]
+    deleteMany?: WorkExperienceScalarWhereInput | WorkExperienceScalarWhereInput[]
+  }
+
+  export type SkillUncheckedUpdateOneWithoutApplicationNestedInput = {
+    create?: XOR<SkillCreateWithoutApplicationInput, SkillUncheckedCreateWithoutApplicationInput>
+    connectOrCreate?: SkillCreateOrConnectWithoutApplicationInput
+    upsert?: SkillUpsertWithoutApplicationInput
+    disconnect?: SkillWhereInput | boolean
+    delete?: SkillWhereInput | boolean
+    connect?: SkillWhereUniqueInput
+    update?: XOR<XOR<SkillUpdateToOneWithWhereWithoutApplicationInput, SkillUpdateWithoutApplicationInput>, SkillUncheckedUpdateWithoutApplicationInput>
+  }
+
+  export type ExtendedRelativeUncheckedUpdateManyWithoutApplicationNestedInput = {
+    create?: XOR<ExtendedRelativeCreateWithoutApplicationInput, ExtendedRelativeUncheckedCreateWithoutApplicationInput> | ExtendedRelativeCreateWithoutApplicationInput[] | ExtendedRelativeUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: ExtendedRelativeCreateOrConnectWithoutApplicationInput | ExtendedRelativeCreateOrConnectWithoutApplicationInput[]
+    upsert?: ExtendedRelativeUpsertWithWhereUniqueWithoutApplicationInput | ExtendedRelativeUpsertWithWhereUniqueWithoutApplicationInput[]
+    createMany?: ExtendedRelativeCreateManyApplicationInputEnvelope
+    set?: ExtendedRelativeWhereUniqueInput | ExtendedRelativeWhereUniqueInput[]
+    disconnect?: ExtendedRelativeWhereUniqueInput | ExtendedRelativeWhereUniqueInput[]
+    delete?: ExtendedRelativeWhereUniqueInput | ExtendedRelativeWhereUniqueInput[]
+    connect?: ExtendedRelativeWhereUniqueInput | ExtendedRelativeWhereUniqueInput[]
+    update?: ExtendedRelativeUpdateWithWhereUniqueWithoutApplicationInput | ExtendedRelativeUpdateWithWhereUniqueWithoutApplicationInput[]
+    updateMany?: ExtendedRelativeUpdateManyWithWhereWithoutApplicationInput | ExtendedRelativeUpdateManyWithWhereWithoutApplicationInput[]
+    deleteMany?: ExtendedRelativeScalarWhereInput | ExtendedRelativeScalarWhereInput[]
+  }
+
+  export type ReferencePersonUncheckedUpdateManyWithoutApplicationNestedInput = {
+    create?: XOR<ReferencePersonCreateWithoutApplicationInput, ReferencePersonUncheckedCreateWithoutApplicationInput> | ReferencePersonCreateWithoutApplicationInput[] | ReferencePersonUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: ReferencePersonCreateOrConnectWithoutApplicationInput | ReferencePersonCreateOrConnectWithoutApplicationInput[]
+    upsert?: ReferencePersonUpsertWithWhereUniqueWithoutApplicationInput | ReferencePersonUpsertWithWhereUniqueWithoutApplicationInput[]
+    createMany?: ReferencePersonCreateManyApplicationInputEnvelope
+    set?: ReferencePersonWhereUniqueInput | ReferencePersonWhereUniqueInput[]
+    disconnect?: ReferencePersonWhereUniqueInput | ReferencePersonWhereUniqueInput[]
+    delete?: ReferencePersonWhereUniqueInput | ReferencePersonWhereUniqueInput[]
+    connect?: ReferencePersonWhereUniqueInput | ReferencePersonWhereUniqueInput[]
+    update?: ReferencePersonUpdateWithWhereUniqueWithoutApplicationInput | ReferencePersonUpdateWithWhereUniqueWithoutApplicationInput[]
+    updateMany?: ReferencePersonUpdateManyWithWhereWithoutApplicationInput | ReferencePersonUpdateManyWithWhereWithoutApplicationInput[]
+    deleteMany?: ReferencePersonScalarWhereInput | ReferencePersonScalarWhereInput[]
+  }
+
+  export type ApplicationCreateNestedOneWithoutFamilyMembersInput = {
+    create?: XOR<ApplicationCreateWithoutFamilyMembersInput, ApplicationUncheckedCreateWithoutFamilyMembersInput>
+    connectOrCreate?: ApplicationCreateOrConnectWithoutFamilyMembersInput
+    connect?: ApplicationWhereUniqueInput
+  }
+
+  export type ApplicationUpdateOneRequiredWithoutFamilyMembersNestedInput = {
+    create?: XOR<ApplicationCreateWithoutFamilyMembersInput, ApplicationUncheckedCreateWithoutFamilyMembersInput>
+    connectOrCreate?: ApplicationCreateOrConnectWithoutFamilyMembersInput
+    upsert?: ApplicationUpsertWithoutFamilyMembersInput
+    connect?: ApplicationWhereUniqueInput
+    update?: XOR<XOR<ApplicationUpdateToOneWithWhereWithoutFamilyMembersInput, ApplicationUpdateWithoutFamilyMembersInput>, ApplicationUncheckedUpdateWithoutFamilyMembersInput>
+  }
+
+  export type ApplicationCreateNestedOneWithoutEducationHistoryInput = {
+    create?: XOR<ApplicationCreateWithoutEducationHistoryInput, ApplicationUncheckedCreateWithoutEducationHistoryInput>
+    connectOrCreate?: ApplicationCreateOrConnectWithoutEducationHistoryInput
+    connect?: ApplicationWhereUniqueInput
+  }
+
+  export type ApplicationUpdateOneRequiredWithoutEducationHistoryNestedInput = {
+    create?: XOR<ApplicationCreateWithoutEducationHistoryInput, ApplicationUncheckedCreateWithoutEducationHistoryInput>
+    connectOrCreate?: ApplicationCreateOrConnectWithoutEducationHistoryInput
+    upsert?: ApplicationUpsertWithoutEducationHistoryInput
+    connect?: ApplicationWhereUniqueInput
+    update?: XOR<XOR<ApplicationUpdateToOneWithWhereWithoutEducationHistoryInput, ApplicationUpdateWithoutEducationHistoryInput>, ApplicationUncheckedUpdateWithoutEducationHistoryInput>
+  }
+
+  export type ApplicationCreateNestedOneWithoutWorkExperienceInput = {
+    create?: XOR<ApplicationCreateWithoutWorkExperienceInput, ApplicationUncheckedCreateWithoutWorkExperienceInput>
+    connectOrCreate?: ApplicationCreateOrConnectWithoutWorkExperienceInput
+    connect?: ApplicationWhereUniqueInput
+  }
+
+  export type ApplicationUpdateOneRequiredWithoutWorkExperienceNestedInput = {
+    create?: XOR<ApplicationCreateWithoutWorkExperienceInput, ApplicationUncheckedCreateWithoutWorkExperienceInput>
+    connectOrCreate?: ApplicationCreateOrConnectWithoutWorkExperienceInput
+    upsert?: ApplicationUpsertWithoutWorkExperienceInput
+    connect?: ApplicationWhereUniqueInput
+    update?: XOR<XOR<ApplicationUpdateToOneWithWhereWithoutWorkExperienceInput, ApplicationUpdateWithoutWorkExperienceInput>, ApplicationUncheckedUpdateWithoutWorkExperienceInput>
+  }
+
+  export type ApplicationCreateNestedOneWithoutSkillsInput = {
+    create?: XOR<ApplicationCreateWithoutSkillsInput, ApplicationUncheckedCreateWithoutSkillsInput>
+    connectOrCreate?: ApplicationCreateOrConnectWithoutSkillsInput
+    connect?: ApplicationWhereUniqueInput
+  }
+
+  export type ApplicationUpdateOneRequiredWithoutSkillsNestedInput = {
+    create?: XOR<ApplicationCreateWithoutSkillsInput, ApplicationUncheckedCreateWithoutSkillsInput>
+    connectOrCreate?: ApplicationCreateOrConnectWithoutSkillsInput
+    upsert?: ApplicationUpsertWithoutSkillsInput
+    connect?: ApplicationWhereUniqueInput
+    update?: XOR<XOR<ApplicationUpdateToOneWithWhereWithoutSkillsInput, ApplicationUpdateWithoutSkillsInput>, ApplicationUncheckedUpdateWithoutSkillsInput>
+  }
+
+  export type ApplicationCreateNestedOneWithoutExtendedRelativesInput = {
+    create?: XOR<ApplicationCreateWithoutExtendedRelativesInput, ApplicationUncheckedCreateWithoutExtendedRelativesInput>
+    connectOrCreate?: ApplicationCreateOrConnectWithoutExtendedRelativesInput
+    connect?: ApplicationWhereUniqueInput
+  }
+
+  export type ApplicationUpdateOneRequiredWithoutExtendedRelativesNestedInput = {
+    create?: XOR<ApplicationCreateWithoutExtendedRelativesInput, ApplicationUncheckedCreateWithoutExtendedRelativesInput>
+    connectOrCreate?: ApplicationCreateOrConnectWithoutExtendedRelativesInput
+    upsert?: ApplicationUpsertWithoutExtendedRelativesInput
+    connect?: ApplicationWhereUniqueInput
+    update?: XOR<XOR<ApplicationUpdateToOneWithWhereWithoutExtendedRelativesInput, ApplicationUpdateWithoutExtendedRelativesInput>, ApplicationUncheckedUpdateWithoutExtendedRelativesInput>
+  }
+
+  export type ApplicationCreateNestedOneWithoutReferencePersonsInput = {
+    create?: XOR<ApplicationCreateWithoutReferencePersonsInput, ApplicationUncheckedCreateWithoutReferencePersonsInput>
+    connectOrCreate?: ApplicationCreateOrConnectWithoutReferencePersonsInput
+    connect?: ApplicationWhereUniqueInput
+  }
+
+  export type ApplicationUpdateOneRequiredWithoutReferencePersonsNestedInput = {
+    create?: XOR<ApplicationCreateWithoutReferencePersonsInput, ApplicationUncheckedCreateWithoutReferencePersonsInput>
+    connectOrCreate?: ApplicationCreateOrConnectWithoutReferencePersonsInput
+    upsert?: ApplicationUpsertWithoutReferencePersonsInput
+    connect?: ApplicationWhereUniqueInput
+    update?: XOR<XOR<ApplicationUpdateToOneWithWhereWithoutReferencePersonsInput, ApplicationUpdateWithoutReferencePersonsInput>, ApplicationUncheckedUpdateWithoutReferencePersonsInput>
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -31592,6 +46326,81 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type PhotoCreateWithoutProductInput = {
@@ -32655,6 +47464,1731 @@ export namespace Prisma {
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
   }
 
+  export type FamilyMemberCreateWithoutApplicationInput = {
+    relation?: string | null
+    lastName?: string | null
+    firstName?: string | null
+    birthYear?: string | null
+    occupation?: string | null
+    workplaceSchool?: string | null
+    phone?: string | null
+    registerNumber?: string | null
+  }
+
+  export type FamilyMemberUncheckedCreateWithoutApplicationInput = {
+    id?: number
+    relation?: string | null
+    lastName?: string | null
+    firstName?: string | null
+    birthYear?: string | null
+    occupation?: string | null
+    workplaceSchool?: string | null
+    phone?: string | null
+    registerNumber?: string | null
+  }
+
+  export type FamilyMemberCreateOrConnectWithoutApplicationInput = {
+    where: FamilyMemberWhereUniqueInput
+    create: XOR<FamilyMemberCreateWithoutApplicationInput, FamilyMemberUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type FamilyMemberCreateManyApplicationInputEnvelope = {
+    data: FamilyMemberCreateManyApplicationInput | FamilyMemberCreateManyApplicationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type EducationHistoryCreateWithoutApplicationInput = {
+    schoolName?: string | null
+    schoolType?: string | null
+    degree?: string | null
+    major?: string | null
+    entryYear?: string | null
+    graduationYear?: string | null
+    gpa?: string | null
+  }
+
+  export type EducationHistoryUncheckedCreateWithoutApplicationInput = {
+    id?: number
+    schoolName?: string | null
+    schoolType?: string | null
+    degree?: string | null
+    major?: string | null
+    entryYear?: string | null
+    graduationYear?: string | null
+    gpa?: string | null
+  }
+
+  export type EducationHistoryCreateOrConnectWithoutApplicationInput = {
+    where: EducationHistoryWhereUniqueInput
+    create: XOR<EducationHistoryCreateWithoutApplicationInput, EducationHistoryUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type EducationHistoryCreateManyApplicationInputEnvelope = {
+    data: EducationHistoryCreateManyApplicationInput | EducationHistoryCreateManyApplicationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type WorkExperienceCreateWithoutApplicationInput = {
+    companyName?: string | null
+    position?: string | null
+    startDate?: string | null
+    endDate?: string | null
+    salary?: string | null
+    reasonForLeaving?: string | null
+  }
+
+  export type WorkExperienceUncheckedCreateWithoutApplicationInput = {
+    id?: number
+    companyName?: string | null
+    position?: string | null
+    startDate?: string | null
+    endDate?: string | null
+    salary?: string | null
+    reasonForLeaving?: string | null
+  }
+
+  export type WorkExperienceCreateOrConnectWithoutApplicationInput = {
+    where: WorkExperienceWhereUniqueInput
+    create: XOR<WorkExperienceCreateWithoutApplicationInput, WorkExperienceUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type WorkExperienceCreateManyApplicationInputEnvelope = {
+    data: WorkExperienceCreateManyApplicationInput | WorkExperienceCreateManyApplicationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SkillCreateWithoutApplicationInput = {
+    languageMatrix?: NullableJsonNullValueInput | InputJsonValue
+    pcMatrix?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SkillUncheckedCreateWithoutApplicationInput = {
+    id?: number
+    languageMatrix?: NullableJsonNullValueInput | InputJsonValue
+    pcMatrix?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SkillCreateOrConnectWithoutApplicationInput = {
+    where: SkillWhereUniqueInput
+    create: XOR<SkillCreateWithoutApplicationInput, SkillUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type ExtendedRelativeCreateWithoutApplicationInput = {
+    relation?: string | null
+    fullName?: string | null
+    occupation?: string | null
+    workplace?: string | null
+    contactInfo?: string | null
+  }
+
+  export type ExtendedRelativeUncheckedCreateWithoutApplicationInput = {
+    id?: number
+    relation?: string | null
+    fullName?: string | null
+    occupation?: string | null
+    workplace?: string | null
+    contactInfo?: string | null
+  }
+
+  export type ExtendedRelativeCreateOrConnectWithoutApplicationInput = {
+    where: ExtendedRelativeWhereUniqueInput
+    create: XOR<ExtendedRelativeCreateWithoutApplicationInput, ExtendedRelativeUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type ExtendedRelativeCreateManyApplicationInputEnvelope = {
+    data: ExtendedRelativeCreateManyApplicationInput | ExtendedRelativeCreateManyApplicationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ReferencePersonCreateWithoutApplicationInput = {
+    fullName?: string | null
+    occupation?: string | null
+    workplace?: string | null
+    contactInfo?: string | null
+  }
+
+  export type ReferencePersonUncheckedCreateWithoutApplicationInput = {
+    id?: number
+    fullName?: string | null
+    occupation?: string | null
+    workplace?: string | null
+    contactInfo?: string | null
+  }
+
+  export type ReferencePersonCreateOrConnectWithoutApplicationInput = {
+    where: ReferencePersonWhereUniqueInput
+    create: XOR<ReferencePersonCreateWithoutApplicationInput, ReferencePersonUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type ReferencePersonCreateManyApplicationInputEnvelope = {
+    data: ReferencePersonCreateManyApplicationInput | ReferencePersonCreateManyApplicationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FamilyMemberUpsertWithWhereUniqueWithoutApplicationInput = {
+    where: FamilyMemberWhereUniqueInput
+    update: XOR<FamilyMemberUpdateWithoutApplicationInput, FamilyMemberUncheckedUpdateWithoutApplicationInput>
+    create: XOR<FamilyMemberCreateWithoutApplicationInput, FamilyMemberUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type FamilyMemberUpdateWithWhereUniqueWithoutApplicationInput = {
+    where: FamilyMemberWhereUniqueInput
+    data: XOR<FamilyMemberUpdateWithoutApplicationInput, FamilyMemberUncheckedUpdateWithoutApplicationInput>
+  }
+
+  export type FamilyMemberUpdateManyWithWhereWithoutApplicationInput = {
+    where: FamilyMemberScalarWhereInput
+    data: XOR<FamilyMemberUpdateManyMutationInput, FamilyMemberUncheckedUpdateManyWithoutApplicationInput>
+  }
+
+  export type FamilyMemberScalarWhereInput = {
+    AND?: FamilyMemberScalarWhereInput | FamilyMemberScalarWhereInput[]
+    OR?: FamilyMemberScalarWhereInput[]
+    NOT?: FamilyMemberScalarWhereInput | FamilyMemberScalarWhereInput[]
+    id?: IntFilter<"FamilyMember"> | number
+    applicationId?: StringFilter<"FamilyMember"> | string
+    relation?: StringNullableFilter<"FamilyMember"> | string | null
+    lastName?: StringNullableFilter<"FamilyMember"> | string | null
+    firstName?: StringNullableFilter<"FamilyMember"> | string | null
+    birthYear?: StringNullableFilter<"FamilyMember"> | string | null
+    occupation?: StringNullableFilter<"FamilyMember"> | string | null
+    workplaceSchool?: StringNullableFilter<"FamilyMember"> | string | null
+    phone?: StringNullableFilter<"FamilyMember"> | string | null
+    registerNumber?: StringNullableFilter<"FamilyMember"> | string | null
+  }
+
+  export type EducationHistoryUpsertWithWhereUniqueWithoutApplicationInput = {
+    where: EducationHistoryWhereUniqueInput
+    update: XOR<EducationHistoryUpdateWithoutApplicationInput, EducationHistoryUncheckedUpdateWithoutApplicationInput>
+    create: XOR<EducationHistoryCreateWithoutApplicationInput, EducationHistoryUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type EducationHistoryUpdateWithWhereUniqueWithoutApplicationInput = {
+    where: EducationHistoryWhereUniqueInput
+    data: XOR<EducationHistoryUpdateWithoutApplicationInput, EducationHistoryUncheckedUpdateWithoutApplicationInput>
+  }
+
+  export type EducationHistoryUpdateManyWithWhereWithoutApplicationInput = {
+    where: EducationHistoryScalarWhereInput
+    data: XOR<EducationHistoryUpdateManyMutationInput, EducationHistoryUncheckedUpdateManyWithoutApplicationInput>
+  }
+
+  export type EducationHistoryScalarWhereInput = {
+    AND?: EducationHistoryScalarWhereInput | EducationHistoryScalarWhereInput[]
+    OR?: EducationHistoryScalarWhereInput[]
+    NOT?: EducationHistoryScalarWhereInput | EducationHistoryScalarWhereInput[]
+    id?: IntFilter<"EducationHistory"> | number
+    applicationId?: StringFilter<"EducationHistory"> | string
+    schoolName?: StringNullableFilter<"EducationHistory"> | string | null
+    schoolType?: StringNullableFilter<"EducationHistory"> | string | null
+    degree?: StringNullableFilter<"EducationHistory"> | string | null
+    major?: StringNullableFilter<"EducationHistory"> | string | null
+    entryYear?: StringNullableFilter<"EducationHistory"> | string | null
+    graduationYear?: StringNullableFilter<"EducationHistory"> | string | null
+    gpa?: StringNullableFilter<"EducationHistory"> | string | null
+  }
+
+  export type WorkExperienceUpsertWithWhereUniqueWithoutApplicationInput = {
+    where: WorkExperienceWhereUniqueInput
+    update: XOR<WorkExperienceUpdateWithoutApplicationInput, WorkExperienceUncheckedUpdateWithoutApplicationInput>
+    create: XOR<WorkExperienceCreateWithoutApplicationInput, WorkExperienceUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type WorkExperienceUpdateWithWhereUniqueWithoutApplicationInput = {
+    where: WorkExperienceWhereUniqueInput
+    data: XOR<WorkExperienceUpdateWithoutApplicationInput, WorkExperienceUncheckedUpdateWithoutApplicationInput>
+  }
+
+  export type WorkExperienceUpdateManyWithWhereWithoutApplicationInput = {
+    where: WorkExperienceScalarWhereInput
+    data: XOR<WorkExperienceUpdateManyMutationInput, WorkExperienceUncheckedUpdateManyWithoutApplicationInput>
+  }
+
+  export type WorkExperienceScalarWhereInput = {
+    AND?: WorkExperienceScalarWhereInput | WorkExperienceScalarWhereInput[]
+    OR?: WorkExperienceScalarWhereInput[]
+    NOT?: WorkExperienceScalarWhereInput | WorkExperienceScalarWhereInput[]
+    id?: IntFilter<"WorkExperience"> | number
+    applicationId?: StringFilter<"WorkExperience"> | string
+    companyName?: StringNullableFilter<"WorkExperience"> | string | null
+    position?: StringNullableFilter<"WorkExperience"> | string | null
+    startDate?: StringNullableFilter<"WorkExperience"> | string | null
+    endDate?: StringNullableFilter<"WorkExperience"> | string | null
+    salary?: StringNullableFilter<"WorkExperience"> | string | null
+    reasonForLeaving?: StringNullableFilter<"WorkExperience"> | string | null
+  }
+
+  export type SkillUpsertWithoutApplicationInput = {
+    update: XOR<SkillUpdateWithoutApplicationInput, SkillUncheckedUpdateWithoutApplicationInput>
+    create: XOR<SkillCreateWithoutApplicationInput, SkillUncheckedCreateWithoutApplicationInput>
+    where?: SkillWhereInput
+  }
+
+  export type SkillUpdateToOneWithWhereWithoutApplicationInput = {
+    where?: SkillWhereInput
+    data: XOR<SkillUpdateWithoutApplicationInput, SkillUncheckedUpdateWithoutApplicationInput>
+  }
+
+  export type SkillUpdateWithoutApplicationInput = {
+    languageMatrix?: NullableJsonNullValueInput | InputJsonValue
+    pcMatrix?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type SkillUncheckedUpdateWithoutApplicationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    languageMatrix?: NullableJsonNullValueInput | InputJsonValue
+    pcMatrix?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type ExtendedRelativeUpsertWithWhereUniqueWithoutApplicationInput = {
+    where: ExtendedRelativeWhereUniqueInput
+    update: XOR<ExtendedRelativeUpdateWithoutApplicationInput, ExtendedRelativeUncheckedUpdateWithoutApplicationInput>
+    create: XOR<ExtendedRelativeCreateWithoutApplicationInput, ExtendedRelativeUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type ExtendedRelativeUpdateWithWhereUniqueWithoutApplicationInput = {
+    where: ExtendedRelativeWhereUniqueInput
+    data: XOR<ExtendedRelativeUpdateWithoutApplicationInput, ExtendedRelativeUncheckedUpdateWithoutApplicationInput>
+  }
+
+  export type ExtendedRelativeUpdateManyWithWhereWithoutApplicationInput = {
+    where: ExtendedRelativeScalarWhereInput
+    data: XOR<ExtendedRelativeUpdateManyMutationInput, ExtendedRelativeUncheckedUpdateManyWithoutApplicationInput>
+  }
+
+  export type ExtendedRelativeScalarWhereInput = {
+    AND?: ExtendedRelativeScalarWhereInput | ExtendedRelativeScalarWhereInput[]
+    OR?: ExtendedRelativeScalarWhereInput[]
+    NOT?: ExtendedRelativeScalarWhereInput | ExtendedRelativeScalarWhereInput[]
+    id?: IntFilter<"ExtendedRelative"> | number
+    applicationId?: StringFilter<"ExtendedRelative"> | string
+    relation?: StringNullableFilter<"ExtendedRelative"> | string | null
+    fullName?: StringNullableFilter<"ExtendedRelative"> | string | null
+    occupation?: StringNullableFilter<"ExtendedRelative"> | string | null
+    workplace?: StringNullableFilter<"ExtendedRelative"> | string | null
+    contactInfo?: StringNullableFilter<"ExtendedRelative"> | string | null
+  }
+
+  export type ReferencePersonUpsertWithWhereUniqueWithoutApplicationInput = {
+    where: ReferencePersonWhereUniqueInput
+    update: XOR<ReferencePersonUpdateWithoutApplicationInput, ReferencePersonUncheckedUpdateWithoutApplicationInput>
+    create: XOR<ReferencePersonCreateWithoutApplicationInput, ReferencePersonUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type ReferencePersonUpdateWithWhereUniqueWithoutApplicationInput = {
+    where: ReferencePersonWhereUniqueInput
+    data: XOR<ReferencePersonUpdateWithoutApplicationInput, ReferencePersonUncheckedUpdateWithoutApplicationInput>
+  }
+
+  export type ReferencePersonUpdateManyWithWhereWithoutApplicationInput = {
+    where: ReferencePersonScalarWhereInput
+    data: XOR<ReferencePersonUpdateManyMutationInput, ReferencePersonUncheckedUpdateManyWithoutApplicationInput>
+  }
+
+  export type ReferencePersonScalarWhereInput = {
+    AND?: ReferencePersonScalarWhereInput | ReferencePersonScalarWhereInput[]
+    OR?: ReferencePersonScalarWhereInput[]
+    NOT?: ReferencePersonScalarWhereInput | ReferencePersonScalarWhereInput[]
+    id?: IntFilter<"ReferencePerson"> | number
+    applicationId?: StringFilter<"ReferencePerson"> | string
+    fullName?: StringNullableFilter<"ReferencePerson"> | string | null
+    occupation?: StringNullableFilter<"ReferencePerson"> | string | null
+    workplace?: StringNullableFilter<"ReferencePerson"> | string | null
+    contactInfo?: StringNullableFilter<"ReferencePerson"> | string | null
+  }
+
+  export type ApplicationCreateWithoutFamilyMembersInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    educationHistory?: EducationHistoryCreateNestedManyWithoutApplicationInput
+    workExperience?: WorkExperienceCreateNestedManyWithoutApplicationInput
+    skills?: SkillCreateNestedOneWithoutApplicationInput
+    extendedRelatives?: ExtendedRelativeCreateNestedManyWithoutApplicationInput
+    referencePersons?: ReferencePersonCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationUncheckedCreateWithoutFamilyMembersInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    educationHistory?: EducationHistoryUncheckedCreateNestedManyWithoutApplicationInput
+    workExperience?: WorkExperienceUncheckedCreateNestedManyWithoutApplicationInput
+    skills?: SkillUncheckedCreateNestedOneWithoutApplicationInput
+    extendedRelatives?: ExtendedRelativeUncheckedCreateNestedManyWithoutApplicationInput
+    referencePersons?: ReferencePersonUncheckedCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationCreateOrConnectWithoutFamilyMembersInput = {
+    where: ApplicationWhereUniqueInput
+    create: XOR<ApplicationCreateWithoutFamilyMembersInput, ApplicationUncheckedCreateWithoutFamilyMembersInput>
+  }
+
+  export type ApplicationUpsertWithoutFamilyMembersInput = {
+    update: XOR<ApplicationUpdateWithoutFamilyMembersInput, ApplicationUncheckedUpdateWithoutFamilyMembersInput>
+    create: XOR<ApplicationCreateWithoutFamilyMembersInput, ApplicationUncheckedCreateWithoutFamilyMembersInput>
+    where?: ApplicationWhereInput
+  }
+
+  export type ApplicationUpdateToOneWithWhereWithoutFamilyMembersInput = {
+    where?: ApplicationWhereInput
+    data: XOR<ApplicationUpdateWithoutFamilyMembersInput, ApplicationUncheckedUpdateWithoutFamilyMembersInput>
+  }
+
+  export type ApplicationUpdateWithoutFamilyMembersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    educationHistory?: EducationHistoryUpdateManyWithoutApplicationNestedInput
+    workExperience?: WorkExperienceUpdateManyWithoutApplicationNestedInput
+    skills?: SkillUpdateOneWithoutApplicationNestedInput
+    extendedRelatives?: ExtendedRelativeUpdateManyWithoutApplicationNestedInput
+    referencePersons?: ReferencePersonUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationUncheckedUpdateWithoutFamilyMembersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    educationHistory?: EducationHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+    workExperience?: WorkExperienceUncheckedUpdateManyWithoutApplicationNestedInput
+    skills?: SkillUncheckedUpdateOneWithoutApplicationNestedInput
+    extendedRelatives?: ExtendedRelativeUncheckedUpdateManyWithoutApplicationNestedInput
+    referencePersons?: ReferencePersonUncheckedUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationCreateWithoutEducationHistoryInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    familyMembers?: FamilyMemberCreateNestedManyWithoutApplicationInput
+    workExperience?: WorkExperienceCreateNestedManyWithoutApplicationInput
+    skills?: SkillCreateNestedOneWithoutApplicationInput
+    extendedRelatives?: ExtendedRelativeCreateNestedManyWithoutApplicationInput
+    referencePersons?: ReferencePersonCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationUncheckedCreateWithoutEducationHistoryInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    familyMembers?: FamilyMemberUncheckedCreateNestedManyWithoutApplicationInput
+    workExperience?: WorkExperienceUncheckedCreateNestedManyWithoutApplicationInput
+    skills?: SkillUncheckedCreateNestedOneWithoutApplicationInput
+    extendedRelatives?: ExtendedRelativeUncheckedCreateNestedManyWithoutApplicationInput
+    referencePersons?: ReferencePersonUncheckedCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationCreateOrConnectWithoutEducationHistoryInput = {
+    where: ApplicationWhereUniqueInput
+    create: XOR<ApplicationCreateWithoutEducationHistoryInput, ApplicationUncheckedCreateWithoutEducationHistoryInput>
+  }
+
+  export type ApplicationUpsertWithoutEducationHistoryInput = {
+    update: XOR<ApplicationUpdateWithoutEducationHistoryInput, ApplicationUncheckedUpdateWithoutEducationHistoryInput>
+    create: XOR<ApplicationCreateWithoutEducationHistoryInput, ApplicationUncheckedCreateWithoutEducationHistoryInput>
+    where?: ApplicationWhereInput
+  }
+
+  export type ApplicationUpdateToOneWithWhereWithoutEducationHistoryInput = {
+    where?: ApplicationWhereInput
+    data: XOR<ApplicationUpdateWithoutEducationHistoryInput, ApplicationUncheckedUpdateWithoutEducationHistoryInput>
+  }
+
+  export type ApplicationUpdateWithoutEducationHistoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    familyMembers?: FamilyMemberUpdateManyWithoutApplicationNestedInput
+    workExperience?: WorkExperienceUpdateManyWithoutApplicationNestedInput
+    skills?: SkillUpdateOneWithoutApplicationNestedInput
+    extendedRelatives?: ExtendedRelativeUpdateManyWithoutApplicationNestedInput
+    referencePersons?: ReferencePersonUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationUncheckedUpdateWithoutEducationHistoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    familyMembers?: FamilyMemberUncheckedUpdateManyWithoutApplicationNestedInput
+    workExperience?: WorkExperienceUncheckedUpdateManyWithoutApplicationNestedInput
+    skills?: SkillUncheckedUpdateOneWithoutApplicationNestedInput
+    extendedRelatives?: ExtendedRelativeUncheckedUpdateManyWithoutApplicationNestedInput
+    referencePersons?: ReferencePersonUncheckedUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationCreateWithoutWorkExperienceInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    familyMembers?: FamilyMemberCreateNestedManyWithoutApplicationInput
+    educationHistory?: EducationHistoryCreateNestedManyWithoutApplicationInput
+    skills?: SkillCreateNestedOneWithoutApplicationInput
+    extendedRelatives?: ExtendedRelativeCreateNestedManyWithoutApplicationInput
+    referencePersons?: ReferencePersonCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationUncheckedCreateWithoutWorkExperienceInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    familyMembers?: FamilyMemberUncheckedCreateNestedManyWithoutApplicationInput
+    educationHistory?: EducationHistoryUncheckedCreateNestedManyWithoutApplicationInput
+    skills?: SkillUncheckedCreateNestedOneWithoutApplicationInput
+    extendedRelatives?: ExtendedRelativeUncheckedCreateNestedManyWithoutApplicationInput
+    referencePersons?: ReferencePersonUncheckedCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationCreateOrConnectWithoutWorkExperienceInput = {
+    where: ApplicationWhereUniqueInput
+    create: XOR<ApplicationCreateWithoutWorkExperienceInput, ApplicationUncheckedCreateWithoutWorkExperienceInput>
+  }
+
+  export type ApplicationUpsertWithoutWorkExperienceInput = {
+    update: XOR<ApplicationUpdateWithoutWorkExperienceInput, ApplicationUncheckedUpdateWithoutWorkExperienceInput>
+    create: XOR<ApplicationCreateWithoutWorkExperienceInput, ApplicationUncheckedCreateWithoutWorkExperienceInput>
+    where?: ApplicationWhereInput
+  }
+
+  export type ApplicationUpdateToOneWithWhereWithoutWorkExperienceInput = {
+    where?: ApplicationWhereInput
+    data: XOR<ApplicationUpdateWithoutWorkExperienceInput, ApplicationUncheckedUpdateWithoutWorkExperienceInput>
+  }
+
+  export type ApplicationUpdateWithoutWorkExperienceInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    familyMembers?: FamilyMemberUpdateManyWithoutApplicationNestedInput
+    educationHistory?: EducationHistoryUpdateManyWithoutApplicationNestedInput
+    skills?: SkillUpdateOneWithoutApplicationNestedInput
+    extendedRelatives?: ExtendedRelativeUpdateManyWithoutApplicationNestedInput
+    referencePersons?: ReferencePersonUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationUncheckedUpdateWithoutWorkExperienceInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    familyMembers?: FamilyMemberUncheckedUpdateManyWithoutApplicationNestedInput
+    educationHistory?: EducationHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+    skills?: SkillUncheckedUpdateOneWithoutApplicationNestedInput
+    extendedRelatives?: ExtendedRelativeUncheckedUpdateManyWithoutApplicationNestedInput
+    referencePersons?: ReferencePersonUncheckedUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationCreateWithoutSkillsInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    familyMembers?: FamilyMemberCreateNestedManyWithoutApplicationInput
+    educationHistory?: EducationHistoryCreateNestedManyWithoutApplicationInput
+    workExperience?: WorkExperienceCreateNestedManyWithoutApplicationInput
+    extendedRelatives?: ExtendedRelativeCreateNestedManyWithoutApplicationInput
+    referencePersons?: ReferencePersonCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationUncheckedCreateWithoutSkillsInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    familyMembers?: FamilyMemberUncheckedCreateNestedManyWithoutApplicationInput
+    educationHistory?: EducationHistoryUncheckedCreateNestedManyWithoutApplicationInput
+    workExperience?: WorkExperienceUncheckedCreateNestedManyWithoutApplicationInput
+    extendedRelatives?: ExtendedRelativeUncheckedCreateNestedManyWithoutApplicationInput
+    referencePersons?: ReferencePersonUncheckedCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationCreateOrConnectWithoutSkillsInput = {
+    where: ApplicationWhereUniqueInput
+    create: XOR<ApplicationCreateWithoutSkillsInput, ApplicationUncheckedCreateWithoutSkillsInput>
+  }
+
+  export type ApplicationUpsertWithoutSkillsInput = {
+    update: XOR<ApplicationUpdateWithoutSkillsInput, ApplicationUncheckedUpdateWithoutSkillsInput>
+    create: XOR<ApplicationCreateWithoutSkillsInput, ApplicationUncheckedCreateWithoutSkillsInput>
+    where?: ApplicationWhereInput
+  }
+
+  export type ApplicationUpdateToOneWithWhereWithoutSkillsInput = {
+    where?: ApplicationWhereInput
+    data: XOR<ApplicationUpdateWithoutSkillsInput, ApplicationUncheckedUpdateWithoutSkillsInput>
+  }
+
+  export type ApplicationUpdateWithoutSkillsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    familyMembers?: FamilyMemberUpdateManyWithoutApplicationNestedInput
+    educationHistory?: EducationHistoryUpdateManyWithoutApplicationNestedInput
+    workExperience?: WorkExperienceUpdateManyWithoutApplicationNestedInput
+    extendedRelatives?: ExtendedRelativeUpdateManyWithoutApplicationNestedInput
+    referencePersons?: ReferencePersonUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationUncheckedUpdateWithoutSkillsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    familyMembers?: FamilyMemberUncheckedUpdateManyWithoutApplicationNestedInput
+    educationHistory?: EducationHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+    workExperience?: WorkExperienceUncheckedUpdateManyWithoutApplicationNestedInput
+    extendedRelatives?: ExtendedRelativeUncheckedUpdateManyWithoutApplicationNestedInput
+    referencePersons?: ReferencePersonUncheckedUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationCreateWithoutExtendedRelativesInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    familyMembers?: FamilyMemberCreateNestedManyWithoutApplicationInput
+    educationHistory?: EducationHistoryCreateNestedManyWithoutApplicationInput
+    workExperience?: WorkExperienceCreateNestedManyWithoutApplicationInput
+    skills?: SkillCreateNestedOneWithoutApplicationInput
+    referencePersons?: ReferencePersonCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationUncheckedCreateWithoutExtendedRelativesInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    familyMembers?: FamilyMemberUncheckedCreateNestedManyWithoutApplicationInput
+    educationHistory?: EducationHistoryUncheckedCreateNestedManyWithoutApplicationInput
+    workExperience?: WorkExperienceUncheckedCreateNestedManyWithoutApplicationInput
+    skills?: SkillUncheckedCreateNestedOneWithoutApplicationInput
+    referencePersons?: ReferencePersonUncheckedCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationCreateOrConnectWithoutExtendedRelativesInput = {
+    where: ApplicationWhereUniqueInput
+    create: XOR<ApplicationCreateWithoutExtendedRelativesInput, ApplicationUncheckedCreateWithoutExtendedRelativesInput>
+  }
+
+  export type ApplicationUpsertWithoutExtendedRelativesInput = {
+    update: XOR<ApplicationUpdateWithoutExtendedRelativesInput, ApplicationUncheckedUpdateWithoutExtendedRelativesInput>
+    create: XOR<ApplicationCreateWithoutExtendedRelativesInput, ApplicationUncheckedCreateWithoutExtendedRelativesInput>
+    where?: ApplicationWhereInput
+  }
+
+  export type ApplicationUpdateToOneWithWhereWithoutExtendedRelativesInput = {
+    where?: ApplicationWhereInput
+    data: XOR<ApplicationUpdateWithoutExtendedRelativesInput, ApplicationUncheckedUpdateWithoutExtendedRelativesInput>
+  }
+
+  export type ApplicationUpdateWithoutExtendedRelativesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    familyMembers?: FamilyMemberUpdateManyWithoutApplicationNestedInput
+    educationHistory?: EducationHistoryUpdateManyWithoutApplicationNestedInput
+    workExperience?: WorkExperienceUpdateManyWithoutApplicationNestedInput
+    skills?: SkillUpdateOneWithoutApplicationNestedInput
+    referencePersons?: ReferencePersonUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationUncheckedUpdateWithoutExtendedRelativesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    familyMembers?: FamilyMemberUncheckedUpdateManyWithoutApplicationNestedInput
+    educationHistory?: EducationHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+    workExperience?: WorkExperienceUncheckedUpdateManyWithoutApplicationNestedInput
+    skills?: SkillUncheckedUpdateOneWithoutApplicationNestedInput
+    referencePersons?: ReferencePersonUncheckedUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationCreateWithoutReferencePersonsInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    familyMembers?: FamilyMemberCreateNestedManyWithoutApplicationInput
+    educationHistory?: EducationHistoryCreateNestedManyWithoutApplicationInput
+    workExperience?: WorkExperienceCreateNestedManyWithoutApplicationInput
+    skills?: SkillCreateNestedOneWithoutApplicationInput
+    extendedRelatives?: ExtendedRelativeCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationUncheckedCreateWithoutReferencePersonsInput = {
+    id?: string
+    surname?: string | null
+    lastName: string
+    firstName: string
+    registerNumber?: string | null
+    birthDate?: string | null
+    birthYear?: string | null
+    birthPlace?: string | null
+    gender?: string | null
+    maritalStatus?: string | null
+    email?: string | null
+    facebookUrl?: string | null
+    phone?: string | null
+    phoneMobile?: string | null
+    phoneHome?: string | null
+    phoneWork?: string | null
+    addressCurrent?: string | null
+    addressTemp?: string | null
+    applyingFor?: string | null
+    photoUrl?: string | null
+    idCardUrl?: string | null
+    diplomaUrl?: string | null
+    proLicenseUrl?: string | null
+    videoUrl?: string | null
+    truckDetails?: string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: boolean
+    criminalRecordDetails?: string | null
+    militaryStatus?: string | null
+    desiredSalary?: string | null
+    availableDate?: string | null
+    futureGoals?: string | null
+    strengths?: string | null
+    weaknesses?: string | null
+    referralSource?: string | null
+    referralSourceDetails?: string | null
+    internalReferral?: boolean
+    internalReferralDetails?: string | null
+    unemploymentReason?: string | null
+    hobbies?: string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    legacyId?: number | null
+    familyMembers?: FamilyMemberUncheckedCreateNestedManyWithoutApplicationInput
+    educationHistory?: EducationHistoryUncheckedCreateNestedManyWithoutApplicationInput
+    workExperience?: WorkExperienceUncheckedCreateNestedManyWithoutApplicationInput
+    skills?: SkillUncheckedCreateNestedOneWithoutApplicationInput
+    extendedRelatives?: ExtendedRelativeUncheckedCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationCreateOrConnectWithoutReferencePersonsInput = {
+    where: ApplicationWhereUniqueInput
+    create: XOR<ApplicationCreateWithoutReferencePersonsInput, ApplicationUncheckedCreateWithoutReferencePersonsInput>
+  }
+
+  export type ApplicationUpsertWithoutReferencePersonsInput = {
+    update: XOR<ApplicationUpdateWithoutReferencePersonsInput, ApplicationUncheckedUpdateWithoutReferencePersonsInput>
+    create: XOR<ApplicationCreateWithoutReferencePersonsInput, ApplicationUncheckedCreateWithoutReferencePersonsInput>
+    where?: ApplicationWhereInput
+  }
+
+  export type ApplicationUpdateToOneWithWhereWithoutReferencePersonsInput = {
+    where?: ApplicationWhereInput
+    data: XOR<ApplicationUpdateWithoutReferencePersonsInput, ApplicationUncheckedUpdateWithoutReferencePersonsInput>
+  }
+
+  export type ApplicationUpdateWithoutReferencePersonsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    familyMembers?: FamilyMemberUpdateManyWithoutApplicationNestedInput
+    educationHistory?: EducationHistoryUpdateManyWithoutApplicationNestedInput
+    workExperience?: WorkExperienceUpdateManyWithoutApplicationNestedInput
+    skills?: SkillUpdateOneWithoutApplicationNestedInput
+    extendedRelatives?: ExtendedRelativeUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationUncheckedUpdateWithoutReferencePersonsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    surname?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    birthPlace?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    maritalStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneMobile?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneHome?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneWork?: NullableStringFieldUpdateOperationsInput | string | null
+    addressCurrent?: NullableStringFieldUpdateOperationsInput | string | null
+    addressTemp?: NullableStringFieldUpdateOperationsInput | string | null
+    applyingFor?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idCardUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    diplomaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    proLicenseUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    truckDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    truckPhotos?: NullableJsonNullValueInput | InputJsonValue
+    healthInfo?: NullableJsonNullValueInput | InputJsonValue
+    criminalRecord?: BoolFieldUpdateOperationsInput | boolean
+    criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
+    availableDate?: NullableStringFieldUpdateOperationsInput | string | null
+    futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
+    strengths?: NullableStringFieldUpdateOperationsInput | string | null
+    weaknesses?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSource?: NullableStringFieldUpdateOperationsInput | string | null
+    referralSourceDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    internalReferral?: BoolFieldUpdateOperationsInput | boolean
+    internalReferralDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    unemploymentReason?: NullableStringFieldUpdateOperationsInput | string | null
+    hobbies?: NullableStringFieldUpdateOperationsInput | string | null
+    emergencyContact?: NullableJsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    legacyId?: NullableIntFieldUpdateOperationsInput | number | null
+    familyMembers?: FamilyMemberUncheckedUpdateManyWithoutApplicationNestedInput
+    educationHistory?: EducationHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+    workExperience?: WorkExperienceUncheckedUpdateManyWithoutApplicationNestedInput
+    skills?: SkillUncheckedUpdateOneWithoutApplicationNestedInput
+    extendedRelatives?: ExtendedRelativeUncheckedUpdateManyWithoutApplicationNestedInput
+  }
+
   export type PhotoCreateManyProductInput = {
     id?: number
     image: string
@@ -32882,6 +49416,201 @@ export namespace Prisma {
     sesid?: NullableStringFieldUpdateOperationsInput | string | null
     bid?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FamilyMemberCreateManyApplicationInput = {
+    id?: number
+    relation?: string | null
+    lastName?: string | null
+    firstName?: string | null
+    birthYear?: string | null
+    occupation?: string | null
+    workplaceSchool?: string | null
+    phone?: string | null
+    registerNumber?: string | null
+  }
+
+  export type EducationHistoryCreateManyApplicationInput = {
+    id?: number
+    schoolName?: string | null
+    schoolType?: string | null
+    degree?: string | null
+    major?: string | null
+    entryYear?: string | null
+    graduationYear?: string | null
+    gpa?: string | null
+  }
+
+  export type WorkExperienceCreateManyApplicationInput = {
+    id?: number
+    companyName?: string | null
+    position?: string | null
+    startDate?: string | null
+    endDate?: string | null
+    salary?: string | null
+    reasonForLeaving?: string | null
+  }
+
+  export type ExtendedRelativeCreateManyApplicationInput = {
+    id?: number
+    relation?: string | null
+    fullName?: string | null
+    occupation?: string | null
+    workplace?: string | null
+    contactInfo?: string | null
+  }
+
+  export type ReferencePersonCreateManyApplicationInput = {
+    id?: number
+    fullName?: string | null
+    occupation?: string | null
+    workplace?: string | null
+    contactInfo?: string | null
+  }
+
+  export type FamilyMemberUpdateWithoutApplicationInput = {
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplaceSchool?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FamilyMemberUncheckedUpdateWithoutApplicationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplaceSchool?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FamilyMemberUncheckedUpdateManyWithoutApplicationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    birthYear?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplaceSchool?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    registerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type EducationHistoryUpdateWithoutApplicationInput = {
+    schoolName?: NullableStringFieldUpdateOperationsInput | string | null
+    schoolType?: NullableStringFieldUpdateOperationsInput | string | null
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    major?: NullableStringFieldUpdateOperationsInput | string | null
+    entryYear?: NullableStringFieldUpdateOperationsInput | string | null
+    graduationYear?: NullableStringFieldUpdateOperationsInput | string | null
+    gpa?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type EducationHistoryUncheckedUpdateWithoutApplicationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    schoolName?: NullableStringFieldUpdateOperationsInput | string | null
+    schoolType?: NullableStringFieldUpdateOperationsInput | string | null
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    major?: NullableStringFieldUpdateOperationsInput | string | null
+    entryYear?: NullableStringFieldUpdateOperationsInput | string | null
+    graduationYear?: NullableStringFieldUpdateOperationsInput | string | null
+    gpa?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type EducationHistoryUncheckedUpdateManyWithoutApplicationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    schoolName?: NullableStringFieldUpdateOperationsInput | string | null
+    schoolType?: NullableStringFieldUpdateOperationsInput | string | null
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    major?: NullableStringFieldUpdateOperationsInput | string | null
+    entryYear?: NullableStringFieldUpdateOperationsInput | string | null
+    graduationYear?: NullableStringFieldUpdateOperationsInput | string | null
+    gpa?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type WorkExperienceUpdateWithoutApplicationInput = {
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableStringFieldUpdateOperationsInput | string | null
+    reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type WorkExperienceUncheckedUpdateWithoutApplicationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableStringFieldUpdateOperationsInput | string | null
+    reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type WorkExperienceUncheckedUpdateManyWithoutApplicationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableStringFieldUpdateOperationsInput | string | null
+    endDate?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableStringFieldUpdateOperationsInput | string | null
+    reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ExtendedRelativeUpdateWithoutApplicationInput = {
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ExtendedRelativeUncheckedUpdateWithoutApplicationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ExtendedRelativeUncheckedUpdateManyWithoutApplicationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ReferencePersonUpdateWithoutApplicationInput = {
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ReferencePersonUncheckedUpdateWithoutApplicationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ReferencePersonUncheckedUpdateManyWithoutApplicationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    fullName?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    workplace?: NullableStringFieldUpdateOperationsInput | string | null
+    contactInfo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

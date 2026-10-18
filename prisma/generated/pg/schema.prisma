@@ -302,3 +302,187 @@ model Favorite {
 
   @@map("srcms_favorites")
 }
+
+// ============================================
+// ANKET & RECRUITMENT SYSTEM MODELS
+// ============================================
+
+model Application {
+  id                      String   @id @default(uuid())
+  surname                 String?
+  lastName                String   @map("last_name")
+  firstName               String   @map("first_name")
+  registerNumber          String?  @map("register_number")
+  birthDate               String?  @map("birth_date")
+  birthYear               String?  @map("birth_year")
+  birthPlace              String?  @map("birth_place")
+  gender                  String?
+  maritalStatus           String?  @map("marital_status")
+  email                   String?
+  facebookUrl             String?  @map("facebook_url")
+  phone                   String?
+  phoneMobile             String?  @map("phone_mobile")
+  phoneHome               String?  @map("phone_home")
+  phoneWork               String?  @map("phone_work")
+  addressCurrent          String?  @map("address_current")
+  addressTemp             String?  @map("temp_address")
+  applyingFor             String?  @map("applying_for")
+  photoUrl                String?  @map("photo_url")
+  idCardUrl               String?  @map("id_card_url")
+  diplomaUrl              String?  @map("diploma_url")
+  proLicenseUrl           String?  @map("pro_license_url")
+  videoUrl                String?  @map("video_url")
+  truckDetails            String?  @map("truck_details")
+  truckPhotos             Json?    @map("truck_photos")
+  healthInfo              Json?    @map("health_info")
+  criminalRecord          Boolean  @default(false) @map("criminal_record")
+  criminalRecordDetails   String?  @map("criminal_record_details")
+  militaryStatus          String?  @map("military_status")
+  desiredSalary           String?  @map("desired_salary")
+  availableDate           String?  @map("available_date")
+  futureGoals             String?  @map("future_goals")
+  strengths               String?
+  weaknesses              String?
+  referralSource          String?  @map("referral_source")
+  referralSourceDetails   String?  @map("referral_source_details")
+  internalReferral        Boolean  @default(false) @map("internal_referral")
+  internalReferralDetails String?  @map("internal_referral_details")
+  unemploymentReason      String?  @map("unemployment_reason")
+  hobbies                 String?
+  emergencyContact        Json?    @map("emergency_contact")
+  status                  String   @default("pending") // 'pending', 'reviewed', 'accepted', 'rejected'
+  createdAt               DateTime @default(now()) @map("created_at")
+  updatedAt               DateTime @default(now()) @updatedAt @map("updated_at")
+  legacyId                Int?     @map("legacy_id")
+
+  familyMembers     FamilyMember[]
+  educationHistory  EducationHistory[]
+  workExperience    WorkExperience[]
+  skills            Skill?
+  extendedRelatives ExtendedRelative[]
+  referencePersons  ReferencePerson[]
+
+  @@index([status])
+  @@index([applyingFor])
+  @@index([phone])
+  @@index([registerNumber])
+  @@map("applications")
+}
+
+model FamilyMember {
+  id              Int         @id @default(autoincrement())
+  applicationId   String      @map("application_id")
+  relation        String?
+  lastName        String?     @map("last_name")
+  firstName       String?     @map("first_name")
+  birthYear       String?     @map("birth_year")
+  occupation      String?
+  workplaceSchool String?     @map("workplace_school")
+  phone           String?
+  registerNumber  String?     @map("register_number")
+  application     Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@map("family_members")
+}
+
+model EducationHistory {
+  id             Int         @id @default(autoincrement())
+  applicationId  String      @map("application_id")
+  schoolName     String?     @map("school_name")
+  schoolType     String?     @map("school_type")
+  degree         String?
+  major          String?
+  entryYear      String?     @map("entry_year")
+  graduationYear String?     @map("graduation_year")
+  gpa            String?
+  application    Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@map("education_history")
+}
+
+model WorkExperience {
+  id               Int         @id @default(autoincrement())
+  applicationId    String      @map("application_id")
+  companyName      String?     @map("company_name")
+  position         String?
+  startDate        String?     @map("start_date")
+  endDate          String?     @map("end_date")
+  salary           String?
+  reasonForLeaving String?     @map("reason_for_leaving")
+  application      Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@map("work_experience")
+}
+
+model Skill {
+  id             Int         @id @default(autoincrement())
+  applicationId  String      @unique @map("application_id")
+  languageMatrix Json?       @map("language_matrix")
+  pcMatrix       Json?       @map("pc_matrix")
+  application    Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@map("skills")
+}
+
+model ExtendedRelative {
+  id            Int         @id @default(autoincrement())
+  applicationId String      @map("application_id")
+  relation      String?
+  fullName      String?     @map("full_name")
+  occupation    String?
+  workplace     String?
+  contactInfo   String?     @map("contact_info")
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@map("extended_relatives")
+}
+
+model ReferencePerson {
+  id            Int         @id @default(autoincrement())
+  applicationId String      @map("application_id")
+  fullName      String?     @map("full_name")
+  occupation    String?
+  workplace     String?
+  contactInfo   String?     @map("contact_info")
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@map("reference_persons")
+}
+
+model JobPosition {
+  id               String   @id @default(uuid())
+  title            String
+  department       String?
+  location         String?  @default("Улаанбаатар")
+  employmentType   String?  @default("Бүтэн цаг") @map("employment_type")
+  salaryRange      String?  @map("salary_range")
+  description      String?
+  responsibilities String?
+  requirements     String?
+  benefits         String?
+  imageUrl         String?  @map("image_url")
+  isActive         Boolean  @default(true) @map("is_active")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @default(now()) @updatedAt @map("updated_at")
+
+  @@index([isActive])
+  @@map("job_positions")
+}
+
+model LegacyAnket {
+  id         Int       @id @default(autoincrement())
+  ognoo      DateTime?
+  image1     String?
+  image2     String?
+  image3     String?
+  image4     String?
+  ovog       String?
+  ner        String?
+  utas       String?
+  regdugaar  String?
+  email      String?
+  sonirhoson String?
+  allhtml    String?
+
+  @@map("srcms_anket")
+}

@@ -2,6 +2,13 @@
 // TUGEELT.MN — Utility Functions
 // ==========================================
 
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
 /** Монгол валют форматлах */
 export function formatPrice(amount: number): string {
   return new Intl.NumberFormat('mn-MN').format(amount) + '₮'

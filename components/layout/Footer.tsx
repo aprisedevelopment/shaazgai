@@ -58,10 +58,26 @@ export function Footer({ pages }: { pages: Page[] }) {
               ))}
               <li>
                 <Link
+                  href="/jobs"
+                  className="hover:text-emerald-400 transition-colors text-left"
+                >
+                  Нээлттэй ажлын байр
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/anket"
                   className="hover:text-emerald-400 transition-colors text-left"
                 >
-                  Ажлын байр
+                  Анкет илгээх
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/anket/track"
+                  className="hover:text-emerald-400 transition-colors text-left"
+                >
+                  Анкетын явц шалгах
                 </Link>
               </li>
             </ul>

@@ -352,9 +352,158 @@ exports.Prisma.FavoriteScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.ApplicationScalarFieldEnum = {
+  id: 'id',
+  surname: 'surname',
+  lastName: 'lastName',
+  firstName: 'firstName',
+  registerNumber: 'registerNumber',
+  birthDate: 'birthDate',
+  birthYear: 'birthYear',
+  birthPlace: 'birthPlace',
+  gender: 'gender',
+  maritalStatus: 'maritalStatus',
+  email: 'email',
+  facebookUrl: 'facebookUrl',
+  phone: 'phone',
+  phoneMobile: 'phoneMobile',
+  phoneHome: 'phoneHome',
+  phoneWork: 'phoneWork',
+  addressCurrent: 'addressCurrent',
+  addressTemp: 'addressTemp',
+  applyingFor: 'applyingFor',
+  photoUrl: 'photoUrl',
+  idCardUrl: 'idCardUrl',
+  diplomaUrl: 'diplomaUrl',
+  proLicenseUrl: 'proLicenseUrl',
+  videoUrl: 'videoUrl',
+  truckDetails: 'truckDetails',
+  truckPhotos: 'truckPhotos',
+  healthInfo: 'healthInfo',
+  criminalRecord: 'criminalRecord',
+  criminalRecordDetails: 'criminalRecordDetails',
+  militaryStatus: 'militaryStatus',
+  desiredSalary: 'desiredSalary',
+  availableDate: 'availableDate',
+  futureGoals: 'futureGoals',
+  strengths: 'strengths',
+  weaknesses: 'weaknesses',
+  referralSource: 'referralSource',
+  referralSourceDetails: 'referralSourceDetails',
+  internalReferral: 'internalReferral',
+  internalReferralDetails: 'internalReferralDetails',
+  unemploymentReason: 'unemploymentReason',
+  hobbies: 'hobbies',
+  emergencyContact: 'emergencyContact',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  legacyId: 'legacyId'
+};
+
+exports.Prisma.FamilyMemberScalarFieldEnum = {
+  id: 'id',
+  applicationId: 'applicationId',
+  relation: 'relation',
+  lastName: 'lastName',
+  firstName: 'firstName',
+  birthYear: 'birthYear',
+  occupation: 'occupation',
+  workplaceSchool: 'workplaceSchool',
+  phone: 'phone',
+  registerNumber: 'registerNumber'
+};
+
+exports.Prisma.EducationHistoryScalarFieldEnum = {
+  id: 'id',
+  applicationId: 'applicationId',
+  schoolName: 'schoolName',
+  schoolType: 'schoolType',
+  degree: 'degree',
+  major: 'major',
+  entryYear: 'entryYear',
+  graduationYear: 'graduationYear',
+  gpa: 'gpa'
+};
+
+exports.Prisma.WorkExperienceScalarFieldEnum = {
+  id: 'id',
+  applicationId: 'applicationId',
+  companyName: 'companyName',
+  position: 'position',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  salary: 'salary',
+  reasonForLeaving: 'reasonForLeaving'
+};
+
+exports.Prisma.SkillScalarFieldEnum = {
+  id: 'id',
+  applicationId: 'applicationId',
+  languageMatrix: 'languageMatrix',
+  pcMatrix: 'pcMatrix'
+};
+
+exports.Prisma.ExtendedRelativeScalarFieldEnum = {
+  id: 'id',
+  applicationId: 'applicationId',
+  relation: 'relation',
+  fullName: 'fullName',
+  occupation: 'occupation',
+  workplace: 'workplace',
+  contactInfo: 'contactInfo'
+};
+
+exports.Prisma.ReferencePersonScalarFieldEnum = {
+  id: 'id',
+  applicationId: 'applicationId',
+  fullName: 'fullName',
+  occupation: 'occupation',
+  workplace: 'workplace',
+  contactInfo: 'contactInfo'
+};
+
+exports.Prisma.JobPositionScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  department: 'department',
+  location: 'location',
+  employmentType: 'employmentType',
+  salaryRange: 'salaryRange',
+  description: 'description',
+  responsibilities: 'responsibilities',
+  requirements: 'requirements',
+  benefits: 'benefits',
+  imageUrl: 'imageUrl',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.LegacyAnketScalarFieldEnum = {
+  id: 'id',
+  ognoo: 'ognoo',
+  image1: 'image1',
+  image2: 'image2',
+  image3: 'image3',
+  image4: 'image4',
+  ovog: 'ovog',
+  ner: 'ner',
+  utas: 'utas',
+  regdugaar: 'regdugaar',
+  email: 'email',
+  sonirhoson: 'sonirhoson',
+  allhtml: 'allhtml'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -365,6 +514,12 @@ exports.Prisma.QueryMode = {
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
+};
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
 };
 
 
@@ -389,7 +544,16 @@ exports.Prisma.ModelName = {
   LendmnLog: 'LendmnLog',
   Admin: 'Admin',
   Notification: 'Notification',
-  Favorite: 'Favorite'
+  Favorite: 'Favorite',
+  Application: 'Application',
+  FamilyMember: 'FamilyMember',
+  EducationHistory: 'EducationHistory',
+  WorkExperience: 'WorkExperience',
+  Skill: 'Skill',
+  ExtendedRelative: 'ExtendedRelative',
+  ReferencePerson: 'ReferencePerson',
+  JobPosition: 'JobPosition',
+  LegacyAnket: 'LegacyAnket'
 };
 
 /**

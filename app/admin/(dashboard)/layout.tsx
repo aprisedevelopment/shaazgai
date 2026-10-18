@@ -39,7 +39,15 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           <Link href="/admin/categories">
             <span className="nav-icon">🗂️</span> Ангилал
           </Link>
-          
+
+          <div className="admin-nav-group">Хүний нөөц</div>
+          <Link href="/admin/applications">
+            <span className="nav-icon">📋</span> Анкетууд
+          </Link>
+          <Link href="/admin/jobs">
+            <span className="nav-icon">💼</span> Ажлын байр
+          </Link>
+
           <div className="admin-nav-group">Удирдлага</div>
           <Link href="/admin/users">
             <span className="nav-icon">👥</span> Хэрэглэгчид

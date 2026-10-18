@@ -3,11 +3,17 @@ import { formatPrice } from '@/lib/utils'
 import Link from 'next/link'
 
 export default async function AdminDashboard() {
-  const [totalOrders, newOrders, totalUsers, totalProducts] = await Promise.all([
+  const [totalOrders, newOrders, totalUsers, totalProducts, totalApps, pendingApps, recentApps] = await Promise.all([
     prisma.order.count(),
     prisma.order.count({ where: { tolov: "0" } }),
     prisma.user.count(),
-    prisma.product.count()
+    prisma.product.count(),
+    prisma.application.count(),
+    prisma.application.count({ where: { status: "pending" } }),
+    prisma.application.findMany({
+      orderBy: { createdAt: 'desc' },
+      take: 5
+    })
   ])
 
   const recentOrders = await prisma.order.findMany({
@@ -17,7 +23,7 @@ export default async function AdminDashboard() {
 
   return (
     <>
-      <div className="admin-stats">
+      <div className="admin-stats" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}>
         <div className="stat-card">
           <div className="stat-card-value">{totalOrders}</div>
           <div className="stat-card-label">Нийт захиалга</div>
@@ -33,6 +39,14 @@ export default async function AdminDashboard() {
         <div className="stat-card">
           <div className="stat-card-value" style={{ color: 'var(--accent)' }}>{totalUsers}</div>
           <div className="stat-card-label">Хэрэглэгчид</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-card-value" style={{ color: '#2563eb' }}>{totalApps}</div>
+          <div className="stat-card-label">Ирсэн анкет</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-card-value" style={{ color: '#d97706' }}>{pendingApps}</div>
+          <div className="stat-card-label">Хүлээгдэж буй анкет</div>
         </div>
       </div>
 
@@ -70,6 +84,58 @@ export default async function AdminDashboard() {
             {recentOrders.length === 0 && (
               <tr>
                 <td colSpan={6} style={{ textAlign: 'center', padding: 32, color: 'var(--text-muted)' }}>Захиалга олдсонгүй</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="box" style={{ marginTop: 24 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+          <h2 style={{ fontSize: 18, fontWeight: 700 }}>Сүүлд ирсэн анкетууд</h2>
+          <Link href="/admin/applications" className="btn btn-outline btn-sm">Бүх анкет харах</Link>
+        </div>
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Огноо</th>
+              <th>Овог нэр</th>
+              <th>Сонирхсон ажил</th>
+              <th>Утас</th>
+              <th>Төлөв</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {recentApps.map((a) => (
+              <tr key={a.id}>
+                <td>
+                  <Link href={`/admin/applications/${a.id}`} style={{ fontWeight: 700, color: 'var(--primary)', textDecoration: 'underline' }}>
+                    #{a.id.slice(0, 8)}
+                  </Link>
+                </td>
+                <td>{a.createdAt ? new Date(a.createdAt).toLocaleDateString() : '—'}</td>
+                <td><span style={{ fontWeight: 600 }}>{a.lastName} {a.firstName}</span></td>
+                <td><span style={{ color: '#2563eb', fontWeight: 600 }}>{a.applyingFor}</span></td>
+                <td>{a.phone}</td>
+                <td>
+                  <span className={`badge ${a.status === 'accepted' ? 'badge-success' : a.status === 'rejected' ? 'badge-danger' : a.status === 'reviewed' ? 'badge-info' : 'badge-warning'}`}>
+                    {a.status === 'accepted' ? 'Зөвшөөрсөн' : a.status === 'rejected' ? 'Татгалзсан' : a.status === 'reviewed' ? 'Хянагдсан' : 'Хүлээгдэж буй'}
+                  </span>
+                </td>
+                <td style={{ textAlign: 'right' }}>
+                  <Link href={`/admin/applications/${a.id}`} className="btn btn-outline btn-sm" style={{ padding: '4px 10px', fontSize: 11 }}>
+                    Харах
+                  </Link>
+                </td>
+              </tr>
+            ))}
+            {recentApps.length === 0 && (
+              <tr>
+                <td colSpan={7} style={{ textAlign: 'center', padding: 32, color: 'var(--text-muted)' }}>
+                  Одоогоор ирсэн анкет алга байна
+                </td>
               </tr>
             )}
           </tbody>
