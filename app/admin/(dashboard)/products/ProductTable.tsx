@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from 'react'
 import Link from 'next/link'
-import { formatPrice } from '@/lib/utils'
+import { formatPrice, productImageUrl } from '@/lib/utils'
 import { ProductStatusToggles } from './ProductStatusToggles'
 import { InlineStockEdit } from './InlineStockEdit'
 import { bulkUpdateProducts } from '../../actions'
@@ -86,7 +86,7 @@ export function ProductTable({ products, categories }: ProductTableProps) {
                   <div style={{ width: 40, height: 40, borderRadius: 6, overflow: 'hidden', background: 'var(--bg-section)' }}>
                     {p.image ? (
                       <img 
-                        src={`${process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'}/baraa/small/${p.image}`} 
+                        src={productImageUrl(p.image, 'small')} 
                         alt={p.title} 
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         onError={(e) => { (e.currentTarget.style.display = 'none') }}

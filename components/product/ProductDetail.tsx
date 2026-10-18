@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useCartStore } from '@/store/cartStore'
 import { useToast } from '@/components/ui/Toast'
 import { useSession } from 'next-auth/react'
-import { formatPrice, calcDiscount, productImageUrl, userAvatarUrl, timeAgo } from '@/lib/utils'
+import { formatPrice, calcDiscount, productImageUrl, userAvatarUrl, timeAgo, getUploadBase } from '@/lib/utils'
 import { ProductCard } from '@/components/home/ProductCard'
 import type { Product, Comment } from '@/types'
 import Link from 'next/link'
@@ -13,7 +13,7 @@ import {
   ChevronRight, Heart, ShoppingCart, Zap, CheckCircle2, Star, ShieldCheck, Minus, Plus, Sparkles
 } from 'lucide-react'
 
-const UPLOAD = process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'
+const UPLOAD = getUploadBase()
 
 function ProductImages({ product }: { product: Product & { photos: any[] } }) {
   const [main, setMain] = useState(product.image)

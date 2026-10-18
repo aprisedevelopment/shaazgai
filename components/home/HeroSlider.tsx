@@ -1,8 +1,7 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react'
 import type { Banner } from '@/types'
-
-const UPLOAD = process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'
+import { bannerImageUrl } from '@/lib/utils'
 
 export function HeroSlider({ banners }: { banners: Banner[] }) {
   const [current, setCurrent] = useState(0)
@@ -24,7 +23,7 @@ export function HeroSlider({ banners }: { banners: Banner[] }) {
           key={b.id}
           href={b.holboos || '#'}
           className={`hero-slide ${i === current ? 'active' : ''}`}
-          style={{ backgroundImage: `url(${UPLOAD}/banners/${b.image})` }}
+          style={{ backgroundImage: `url(${bannerImageUrl(b.image)})` }}
           aria-label={b.title || 'Banner'}
         />
       ))}

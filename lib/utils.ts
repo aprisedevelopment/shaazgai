@@ -31,9 +31,19 @@ export function timeAgo(timestamp: number): string {
   return new Date(timestamp * 1000).toLocaleDateString('mn-MN')
 }
 
+/** Зургийн upload үндсэн замыг авах */
+export function getUploadBase(): string {
+  const envUrl = process.env.NEXT_PUBLIC_UPLOAD_URL;
+  // Хуучин үхсэн tugeelt.mn домэйн заасан бол эсвэл тохируулаагүй бол дотоод /uploads руу чиглүүлнэ
+  if (!envUrl || envUrl.includes('tugeelt.mn')) {
+    return '/uploads';
+  }
+  return envUrl.replace(/\/+$/, '');
+}
+
 /** Барааны зургийн URL */
 export function productImageUrl(image?: string | null, size: 'full' | 'small' = 'full'): string {
-  const base = process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'
+  const base = getUploadBase()
   if (!image) return `${base}/images/nophoto.jpg`
   if (size === 'small') return `${base}/baraa/small/${image}`
   return `${base}/baraa/${image}`
@@ -41,21 +51,24 @@ export function productImageUrl(image?: string | null, size: 'full' | 'small' = 
 
 /** Хэрэглэгчийн аватар URL */
 export function userAvatarUrl(image?: string | null): string {
-  const base = process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'
+  const base = getUploadBase()
   if (!image) return `${base}/images/noavatar.jpg`
   return `${base}/users/${image}`
 }
 
 /** Баннерийн URL */
 export function bannerImageUrl(image?: string | null): string {
-  const base = process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'
+  const base = getUploadBase()
   if (!image) return ''
+  if (['featured.png', 'discount.png', 'new.png', 'best.png', 'delivery.png'].includes(image)) {
+    return `/banners/${image}`
+  }
   return `${base}/banners/${image}`
 }
 
 /** Ангилалын зургийн URL */
 export function categoryImageUrl(image?: string | null): string {
-  const base = process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'
+  const base = getUploadBase()
   if (!image) return ''
   return `${base}/cats/${image}`
 }

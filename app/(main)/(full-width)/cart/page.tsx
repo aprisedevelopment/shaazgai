@@ -7,7 +7,6 @@ import { productImageUrl } from '@/lib/utils'
 import { ShoppingBag, ArrowRight, Trash2, ShieldCheck, Truck } from 'lucide-react'
 import Image from 'next/image'
 
-const UPLOAD = process.env.NEXT_PUBLIC_UPLOAD_URL || '/upload'
 
 export default function CartPage() {
   const { items, updateQty, removeItem, subtotal, total, deliveryUne, noat, toggleNoat, setDelivery } = useCartStore()

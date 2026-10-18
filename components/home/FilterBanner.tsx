@@ -1,8 +1,7 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react'
 import type { Banner } from '@/types'
-
-const UPLOAD = process.env.NEXT_PUBLIC_UPLOAD_URL || ''
+import { bannerImageUrl } from '@/lib/utils'
 
 export function FilterBanner({ banners }: { banners: Banner[] }) {
   const [current, setCurrent] = useState(0)
@@ -25,7 +24,7 @@ export function FilterBanner({ banners }: { banners: Banner[] }) {
           href={b.holboos || '#'}
           className={`hero-slide ${i === current ? 'active' : ''}`}
           style={{ 
-            backgroundImage: `url(${UPLOAD}/banners/${b.image})`,
+            backgroundImage: `url(${bannerImageUrl(b.image)})`,
             borderRadius: 'var(--radius-xl)'
           }}
           aria-label={b.title || 'Filter Banner'}

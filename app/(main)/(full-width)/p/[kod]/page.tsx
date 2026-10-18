@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { prisma } from '@/lib/db'
 import { ProductDetail } from '@/components/product/ProductDetail'
+import { productImageUrl } from '@/lib/utils'
 import type { Metadata } from 'next'
 
 export async function generateMetadata({ params }: { params: Promise<{ kod: string }> }): Promise<Metadata> {
@@ -10,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ kod: stri
   return {
     title: p.title,
     description: p.body?.replace(/<[^>]+>/g, '').substring(0, 160),
-    openGraph: { images: p.image ? [`${process.env.NEXT_PUBLIC_UPLOAD_URL}/baraa/${p.image}`] : [] },
+    openGraph: { images: p.image ? [productImageUrl(p.image)] : [] },
   }
 }
 

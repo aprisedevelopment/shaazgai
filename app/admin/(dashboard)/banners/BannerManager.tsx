@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { createBanner, deleteBanner, toggleBannerPublish } from '../../actions'
+import { bannerImageUrl } from '@/lib/utils'
 import toast from 'react-hot-toast'
 
 interface Banner {
@@ -79,13 +80,7 @@ export function BannerManager({ banners }: { banners: Banner[] }) {
                   <div style={{ width: 110, height: 50, borderRadius: 8, overflow: 'hidden', background: '#f1f5f9', border: '1px solid #e2e8f0' }}>
                     {b.image ? (
                       <img 
-                        src={
-                          b.image.startsWith('http') || b.image.startsWith('/')
-                            ? b.image 
-                            : ['featured.png', 'discount.png', 'new.png', 'best.png', 'delivery.png'].includes(b.image)
-                              ? `/banners/${b.image}`
-                              : `${process.env.NEXT_PUBLIC_UPLOAD_URL || '/uploads'}/banners/${b.image}`
-                        } 
+                        src={b.image.startsWith('http') || b.image.startsWith('/') ? b.image : bannerImageUrl(b.image)} 
                         alt={b.title || ''} 
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                         onError={(e) => { (e.currentTarget.style.display = 'none') }}
