@@ -1,12 +1,7 @@
 import { CategorySidebar } from '@/components/layout/CategorySidebar'
+import { getFrontendCategories } from '@/lib/categories'
 import { prisma } from '@/lib/db'
 import { unstable_cache } from 'next/cache'
-
-const getCategories = unstable_cache(
-  async () => prisma.category.findMany({ where: { publish: 1 }, orderBy: { list_order: 'asc' } }),
-  ['layout-categories'],
-  { revalidate: 3600, tags: ['categories'] }
-)
 
 const getBanners = unstable_cache(
   async () => prisma.banner.findMany({ where: { cat: 2, publish: 1 }, orderBy: { title: 'asc' } }),
@@ -15,7 +10,7 @@ const getBanners = unstable_cache(
 )
 
 export default async function SidebarLayout({ children }: { children: React.ReactNode }) {
-  const categories = await getCategories();
+  const categories = await getFrontendCategories();
   const rightBanners = await getBanners();
 
   return (

@@ -155,6 +155,7 @@ export async function createCategory(formData: FormData) {
       }
     })
     revalidatePath('/admin/categories')
+    revalidatePath('/', 'layout')
     return { success: true }
   } catch (error) {
     console.error(error)
@@ -166,6 +167,7 @@ export async function deleteCategory(id: number) {
   try {
     await prisma.category.delete({ where: { id } })
     revalidatePath('/admin/categories')
+    revalidatePath('/', 'layout')
     return { success: true }
   } catch (error) {
     console.error(error)
@@ -180,6 +182,7 @@ export async function toggleCategoryPublish(id: number, publish: number) {
       data: { publish }
     })
     revalidatePath('/admin/categories')
+    revalidatePath('/', 'layout')
     return { success: true }
   } catch (error) {
     console.error(error)

@@ -10,12 +10,18 @@ import {
 } from 'lucide-react'
 
 function buildTree(cats: Category[]): Category[] {
+  if (cats.length > 0 && cats.every((c) => c.cat === 0 && Array.isArray(c.children))) {
+    return cats
+  }
   const map: Record<number, Category> = {}
   const roots: Category[] = []
-  cats.forEach((c) => { map[c.id] = { ...c, children: [] } })
+  cats.forEach((c) => { map[c.id] = { ...c, children: c.children ? [...c.children] : [] } })
   cats.forEach((c) => {
     if (c.cat === 0) roots.push(map[c.id])
-    else map[c.cat]?.children?.push(map[c.id])
+    else if (map[c.cat]) {
+      if (!map[c.cat].children) map[c.cat].children = []
+      map[c.cat].children!.push(map[c.id])
+    }
   })
   return roots
 }
@@ -56,7 +62,7 @@ function CatItem({ cat, depth = 0, currentId }: { cat: Category; depth?: number;
             <div className="w-6 h-6 rounded bg-slate-100 flex items-center justify-center shrink-0 group-hover:bg-blue-100/60 transition-colors overflow-hidden">
               {cat.image ? (
                 <img 
-                  src={`/uploads/cats/${cat.image}`} 
+                  src={categoryImageUrl(cat.image)} 
                   alt="" 
                   className="w-4 h-4 object-contain"
                   onError={(e) => { (e.currentTarget.style.display = 'none') }}

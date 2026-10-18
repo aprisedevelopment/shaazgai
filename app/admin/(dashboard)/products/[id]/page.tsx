@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/db'
+import { getAllCategoriesForAdmin } from '@/lib/categories'
 import { redirect } from 'next/navigation'
 
 export default async function AdminEditProductPage({ params }: { params: Promise<{ id: string }> }) {
@@ -13,21 +14,11 @@ export default async function AdminEditProductPage({ params }: { params: Promise
     redirect('/admin/products')
   }
 
-  const categories = await prisma.category.findMany({
-    where: { publish: 1 },
-    orderBy: { title: 'asc' }
-  })
-
-  const mainCategories = categories.filter(c => c.cat === 0)
-  const subCategories = categories.filter(c => c.cat !== 0)
-
-  const sortedCategories: any[] = []
-  mainCategories.forEach(main => {
-    sortedCategories.push({ ...main, isSub: false })
-    subCategories.filter(sub => sub.cat === main.id).forEach(sub => {
-      sortedCategories.push({ ...sub, isSub: true })
-    })
-  })
+  const sortedCategories = await getAllCategoriesForAdmin()
+  const catTokens = (product.catvars || '').split(':').map(s => s.trim()).filter(Boolean)
+  // Prefer the deepest matching category in the tokens
+  const matchingCat = [...sortedCategories].reverse().find(c => catTokens.includes(String(c.id)))
+  const defaultCatValue = matchingCat ? `:${matchingCat.id}:` : (product.catvars || '')
 
   return (
     <>
@@ -134,10 +125,12 @@ export default async function AdminEditProductPage({ params }: { params: Promise
             </div>
             <div style={{ flex: 1 }}>
               <label style={{ display: 'block', marginBottom: 8, fontWeight: 600 }}>Ангилал</label>
-              <select name="catvars" defaultValue={product.catvars || ""} required className="form-control" style={{ width: '100%' }}>
+              <select name="catvars" defaultValue={defaultCatValue} required className="form-control" style={{ width: '100%' }}>
                 <option value="">Сонгох...</option>
                 {sortedCategories.map(c => (
-                  <option key={c.id} value={c.id}>{c.isSub ? `— ${c.title}` : c.title}</option>
+                  <option key={c.id} value={`:${c.id}:`}>
+                    {c.level > 0 ? `${'— '.repeat(c.level)}${c.title}` : c.title} {c.totalCount > 0 ? `(${c.totalCount})` : ''}
+                  </option>
                 ))}
               </select>
             </div>

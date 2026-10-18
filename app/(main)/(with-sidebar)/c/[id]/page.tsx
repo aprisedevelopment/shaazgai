@@ -28,12 +28,16 @@ export default async function CategoryPage({ params }: { params: Promise<{ id: s
   }
   const catIds = getCatIds(catId)
 
-  // Бараа tatах – catvars field-д cat id агуулсан байна
-  // Legacy system: catvars = "1,5,12" гэх мэт
+  // Бараа татах – catvars field-д :catId: байдлаар хадгалагддаг
+  const catFilterOr = catIds.flatMap((cid) => [
+    { catvars: { contains: `:${cid}:` } },
+    { catvars: { equals: String(cid) } },
+  ])
+
   const products = await prisma.product.findMany({
     where: {
       publish: 1,
-      OR: catIds.map((cid) => ({ catvars: { contains: String(cid) } })),
+      OR: catFilterOr,
     },
     take: 24,
     orderBy: { nemsen: 'desc' },
@@ -42,12 +46,30 @@ export default async function CategoryPage({ params }: { params: Promise<{ id: s
   const total = await prisma.product.count({
     where: {
       publish: 1,
-      OR: catIds.map((cid) => ({ catvars: { contains: String(cid) } })),
+      OR: catFilterOr,
     },
   })
 
   const parentCat = cat.cat ? allCats.find((c) => c.id === cat.cat) : null
   const subCats = allCats.filter((c) => c.cat === catId && c.publish === 1)
+
+  // Зөвхөн бараатай дэд ангиллуудыг харуулах
+  const subCatsWithProducts = await Promise.all(
+    subCats.map(async (sc) => {
+      const scIds = getCatIds(sc.id)
+      const count = await prisma.product.count({
+        where: {
+          publish: 1,
+          OR: scIds.flatMap((cid) => [
+            { catvars: { contains: `:${cid}:` } },
+            { catvars: { equals: String(cid) } },
+          ]),
+        },
+      })
+      return { ...sc, count }
+    })
+  )
+  const visibleSubCats = subCatsWithProducts.filter((sc) => sc.count > 0)
 
   return (
     <>
@@ -67,10 +89,12 @@ export default async function CategoryPage({ params }: { params: Promise<{ id: s
         <span style={{ fontSize: 13, fontWeight: 400, color: 'var(--text-muted)' }}>{total} бараа</span>
       </h1>
 
-      {subCats.length > 0 && (
+      {visibleSubCats.length > 0 && (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 }}>
-          {subCats.map((sc) => (
-            <Link key={sc.id} href={`/c/${sc.id}`} className="btn btn-ghost btn-sm">{sc.title}</Link>
+          {visibleSubCats.map((sc) => (
+            <Link key={sc.id} href={`/c/${sc.id}`} className="btn btn-ghost btn-sm">
+              {sc.title} <span style={{ opacity: 0.6, fontSize: 11, marginLeft: 4 }}>({sc.count})</span>
+            </Link>
           ))}
         </div>
       )}

@@ -1,22 +1,9 @@
 import { prisma } from '@/lib/db'
+import { getAllCategoriesForAdmin } from '@/lib/categories'
 import { redirect } from 'next/navigation'
 
 export default async function AdminNewProductPage() {
-  const categories = await prisma.category.findMany({
-    where: { publish: 1 },
-    orderBy: { title: 'asc' }
-  })
-
-  const mainCategories = categories.filter(c => c.cat === 0)
-  const subCategories = categories.filter(c => c.cat !== 0)
-
-  const sortedCategories: any[] = []
-  mainCategories.forEach(main => {
-    sortedCategories.push({ ...main, isSub: false })
-    subCategories.filter(sub => sub.cat === main.id).forEach(sub => {
-      sortedCategories.push({ ...sub, isSub: true })
-    })
-  })
+  const sortedCategories = await getAllCategoriesForAdmin()
 
   return (
     <>
@@ -75,7 +62,9 @@ export default async function AdminNewProductPage() {
               <select name="catvars" required className="form-control" style={{ width: '100%' }}>
                 <option value="">Сонгох...</option>
                 {sortedCategories.map(c => (
-                  <option key={c.id} value={c.id}>{c.isSub ? `— ${c.title}` : c.title}</option>
+                  <option key={c.id} value={`:${c.id}:`}>
+                    {c.level > 0 ? `${'— '.repeat(c.level)}${c.title}` : c.title} {c.totalCount > 0 ? `(${c.totalCount})` : ''}
+                  </option>
                 ))}
               </select>
             </div>

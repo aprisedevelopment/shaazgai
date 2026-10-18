@@ -1,24 +1,17 @@
 import { prisma } from '@/lib/db'
+import { getAllCategoriesForAdmin } from '@/lib/categories'
 import { CategoryManager } from './CategoryManager'
 
+export const revalidate = 60
+
 export default async function AdminCategoriesPage() {
-  const categories = await prisma.category.findMany({
+  const categories = await getAllCategoriesForAdmin()
+  const rawMain = await prisma.category.findMany({
+    where: { cat: 0 },
     orderBy: { list_order: 'asc' }
   })
 
-  const mainCategories = categories.filter(c => c.cat === 0)
-  const subCategories = categories.filter(c => c.cat !== 0)
-
-  const sortedList: any[] = []
-  mainCategories.forEach(main => {
-    sortedList.push({ ...main, isSub: false })
-    subCategories.filter(sub => sub.cat === main.id).forEach(sub => {
-      sortedList.push({ ...sub, isSub: true })
-    })
-  })
-
   return (
-    <CategoryManager categories={sortedList} mainCategories={mainCategories} />
+    <CategoryManager categories={categories} mainCategories={rawMain as any} />
   )
 }
-

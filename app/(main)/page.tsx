@@ -5,6 +5,7 @@ import { HomeTabbedProducts } from '@/components/home/HomeTabbedProducts'
 import type { Metadata } from 'next'
 
 import { CategorySidebar } from '@/components/layout/CategorySidebar'
+import { getFrontendCategories } from '@/lib/categories'
 
 export const metadata: Metadata = {
   title: 'Түгээлт — Онлайн Дэлгүүр',
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export const revalidate = 120
 
 export default async function HomePage() {
-  const categories = await prisma.category.findMany({ where: { publish: 1 }, orderBy: { list_order: 'asc' } });
+  const categories = await getFrontendCategories();
   
   // NOTE: Banners are handled inside HeroBanner component now, or we can pass them down.
   // Wait, let's keep the existing logic for HeroBanner but just wrap it.
