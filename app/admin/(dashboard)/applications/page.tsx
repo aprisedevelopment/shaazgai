@@ -20,12 +20,12 @@ import {
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Search, Eye, FilterX, Users, FileText, CheckCircle, Download, ChevronLeft, ChevronRight, Printer } from "lucide-react";
+import { Search, Eye, FilterX, Users, FileText, CheckCircle, Download, ChevronLeft, ChevronRight, Printer, Trash2 } from "lucide-react";
 import Link from "next/link";
 import * as XLSX from "xlsx";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-import { updateApplicationStatus } from "./actions";
+import { deleteApplication, updateApplicationStatus } from "./actions";
 
 export default function ApplicationsAdminPage() {
   const [applications, setApplications] = useState<any[]>([]);
@@ -36,10 +36,6 @@ export default function ApplicationsAdminPage() {
   const [statusFilter, setStatusFilter] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
-
-  useEffect(() => {
-    fetchApplications();
-  }, []);
 
   const fetchApplications = async () => {
     setLoading(true);
@@ -53,6 +49,10 @@ export default function ApplicationsAdminPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchApplications();
+  }, []);
 
   const handleDownloadBackup = async () => {
     const toastId = toast.loading("Бүх мэдээллийг татаж байна. Түр хүлээнэ үү...");
@@ -74,9 +74,22 @@ export default function ApplicationsAdminPage() {
           skills,
           extended_relatives,
           reference_persons,
+          emergency_contacts,
+          health_info,
+          truck_photos,
+          driver_license,
           ...core
         } = app;
-        return core;
+        return {
+          ...core,
+          driver_license: Array.isArray(driver_license) ? driver_license.join(", ") : "",
+          emergency_contacts: Array.isArray(emergency_contacts)
+            ? emergency_contacts.map((c: any) => c.details || c).join("; ")
+            : "",
+          illnesses: health_info?.illnesses || "",
+          bad_habits: health_info?.badHabits || "",
+          truck_photos_count: Array.isArray(truck_photos) ? truck_photos.length : 0,
+        };
       });
       const wsMain = XLSX.utils.json_to_sheet(mainData);
       XLSX.utils.book_append_sheet(wb, wsMain, "Анкетууд");
@@ -105,9 +118,32 @@ export default function ApplicationsAdminPage() {
       extractTable("Гэр бүл", "family_members");
       extractTable("Боловсрол", "education_history");
       extractTable("Туршлага", "work_experience");
-      extractTable("Ур чадвар", "skills");
       extractTable("Садан төрөл", "extended_relatives");
       extractTable("Тодорхойлох хүмүүс", "reference_persons");
+
+      const skillRows: any[] = [];
+      fullData.forEach((app: any) => {
+        const sk = Array.isArray(app.skills) ? app.skills[0] : app.skills;
+        if (sk) {
+          const langs = (sk.language_matrix || [])
+            .map((l: any) => `${l.language}: ${l.listening}/${l.speaking}/${l.reading}/${l.writing}`)
+            .join("; ");
+          skillRows.push({
+            Эзэмшигч_ID: app.id,
+            Эзэмшигч_Овог: app.last_name,
+            Эзэмшигч_Нэр: app.first_name,
+            Гадаад_хэл: langs,
+            Windows: sk.pc_matrix?.windows || "",
+            MS_Office: sk.pc_matrix?.msOffice || "",
+            Adobe: sk.pc_matrix?.adobe || "",
+            Бусад_програм: sk.pc_matrix?.others || "",
+            Бусад_дэлгэрэнгүй: sk.pc_matrix?.otherDetails || "",
+          });
+        }
+      });
+      if (skillRows.length > 0) {
+        XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(skillRows), "Ур чадвар");
+      }
 
       const dateStr = new Date().toISOString().split("T")[0];
       XLSX.writeFile(wb, `Tugeelt_Anket_Export_${dateStr}.xlsx`);
@@ -140,6 +176,22 @@ export default function ApplicationsAdminPage() {
       (a) => new Date(a.created_at).toDateString() === new Date().toDateString()
     ).length,
     pending: applications.filter((a) => (a.status || "pending") === "pending").length,
+  };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, genderFilter, positionFilter, statusFilter]);
+
+  const handleDelete = async (id: string, name: string) => {
+    if (!confirm(`"${name}" анкетыг бүрмөсөн устгах уу?`)) return;
+    const toastId = toast.loading("Устгаж байна...");
+    const result = await deleteApplication(id);
+    if (result.success) {
+      toast.success("Анкет устгагдлаа", { id: toastId });
+      setApplications((prev) => prev.filter((a) => a.id !== id));
+    } else {
+      toast.error("Алдаа гарлаа: " + result.error, { id: toastId });
+    }
   };
 
   const totalPages = Math.ceil(filteredApps.length / itemsPerPage);
@@ -428,6 +480,15 @@ export default function ApplicationsAdminPage() {
                           <Eye className="w-3.5 h-3.5" />
                         </Button>
                       </Link>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handleDelete(app.id, `${app.last_name || ""} ${app.first_name || ""}`.trim())}
+                        className="h-8 w-8 p-0 rounded-lg border-rose-200 text-rose-600 hover:bg-rose-600 hover:text-white transition-all"
+                        title="Устгах"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </Button>
                     </div>
                   </TableCell>
                 </TableRow>

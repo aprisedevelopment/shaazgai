@@ -1,58 +1,76 @@
 "use client";
 
-import { useEffect, useState, use } from "react";
+import { useEffect, useState, use, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { applicationsApi } from "@/lib/anket-client";
 import { Button } from "@/components/ui/button";
-import { Printer, ArrowLeft, AlertCircle } from "lucide-react";
+import { Printer, ArrowLeft, AlertCircle, Lock } from "lucide-react";
 import { format } from "date-fns";
 import Link from "next/link";
 
-export default function ReceiptView({ params }: { params: Promise<{ id: string }> }) {
-  const resolvedParams = use(params);
+const MARITAL_STATUS_LABELS: Record<string, string> = {
+  single: "Ганц бие",
+  married: "Гэрлэсэн",
+  widowed: "Бэлэвсэн",
+  divorced: "Салсан",
+};
+
+const DEGREE_LABELS: Record<string, string> = {
+  secondary: "Бүрэн дунд",
+  bachelor: "Бакалавр",
+  master: "Магистр",
+  doctor: "Доктор",
+};
+
+function ReceiptContent({ id }: { id: string }) {
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token") || undefined;
+  const shouldAutoPrint = searchParams.get("print") === "true";
+
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchFullDetails();
-  }, [resolvedParams.id]);
-
-  useEffect(() => {
-    if (data && typeof window !== "undefined" && window.location.search.includes("print=true")) {
-      setTimeout(() => {
-        window.print();
-      }, 500);
-    }
-  }, [data]);
+  const [unauthorized, setUnauthorized] = useState(false);
 
   const fetchFullDetails = async () => {
     setLoading(true);
+    setUnauthorized(false);
     try {
-      const response = await applicationsApi.get(resolvedParams.id);
+      const response = await applicationsApi.get(id, token);
       if (response.data) {
         setData(response.data);
-      } else {
-        throw new Error("Application not found");
       }
     } catch (error: any) {
-      console.error("Error fetching details: " + error.message);
+      console.error("Error fetching details:", error.message);
+      if (error.message?.includes("Зөвшөөрөлгүй")) {
+        setUnauthorized(true);
+      }
     } finally {
       setLoading(false);
     }
   };
 
-  const handlePrint = () => {
-    window.print();
-  };
+  useEffect(() => {
+    fetchFullDetails();
+  }, [id, token]);
+
+  useEffect(() => {
+    if (data && typeof window !== "undefined" && shouldAutoPrint) {
+      const timer = setTimeout(() => {
+        window.print();
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [data, shouldAutoPrint]);
 
   const translateLevel = (level: string) => {
-    const map: any = {
+    const map: Record<string, string> = {
       bad: "Муу",
       medium: "Дунд",
       good: "Сайн",
       excellent: "Маш сайн",
       none: "Мэдэхгүй",
     };
-    return map[level] || level;
+    return map[level] || level || "—";
   };
 
   if (loading) {
@@ -60,6 +78,21 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
       <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
         <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin" />
         <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Ачааллаж байна...</p>
+      </div>
+    );
+  }
+
+  if (unauthorized) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4 text-center px-4">
+        <Lock className="w-12 h-12 text-amber-500" />
+        <p className="text-lg font-bold text-slate-900">Анкетын мэдээллийг харах эрх баталгаажуулна уу</p>
+        <p className="text-sm text-slate-500 max-w-md">
+          Хувийн мэдээллийг хамгаалах үүднээс &quot;Анкетын явц шалгах&quot; хуудсаар утас болон регистрийн дугаараа баталгаажуулан хэвлэх холбоосоо авна уу.
+        </p>
+        <Link href="/anket/track">
+          <Button className="bg-blue-600 text-white hover:bg-blue-700 rounded-xl">Анкетын явц шалгах руу очих</Button>
+        </Link>
       </div>
     );
   }
@@ -76,11 +109,14 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
     );
   }
 
-  const isDriverJob = !!(data?.truck_details || data?.pro_license_url);
+  const isDriverJob = !!(data?.truck_details || data?.pro_license_url || (data?.truck_photos?.length ?? 0) > 0);
+  const skillsObj = Array.isArray(data.skills) ? data.skills[0] : data.skills;
+  const languageMatrix = skillsObj?.language_matrix || [];
+  const pcMatrix = skillsObj?.pc_matrix || {};
+  const emergencyContacts = Array.isArray(data.emergency_contacts) ? data.emergency_contacts : [];
 
   return (
     <div className="min-h-screen bg-slate-50 pb-24 print:bg-white print:pb-0 font-sans">
-      {/* Utility Navigation Bar (Hidden in Print) */}
       <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 h-16 flex items-center justify-between print:hidden mb-6 rounded-2xl shadow-sm">
         <Link href="/jobs">
           <Button variant="ghost" size="sm" className="font-bold gap-2 text-slate-600 hover:text-blue-600">
@@ -92,7 +128,7 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
             Албан ёсны маягт
           </span>
           <Button
-            onClick={handlePrint}
+            onClick={() => window.print()}
             size="sm"
             className="bg-slate-900 hover:bg-slate-800 text-white font-bold h-10 px-6 rounded-xl shadow-md cursor-pointer"
           >
@@ -153,12 +189,11 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
                     <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold">Регистрийн дугаар:</td>
                     <td className="p-2 border-r border-slate-900 font-mono font-bold">{data.register_number}</td>
                     <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold">Төрсөн огноо:</td>
-                    <td className="p-2 border-r border-slate-900">
-                      {data.birth_year ? `${data.birth_year}.${data.birth_month || "01"}.${data.birth_day || "01"}` : data.birth_date || "—"}
-                    </td>
+                    <td className="p-2 border-r border-slate-900">{data.birth_date || data.birth_year || "—"}</td>
                     <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold">Хүйс / Нас:</td>
                     <td className="p-2">
-                      {data.gender === "male" ? "Эр" : "Эм"} / {data.birth_year ? new Date().getFullYear() - parseInt(data.birth_year) : "—"}
+                      {data.gender === "male" ? "Эр" : data.gender === "female" ? "Эм" : "—"} /{" "}
+                      {data.birth_year ? new Date().getFullYear() - parseInt(data.birth_year, 10) : "—"}
                     </td>
                   </tr>
                   <tr className="border-b border-slate-900">
@@ -173,11 +208,13 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
                     <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold">Facebook:</td>
                     <td colSpan={2} className="p-2 border-r border-slate-900">{data.facebook_url || "—"}</td>
                     <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold">Гэрлэлтийн байдал:</td>
-                    <td colSpan={2} className="p-2">{data.marital_status === "single" ? "Ганц бие" : "Гэрлэсэн"}</td>
+                    <td colSpan={2} className="p-2">
+                      {MARITAL_STATUS_LABELS[data.marital_status] || data.marital_status || "—"}
+                    </td>
                   </tr>
                   <tr className="border-b border-slate-900">
                     <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold">Байнгын хаяг:</td>
-                    <td colSpan={5} className="p-2">{data.address_current || data.address || "—"}</td>
+                    <td colSpan={5} className="p-2">{data.address_current || "—"}</td>
                   </tr>
                   <tr>
                     <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold">Түр хаяг:</td>
@@ -188,26 +225,19 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
             </section>
 
             {/* 2. Яаралтай үед холбоо барих */}
-            {data.emergency_contacts && (
+            {emergencyContacts.length > 0 && (
               <section>
                 <h3 className="text-xs font-black uppercase mb-2 px-2 border-l-4 border-slate-900">
                   Хоёр. Яаралтай үед холбоо барих
                 </h3>
                 <table className="w-full border-collapse border border-slate-900 text-[10px]">
                   <tbody>
-                    {Array.isArray(data.emergency_contacts) ? (
-                      data.emergency_contacts.map((c: any, i: number) => (
-                        <tr key={i} className="border-b border-slate-300 last:border-b-0">
-                          <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold w-[20%]">Холбоо барих {i + 1}:</td>
-                          <td className="p-2">{typeof c === "string" ? c : c.details || c.name || "—"}</td>
-                        </tr>
-                      ))
-                    ) : (
-                      <tr>
-                        <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold w-[20%]">Холбоо барих:</td>
-                        <td className="p-2">{data.emergency_contact?.name} ({data.emergency_contact?.relation}): {data.emergency_contact?.phone}</td>
+                    {emergencyContacts.map((c: any, i: number) => (
+                      <tr key={i} className="border-b border-slate-300 last:border-b-0">
+                        <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold w-[20%]">Холбоо барих {i + 1}:</td>
+                        <td className="p-2">{typeof c === "string" ? c : c.details || "—"}</td>
                       </tr>
-                    )}
+                    ))}
                   </tbody>
                 </table>
               </section>
@@ -224,7 +254,8 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
                     <th className="p-2 border-r border-slate-900 text-left">Таны хэн болох</th>
                     <th className="p-2 border-r border-slate-900 text-left">Овог нэр</th>
                     <th className="p-2 border-r border-slate-900 text-center">Төрсөн он</th>
-                    <th className="p-2 text-left">Ажил, албан тушаал /Сургууль/</th>
+                    <th className="p-2 border-r border-slate-900 text-left">Ажил, албан тушаал /Сургууль/</th>
+                    <th className="p-2 text-left">Утас</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-300">
@@ -233,13 +264,14 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
                       <tr key={i}>
                         <td className="p-2 border-r border-slate-900">{m.relation}</td>
                         <td className="p-2 border-r border-slate-900 font-bold">{m.last_name || ""} {m.first_name}</td>
-                        <td className="p-2 border-r border-slate-900 text-center">{m.birth_year}</td>
-                        <td className="p-2">{m.occupation} {m.workplace_school ? `@ ${m.workplace_school}` : ""}</td>
+                        <td className="p-2 border-r border-slate-900 text-center">{m.birth_year || "—"}</td>
+                        <td className="p-2 border-r border-slate-900">{m.occupation} {m.workplace_school ? `@ ${m.workplace_school}` : ""}</td>
+                        <td className="p-2">{m.phone || "—"}</td>
                       </tr>
                     ))
                   ) : (
                     <tr>
-                      <td colSpan={4} className="p-3 text-center text-slate-400 italic">Мэдээлэл ороогүй</td>
+                      <td colSpan={5} className="p-3 text-center text-slate-400 italic">Мэдээлэл ороогүй</td>
                     </tr>
                   )}
                 </tbody>
@@ -291,8 +323,14 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
                     {data.education_history?.length > 0 ? (
                       data.education_history.map((e: any, i: number) => (
                         <tr key={i}>
-                          <td className="p-2 border-r border-slate-900 font-bold">{e.school_name}</td>
-                          <td className="p-2">{e.entry_year}-{e.graduation_year} / {e.major} / {e.degree}</td>
+                          <td className="p-2 border-r border-slate-900 font-bold">
+                            {e.school_name}
+                            {e.school_type ? <span className="block text-[8px] font-normal text-slate-500">{e.school_type}</span> : null}
+                          </td>
+                          <td className="p-2">
+                            {e.entry_year}-{e.graduation_year} / {e.major} / {DEGREE_LABELS[e.degree] || e.degree}
+                            {e.gpa ? ` (GPA: ${e.gpa})` : ""}
+                          </td>
                         </tr>
                       ))
                     ) : (
@@ -323,6 +361,9 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
                             {w.reason_for_leaving && (
                               <p className="text-[8px] italic text-slate-500">Шалтгаан: {w.reason_for_leaving}</p>
                             )}
+                            {w.reference_person && (
+                              <p className="text-[8px] text-slate-500">Тодорхойлогч: {w.reference_person}</p>
+                            )}
                           </td>
                         </tr>
                       ))
@@ -348,27 +389,33 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
                           <th className="p-2 border-r border-slate-900 text-left">Гадаад хэл</th>
                           <th className="p-2 border-r border-slate-900">Сонсох</th>
                           <th className="p-2 border-r border-slate-900">Ярих</th>
+                          <th className="p-2 border-r border-slate-900">Унших</th>
                           <th className="p-2">Бичих</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-200">
-                        {data.skills?.[0]?.language_matrix?.map((l: any, i: number) => (
-                          <tr key={i}>
-                            <td className="p-2 border-r border-slate-900 font-bold">{l.language}</td>
-                            <td className="p-2 border-r border-slate-900 text-center">{translateLevel(l.listening)}</td>
-                            <td className="p-2 border-r border-slate-900 text-center">{translateLevel(l.speaking)}</td>
-                            <td className="p-2 text-center">{translateLevel(l.writing)}</td>
-                          </tr>
-                        ))}
+                        {languageMatrix.length > 0 ? (
+                          languageMatrix.map((l: any, i: number) => (
+                            <tr key={i}>
+                              <td className="p-2 border-r border-slate-900 font-bold">{l.language}</td>
+                              <td className="p-2 border-r border-slate-900 text-center">{translateLevel(l.listening)}</td>
+                              <td className="p-2 border-r border-slate-900 text-center">{translateLevel(l.speaking)}</td>
+                              <td className="p-2 border-r border-slate-900 text-center">{translateLevel(l.reading)}</td>
+                              <td className="p-2 text-center">{translateLevel(l.writing)}</td>
+                            </tr>
+                          ))
+                        ) : (
+                          <tr><td colSpan={5} className="p-2 text-center text-slate-400">Мэдээлэл ороогүй</td></tr>
+                        )}
                       </tbody>
                     </table>
                   </div>
                   <div className="p-3 space-y-1.5 bg-slate-50/30">
                     <p className="font-bold border-b border-slate-200 pb-1 mb-1 uppercase text-[8px]">Компьютерийн мэдлэг:</p>
-                    <p><b>Windows:</b> {translateLevel(data.skills?.[0]?.pc_matrix?.windows)}</p>
-                    <p><b>MS Office:</b> {translateLevel(data.skills?.[0]?.pc_matrix?.msOffice)}</p>
-                    <p><b>Adobe Suite:</b> {translateLevel(data.skills?.[0]?.pc_matrix?.adobe)}</p>
-                    <p><b>Бусад:</b> {data.skills?.[0]?.pc_matrix?.others || "—"}</p>
+                    <p><b>Windows:</b> {translateLevel(pcMatrix.windows)}</p>
+                    <p><b>MS Office:</b> {translateLevel(pcMatrix.msOffice)}</p>
+                    <p><b>Adobe Suite:</b> {translateLevel(pcMatrix.adobe)}</p>
+                    <p><b>Бусад:</b> {translateLevel(pcMatrix.others)} {pcMatrix.otherDetails ? `(${pcMatrix.otherDetails})` : ""}</p>
                   </div>
                 </div>
                 <div className="border-t border-slate-900 p-3 grid grid-cols-3 gap-4 bg-slate-50/50">
@@ -415,7 +462,7 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
               </section>
             )}
 
-            {/* 7. Жолоочийн мэдээлэл (Нөхцөлт) */}
+            {/* 7. Жолоочийн мэдээлэл */}
             {isDriverJob && (
               <section className="border border-slate-900 p-3 bg-blue-50/10">
                 <h3 className="text-xs font-black uppercase mb-3 underline decoration-blue-600 underline-offset-4">
@@ -458,13 +505,27 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
                     </td>
                   </tr>
                   <tr className="border-b border-slate-900">
+                    <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold">Цэргийн алба / Ангилал:</td>
+                    <td className="p-2">
+                      <b>Цэрэг:</b> {data.military_status || "—"} &nbsp;|&nbsp;{" "}
+                      <b>Жолоо:</b> {data.driver_license?.length ? data.driver_license.join(", ") : "—"}
+                    </td>
+                  </tr>
+                  <tr className="border-b border-slate-900">
                     <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold">Ирээдүйн зорилго:</td>
                     <td className="p-2 italic">{data.future_goals || "—"}</td>
                   </tr>
+                  {data.additional_details && (
+                    <tr className="border-b border-slate-900">
+                      <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold">Нэмэлт мэдээлэл:</td>
+                      <td className="p-2">{data.additional_details}</td>
+                    </tr>
+                  )}
                   <tr>
                     <td className="p-2 border-r border-slate-900 bg-slate-50 font-bold">Хүсэж буй цалин:</td>
                     <td className="p-2 font-bold text-blue-600">
-                      {data.desired_salary || "Тохиролцоно"} / Ажилд орох боломжтой хугацаа: {data.available_date || "Шууд"}
+                      {data.desired_salary || "Тохиролцоно"} / Ажилд орох боломжтой:{" "}
+                      {data.available_date ? format(new Date(data.available_date), "yyyy-MM-dd") : "Шууд"}
                     </td>
                   </tr>
                 </tbody>
@@ -497,5 +558,21 @@ export default function ReceiptView({ params }: { params: Promise<{ id: string }
         }
       `}</style>
     </div>
+  );
+}
+
+export default function ReceiptView({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = use(params);
+  return (
+    <Suspense
+      fallback={
+        <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
+          <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin" />
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Ачааллаж байна...</p>
+        </div>
+      }
+    >
+      <ReceiptContent id={resolvedParams.id} />
+    </Suspense>
   );
 }

@@ -21,10 +21,6 @@ export default function AdminJobsPage() {
   const [positions, setPositions] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchPositions();
-  }, []);
-
   const fetchPositions = async () => {
     setLoading(true);
     try {
@@ -37,6 +33,10 @@ export default function AdminJobsPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchPositions();
+  }, []);
 
   const toggleStatus = async (id: string, currentStatus: boolean) => {
     const toastId = toast.loading("Өөрчилж байна...");
@@ -137,9 +137,14 @@ export default function AdminJobsPage() {
                         <Briefcase className="w-5 h-5" />
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-sm font-bold text-slate-900 leading-tight">
-                          {pos.title}
-                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-bold text-slate-900 leading-tight">
+                            {pos.title}
+                          </span>
+                          <Badge variant="outline" className="text-[10px] px-2 py-0 bg-blue-50 text-blue-700 border-blue-200">
+                            {pos.application_count ?? 0} анкет
+                          </Badge>
+                        </div>
                         <span className="text-[10px] font-medium text-slate-400 uppercase tracking-wide mt-0.5">
                           {pos.department || "Хэлтэс тодорхойгүй"} {pos.is_driver_job ? "• Жолооч" : ""}
                         </span>

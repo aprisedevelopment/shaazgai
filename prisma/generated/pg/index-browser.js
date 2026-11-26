@@ -383,6 +383,9 @@ exports.Prisma.ApplicationScalarFieldEnum = {
   criminalRecord: 'criminalRecord',
   criminalRecordDetails: 'criminalRecordDetails',
   militaryStatus: 'militaryStatus',
+  driverLicense: 'driverLicense',
+  additionalDetails: 'additionalDetails',
+  adminNotes: 'adminNotes',
   desiredSalary: 'desiredSalary',
   availableDate: 'availableDate',
   futureGoals: 'futureGoals',
@@ -434,7 +437,8 @@ exports.Prisma.WorkExperienceScalarFieldEnum = {
   startDate: 'startDate',
   endDate: 'endDate',
   salary: 'salary',
-  reasonForLeaving: 'reasonForLeaving'
+  reasonForLeaving: 'reasonForLeaving',
+  referencePerson: 'referencePerson'
 };
 
 exports.Prisma.SkillScalarFieldEnum = {
@@ -475,6 +479,7 @@ exports.Prisma.JobPositionScalarFieldEnum = {
   requirements: 'requirements',
   benefits: 'benefits',
   imageUrl: 'imageUrl',
+  isDriverJob: 'isDriverJob',
   isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

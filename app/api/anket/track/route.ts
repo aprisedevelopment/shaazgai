@@ -1,24 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { createReceiptToken } from "@/lib/anket-server";
 
 export async function POST(req: NextRequest) {
   try {
     const { phone, register_number } = await req.json();
+    const cleanPhone = String(phone || "").replace(/[\s-]/g, "").trim();
+    const cleanReg = String(register_number || "").trim();
 
-    if (!phone && !register_number) {
-      return NextResponse.json({ error: "Утасны дугаар эсвэл регистрийн дугаараа оруулна уу" }, { status: 400 });
-    }
-
-    const where: any = {};
-    if (phone) {
-      where.phone = { contains: phone.trim() };
-    }
-    if (register_number) {
-      where.registerNumber = { contains: register_number.trim(), mode: "insensitive" };
+    if (!cleanPhone || !cleanReg) {
+      return NextResponse.json(
+        { error: "Утасны дугаар болон регистрийн дугаараа хоёуланг нь оруулна уу" },
+        { status: 400 }
+      );
     }
 
     const applications = await prisma.application.findMany({
-      where,
+      where: {
+        registerNumber: { equals: cleanReg, mode: "insensitive" },
+        OR: [
+          { phone: cleanPhone },
+          { phoneMobile: cleanPhone },
+        ],
+      },
       orderBy: { createdAt: "desc" },
       select: {
         id: true,
@@ -27,20 +31,26 @@ export async function POST(req: NextRequest) {
         applyingFor: true,
         status: true,
         createdAt: true,
-        registerNumber: true,
-        phone: true,
+        photoUrl: true,
       },
     });
 
-    const formatted = applications.map(app => ({
+    if (applications.length === 0) {
+      return NextResponse.json(
+        { error: "Ийм мэдээлэлтэй анкет олдсонгүй. Утас болон регистрийн дугаараа шалгана уу." },
+        { status: 404 }
+      );
+    }
+
+    const formatted = applications.map((app) => ({
       id: app.id,
       first_name: app.firstName,
       last_name: app.lastName,
       applying_for: app.applyingFor,
       status: app.status,
-      created_at: app.createdAt,
-      register_number: app.registerNumber,
-      phone: app.phone,
+      created_at: app.createdAt ? app.createdAt.toISOString() : null,
+      photo_url: app.photoUrl || "",
+      receipt_token: createReceiptToken(app.id),
     }));
 
     return NextResponse.json({ data: formatted });

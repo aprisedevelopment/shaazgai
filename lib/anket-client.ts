@@ -44,7 +44,8 @@ export const applicationsApi = {
     return fetchApi(`/applications${queryStr ? `?${queryStr}` : ''}`);
   },
 
-  get: (id: string) => fetchApi(`/applications/${id}`),
+  get: (id: string, token?: string) =>
+    fetchApi(`/applications/${id}${token ? `?token=${encodeURIComponent(token)}` : ""}`),
 
   create: (data: any) =>
     fetchApi('/applications', {

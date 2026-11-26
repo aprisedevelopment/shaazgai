@@ -2,6 +2,7 @@
 
 import { FormField, FormItem, FormLabel, FormControl } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Input } from "@/components/ui/input";
 import { UseFormReturn } from "react-hook-form";
 import { ApplicationFormValues } from "@/lib/validations/application";
 import { Languages, Monitor, CheckCircle2 } from "lucide-react";
@@ -139,6 +140,19 @@ export function SkillsMatrix({ form }: SkillsMatrixProps) {
             </div>
           ))}
         </div>
+
+        <FormField
+          control={form.control}
+          name="pcSkills.otherDetails"
+          render={({ field }) => (
+            <FormItem className="space-y-2 pt-2">
+              <FormLabel className="text-xs font-semibold text-on-surface-variant ml-1">Бусад програм хангамжийн дэлгэрэнгүй (Жишээ: Excel макро, 1С, AutoCAD...)</FormLabel>
+              <FormControl>
+                <Input placeholder="Мэргэжлийн програмууд байвал бичнэ үү" className="h-11 bg-surface-container-low border-none rounded-lg px-4 font-medium outline-variant outline outline-1 focus:outline-primary text-base" {...field} value={field.value || ""} />
+              </FormControl>
+            </FormItem>
+          )}
+        />
       </section>
     </div>
   );

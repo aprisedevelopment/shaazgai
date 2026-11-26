@@ -8,7 +8,7 @@ import { UseFormReturn } from "react-hook-form";
 import { ApplicationFormValues } from "@/lib/validations/application";
 import { User, MapPin, Phone, Globe, Info, Users, Briefcase } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { jobsApi } from "@/lib/mysql-client";
+import { jobsApi } from "@/lib/anket-client";
 import { motion } from "framer-motion";
 
 interface PersonalInfoProps {
@@ -25,6 +25,11 @@ export function PersonalInfo({ form, onPositionChange }: PersonalInfoProps) {
         const response = await jobsApi.list();
         if (response.data) {
           setPositions(response.data);
+          const currentTitle = form.getValues("applyingFor");
+          if (currentTitle && onPositionChange) {
+            const matched = response.data.find((p: any) => p.title === currentTitle);
+            if (matched) onPositionChange(!!matched.is_driver_job);
+          }
         }
       } catch (err) {
         console.error("Failed to load job positions:", err);
@@ -155,22 +160,45 @@ export function PersonalInfo({ form, onPositionChange }: PersonalInfoProps) {
             )}
           />
 
-          <div className="space-y-4">
-            <label className="text-sm font-semibold text-on-surface ml-1">Төрсөн огноо <span className="text-red-500">*</span></label>
-            <Input 
-              type="date"
-              className="h-12 w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-medium transition-all outline-variant outline outline-1 focus:outline-primary text-base"
-              value={(form.watch("birthYear") && form.watch("birthMonth") && form.watch("birthDay")) ? `${form.watch("birthYear")}-${form.watch("birthMonth")?.padStart(2,'0')}-${form.watch("birthDay")?.padStart(2,'0')}` : ""}
-              onChange={(e) => {
-                const [y, m, d] = e.target.value.split('-');
-                if(y && m && d) {
-                  form.setValue("birthYear", y, { shouldValidate: true });
-                  form.setValue("birthMonth", m, { shouldValidate: true });
-                  form.setValue("birthDay", d, { shouldValidate: true });
-                }
-              }}
-            />
-          </div>
+          <FormField
+            control={form.control}
+            name="birthYear"
+            render={() => (
+              <FormItem className="space-y-2">
+                <FormLabel className="text-sm font-semibold text-on-surface ml-1">
+                  Төрсөн огноо <span className="text-red-500">*</span>
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    type="date"
+                    className="h-12 w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-medium transition-all outline-variant outline outline-1 focus:outline-primary text-base"
+                    value={
+                      form.watch("birthYear") && form.watch("birthMonth") && form.watch("birthDay")
+                        ? `${form.watch("birthYear")}-${form.watch("birthMonth")?.padStart(2, "0")}-${form.watch("birthDay")?.padStart(2, "0")}`
+                        : ""
+                    }
+                    onChange={(e) => {
+                      if (!e.target.value) {
+                        form.setValue("birthYear", "", { shouldValidate: true });
+                        form.setValue("birthMonth", "", { shouldValidate: true });
+                        form.setValue("birthDay", "", { shouldValidate: true });
+                        return;
+                      }
+                      const [y, m, d] = e.target.value.split("-");
+                      if (y && m && d) {
+                        form.setValue("birthYear", y, { shouldValidate: true });
+                        form.setValue("birthMonth", m, { shouldValidate: true });
+                        form.setValue("birthDay", d, { shouldValidate: true });
+                      }
+                    }}
+                  />
+                </FormControl>
+                {(form.formState.errors.birthYear || form.formState.errors.birthMonth || form.formState.errors.birthDay) && (
+                  <p className="text-xs font-medium text-destructive">Төрсөн огноо оруулна уу</p>
+                )}
+              </FormItem>
+            )}
+          />
 
           <FormField
             control={form.control}
@@ -194,12 +222,14 @@ export function PersonalInfo({ form, onPositionChange }: PersonalInfoProps) {
                 <FormLabel className="text-sm font-semibold text-on-surface ml-1">Регистрийн дугаар</FormLabel>
                 <FormControl>
                   <Input 
-                    placeholder="Жишээ: АА00000000" 
+                    placeholder="Жишээ: УШ90010111" 
                     {...field}
+                    maxLength={10}
                     className="h-12 w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-bold text-lg text-primary tracking-widest transition-all outline-variant outline outline-1 focus:outline-primary uppercase"
                     onChange={(e) => field.onChange(e.target.value.toUpperCase())}
                   />
                 </FormControl>
+                <p className="text-[11px] text-slate-400">Эхний 2 үсэг кирилл, дараа нь 8 оронтой тоо оруулна уу.</p>
                 <FormMessage className="text-xs font-medium" />
               </FormItem>
             )}
@@ -252,6 +282,7 @@ export function PersonalInfo({ form, onPositionChange }: PersonalInfoProps) {
               <FormItem className="space-y-2">
                 <FormLabel className="text-sm font-semibold text-on-surface ml-1">И-мэйл хаяг</FormLabel>
                 <FormControl><Input placeholder="example@mail.mn" {...field} className="h-12 w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-medium transition-all outline-variant outline outline-1 focus:outline-primary text-base" inputMode="email" /></FormControl>
+                <FormMessage className="text-xs font-medium" />
               </FormItem>
             )}
           />
@@ -262,6 +293,7 @@ export function PersonalInfo({ form, onPositionChange }: PersonalInfoProps) {
               <FormItem className="space-y-2">
                 <FormLabel className="text-sm font-semibold text-on-surface ml-1">Фэйсбүүк хаяг</FormLabel>
                 <FormControl><Input placeholder="Facebook profile link" {...field} className="h-12 w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-medium transition-all outline-variant outline outline-1 focus:outline-primary text-base" inputMode="url" /></FormControl>
+                <FormMessage className="text-xs font-medium" />
               </FormItem>
             )}
           />
@@ -270,8 +302,9 @@ export function PersonalInfo({ form, onPositionChange }: PersonalInfoProps) {
             name="addressCurrent"
             render={({ field }) => (
               <FormItem className="md:col-span-2 space-y-2">
-                <FormLabel className="text-sm font-semibold text-on-surface ml-1">Одоогийн оршин суугаа хаяг /Байнгын/</FormLabel>
+                <FormLabel className="text-sm font-semibold text-on-surface ml-1">Одоогийн оршин суугаа хаяг /Байнгын/ *</FormLabel>
                 <FormControl><Input placeholder="Дүүрэг, хороо, гудамж, байр тоот" {...field} className="h-12 w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-medium transition-all outline-variant outline outline-1 focus:outline-primary text-base" /></FormControl>
+                <FormMessage className="text-xs font-medium" />
               </FormItem>
             )}
           />
@@ -282,6 +315,7 @@ export function PersonalInfo({ form, onPositionChange }: PersonalInfoProps) {
               <FormItem className="md:col-span-2 space-y-2">
                 <FormLabel className="text-sm font-semibold text-on-surface ml-1">Оршин суугаа хаяг /Түр, Түрээс/</FormLabel>
                 <FormControl><Input placeholder="Түр хаяг" {...field} className="h-12 w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-medium transition-all outline-variant outline outline-1 focus:outline-primary text-base" /></FormControl>
+                <FormMessage className="text-xs font-medium" />
               </FormItem>
             )}
           />
@@ -302,6 +336,7 @@ export function PersonalInfo({ form, onPositionChange }: PersonalInfoProps) {
               <FormItem className="space-y-2">
                 <FormLabel className="text-xs font-bold text-on-surface-variant uppercase tracking-widest ml-1">Гэрийн утас</FormLabel>
                 <FormControl><Input placeholder="70******" {...field} inputMode="tel" className="h-11 w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-medium transition-all outline-variant outline outline-1 focus:outline-primary text-base" /></FormControl>
+                <FormMessage className="text-xs font-medium" />
               </FormItem>
             )}
           />
@@ -310,8 +345,9 @@ export function PersonalInfo({ form, onPositionChange }: PersonalInfoProps) {
             name="phoneMobile"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel className="text-xs font-bold text-on-surface uppercase tracking-widest ml-1">Гар утас </FormLabel>
+                <FormLabel className="text-xs font-bold text-on-surface uppercase tracking-widest ml-1">Гар утас *</FormLabel>
                 <FormControl><Input placeholder="88******" {...field} inputMode="tel" className="h-11 w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-bold text-primary transition-all outline-variant outline outline-1 focus:outline-primary text-base tracking-widest" /></FormControl>
+                <FormMessage className="text-xs font-medium" />
               </FormItem>
             )}
           />
@@ -322,6 +358,7 @@ export function PersonalInfo({ form, onPositionChange }: PersonalInfoProps) {
               <FormItem className="space-y-2">
                 <FormLabel className="text-xs font-bold text-on-surface-variant uppercase tracking-widest ml-1">Ажлын утас</FormLabel>
                 <FormControl><Input placeholder="Байхгүй бол хоосон" {...field} inputMode="tel" className="h-11 w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-medium transition-all outline-variant outline outline-1 focus:outline-primary text-base" /></FormControl>
+                <FormMessage className="text-xs font-medium" />
               </FormItem>
             )}
           />
@@ -335,9 +372,9 @@ export function PersonalInfo({ form, onPositionChange }: PersonalInfoProps) {
           <h3 className="text-xl font-bold text-on-surface font-headline uppercase tracking-tight">Яаралтай үед холбоо барих</h3>
         </div>
         
-        <p className="text-xs font-bold text-on-surface-variant/60 uppercase tracking-widest pl-1 italic">Бидэнтэй холбоо барих 3 хүний мэдээлэл (Нэр, Утас, Таны хэн болох):</p>
+        <p className="text-xs font-bold text-on-surface-variant/60 uppercase tracking-widest pl-1 italic">Холбоо барих 1–3 хүний мэдээлэл (Нэр, Утас, Таны хэн болох) — ядаж 1 заавал:</p>
         
-        <div className="space-y-6">
+        <div className="space-y-4">
           {[0, 1, 2].map((idx) => (
             <FormField
               key={idx}
@@ -345,18 +382,25 @@ export function PersonalInfo({ form, onPositionChange }: PersonalInfoProps) {
               name={`emergencyContacts.${idx}.details`}
               render={({ field }) => (
                 <div className="flex items-center gap-4 group">
-                  <div className="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface font-black group-focus-within:bg-primary group-focus-within:text-on-primary transition-all duration-300 shadow-sm">
+                  <div className="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface font-black group-focus-within:bg-primary group-focus-within:text-on-primary transition-all duration-300 shadow-sm shrink-0">
                      {idx + 1}
                   </div>
-                  <FormItem className="flex-1 space-y-0">
+                  <FormItem className="flex-1 space-y-1">
                     <FormControl>
-                      <Input placeholder="Жишээ: Аав Бат, 99******" {...field} className="h-11 w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-medium transition-all outline-variant outline outline-1 focus:outline-primary text-base" />
+                      <Input placeholder={idx === 0 ? "Жишээ: Аав Бат, 99112233 *" : "Нэмэлт холбоо барих хүн (заавал биш)"} {...field} className="h-11 w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-medium transition-all outline-variant outline outline-1 focus:outline-primary text-base" />
                     </FormControl>
+                    <FormMessage className="text-xs font-medium" />
                   </FormItem>
                 </div>
               )}
             />
           ))}
+          {form.formState.errors.emergencyContacts?.root?.message && (
+            <p className="text-xs font-medium text-destructive">{form.formState.errors.emergencyContacts.root.message}</p>
+          )}
+          {typeof form.formState.errors.emergencyContacts?.message === "string" && (
+            <p className="text-xs font-medium text-destructive">{form.formState.errors.emergencyContacts.message}</p>
+          )}
         </div>
       </section>
 

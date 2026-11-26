@@ -14,6 +14,7 @@ export const familyMemberSchema = z.object({
 
 export const educationSchema = z.object({
   schoolName: z.string().min(1, "Сургуулийн нэр оруулна уу"),
+  schoolType: z.string().optional(),
   major: z.string().min(1, "Мэргэжил оруулна уу"),
   entryYear: z.string().regex(/^\d{4}$/, "Эхэлсэн он алдаатай"),
   graduationYear: z.string().regex(/^\d{4}$/, "Төгссөн он алдаатай"),
@@ -32,6 +33,7 @@ export const workExperienceSchema = z.object({
 });
 
 export const extendedRelativeSchema = z.object({
+  relation: z.string().min(1, "Хамаарал оруулна уу"),
   fullName: z.string().min(1, "Овог нэр оруулна уу"),
   occupation: z.string().min(1, "Ажил эрхлэлт оруулна уу"),
   workplace: z.string().min(1, "Ажлын газар оруулна уу"),
@@ -75,10 +77,17 @@ export const applicationSchema = z.object({
   phoneWork: z.string().optional(),
   unemploymentReason: z.string().optional(),
   
-  // Emergency contacts
-  emergencyContacts: z.array(z.object({
-    details: z.string().min(1, "Мэдээлэл оруулна уу"),
-  })).min(1, "Ядаж нэг холбоо барих хүн оруулна уу"),
+  // Emergency contacts (at least 1 non-empty contact required out of up to 3 slots)
+  emergencyContacts: z
+    .array(
+      z.object({
+        details: z.string(),
+      })
+    )
+    .refine(
+      (arr) => arr.some((item) => item.details.trim().length > 0),
+      "Ядаж нэг холбоо барих хүн оруулна уу"
+    ),
 
   internalReferral: z.boolean().default(false),
   internalReferralDetails: z.string().optional(),

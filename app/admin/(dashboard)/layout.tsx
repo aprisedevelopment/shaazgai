@@ -7,7 +7,10 @@ import { NotificationCenter } from './NotificationCenter'
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const session = await auth()
-  const user = (session?.user as any) || { name: 'Admin', role: 'admin' }
+  const user = session?.user as any
+  if (!user || user.role !== 'admin') {
+    redirect('/admin/login')
+  }
 
   return (
     <div className="admin-layout">

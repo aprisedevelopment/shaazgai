@@ -17,6 +17,7 @@ import {
   Sparkles,
   ShieldCheck,
   SendHorizontal,
+  Printer,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,31 +37,32 @@ export default function TrackApplicationPage() {
   const [phone, setPhone] = useState("");
   const [registerNo, setRegisterNo] = useState("");
   const [loading, setLoading] = useState(false);
-  const [application, setApplication] = useState<any | null>(null);
+  const [applications, setApplications] = useState<any[] | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!phone || !registerNo) {
+    if (!phone.trim() || !registerNo.trim()) {
       toast.error("Утасны дугаар болон регистрийн дугаараа бүрэн оруулна уу.");
       return;
     }
 
     setLoading(true);
-    setApplication(null);
+    setApplications(null);
+    setSelectedIndex(0);
 
     try {
       const response = await trackApi.search(phone.trim(), registerNo.trim());
-      if (response.data) {
-        setApplication(response.data);
-        toast.success("Таны анкет олдлоо.");
+      const list = Array.isArray(response.data) ? response.data : response.data ? [response.data] : [];
+      if (list.length > 0) {
+        setApplications(list);
+        toast.success(`Таны ${list.length} анкет олдлоо.`);
+      } else {
+        toast.error("Ийм мэдээлэлтэй анкет олдсонгүй. Мэдээллээ дахин шалгана уу.");
       }
     } catch (error: any) {
       console.error(error);
-      if (error.message?.includes("not found") || error.message?.includes("404")) {
-        toast.error("Ийм мэдээлэлтэй анкет олдсонгүй. Мэдээллээ дахин шалгана уу.");
-      } else {
-        toast.error("Алдаа гарлаа: " + error.message);
-      }
+      toast.error(error.message || "Ийм мэдээлэлтэй анкет олдсонгүй.");
     } finally {
       setLoading(false);
     }
@@ -79,6 +81,8 @@ export default function TrackApplicationPage() {
     }
     return "upcoming";
   };
+
+  const application = applications && applications.length > 0 ? applications[selectedIndex] || applications[0] : null;
 
   return (
     <div className="min-h-screen py-4 md:py-8 font-sans selection:bg-blue-600 selection:text-white">
@@ -134,7 +138,7 @@ export default function TrackApplicationPage() {
                 </Label>
                 <Input
                   value={registerNo}
-                  onChange={(e) => setRegisterNo(e.target.value)}
+                  onChange={(e) => setRegisterNo(e.target.value.toUpperCase())}
                   placeholder="Жишээ: УШ90010111"
                   className="h-12 rounded-xl bg-slate-50 border-slate-200 text-base font-semibold px-4 uppercase focus:ring-2 focus:ring-blue-500/20"
                   required
@@ -160,6 +164,27 @@ export default function TrackApplicationPage() {
         </div>
       ) : (
         <div className="max-w-3xl mx-auto space-y-8 my-8">
+          {applications && applications.length > 1 && (
+            <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold text-slate-500 uppercase mr-2">Илгээсэн анкетууд:</span>
+              {applications.map((item, idx) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setSelectedIndex(idx)}
+                  className={cn(
+                    "px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer",
+                    idx === selectedIndex
+                      ? "bg-blue-600 text-white shadow-sm"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  )}
+                >
+                  {item.applying_for || "Анкет"} ({item.created_at ? format(new Date(item.created_at), "yyyy-MM-dd") : ""})
+                </button>
+              ))}
+            </div>
+          )}
+
           {/* Candidate Card */}
           <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-lg text-center relative overflow-hidden">
             <div className="w-24 h-24 mx-auto rounded-2xl overflow-hidden mb-4 border-2 border-slate-200 bg-slate-50 flex items-center justify-center">
@@ -202,14 +227,26 @@ export default function TrackApplicationPage() {
               </span>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+            <div className="pt-6 mt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 font-medium">
               <span>Илгээсэн: {application.created_at ? format(new Date(application.created_at), "yyyy-MM-dd") : "—"}</span>
-              <button
-                onClick={() => setApplication(null)}
-                className="text-blue-600 hover:underline font-bold flex items-center gap-1 cursor-pointer"
-              >
-                <LayoutGrid className="w-3.5 h-3.5" /> Өөр анкет шалгах
-              </button>
+              <div className="flex items-center gap-4">
+                {application.receipt_token && (
+                  <Link
+                    href={`/receipt/${application.id}?token=${encodeURIComponent(application.receipt_token)}`}
+                    target="_blank"
+                    className="inline-flex items-center gap-1.5 text-slate-700 hover:text-blue-600 font-bold"
+                  >
+                    <Printer className="w-3.5 h-3.5" /> Маягт харах / Хэвлэх
+                  </Link>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setApplications(null)}
+                  className="text-blue-600 hover:underline font-bold flex items-center gap-1 cursor-pointer"
+                >
+                  <LayoutGrid className="w-3.5 h-3.5" /> Өөр анкет шалгах
+                </button>
+              </div>
             </div>
           </div>
 
@@ -232,7 +269,7 @@ export default function TrackApplicationPage() {
                 {application.status === "accepted" ? <Sparkles className="w-6 h-6" /> : <XCircle className="w-6 h-6" />}
               </div>
               <h3 className="text-xl font-bold uppercase tracking-tight">
-                {application.status === "accepted" ? "БАЯР ХҮРГЭЕ! ТА ТЭНЦЛЭЭ 🎉" : "ШАЛГАРУУЛАЛТЫН ХАРИУ 📋"}
+                {application.status === "accepted" ? "БАЯР ХҮРГЭЕ! ТА ТЭНЦЛЭЭ" : "ШАЛГАРУУЛАЛТЫН ХАРИУ"}
               </h3>
               <p className="text-sm font-medium leading-relaxed max-w-lg mx-auto opacity-90">
                 {application.status === "accepted"

@@ -27285,6 +27285,8 @@ export namespace Prisma {
     criminalRecord: boolean | null
     criminalRecordDetails: string | null
     militaryStatus: string | null
+    additionalDetails: string | null
+    adminNotes: string | null
     desiredSalary: string | null
     availableDate: string | null
     futureGoals: string | null
@@ -27331,6 +27333,8 @@ export namespace Prisma {
     criminalRecord: boolean | null
     criminalRecordDetails: string | null
     militaryStatus: string | null
+    additionalDetails: string | null
+    adminNotes: string | null
     desiredSalary: string | null
     availableDate: string | null
     futureGoals: string | null
@@ -27379,6 +27383,9 @@ export namespace Prisma {
     criminalRecord: number
     criminalRecordDetails: number
     militaryStatus: number
+    driverLicense: number
+    additionalDetails: number
+    adminNotes: number
     desiredSalary: number
     availableDate: number
     futureGoals: number
@@ -27436,6 +27443,8 @@ export namespace Prisma {
     criminalRecord?: true
     criminalRecordDetails?: true
     militaryStatus?: true
+    additionalDetails?: true
+    adminNotes?: true
     desiredSalary?: true
     availableDate?: true
     futureGoals?: true
@@ -27482,6 +27491,8 @@ export namespace Prisma {
     criminalRecord?: true
     criminalRecordDetails?: true
     militaryStatus?: true
+    additionalDetails?: true
+    adminNotes?: true
     desiredSalary?: true
     availableDate?: true
     futureGoals?: true
@@ -27530,6 +27541,9 @@ export namespace Prisma {
     criminalRecord?: true
     criminalRecordDetails?: true
     militaryStatus?: true
+    driverLicense?: true
+    additionalDetails?: true
+    adminNotes?: true
     desiredSalary?: true
     availableDate?: true
     futureGoals?: true
@@ -27666,6 +27680,9 @@ export namespace Prisma {
     criminalRecord: boolean
     criminalRecordDetails: string | null
     militaryStatus: string | null
+    driverLicense: JsonValue | null
+    additionalDetails: string | null
+    adminNotes: string | null
     desiredSalary: string | null
     availableDate: string | null
     futureGoals: string | null
@@ -27734,6 +27751,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: boolean
     militaryStatus?: boolean
+    driverLicense?: boolean
+    additionalDetails?: boolean
+    adminNotes?: boolean
     desiredSalary?: boolean
     availableDate?: boolean
     futureGoals?: boolean
@@ -27790,6 +27810,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: boolean
     militaryStatus?: boolean
+    driverLicense?: boolean
+    additionalDetails?: boolean
+    adminNotes?: boolean
     desiredSalary?: boolean
     availableDate?: boolean
     futureGoals?: boolean
@@ -27839,6 +27862,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: boolean
     militaryStatus?: boolean
+    driverLicense?: boolean
+    additionalDetails?: boolean
+    adminNotes?: boolean
     desiredSalary?: boolean
     availableDate?: boolean
     futureGoals?: boolean
@@ -27888,6 +27914,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: boolean
     militaryStatus?: boolean
+    driverLicense?: boolean
+    additionalDetails?: boolean
+    adminNotes?: boolean
     desiredSalary?: boolean
     availableDate?: boolean
     futureGoals?: boolean
@@ -27906,7 +27935,7 @@ export namespace Prisma {
     legacyId?: boolean
   }
 
-  export type ApplicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "surname" | "lastName" | "firstName" | "registerNumber" | "birthDate" | "birthYear" | "birthPlace" | "gender" | "maritalStatus" | "email" | "facebookUrl" | "phone" | "phoneMobile" | "phoneHome" | "phoneWork" | "addressCurrent" | "addressTemp" | "applyingFor" | "photoUrl" | "idCardUrl" | "diplomaUrl" | "proLicenseUrl" | "videoUrl" | "truckDetails" | "truckPhotos" | "healthInfo" | "criminalRecord" | "criminalRecordDetails" | "militaryStatus" | "desiredSalary" | "availableDate" | "futureGoals" | "strengths" | "weaknesses" | "referralSource" | "referralSourceDetails" | "internalReferral" | "internalReferralDetails" | "unemploymentReason" | "hobbies" | "emergencyContact" | "status" | "createdAt" | "updatedAt" | "legacyId", ExtArgs["result"]["application"]>
+  export type ApplicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "surname" | "lastName" | "firstName" | "registerNumber" | "birthDate" | "birthYear" | "birthPlace" | "gender" | "maritalStatus" | "email" | "facebookUrl" | "phone" | "phoneMobile" | "phoneHome" | "phoneWork" | "addressCurrent" | "addressTemp" | "applyingFor" | "photoUrl" | "idCardUrl" | "diplomaUrl" | "proLicenseUrl" | "videoUrl" | "truckDetails" | "truckPhotos" | "healthInfo" | "criminalRecord" | "criminalRecordDetails" | "militaryStatus" | "driverLicense" | "additionalDetails" | "adminNotes" | "desiredSalary" | "availableDate" | "futureGoals" | "strengths" | "weaknesses" | "referralSource" | "referralSourceDetails" | "internalReferral" | "internalReferralDetails" | "unemploymentReason" | "hobbies" | "emergencyContact" | "status" | "createdAt" | "updatedAt" | "legacyId", ExtArgs["result"]["application"]>
   export type ApplicationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     familyMembers?: boolean | Application$familyMembersArgs<ExtArgs>
     educationHistory?: boolean | Application$educationHistoryArgs<ExtArgs>
@@ -27960,6 +27989,9 @@ export namespace Prisma {
       criminalRecord: boolean
       criminalRecordDetails: string | null
       militaryStatus: string | null
+      driverLicense: Prisma.JsonValue | null
+      additionalDetails: string | null
+      adminNotes: string | null
       desiredSalary: string | null
       availableDate: string | null
       futureGoals: string | null
@@ -28435,6 +28467,9 @@ export namespace Prisma {
     readonly criminalRecord: FieldRef<"Application", 'Boolean'>
     readonly criminalRecordDetails: FieldRef<"Application", 'String'>
     readonly militaryStatus: FieldRef<"Application", 'String'>
+    readonly driverLicense: FieldRef<"Application", 'Json'>
+    readonly additionalDetails: FieldRef<"Application", 'String'>
+    readonly adminNotes: FieldRef<"Application", 'String'>
     readonly desiredSalary: FieldRef<"Application", 'String'>
     readonly availableDate: FieldRef<"Application", 'String'>
     readonly futureGoals: FieldRef<"Application", 'String'>
@@ -31341,6 +31376,7 @@ export namespace Prisma {
     endDate: string | null
     salary: string | null
     reasonForLeaving: string | null
+    referencePerson: string | null
   }
 
   export type WorkExperienceMaxAggregateOutputType = {
@@ -31352,6 +31388,7 @@ export namespace Prisma {
     endDate: string | null
     salary: string | null
     reasonForLeaving: string | null
+    referencePerson: string | null
   }
 
   export type WorkExperienceCountAggregateOutputType = {
@@ -31363,6 +31400,7 @@ export namespace Prisma {
     endDate: number
     salary: number
     reasonForLeaving: number
+    referencePerson: number
     _all: number
   }
 
@@ -31384,6 +31422,7 @@ export namespace Prisma {
     endDate?: true
     salary?: true
     reasonForLeaving?: true
+    referencePerson?: true
   }
 
   export type WorkExperienceMaxAggregateInputType = {
@@ -31395,6 +31434,7 @@ export namespace Prisma {
     endDate?: true
     salary?: true
     reasonForLeaving?: true
+    referencePerson?: true
   }
 
   export type WorkExperienceCountAggregateInputType = {
@@ -31406,6 +31446,7 @@ export namespace Prisma {
     endDate?: true
     salary?: true
     reasonForLeaving?: true
+    referencePerson?: true
     _all?: true
   }
 
@@ -31504,6 +31545,7 @@ export namespace Prisma {
     endDate: string | null
     salary: string | null
     reasonForLeaving: string | null
+    referencePerson: string | null
     _count: WorkExperienceCountAggregateOutputType | null
     _avg: WorkExperienceAvgAggregateOutputType | null
     _sum: WorkExperienceSumAggregateOutputType | null
@@ -31534,6 +31576,7 @@ export namespace Prisma {
     endDate?: boolean
     salary?: boolean
     reasonForLeaving?: boolean
+    referencePerson?: boolean
     application?: boolean | ApplicationDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["workExperience"]>
 
@@ -31546,6 +31589,7 @@ export namespace Prisma {
     endDate?: boolean
     salary?: boolean
     reasonForLeaving?: boolean
+    referencePerson?: boolean
     application?: boolean | ApplicationDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["workExperience"]>
 
@@ -31558,6 +31602,7 @@ export namespace Prisma {
     endDate?: boolean
     salary?: boolean
     reasonForLeaving?: boolean
+    referencePerson?: boolean
     application?: boolean | ApplicationDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["workExperience"]>
 
@@ -31570,9 +31615,10 @@ export namespace Prisma {
     endDate?: boolean
     salary?: boolean
     reasonForLeaving?: boolean
+    referencePerson?: boolean
   }
 
-  export type WorkExperienceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "applicationId" | "companyName" | "position" | "startDate" | "endDate" | "salary" | "reasonForLeaving", ExtArgs["result"]["workExperience"]>
+  export type WorkExperienceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "applicationId" | "companyName" | "position" | "startDate" | "endDate" | "salary" | "reasonForLeaving" | "referencePerson", ExtArgs["result"]["workExperience"]>
   export type WorkExperienceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     application?: boolean | ApplicationDefaultArgs<ExtArgs>
   }
@@ -31597,6 +31643,7 @@ export namespace Prisma {
       endDate: string | null
       salary: string | null
       reasonForLeaving: string | null
+      referencePerson: string | null
     }, ExtArgs["result"]["workExperience"]>
     composites: {}
   }
@@ -32029,6 +32076,7 @@ export namespace Prisma {
     readonly endDate: FieldRef<"WorkExperience", 'String'>
     readonly salary: FieldRef<"WorkExperience", 'String'>
     readonly reasonForLeaving: FieldRef<"WorkExperience", 'String'>
+    readonly referencePerson: FieldRef<"WorkExperience", 'String'>
   }
     
 
@@ -35779,6 +35827,7 @@ export namespace Prisma {
     requirements: string | null
     benefits: string | null
     imageUrl: string | null
+    isDriverJob: boolean | null
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -35796,6 +35845,7 @@ export namespace Prisma {
     requirements: string | null
     benefits: string | null
     imageUrl: string | null
+    isDriverJob: boolean | null
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -35813,6 +35863,7 @@ export namespace Prisma {
     requirements: number
     benefits: number
     imageUrl: number
+    isDriverJob: number
     isActive: number
     createdAt: number
     updatedAt: number
@@ -35832,6 +35883,7 @@ export namespace Prisma {
     requirements?: true
     benefits?: true
     imageUrl?: true
+    isDriverJob?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -35849,6 +35901,7 @@ export namespace Prisma {
     requirements?: true
     benefits?: true
     imageUrl?: true
+    isDriverJob?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -35866,6 +35919,7 @@ export namespace Prisma {
     requirements?: true
     benefits?: true
     imageUrl?: true
+    isDriverJob?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -35956,6 +36010,7 @@ export namespace Prisma {
     requirements: string | null
     benefits: string | null
     imageUrl: string | null
+    isDriverJob: boolean
     isActive: boolean
     createdAt: Date
     updatedAt: Date
@@ -35990,6 +36045,7 @@ export namespace Prisma {
     requirements?: boolean
     benefits?: boolean
     imageUrl?: boolean
+    isDriverJob?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -36007,6 +36063,7 @@ export namespace Prisma {
     requirements?: boolean
     benefits?: boolean
     imageUrl?: boolean
+    isDriverJob?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -36024,6 +36081,7 @@ export namespace Prisma {
     requirements?: boolean
     benefits?: boolean
     imageUrl?: boolean
+    isDriverJob?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -36041,12 +36099,13 @@ export namespace Prisma {
     requirements?: boolean
     benefits?: boolean
     imageUrl?: boolean
+    isDriverJob?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type JobPositionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "department" | "location" | "employmentType" | "salaryRange" | "description" | "responsibilities" | "requirements" | "benefits" | "imageUrl" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["jobPosition"]>
+  export type JobPositionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "department" | "location" | "employmentType" | "salaryRange" | "description" | "responsibilities" | "requirements" | "benefits" | "imageUrl" | "isDriverJob" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["jobPosition"]>
 
   export type $JobPositionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "JobPosition"
@@ -36063,6 +36122,7 @@ export namespace Prisma {
       requirements: string | null
       benefits: string | null
       imageUrl: string | null
+      isDriverJob: boolean
       isActive: boolean
       createdAt: Date
       updatedAt: Date
@@ -36500,6 +36560,7 @@ export namespace Prisma {
     readonly requirements: FieldRef<"JobPosition", 'String'>
     readonly benefits: FieldRef<"JobPosition", 'String'>
     readonly imageUrl: FieldRef<"JobPosition", 'String'>
+    readonly isDriverJob: FieldRef<"JobPosition", 'Boolean'>
     readonly isActive: FieldRef<"JobPosition", 'Boolean'>
     readonly createdAt: FieldRef<"JobPosition", 'DateTime'>
     readonly updatedAt: FieldRef<"JobPosition", 'DateTime'>
@@ -38352,6 +38413,9 @@ export namespace Prisma {
     criminalRecord: 'criminalRecord',
     criminalRecordDetails: 'criminalRecordDetails',
     militaryStatus: 'militaryStatus',
+    driverLicense: 'driverLicense',
+    additionalDetails: 'additionalDetails',
+    adminNotes: 'adminNotes',
     desiredSalary: 'desiredSalary',
     availableDate: 'availableDate',
     futureGoals: 'futureGoals',
@@ -38412,7 +38476,8 @@ export namespace Prisma {
     startDate: 'startDate',
     endDate: 'endDate',
     salary: 'salary',
-    reasonForLeaving: 'reasonForLeaving'
+    reasonForLeaving: 'reasonForLeaving',
+    referencePerson: 'referencePerson'
   };
 
   export type WorkExperienceScalarFieldEnum = (typeof WorkExperienceScalarFieldEnum)[keyof typeof WorkExperienceScalarFieldEnum]
@@ -38465,6 +38530,7 @@ export namespace Prisma {
     requirements: 'requirements',
     benefits: 'benefits',
     imageUrl: 'imageUrl',
+    isDriverJob: 'isDriverJob',
     isActive: 'isActive',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -40148,6 +40214,9 @@ export namespace Prisma {
     criminalRecord?: BoolFilter<"Application"> | boolean
     criminalRecordDetails?: StringNullableFilter<"Application"> | string | null
     militaryStatus?: StringNullableFilter<"Application"> | string | null
+    driverLicense?: JsonNullableFilter<"Application">
+    additionalDetails?: StringNullableFilter<"Application"> | string | null
+    adminNotes?: StringNullableFilter<"Application"> | string | null
     desiredSalary?: StringNullableFilter<"Application"> | string | null
     availableDate?: StringNullableFilter<"Application"> | string | null
     futureGoals?: StringNullableFilter<"Application"> | string | null
@@ -40203,6 +40272,9 @@ export namespace Prisma {
     criminalRecord?: SortOrder
     criminalRecordDetails?: SortOrderInput | SortOrder
     militaryStatus?: SortOrderInput | SortOrder
+    driverLicense?: SortOrderInput | SortOrder
+    additionalDetails?: SortOrderInput | SortOrder
+    adminNotes?: SortOrderInput | SortOrder
     desiredSalary?: SortOrderInput | SortOrder
     availableDate?: SortOrderInput | SortOrder
     futureGoals?: SortOrderInput | SortOrder
@@ -40261,6 +40333,9 @@ export namespace Prisma {
     criminalRecord?: BoolFilter<"Application"> | boolean
     criminalRecordDetails?: StringNullableFilter<"Application"> | string | null
     militaryStatus?: StringNullableFilter<"Application"> | string | null
+    driverLicense?: JsonNullableFilter<"Application">
+    additionalDetails?: StringNullableFilter<"Application"> | string | null
+    adminNotes?: StringNullableFilter<"Application"> | string | null
     desiredSalary?: StringNullableFilter<"Application"> | string | null
     availableDate?: StringNullableFilter<"Application"> | string | null
     futureGoals?: StringNullableFilter<"Application"> | string | null
@@ -40316,6 +40391,9 @@ export namespace Prisma {
     criminalRecord?: SortOrder
     criminalRecordDetails?: SortOrderInput | SortOrder
     militaryStatus?: SortOrderInput | SortOrder
+    driverLicense?: SortOrderInput | SortOrder
+    additionalDetails?: SortOrderInput | SortOrder
+    adminNotes?: SortOrderInput | SortOrder
     desiredSalary?: SortOrderInput | SortOrder
     availableDate?: SortOrderInput | SortOrder
     futureGoals?: SortOrderInput | SortOrder
@@ -40373,6 +40451,9 @@ export namespace Prisma {
     criminalRecord?: BoolWithAggregatesFilter<"Application"> | boolean
     criminalRecordDetails?: StringNullableWithAggregatesFilter<"Application"> | string | null
     militaryStatus?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    driverLicense?: JsonNullableWithAggregatesFilter<"Application">
+    additionalDetails?: StringNullableWithAggregatesFilter<"Application"> | string | null
+    adminNotes?: StringNullableWithAggregatesFilter<"Application"> | string | null
     desiredSalary?: StringNullableWithAggregatesFilter<"Application"> | string | null
     availableDate?: StringNullableWithAggregatesFilter<"Application"> | string | null
     futureGoals?: StringNullableWithAggregatesFilter<"Application"> | string | null
@@ -40562,6 +40643,7 @@ export namespace Prisma {
     endDate?: StringNullableFilter<"WorkExperience"> | string | null
     salary?: StringNullableFilter<"WorkExperience"> | string | null
     reasonForLeaving?: StringNullableFilter<"WorkExperience"> | string | null
+    referencePerson?: StringNullableFilter<"WorkExperience"> | string | null
     application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
   }
 
@@ -40574,6 +40656,7 @@ export namespace Prisma {
     endDate?: SortOrderInput | SortOrder
     salary?: SortOrderInput | SortOrder
     reasonForLeaving?: SortOrderInput | SortOrder
+    referencePerson?: SortOrderInput | SortOrder
     application?: ApplicationOrderByWithRelationInput
   }
 
@@ -40589,6 +40672,7 @@ export namespace Prisma {
     endDate?: StringNullableFilter<"WorkExperience"> | string | null
     salary?: StringNullableFilter<"WorkExperience"> | string | null
     reasonForLeaving?: StringNullableFilter<"WorkExperience"> | string | null
+    referencePerson?: StringNullableFilter<"WorkExperience"> | string | null
     application?: XOR<ApplicationScalarRelationFilter, ApplicationWhereInput>
   }, "id">
 
@@ -40601,6 +40685,7 @@ export namespace Prisma {
     endDate?: SortOrderInput | SortOrder
     salary?: SortOrderInput | SortOrder
     reasonForLeaving?: SortOrderInput | SortOrder
+    referencePerson?: SortOrderInput | SortOrder
     _count?: WorkExperienceCountOrderByAggregateInput
     _avg?: WorkExperienceAvgOrderByAggregateInput
     _max?: WorkExperienceMaxOrderByAggregateInput
@@ -40620,6 +40705,7 @@ export namespace Prisma {
     endDate?: StringNullableWithAggregatesFilter<"WorkExperience"> | string | null
     salary?: StringNullableWithAggregatesFilter<"WorkExperience"> | string | null
     reasonForLeaving?: StringNullableWithAggregatesFilter<"WorkExperience"> | string | null
+    referencePerson?: StringNullableWithAggregatesFilter<"WorkExperience"> | string | null
   }
 
   export type SkillWhereInput = {
@@ -40818,6 +40904,7 @@ export namespace Prisma {
     requirements?: StringNullableFilter<"JobPosition"> | string | null
     benefits?: StringNullableFilter<"JobPosition"> | string | null
     imageUrl?: StringNullableFilter<"JobPosition"> | string | null
+    isDriverJob?: BoolFilter<"JobPosition"> | boolean
     isActive?: BoolFilter<"JobPosition"> | boolean
     createdAt?: DateTimeFilter<"JobPosition"> | Date | string
     updatedAt?: DateTimeFilter<"JobPosition"> | Date | string
@@ -40835,6 +40922,7 @@ export namespace Prisma {
     requirements?: SortOrderInput | SortOrder
     benefits?: SortOrderInput | SortOrder
     imageUrl?: SortOrderInput | SortOrder
+    isDriverJob?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -40855,6 +40943,7 @@ export namespace Prisma {
     requirements?: StringNullableFilter<"JobPosition"> | string | null
     benefits?: StringNullableFilter<"JobPosition"> | string | null
     imageUrl?: StringNullableFilter<"JobPosition"> | string | null
+    isDriverJob?: BoolFilter<"JobPosition"> | boolean
     isActive?: BoolFilter<"JobPosition"> | boolean
     createdAt?: DateTimeFilter<"JobPosition"> | Date | string
     updatedAt?: DateTimeFilter<"JobPosition"> | Date | string
@@ -40872,6 +40961,7 @@ export namespace Prisma {
     requirements?: SortOrderInput | SortOrder
     benefits?: SortOrderInput | SortOrder
     imageUrl?: SortOrderInput | SortOrder
+    isDriverJob?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -40895,6 +40985,7 @@ export namespace Prisma {
     requirements?: StringNullableWithAggregatesFilter<"JobPosition"> | string | null
     benefits?: StringNullableWithAggregatesFilter<"JobPosition"> | string | null
     imageUrl?: StringNullableWithAggregatesFilter<"JobPosition"> | string | null
+    isDriverJob?: BoolWithAggregatesFilter<"JobPosition"> | boolean
     isActive?: BoolWithAggregatesFilter<"JobPosition"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"JobPosition"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"JobPosition"> | Date | string
@@ -42607,6 +42698,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -42662,6 +42756,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -42717,6 +42814,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -42772,6 +42872,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -42827,6 +42930,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -42876,6 +42982,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -42925,6 +43034,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -43117,6 +43229,7 @@ export namespace Prisma {
     endDate?: string | null
     salary?: string | null
     reasonForLeaving?: string | null
+    referencePerson?: string | null
     application: ApplicationCreateNestedOneWithoutWorkExperienceInput
   }
 
@@ -43129,6 +43242,7 @@ export namespace Prisma {
     endDate?: string | null
     salary?: string | null
     reasonForLeaving?: string | null
+    referencePerson?: string | null
   }
 
   export type WorkExperienceUpdateInput = {
@@ -43138,6 +43252,7 @@ export namespace Prisma {
     endDate?: NullableStringFieldUpdateOperationsInput | string | null
     salary?: NullableStringFieldUpdateOperationsInput | string | null
     reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+    referencePerson?: NullableStringFieldUpdateOperationsInput | string | null
     application?: ApplicationUpdateOneRequiredWithoutWorkExperienceNestedInput
   }
 
@@ -43150,6 +43265,7 @@ export namespace Prisma {
     endDate?: NullableStringFieldUpdateOperationsInput | string | null
     salary?: NullableStringFieldUpdateOperationsInput | string | null
     reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+    referencePerson?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type WorkExperienceCreateManyInput = {
@@ -43161,6 +43277,7 @@ export namespace Prisma {
     endDate?: string | null
     salary?: string | null
     reasonForLeaving?: string | null
+    referencePerson?: string | null
   }
 
   export type WorkExperienceUpdateManyMutationInput = {
@@ -43170,6 +43287,7 @@ export namespace Prisma {
     endDate?: NullableStringFieldUpdateOperationsInput | string | null
     salary?: NullableStringFieldUpdateOperationsInput | string | null
     reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+    referencePerson?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type WorkExperienceUncheckedUpdateManyInput = {
@@ -43181,6 +43299,7 @@ export namespace Prisma {
     endDate?: NullableStringFieldUpdateOperationsInput | string | null
     salary?: NullableStringFieldUpdateOperationsInput | string | null
     reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+    referencePerson?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SkillCreateInput = {
@@ -43365,6 +43484,7 @@ export namespace Prisma {
     requirements?: string | null
     benefits?: string | null
     imageUrl?: string | null
+    isDriverJob?: boolean
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -43382,6 +43502,7 @@ export namespace Prisma {
     requirements?: string | null
     benefits?: string | null
     imageUrl?: string | null
+    isDriverJob?: boolean
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -43399,6 +43520,7 @@ export namespace Prisma {
     requirements?: NullableStringFieldUpdateOperationsInput | string | null
     benefits?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    isDriverJob?: BoolFieldUpdateOperationsInput | boolean
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43416,6 +43538,7 @@ export namespace Prisma {
     requirements?: NullableStringFieldUpdateOperationsInput | string | null
     benefits?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    isDriverJob?: BoolFieldUpdateOperationsInput | boolean
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43433,6 +43556,7 @@ export namespace Prisma {
     requirements?: string | null
     benefits?: string | null
     imageUrl?: string | null
+    isDriverJob?: boolean
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -43450,6 +43574,7 @@ export namespace Prisma {
     requirements?: NullableStringFieldUpdateOperationsInput | string | null
     benefits?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    isDriverJob?: BoolFieldUpdateOperationsInput | boolean
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43467,6 +43592,7 @@ export namespace Prisma {
     requirements?: NullableStringFieldUpdateOperationsInput | string | null
     benefits?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    isDriverJob?: BoolFieldUpdateOperationsInput | boolean
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -44894,6 +45020,9 @@ export namespace Prisma {
     criminalRecord?: SortOrder
     criminalRecordDetails?: SortOrder
     militaryStatus?: SortOrder
+    driverLicense?: SortOrder
+    additionalDetails?: SortOrder
+    adminNotes?: SortOrder
     desiredSalary?: SortOrder
     availableDate?: SortOrder
     futureGoals?: SortOrder
@@ -44945,6 +45074,8 @@ export namespace Prisma {
     criminalRecord?: SortOrder
     criminalRecordDetails?: SortOrder
     militaryStatus?: SortOrder
+    additionalDetails?: SortOrder
+    adminNotes?: SortOrder
     desiredSalary?: SortOrder
     availableDate?: SortOrder
     futureGoals?: SortOrder
@@ -44991,6 +45122,8 @@ export namespace Prisma {
     criminalRecord?: SortOrder
     criminalRecordDetails?: SortOrder
     militaryStatus?: SortOrder
+    additionalDetails?: SortOrder
+    adminNotes?: SortOrder
     desiredSalary?: SortOrder
     availableDate?: SortOrder
     futureGoals?: SortOrder
@@ -45159,6 +45292,7 @@ export namespace Prisma {
     endDate?: SortOrder
     salary?: SortOrder
     reasonForLeaving?: SortOrder
+    referencePerson?: SortOrder
   }
 
   export type WorkExperienceAvgOrderByAggregateInput = {
@@ -45174,6 +45308,7 @@ export namespace Prisma {
     endDate?: SortOrder
     salary?: SortOrder
     reasonForLeaving?: SortOrder
+    referencePerson?: SortOrder
   }
 
   export type WorkExperienceMinOrderByAggregateInput = {
@@ -45185,6 +45320,7 @@ export namespace Prisma {
     endDate?: SortOrder
     salary?: SortOrder
     reasonForLeaving?: SortOrder
+    referencePerson?: SortOrder
   }
 
   export type WorkExperienceSumOrderByAggregateInput = {
@@ -45301,6 +45437,7 @@ export namespace Prisma {
     requirements?: SortOrder
     benefits?: SortOrder
     imageUrl?: SortOrder
+    isDriverJob?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -45318,6 +45455,7 @@ export namespace Prisma {
     requirements?: SortOrder
     benefits?: SortOrder
     imageUrl?: SortOrder
+    isDriverJob?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -45335,6 +45473,7 @@ export namespace Prisma {
     requirements?: SortOrder
     benefits?: SortOrder
     imageUrl?: SortOrder
+    isDriverJob?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -47535,6 +47674,7 @@ export namespace Prisma {
     endDate?: string | null
     salary?: string | null
     reasonForLeaving?: string | null
+    referencePerson?: string | null
   }
 
   export type WorkExperienceUncheckedCreateWithoutApplicationInput = {
@@ -47545,6 +47685,7 @@ export namespace Prisma {
     endDate?: string | null
     salary?: string | null
     reasonForLeaving?: string | null
+    referencePerson?: string | null
   }
 
   export type WorkExperienceCreateOrConnectWithoutApplicationInput = {
@@ -47716,6 +47857,7 @@ export namespace Prisma {
     endDate?: StringNullableFilter<"WorkExperience"> | string | null
     salary?: StringNullableFilter<"WorkExperience"> | string | null
     reasonForLeaving?: StringNullableFilter<"WorkExperience"> | string | null
+    referencePerson?: StringNullableFilter<"WorkExperience"> | string | null
   }
 
   export type SkillUpsertWithoutApplicationInput = {
@@ -47828,6 +47970,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -47882,6 +48027,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -47952,6 +48100,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48006,6 +48157,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48060,6 +48214,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -48114,6 +48271,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -48184,6 +48344,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48238,6 +48401,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48292,6 +48458,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -48346,6 +48515,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -48416,6 +48588,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48470,6 +48645,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48524,6 +48702,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -48578,6 +48759,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -48648,6 +48832,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48702,6 +48889,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48756,6 +48946,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -48810,6 +49003,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -48880,6 +49076,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48934,6 +49133,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48988,6 +49190,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -49042,6 +49247,9 @@ export namespace Prisma {
     criminalRecord?: boolean
     criminalRecordDetails?: string | null
     militaryStatus?: string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: string | null
+    adminNotes?: string | null
     desiredSalary?: string | null
     availableDate?: string | null
     futureGoals?: string | null
@@ -49112,6 +49320,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49166,6 +49377,9 @@ export namespace Prisma {
     criminalRecord?: BoolFieldUpdateOperationsInput | boolean
     criminalRecordDetails?: NullableStringFieldUpdateOperationsInput | string | null
     militaryStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    driverLicense?: NullableJsonNullValueInput | InputJsonValue
+    additionalDetails?: NullableStringFieldUpdateOperationsInput | string | null
+    adminNotes?: NullableStringFieldUpdateOperationsInput | string | null
     desiredSalary?: NullableStringFieldUpdateOperationsInput | string | null
     availableDate?: NullableStringFieldUpdateOperationsInput | string | null
     futureGoals?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49449,6 +49663,7 @@ export namespace Prisma {
     endDate?: string | null
     salary?: string | null
     reasonForLeaving?: string | null
+    referencePerson?: string | null
   }
 
   export type ExtendedRelativeCreateManyApplicationInput = {
@@ -49542,6 +49757,7 @@ export namespace Prisma {
     endDate?: NullableStringFieldUpdateOperationsInput | string | null
     salary?: NullableStringFieldUpdateOperationsInput | string | null
     reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+    referencePerson?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type WorkExperienceUncheckedUpdateWithoutApplicationInput = {
@@ -49552,6 +49768,7 @@ export namespace Prisma {
     endDate?: NullableStringFieldUpdateOperationsInput | string | null
     salary?: NullableStringFieldUpdateOperationsInput | string | null
     reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+    referencePerson?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type WorkExperienceUncheckedUpdateManyWithoutApplicationInput = {
@@ -49562,6 +49779,7 @@ export namespace Prisma {
     endDate?: NullableStringFieldUpdateOperationsInput | string | null
     salary?: NullableStringFieldUpdateOperationsInput | string | null
     reasonForLeaving?: NullableStringFieldUpdateOperationsInput | string | null
+    referencePerson?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ExtendedRelativeUpdateWithoutApplicationInput = {

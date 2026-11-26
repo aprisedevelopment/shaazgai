@@ -9,6 +9,7 @@ import { ApplicationFormValues } from "@/lib/validations/application";
 import { Truck, CreditCard, Camera, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { toast } from "sonner";
 
 interface DriverInfoProps {
   form: UseFormReturn<ApplicationFormValues>;
@@ -27,7 +28,7 @@ export function DriverInfo({ form }: DriverInfoProps) {
       if (fieldName === "truckPhotos") {
         const currentPhotos = form.getValues("truckPhotos") || [];
         if (currentPhotos.length + files.length > 4) {
-          alert("Хамгийн ихдээ 4 зураг оруулах боломжтой (4 талаас авсан).");
+          toast.error("Хамгийн ихдээ 4 зураг оруулах боломжтой (4 талаас авсан).");
           return;
         }
 
@@ -35,40 +36,53 @@ export function DriverInfo({ form }: DriverInfoProps) {
         
         for (let i = 0; i < files.length; i++) {
           const file = files[i];
+          if (file.size > 5 * 1024 * 1024) {
+            throw new Error(`"${file.name}" файлын хэмжээ 5MB-аас их байна.`);
+          }
           const formData = new FormData();
           formData.append("file", file);
 
-          const response = await fetch("/anket/api/upload-local", {
+          const response = await fetch("/api/upload-local", {
             method: "POST",
             body: formData,
           });
 
-          if (!response.ok) throw new Error("Truck photo upload failed");
-
           const result = await response.json();
+          if (!response.ok || !result.success) {
+            throw new Error(result.error || "Зураг хуулахад алдаа гарлаа");
+          }
+
           newPhotoUrls.push(result.url);
         }
         
         form.setValue("truckPhotos", newPhotoUrls);
+        toast.success("Зургууд амжилттай хуулагдлаа");
       } else {
         const file = files[0];
+        if (file.size > 5 * 1024 * 1024) {
+          throw new Error("Файлын хэмжээ 5MB-аас их байна.");
+        }
         const formData = new FormData();
         formData.append("file", file);
 
-        const response = await fetch("/anket/api/upload-local", {
+        const response = await fetch("/api/upload-local", {
           method: "POST",
           body: formData,
         });
 
-        if (!response.ok) throw new Error("License upload failed");
-
         const result = await response.json();
+        if (!response.ok || !result.success) {
+          throw new Error(result.error || "Үнэмлэх хуулахад алдаа гарлаа");
+        }
+
         form.setValue(fieldName, result.url);
+        toast.success("Мэргэшсэн үнэмлэх амжилттай хуулагдлаа");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error uploading file:", error);
-      alert("Файл хуулахад алдаа гарлаа.");
+      toast.error(error?.message || "Файл хуулахад алдаа гарлаа.");
     } finally {
+      e.target.value = "";
       setUploadingField(null);
     }
   };
@@ -129,7 +143,7 @@ export function DriverInfo({ form }: DriverInfoProps) {
                  <>
                    <img src={form.getValues("proLicenseUrl")} alt="Pro License" className="w-full h-full object-cover" />
                    <div className="absolute inset-0 bg-on-surface/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center">
-                      <Button variant="ghost" size="icon" onClick={() => form.setValue("proLicenseUrl", "")} className="h-12 w-12 bg-error text-white rounded-xl shadow-xl hover:bg-error-container transition-transform active:scale-90">
+                      <Button type="button" variant="ghost" size="icon" onClick={() => form.setValue("proLicenseUrl", "")} className="h-12 w-12 bg-error text-white rounded-xl shadow-xl hover:bg-error-container transition-transform active:scale-90">
                         <X className="w-6 h-6" />
                       </Button>
                    </div>

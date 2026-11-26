@@ -1,6 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Mongolian&display=swap');
 @import "tailwindcss";
 
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #0f172a;
+  --color-primary: #1d4ed8;
+  --color-primary-foreground: #ffffff;
+  --color-primary-container: #1e40af;
+  --color-on-primary: #ffffff;
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  --color-accent: #f1f5f9;
+  --color-accent-foreground: #0f172a;
+  --color-destructive: #dc2626;
+  --color-destructive-foreground: #ffffff;
+  --color-error: #dc2626;
+  --color-error-container: #b91c1c;
+  --color-border: #e2e8f0;
+  --color-input: #cbd5e1;
+  --color-ring: #2563eb;
+  --color-surface: #ffffff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-outline-variant: #cbd5e1;
+}
+
 :root {
   /* Brand Colors */
   --primary:       hsl(220, 85%, 35%);
@@ -62,6 +97,24 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  .font-headline {
+    font-family: var(--font);
+  }
+  .editorial-gradient {
+    background: linear-gradient(135deg, #2563eb 0%, #0f2b5c 100%);
+  }
+  .ghost-border {
+    border: 1px solid #cbd5e1;
+  }
+  .ambient-shadow {
+    box-shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.14), 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+  }
+  .lift-on-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .lift-on-hover:hover {
+    transform: translateY(-1px);
   }
 }
 

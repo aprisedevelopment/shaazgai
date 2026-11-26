@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, use } from "react";
+import { useRouter } from "next/navigation";
 import { applicationsApi } from "@/lib/anket-client";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,6 +29,8 @@ import {
   FileText,
   Award,
   Info,
+  Trash2,
+  Save,
 } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -47,7 +50,30 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import { toast } from "sonner";
-import { updateApplicationStatus } from "../actions";
+import { deleteApplication, updateApplicationNotes, updateApplicationStatus } from "../actions";
+
+const MARITAL_STATUS_LABELS: Record<string, string> = {
+  single: "Ганц бие",
+  married: "Гэрлэсэн",
+  widowed: "Бэлэвсэн",
+  divorced: "Салсан",
+};
+
+const DEGREE_LABELS: Record<string, string> = {
+  secondary: "Бүрэн дунд",
+  bachelor: "Бакалавр",
+  master: "Магистр",
+  doctor: "Доктор",
+};
+
+const REFERRAL_LABELS: Record<string, string> = {
+  school: "Сургууль дээрээс",
+  newspaper: "Зараас",
+  friends: "Найз, төрөл садангаас",
+  social: "Facebook, Website",
+  direct: "Өөрөө ирж уулзаж",
+  others: "Бусад",
+};
 
 const STATUS_CONFIG: Record<string, { label: string; icon: any; color: string; bg: string }> = {
   pending: { label: "Хүлээгдэж буй", icon: Clock, color: "text-amber-600", bg: "bg-amber-100" },
@@ -58,27 +84,19 @@ const STATUS_CONFIG: Record<string, { label: string; icon: any; color: string; b
 
 export default function ApplicationDetailsPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
+  const router = useRouter();
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
-
-  useEffect(() => {
-    fetchFullDetails();
-  }, [resolvedParams.id]);
-
-  useEffect(() => {
-    if (data && typeof window !== "undefined" && window.location.search.includes("print=true")) {
-      setTimeout(() => {
-        window.print();
-      }, 500);
-    }
-  }, [data]);
+  const [notes, setNotes] = useState("");
+  const [savingNotes, setSavingNotes] = useState(false);
 
   const fetchFullDetails = async () => {
     setLoading(true);
     try {
       const response = await applicationsApi.get(resolvedParams.id);
       setData(response.data);
+      setNotes(response.data?.admin_notes || "");
     } catch (error: any) {
       console.error(error);
       toast.error("Дэлгэрэнгүй татахад алдаа гарлаа: " + error.message);
@@ -86,6 +104,10 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchFullDetails();
+  }, [resolvedParams.id]);
 
   const updateStatus = async (newStatus: string) => {
     setUpdating(true);
@@ -101,8 +123,30 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
     }
   };
 
-  const handlePrint = () => {
-    window.print();
+  const handleSaveNotes = async () => {
+    setSavingNotes(true);
+    try {
+      const result = await updateApplicationNotes(resolvedParams.id, notes);
+      if (!result.success) throw new Error(result.error);
+      setData({ ...data, admin_notes: notes });
+      toast.success("Тэмдэглэл хадгалагдлаа");
+    } catch (error: any) {
+      toast.error("Алдаа гарлаа: " + error.message);
+    } finally {
+      setSavingNotes(false);
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!confirm(`"${data.last_name} ${data.first_name}" анкетыг бүрмөсөн устгах уу?`)) return;
+    const toastId = toast.loading("Устгаж байна...");
+    const result = await deleteApplication(resolvedParams.id);
+    if (result.success) {
+      toast.success("Анкет устгагдлаа", { id: toastId });
+      router.push("/admin/applications");
+    } else {
+      toast.error("Алдаа гарлаа: " + result.error, { id: toastId });
+    }
   };
 
   const translateLevel = (level: string) => {
@@ -138,7 +182,10 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
   }
 
   const statusInfo = STATUS_CONFIG[data.status || "pending"] || STATUS_CONFIG.pending;
-  const isDriverJob = !!(data?.truck_details || data?.pro_license_url);
+  const isDriverJob = !!(data?.truck_details || data?.pro_license_url || (data?.truck_photos?.length ?? 0) > 0);
+  const skillsObj = Array.isArray(data.skills) ? data.skills[0] : data.skills;
+  const languageMatrix = skillsObj?.language_matrix || [];
+  const pcMatrix = skillsObj?.pc_matrix || {};
 
   return (
     <div className="min-h-screen pb-20 font-sans selection:bg-blue-100">
@@ -194,11 +241,17 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
               </Select>
             </div>
 
+            <Link href={`/receipt/${data.id}?print=true`} target="_blank">
+              <Button className="bg-slate-900 text-white font-bold h-11 px-5 rounded-xl shadow-sm hover:bg-slate-800 transition-all border-none text-xs uppercase tracking-wider cursor-pointer">
+                <Printer className="w-4 h-4 mr-2" /> Хэвлэх / PDF
+              </Button>
+            </Link>
             <Button
-              onClick={handlePrint}
-              className="bg-slate-900 text-white font-bold h-11 px-5 rounded-xl shadow-sm hover:bg-slate-800 transition-all border-none text-xs uppercase tracking-wider cursor-pointer"
+              variant="outline"
+              onClick={handleDelete}
+              className="h-11 px-4 rounded-xl border-rose-200 text-rose-600 hover:bg-rose-600 hover:text-white transition-all text-xs font-bold uppercase tracking-wider cursor-pointer"
             >
-              <Printer className="w-4 h-4 mr-2" /> Хэвлэх / PDF
+              <Trash2 className="w-4 h-4 mr-1.5" /> Устгах
             </Button>
           </div>
         </div>
@@ -226,10 +279,12 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
                     <DataField label="Эцэг/Эх" value={data.last_name} />
                     <DataField label="Өөрийн нэр" value={data.first_name} />
                     <DataField label="Регистр" value={data.register_number} mono />
-                    <DataField label="Төрсөн огноо" value={data.birth_date || `${data.birth_year}.${data.birth_month}.${data.birth_day}`} />
+                    <DataField label="Төрсөн огноо" value={data.birth_date || data.birth_year} />
                     <DataField label="Төрсөн газар" value={data.birth_place} />
-                    <DataField label="Хүйс" value={data.gender === "male" ? "Эрэгтэй" : "Эмэгтэй"} />
-                    <DataField label="Гэрлэлт" value={data.marital_status === "single" ? "Ганц бие" : "Гэрлэсэн"} />
+                    <DataField label="Хүйс" value={data.gender === "male" ? "Эрэгтэй" : data.gender === "female" ? "Эмэгтэй" : data.gender} />
+                    <DataField label="Гэрлэлт" value={MARITAL_STATUS_LABELS[data.marital_status] || data.marital_status} />
+                    <DataField label="Цэргийн алба" value={data.military_status} />
+                    <DataField label="Жолооны ангилал" value={data.driver_license?.length ? data.driver_license.join(", ") : ""} />
                   </div>
                 </div>
 
@@ -244,19 +299,17 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
                       <DataField label="Facebook" value={data.facebook_url} />
                       <div className="space-y-3 pt-4 border-t border-slate-200">
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Яаралтай холбоо барих</p>
-                        {Array.isArray(data.emergency_contacts) ? (
+                        {Array.isArray(data.emergency_contacts) && data.emergency_contacts.length > 0 ? (
                           data.emergency_contacts.map((ec: any, i: number) => (
                             <div key={i} className="flex items-start gap-2.5">
                               <span className="text-[10px] font-bold text-blue-600 bg-blue-50 w-6 h-6 rounded-md flex items-center justify-center shrink-0">
                                 {i + 1}
                               </span>
-                              <p className="text-xs font-semibold text-slate-700">{typeof ec === "string" ? ec : ec.details || ec.name || "—"}</p>
+                              <p className="text-xs font-semibold text-slate-700">{typeof ec === "string" ? ec : ec.details || "—"}</p>
                             </div>
                           ))
                         ) : (
-                          <p className="text-xs font-semibold text-slate-700">
-                            {data.emergency_contact?.name} / {data.emergency_contact?.phone} ({data.emergency_contact?.relation})
-                          </p>
+                          <p className="text-xs text-slate-400">Мэдээлэл ороогүй</p>
                         )}
                       </div>
                     </div>
@@ -277,6 +330,7 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
                         <th className="px-5 py-3.5">Овог нэр</th>
                         <th className="px-5 py-3.5 text-center">Төрсөн он</th>
                         <th className="px-5 py-3.5">Ажил / Сургууль</th>
+                        <th className="px-5 py-3.5">Утас</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-semibold">
@@ -284,13 +338,14 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
                         <tr key={i} className="hover:bg-slate-50 transition-colors">
                           <td className="px-5 py-3.5 text-[10px] font-bold uppercase text-blue-600 tracking-wider">{m.relation}</td>
                           <td className="px-5 py-3.5 text-slate-900">{m.last_name} {m.first_name}</td>
-                          <td className="px-5 py-3.5 text-center text-slate-500 tabular-nums">{m.birth_year}</td>
-                          <td className="px-5 py-3.5 text-slate-600">{m.occupation} @ {m.workplace_school}</td>
+                          <td className="px-5 py-3.5 text-center text-slate-500 tabular-nums">{m.birth_year || "—"}</td>
+                          <td className="px-5 py-3.5 text-slate-600">{m.occupation} {m.workplace_school ? `@ ${m.workplace_school}` : ""}</td>
+                          <td className="px-5 py-3.5 text-slate-500">{m.phone || "—"}</td>
                         </tr>
                       ))}
                       {(!data.family_members || data.family_members.length === 0) && (
                         <tr>
-                          <td colSpan={4} className="px-5 py-8 text-center text-slate-400 font-medium text-xs">
+                          <td colSpan={5} className="px-5 py-8 text-center text-slate-400 font-medium text-xs">
                             Мэдээлэл ороогүй
                           </td>
                         </tr>
@@ -344,14 +399,23 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
                       <div key={i} className="relative">
                         <div className="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-white border-3 border-blue-600 shadow-sm" />
                         <p className="text-sm font-bold text-slate-900 leading-tight mb-0.5">{w.company_name}</p>
-                        <div className="flex items-center gap-2 text-blue-600 font-bold text-[10px] uppercase tracking-wider mb-2">
+                        <div className="flex flex-wrap items-center gap-2 text-blue-600 font-bold text-[10px] uppercase tracking-wider mb-2">
                           <span>{w.position}</span>
                           <span className="w-1 h-1 rounded-full bg-slate-300" />
                           <span className="text-slate-400 tabular-nums">{w.start_date} — {w.end_date || "Одоо"}</span>
+                          {w.salary && (
+                            <>
+                              <span className="w-1 h-1 rounded-full bg-slate-300" />
+                              <span className="text-emerald-600">{w.salary}</span>
+                            </>
+                          )}
                         </div>
+                        {w.reference_person && (
+                          <p className="text-xs text-slate-500 mb-1.5">Тодорхойлогч: {w.reference_person}</p>
+                        )}
                         {w.reason_for_leaving && (
                           <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl text-xs text-slate-600 italic">
-                            "{w.reason_for_leaving}"
+                            &quot;{w.reason_for_leaving}&quot;
                           </div>
                         )}
                       </div>
@@ -371,8 +435,12 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
                           <GraduationCap className="w-5 h-5" />
                         </div>
                         <div>
-                          <p className="text-xs font-bold text-slate-900 leading-tight mb-0.5">{e.school_name}</p>
-                          <p className="text-[10px] font-bold text-blue-600 uppercase tracking-wider mb-1">{e.degree} — {e.major}</p>
+                          <p className="text-xs font-bold text-slate-900 leading-tight mb-0.5">
+                            {e.school_name} {e.school_type ? `(${e.school_type})` : ""}
+                          </p>
+                          <p className="text-[10px] font-bold text-blue-600 uppercase tracking-wider mb-1">
+                            {DEGREE_LABELS[e.degree] || e.degree} — {e.major} {e.gpa ? `(GPA: ${e.gpa})` : ""}
+                          </p>
                           <div className="flex items-center gap-1.5 text-[10px] font-medium text-slate-400">
                             <Calendar className="w-3 h-3" /> {e.entry_year} — {e.graduation_year}
                           </div>
@@ -403,7 +471,7 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-100 font-medium">
-                        {data.skills?.[0]?.language_matrix?.map((l: any, i: number) => (
+                        {languageMatrix.map((l: any, i: number) => (
                           <tr key={i} className="hover:bg-slate-50 transition-colors">
                             <td className="px-5 py-3.5 font-bold text-slate-800 uppercase text-[11px]">{l.language}</td>
                             <td className="px-5 py-3.5 text-center"><SkillBadge value={translateLevel(l.listening)} /></td>
@@ -411,6 +479,11 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
                             <td className="px-5 py-3.5 text-center"><SkillBadge value={translateLevel(l.writing)} /></td>
                           </tr>
                         ))}
+                        {languageMatrix.length === 0 && (
+                          <tr>
+                            <td colSpan={4} className="px-5 py-6 text-center text-slate-400 text-xs">Мэдээлэл ороогүй</td>
+                          </tr>
+                        )}
                       </tbody>
                     </table>
                   </div>
@@ -419,14 +492,14 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
                 <div className="space-y-4">
                   <SectionTitle title="Компьютер / Програм хангамж" icon={Target} />
                   <div className="grid grid-cols-2 gap-4">
-                    <SkillCard label="Windows" value={translateLevel(data.skills?.[0]?.pc_matrix?.windows)} />
-                    <SkillCard label="MS Office" value={translateLevel(data.skills?.[0]?.pc_matrix?.msOffice)} />
-                    <SkillCard label="Adobe Suite" value={translateLevel(data.skills?.[0]?.pc_matrix?.adobe)} />
-                    <SkillCard label="Бусад" value={data.skills?.[0]?.pc_matrix?.others || "Байхгүй"} />
+                    <SkillCard label="Windows" value={translateLevel(pcMatrix.windows)} />
+                    <SkillCard label="MS Office" value={translateLevel(pcMatrix.msOffice)} />
+                    <SkillCard label="Adobe Suite" value={translateLevel(pcMatrix.adobe)} />
+                    <SkillCard label="Бусад" value={translateLevel(pcMatrix.others)} />
                   </div>
-                  {data.skills?.[0]?.pc_matrix?.otherDetails && (
+                  {pcMatrix.otherDetails && (
                     <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl italic text-xs text-slate-600 leading-relaxed font-medium">
-                      "{data.skills[0].pc_matrix.otherDetails}"
+                      &quot;{pcMatrix.otherDetails}&quot;
                     </div>
                   )}
                 </div>
@@ -472,8 +545,44 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
             <TabsContent value="other" className="outline-none space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <OtherItem icon={Heart} label="Эрүүл мэнд" value={data.health_info?.illnesses || "Хэвийн"} subValue={`Зуршил: ${data.health_info?.badHabits || "Байхгүй"}`} />
-                <OtherItem icon={Target} label="Хүсэж буй цалин" value={data.desired_salary || "Тохиролцоно"} subValue={`Ажилд орох огноо: ${data.available_date || "Шууд"}`} />
-                <OtherItem icon={Star} label="Давуу & Сул тал" value={data.strengths || "—"} subValue={`Сул тал: ${data.weaknesses || "—"}`} />
+                <OtherItem
+                  icon={Target}
+                  label="Хүсэж буй цалин"
+                  value={data.desired_salary || "Тохиролцоно"}
+                  subValue={`Ажилд орох: ${data.available_date ? format(new Date(data.available_date), "yyyy-MM-dd") : "Шууд"}`}
+                />
+                <OtherItem icon={Star} label="Давуу & Сул тал" value={data.strengths || "—"} subValue={`Сул тал: ${data.weaknesses || "—"} | Хобби: ${data.hobbies || "—"}`} />
+              </div>
+
+              {(data.additional_details || data.referral_source) && (
+                <div className="bg-slate-50/60 border border-slate-200 rounded-2xl p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <DataField
+                    label="Мэдээллийн эх сурвалж"
+                    value={`${REFERRAL_LABELS[data.referral_source] || data.referral_source || "—"}${data.referral_source_details ? ` (${data.referral_source_details})` : ""}`}
+                  />
+                  <DataField label="Нэмэлт тайлбар" value={data.additional_details} />
+                </div>
+              )}
+
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+                <div className="flex items-center justify-between">
+                  <SectionTitle title="Хүний нөөцийн дотоод тэмдэглэл" icon={FileText} />
+                  <Button
+                    size="sm"
+                    onClick={handleSaveNotes}
+                    disabled={savingNotes}
+                    className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl h-9 px-4 text-xs font-bold cursor-pointer"
+                  >
+                    <Save className="w-3.5 h-3.5 mr-1.5" />
+                    {savingNotes ? "Хадгалж байна..." : "Тэмдэглэл хадгалах"}
+                  </Button>
+                </div>
+                <textarea
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  placeholder="Ярилцлагын үр дүн, ажиглалт, нэмэлт тэмдэглэл бичих..."
+                  className="w-full min-h-[100px] rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                />
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

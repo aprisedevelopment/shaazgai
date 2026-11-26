@@ -1,9 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import {
+  formatApplication,
+  isValidApplicationStatus,
+  requireAdmin,
+  verifyReceiptToken,
+} from "@/lib/anket-server";
 
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await params;
+    const admin = await requireAdmin();
+    const token = req.nextUrl.searchParams.get("token");
+
+    if (!admin && !verifyReceiptToken(id, token)) {
+      return NextResponse.json({ error: "Зөвшөөрөлгүй хандалт" }, { status: 401 });
+    }
+
     const app = await prisma.application.findUnique({
       where: { id },
       include: {
@@ -20,45 +33,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       return NextResponse.json({ error: "Анкет олдсонгүй" }, { status: 404 });
     }
 
-    const formatted = {
-      ...app,
-      last_name: app.lastName,
-      first_name: app.firstName,
-      register_number: app.registerNumber,
-      birth_date: app.birthDate,
-      birth_year: app.birthYear,
-      birth_place: app.birthPlace,
-      marital_status: app.maritalStatus,
-      phone_mobile: app.phoneMobile,
-      phone_home: app.phoneHome,
-      phone_work: app.phoneWork,
-      address_current: app.addressCurrent,
-      temp_address: app.addressTemp,
-      applying_for: app.applyingFor,
-      photo_url: app.photoUrl,
-      id_card_url: app.idCardUrl,
-      diploma_url: app.diplomaUrl,
-      pro_license_url: app.proLicenseUrl,
-      video_url: app.videoUrl,
-      truck_details: app.truckDetails,
-      truck_photos: app.truckPhotos,
-      health_info: app.healthInfo,
-      criminal_record: app.criminalRecord,
-      military_status: app.militaryStatus,
-      desired_salary: app.desiredSalary,
-      available_date: app.availableDate,
-      future_goals: app.futureGoals,
-      family_members: app.familyMembers,
-      education_history: app.educationHistory,
-      work_experience: app.workExperience,
-      skills: app.skills,
-      extended_relatives: app.extendedRelatives,
-      reference_persons: app.referencePersons,
-      created_at: app.createdAt ? app.createdAt.toISOString() : null,
-      updated_at: app.updatedAt ? app.updatedAt.toISOString() : null,
-    };
-
-    return NextResponse.json({ data: formatted });
+    return NextResponse.json({ data: formatApplication(app) });
   } catch (error: any) {
     console.error("GET /api/anket/applications/[id] error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -67,15 +42,25 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
 
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const admin = await requireAdmin();
+    if (!admin) {
+      return NextResponse.json({ error: "Зөвшөөрөлгүй хандалт" }, { status: 401 });
+    }
+
     const { id } = await params;
     const body = await req.json();
+
+    if (body.status !== undefined && !isValidApplicationStatus(body.status)) {
+      return NextResponse.json({ error: "Буруу төлөв байна" }, { status: 400 });
+    }
 
     const updated = await prisma.application.update({
       where: { id },
       data: {
-        status: body.status || undefined,
-        desiredSalary: body.desiredSalary || undefined,
-        applyingFor: body.applyingFor || undefined,
+        status: body.status !== undefined ? body.status : undefined,
+        desiredSalary: body.desiredSalary !== undefined ? body.desiredSalary : undefined,
+        applyingFor: body.applyingFor !== undefined ? body.applyingFor : undefined,
+        adminNotes: body.adminNotes !== undefined ? body.adminNotes : undefined,
       },
     });
 
@@ -88,6 +73,11 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
 
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const admin = await requireAdmin();
+    if (!admin) {
+      return NextResponse.json({ error: "Зөвшөөрөлгүй хандалт" }, { status: 401 });
+    }
+
     const { id } = await params;
     await prisma.application.delete({ where: { id } });
     return NextResponse.json({ success: true });

@@ -29,7 +29,7 @@ export function EducationHistory({ form }: EducationHistoryProps) {
         </div>
         <Button
           type="button"
-          onClick={() => append({ schoolName: "", degree: "", major: "", entryYear: "", graduationYear: "" })}
+          onClick={() => append({ schoolName: "", schoolType: "", degree: "", major: "", entryYear: "", graduationYear: "", gpa: "" })}
           className="h-12 px-8 rounded-full bg-primary text-on-primary font-bold shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95 flex items-center gap-2 group"
         >
           <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
@@ -158,6 +158,32 @@ export function EducationHistory({ form }: EducationHistoryProps) {
                     )}
                   />
                 </div>
+                <FormField
+                  control={form.control}
+                  name={`educationHistory.${index}.schoolType`}
+                  render={({ field }) => (
+                    <FormItem className="space-y-2">
+                      <FormLabel className="text-xs font-semibold text-on-surface-variant ml-1">Сургуулийн төрөл</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Жишээ: Их сургууль, ЕБС" {...field} className="h-11 bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-medium transition-all outline-variant outline outline-1 focus:outline-primary text-base" />
+                      </FormControl>
+                      <FormMessage className="text-[10px]" />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name={`educationHistory.${index}.gpa`}
+                  render={({ field }) => (
+                    <FormItem className="space-y-2">
+                      <FormLabel className="text-xs font-semibold text-on-surface-variant ml-1">Голч дүн (GPA)</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Жишээ: 3.6" {...field} className="h-11 bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-lg px-4 font-medium transition-all outline-variant outline outline-1 focus:outline-primary text-base" />
+                      </FormControl>
+                      <FormMessage className="text-[10px]" />
+                    </FormItem>
+                  )}
+                />
               </div>
             </motion.div>
           ))}
