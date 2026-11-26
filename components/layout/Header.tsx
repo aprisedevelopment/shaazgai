@@ -28,7 +28,7 @@ export function Header({ pages }: { pages: Page[] }) {
   const isActive = (path: string) => pathname === path
 
   return (
-    <header className="sticky top-0 z-40 w-full shadow-md">
+    <header className="sticky top-0 z-40 w-full shadow-md print:hidden">
       {/* Top Main Bar - Deep Navy #0f2b5c */}
       <div className="bg-[#0f2b5c] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-4" style={{ height: '72px' }}>

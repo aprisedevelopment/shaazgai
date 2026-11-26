@@ -13,9 +13,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   }
 
   return (
-    <div className="admin-layout">
+    <div className="admin-layout print:block print:bg-white print:min-h-0">
       {/* Sidebar */}
-      <aside className="admin-sidebar">
+      <aside className="admin-sidebar print:hidden">
         <div className="admin-logo">
           <Link href="/admin" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
             <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, borderRadius: 8, background: 'var(--primary)', color: '#fff', fontSize: 18, fontWeight: 'bold' }}>
@@ -83,8 +83,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       </aside>
 
       {/* Main content */}
-      <main className="admin-main">
-        <header className="admin-topbar">
+      <main className="admin-main print:bg-white">
+        <header className="admin-topbar print:hidden">
           <div style={{ flex: 1 }}>Удирдлагын хэсэг</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontWeight: 500 }}>
             <NotificationCenter />
@@ -96,7 +96,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             </div>
           </div>
         </header>
-        <div className="admin-content">
+        <div className="admin-content print:p-0 print:max-w-none">
           {children}
         </div>
       </main>

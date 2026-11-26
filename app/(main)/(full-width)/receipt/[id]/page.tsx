@@ -116,7 +116,7 @@ function ReceiptContent({ id }: { id: string }) {
   const emergencyContacts = Array.isArray(data.emergency_contacts) ? data.emergency_contacts : [];
 
   return (
-    <div className="min-h-screen bg-slate-50 pb-24 print:bg-white print:pb-0 font-sans">
+    <div className="min-h-screen bg-slate-50 pb-24 print:min-h-0 print:bg-white print:pb-0 font-sans">
       <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 h-16 flex items-center justify-between print:hidden mb-6 rounded-2xl shadow-sm">
         <Link href="/jobs">
           <Button variant="ghost" size="sm" className="font-bold gap-2 text-slate-600 hover:text-blue-600">
@@ -137,8 +137,8 @@ function ReceiptContent({ id }: { id: string }) {
         </div>
       </div>
 
-      <div className="max-w-[210mm] mx-auto mb-16 px-2 md:px-0 print:m-0 print:max-w-none">
-        <div className="bg-white p-6 sm:p-10 md:p-[12mm] border border-slate-300 shadow-sm print:p-0 print:border-none print:shadow-none min-h-[297mm]">
+      <div className="max-w-[210mm] mx-auto mb-16 px-2 md:px-0 print:m-0 print:max-w-none print:px-0">
+        <div className="bg-white p-6 sm:p-10 md:p-[12mm] border border-slate-300 shadow-sm print:p-0 print:border-none print:shadow-none min-h-[297mm] print:min-h-0">
           {/* Header */}
           <div className="grid grid-cols-12 gap-4 mb-8 pb-4 border-b-2 border-slate-900">
             <div className="col-span-3">
@@ -169,7 +169,7 @@ function ReceiptContent({ id }: { id: string }) {
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 print:space-y-4">
             {/* 1. Хувийн мэдээлэл */}
             <section>
               <h3 className="text-xs font-black uppercase mb-2 px-2 border-l-4 border-slate-900">
@@ -491,7 +491,7 @@ function ReceiptContent({ id }: { id: string }) {
             )}
 
             {/* 8. Бусад */}
-            <section>
+            <section className="break-inside-avoid">
               <h3 className="text-xs font-black uppercase mb-2 px-2 border-l-4 border-slate-900">
                 Ес. Бусад нэмэлт мэдээлэл
               </h3>
@@ -533,7 +533,7 @@ function ReceiptContent({ id }: { id: string }) {
             </section>
 
             {/* Signature Block */}
-            <div className="pt-16 flex justify-between items-end">
+            <div className="pt-16 print:pt-8 flex justify-between items-end break-inside-avoid">
               <div className="max-w-xs space-y-2">
                 <p className="text-[7px] font-bold text-slate-400 italic uppercase leading-relaxed">
                   ТАНЫ БӨГЛӨСӨН МЭДЭЭЛЛИЙН ҮНЭН ЗӨВИЙГ ТА ӨӨРӨӨ БҮРЭН ХАРИУЦНА. ЭНЭХҮҮ АНКЕТ НЬ TUGEELT.MN СИСТЕМД ХАДГАЛАГДСАН БОЛНО.
@@ -554,7 +554,7 @@ function ReceiptContent({ id }: { id: string }) {
           body { background-color: white !important; margin: 0 !important; padding: 0 !important; }
           .min-h-screen { min-height: auto !important; }
           .max-w-\\[210mm\\] { max-width: none !important; width: 100% !important; margin: 0 !important; }
-          @page { size: A4; margin: 5mm; }
+          @page { size: A4; margin: 8mm; }
         }
       `}</style>
     </div>

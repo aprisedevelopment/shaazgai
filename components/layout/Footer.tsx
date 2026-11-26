@@ -7,7 +7,7 @@ const EMAIL = process.env.NEXT_PUBLIC_EMAIL || 'info@tugeelt.mn'
 
 export function Footer({ pages }: { pages: Page[] }) {
   return (
-    <footer className="bg-[#0f172a] text-slate-300 pt-12 pb-8 border-t border-slate-800 text-xs sm:text-sm">
+    <footer className="bg-[#0f172a] text-slate-300 pt-12 pb-8 border-t border-slate-800 text-xs sm:text-sm print:hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
 
