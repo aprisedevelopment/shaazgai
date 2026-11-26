@@ -59,7 +59,10 @@ export async function POST(request: NextRequest) {
     } catch {
       if (typeMeta.isVideo || file.size > 2 * 1024 * 1024) {
         return NextResponse.json(
-          { error: "Серверийн хадгалах санд том файл бичих боломжгүй байна." },
+          {
+            error:
+              "Серверийн диск рүү бичих боломжгүй байна. Production орчинд SUPABASE_URL болон SUPABASE_SERVICE_ROLE_KEY тохируулна уу.",
+          },
           { status: 500 }
         );
       }

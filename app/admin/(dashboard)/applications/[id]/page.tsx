@@ -630,7 +630,7 @@ export default function ApplicationDetailsPage({ params }: { params: Promise<{ i
 
             {/* Files Tab */}
             <TabsContent value="files" className="outline-none">
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 <FileCard href={data.photo_url} label="Цээж зураг" />
                 <FileCard href={data.id_card_url} label="Иргэний үнэмлэх" />
                 <FileCard href={data.diploma_url} label="Диплом" />
@@ -737,27 +737,49 @@ function OtherItem({ icon: Icon, label, value, subValue }: any) {
 function FileCard({ href, label, isVideo = false }: { href: string; label: string; isVideo?: boolean }) {
   if (!href) {
     return (
-      <div className="bg-slate-50 border border-dashed border-slate-200 aspect-square rounded-2xl flex flex-col items-center justify-center gap-2 opacity-50 p-3 text-center">
-        <XCircle className="w-5 h-5 text-slate-300" />
-        <span className="text-[9px] font-bold uppercase tracking-wider text-slate-400">{label} байхгүй</span>
+      <div className="bg-slate-50 border border-dashed border-slate-200 min-h-[220px] rounded-2xl flex flex-col items-center justify-center gap-2 opacity-60 p-4 text-center">
+        <XCircle className="w-6 h-6 text-slate-300" />
+        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">{label} байхгүй</span>
       </div>
     );
   }
 
+  const isImage =
+    !isVideo &&
+    (href.startsWith("data:image/") || /\.(jpg|jpeg|png|webp|gif)(\?.*)?$/i.test(href));
+
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="bg-white border border-slate-200 p-4 aspect-square rounded-2xl shadow-sm hover:border-blue-500 hover:shadow-md transition-all flex flex-col items-center justify-center gap-3 relative group text-center"
-    >
-      <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
-        {isVideo ? <Clock className="w-5 h-5" /> : <FileText className="w-5 h-5" />}
+    <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden flex flex-col">
+      <div className="bg-slate-100 aspect-video relative flex items-center justify-center overflow-hidden">
+        {isVideo ? (
+          <video src={href} controls preload="metadata" className="w-full h-full object-contain bg-black" />
+        ) : isImage ? (
+          <a href={href} target="_blank" rel="noreferrer" className="w-full h-full block group">
+            <img src={href} alt={label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          </a>
+        ) : (
+          <a
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            className="flex flex-col items-center justify-center gap-2 text-blue-600 hover:text-blue-700 p-4"
+          >
+            <FileText className="w-10 h-10" />
+            <span className="text-[10px] font-bold uppercase tracking-wider">PDF / Баримт харах</span>
+          </a>
+        )}
       </div>
-      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-700 leading-tight">{label}</span>
-      <div className="absolute top-2.5 right-2.5 text-slate-300 group-hover:text-blue-600 transition-colors">
-        <ExternalLink className="w-3.5 h-3.5" />
+      <div className="p-3.5 flex items-center justify-between gap-2 bg-white border-t border-slate-100">
+        <span className="text-xs font-bold text-slate-800 truncate">{label}</span>
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1 text-[10px] font-bold uppercase text-blue-600 hover:underline shrink-0"
+        >
+          Нээх <ExternalLink className="w-3 h-3" />
+        </a>
       </div>
-    </a>
+    </div>
   );
 }

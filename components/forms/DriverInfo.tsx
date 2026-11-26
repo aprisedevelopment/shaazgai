@@ -10,12 +10,14 @@ import { Truck, CreditCard, Camera, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
+import { uploadAnketFile } from "@/lib/anket-upload";
 
 interface DriverInfoProps {
   form: UseFormReturn<ApplicationFormValues>;
+  onUploadingChange?: (busy: boolean) => void;
 }
 
-export function DriverInfo({ form }: DriverInfoProps) {
+export function DriverInfo({ form, onUploadingChange }: DriverInfoProps) {
   const [uploadingField, setUploadingField] = useState<string | null>(null);
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, fieldName: "proLicenseUrl" | "truckPhotos") => {
@@ -23,7 +25,8 @@ export function DriverInfo({ form }: DriverInfoProps) {
     if (!files || files.length === 0) return;
 
     setUploadingField(fieldName);
-    
+    onUploadingChange?.(true);
+
     try {
       if (fieldName === "truckPhotos") {
         const currentPhotos = form.getValues("truckPhotos") || [];
@@ -33,49 +36,16 @@ export function DriverInfo({ form }: DriverInfoProps) {
         }
 
         const newPhotoUrls = [...currentPhotos];
-        
         for (let i = 0; i < files.length; i++) {
-          const file = files[i];
-          if (file.size > 5 * 1024 * 1024) {
-            throw new Error(`"${file.name}" файлын хэмжээ 5MB-аас их байна.`);
-          }
-          const formData = new FormData();
-          formData.append("file", file);
-
-          const response = await fetch("/api/upload-local", {
-            method: "POST",
-            body: formData,
-          });
-
-          const result = await response.json();
-          if (!response.ok || !result.success) {
-            throw new Error(result.error || "Зураг хуулахад алдаа гарлаа");
-          }
-
-          newPhotoUrls.push(result.url);
+          const url = await uploadAnketFile(files[i], { field: "truck" });
+          newPhotoUrls.push(url);
         }
-        
-        form.setValue("truckPhotos", newPhotoUrls);
+
+        form.setValue("truckPhotos", newPhotoUrls, { shouldValidate: true, shouldDirty: true });
         toast.success("Зургууд амжилттай хуулагдлаа");
       } else {
-        const file = files[0];
-        if (file.size > 5 * 1024 * 1024) {
-          throw new Error("Файлын хэмжээ 5MB-аас их байна.");
-        }
-        const formData = new FormData();
-        formData.append("file", file);
-
-        const response = await fetch("/api/upload-local", {
-          method: "POST",
-          body: formData,
-        });
-
-        const result = await response.json();
-        if (!response.ok || !result.success) {
-          throw new Error(result.error || "Үнэмлэх хуулахад алдаа гарлаа");
-        }
-
-        form.setValue(fieldName, result.url);
+        const url = await uploadAnketFile(files[0], { field: "license" });
+        form.setValue(fieldName, url, { shouldValidate: true, shouldDirty: true });
         toast.success("Мэргэшсэн үнэмлэх амжилттай хуулагдлаа");
       }
     } catch (error: any) {
@@ -84,6 +54,7 @@ export function DriverInfo({ form }: DriverInfoProps) {
     } finally {
       e.target.value = "";
       setUploadingField(null);
+      onUploadingChange?.(false);
     }
   };
 

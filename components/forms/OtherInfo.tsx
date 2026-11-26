@@ -29,9 +29,11 @@ import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
+import { uploadAnketFile } from "@/lib/anket-upload";
 
 interface OtherInfoProps {
   form: UseFormReturn<ApplicationFormValues>;
+  onUploadingChange?: (busy: boolean) => void;
 }
 
 const DRIVER_CATEGORIES = ["A", "B", "C", "D", "E", "M"];
@@ -41,98 +43,145 @@ type UploadFieldName = "photoUrl" | "diplomaUrl" | "idCardUrl" | "videoUrl";
 function UploadBlock({
   form,
   uploadingField,
+  uploadProgress,
   onFileUpload,
   fieldName,
   label,
   icon: Icon,
   description,
   accept,
+  required = false,
 }: {
   form: UseFormReturn<ApplicationFormValues>;
   uploadingField: string | null;
+  uploadProgress: number;
   onFileUpload: (e: React.ChangeEvent<HTMLInputElement>, fieldName: UploadFieldName) => void;
   fieldName: UploadFieldName;
   label: string;
   icon: any;
   description: string;
   accept: string;
+  required?: boolean;
 }) {
-  const value = form.watch(fieldName);
-  const isUploading = uploadingField === fieldName;
-  const isImage =
-    value &&
-    (fieldName === "photoUrl" ||
-      value.startsWith("data:image/") ||
-      /\.(jpg|jpeg|png|webp|gif)$/i.test(value));
-
   return (
-    <div className="flex flex-col items-center gap-4 p-6 bg-surface-container-low/50 rounded-xl border border-outline-variant/10 flex-1 hover:border-primary/30 transition-all duration-300">
-      <label className="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">{label}</label>
+    <FormField
+      control={form.control}
+      name={fieldName}
+      render={({ field, fieldState }) => {
+        const value = field.value || "";
+        const isUploading = uploadingField === fieldName;
+        const isVideo = fieldName === "videoUrl";
+        const isImage =
+          !isVideo &&
+          value &&
+          (fieldName === "photoUrl" ||
+            value.startsWith("data:image/") ||
+            /\.(jpg|jpeg|png|webp|gif)(\?.*)?$/i.test(value));
 
-      <div className="w-full aspect-square max-w-[120px] bg-white rounded-lg flex items-center justify-center overflow-hidden relative border-2 border-dashed border-outline-variant/30 group/frame">
-        {value ? (
-          <>
-            {isImage ? (
-              <img src={value} alt={label} className="w-full h-full object-cover" />
-            ) : fieldName === "videoUrl" ? (
-              <div className="flex flex-col items-center gap-2">
-                <Video className="w-8 h-8 text-primary animate-pulse" />
-                <span className="text-[8px] font-bold text-primary uppercase">Видео орсон</span>
-              </div>
-            ) : (
-              <div className="flex flex-col items-center gap-2">
-                <FileText className="w-8 h-8 text-primary" />
-                <span className="text-[8px] font-bold text-primary uppercase">Файл орсон</span>
-              </div>
+        return (
+          <FormItem
+            data-field-error={fieldState.error ? "true" : undefined}
+            className={cn(
+              "flex flex-col items-center gap-3 p-5 bg-surface-container-low/50 rounded-xl border flex-1 transition-all duration-300 space-y-0",
+              fieldState.error
+                ? "border-error bg-error/5 ring-2 ring-error/15"
+                : "border-outline-variant/20 hover:border-primary/30"
             )}
-            <button
-              type="button"
-              onClick={() => form.setValue(fieldName, "")}
-              className="absolute top-1 right-1 bg-error/90 text-white p-1 rounded-md opacity-0 group-hover/frame:opacity-100 transition-all"
-            >
-              <X className="w-3 h-3" />
-            </button>
-          </>
-        ) : (
-          <div className="text-center space-y-2 opacity-20">
-            <Icon className="w-8 h-8 mx-auto" />
-            <p className="text-[7px] font-bold uppercase tracking-widest px-2">{description}</p>
-          </div>
-        )}
-        {isUploading && (
-          <div className="absolute inset-0 bg-white/80 flex items-center justify-center">
-            <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
-          </div>
-        )}
-      </div>
+          >
+            <div className="w-full flex items-center justify-between gap-2">
+              <FormLabel className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">
+                {label}
+                {required && <span className="text-error ml-0.5">*</span>}
+              </FormLabel>
+              <span
+                className={cn(
+                  "text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider",
+                  required ? "bg-error/10 text-error" : "bg-slate-200/70 text-slate-500"
+                )}
+              >
+                {required ? "Заавал" : "Сонголттой"}
+              </span>
+            </div>
 
-      <input
-        type="file"
-        accept={accept}
-        {...(accept.includes("image/*") ? { capture: "environment" } : {})}
-        className="hidden"
-        id={`upload-${fieldName}`}
-        onChange={(e) => onFileUpload(e, fieldName)}
-        disabled={isUploading}
-      />
-      <Button
-        type="button"
-        variant="ghost"
-        onClick={() => document.getElementById(`upload-${fieldName}`)?.click()}
-        disabled={isUploading}
-        className={cn(
-          "h-9 w-full rounded-full font-bold uppercase tracking-widest text-[8px] transition-all",
-          value ? "bg-primary/5 text-primary" : "bg-surface-container-low text-on-surface-variant/60 hover:bg-primary/5 hover:text-primary"
-        )}
-      >
-        {value ? "Солих" : "Сонгох"}
-      </Button>
-    </div>
+            <div className="w-full aspect-square max-w-[140px] bg-white rounded-lg flex items-center justify-center overflow-hidden relative border-2 border-dashed border-outline-variant/30 group/frame">
+              {value ? (
+                <>
+                  {isVideo ? (
+                    <video src={value} controls className="w-full h-full object-cover bg-black" />
+                  ) : isImage ? (
+                    <img src={value} alt={label} className="w-full h-full object-cover" />
+                  ) : (
+                    <a
+                      href={value}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex flex-col items-center gap-2 p-2 text-center hover:underline"
+                    >
+                      <FileText className="w-8 h-8 text-primary" />
+                      <span className="text-[9px] font-bold text-primary uppercase">PDF / Баримт харах</span>
+                    </a>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => form.setValue(fieldName, "", { shouldValidate: true, shouldDirty: true })}
+                    className="absolute top-1.5 right-1.5 bg-error text-white p-1 rounded-md opacity-90 hover:opacity-100 transition-all shadow"
+                    title="Устгах"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </>
+              ) : (
+                <div className="text-center space-y-2 opacity-40 px-2">
+                  <Icon className="w-8 h-8 mx-auto" />
+                  <p className="text-[9px] font-bold uppercase tracking-wide">{description}</p>
+                </div>
+              )}
+              {isUploading && (
+                <div className="absolute inset-0 bg-white/90 flex flex-col items-center justify-center gap-2 p-3">
+                  <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                  <span className="text-[10px] font-bold text-primary tabular-nums">{uploadProgress}%</span>
+                  <div className="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-primary transition-all duration-200"
+                      style={{ width: `${uploadProgress}%` }}
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <input
+              type="file"
+              accept={accept}
+              {...(accept.includes("image/*") ? { capture: "environment" } : {})}
+              className="hidden"
+              id={`upload-${fieldName}`}
+              onChange={(e) => onFileUpload(e, fieldName)}
+              disabled={isUploading || !!uploadingField}
+            />
+            <Button
+              type="button"
+              variant="ghost"
+              onClick={() => document.getElementById(`upload-${fieldName}`)?.click()}
+              disabled={isUploading || !!uploadingField}
+              className={cn(
+                "h-9 w-full rounded-full font-bold uppercase tracking-widest text-[9px] transition-all",
+                value ? "bg-primary/10 text-primary" : "bg-white border border-outline-variant/40 text-on-surface-variant hover:bg-primary/5 hover:text-primary"
+              )}
+            >
+              {isUploading ? `Хуулж байна (${uploadProgress}%)` : value ? "Солих" : "Файл сонгох"}
+            </Button>
+            <FormMessage className="text-[11px] font-semibold text-center" />
+          </FormItem>
+        );
+      }}
+    />
   );
 }
 
-export function OtherInfo({ form }: OtherInfoProps) {
+export function OtherInfo({ form, onUploadingChange }: OtherInfoProps) {
   const [uploadingField, setUploadingField] = useState<string | null>(null);
+  const [uploadProgress, setUploadProgress] = useState<number>(0);
 
   const { fields: relativeFields, append: appendRelative, remove: removeRelative } = useFieldArray({
     control: form.control,
@@ -147,34 +196,26 @@ export function OtherInfo({ form }: OtherInfoProps) {
     if (!file) return;
 
     setUploadingField(fieldName);
+    setUploadProgress(0);
+    onUploadingChange?.(true);
+
     try {
-      const maxSize = fieldName === "videoUrl" ? 25 * 1024 * 1024 : 5 * 1024 * 1024;
-      if (file.size > maxSize) {
-        toast.error(`Файл хэтэрхий том байна. Зөвшөөрөгдөх дээд хэмжээ: ${maxSize / (1024 * 1024)}MB`);
-        return;
-      }
-
-      const formData = new FormData();
-      formData.append("file", file);
-
-      const response = await fetch("/api/upload-local", {
-        method: "POST",
-        body: formData,
+      const url = await uploadAnketFile(file, {
+        field: fieldName,
+        isVideo: fieldName === "videoUrl",
+        onProgress: (pct) => setUploadProgress(pct),
       });
 
-      const result = await response.json();
-      if (!response.ok || !result.success) {
-        throw new Error(result.error || "Файл хуулахад алдаа гарлаа");
-      }
-
-      form.setValue(fieldName, result.url);
+      form.setValue(fieldName, url, { shouldValidate: true, shouldDirty: true });
       toast.success("Файл амжилттай хуулагдлаа");
     } catch (error: any) {
       console.error(error);
-      toast.error("Файл хуулахад алдаа гарлаа: " + (error?.message || ""));
+      toast.error(error?.message || "Файл хуулахад алдаа гарлаа");
     } finally {
       e.target.value = "";
       setUploadingField(null);
+      setUploadProgress(0);
+      onUploadingChange?.(false);
     }
   };
 
@@ -190,16 +231,21 @@ export function OtherInfo({ form }: OtherInfoProps) {
     <div className="space-y-12">
       {/* 1. File Uploads Section */}
       <section className="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl shadow-on-surface/5 border border-outline-variant/20 p-4 sm:p-6 md:p-10 space-y-6 md:space-y-8 relative overflow-hidden">
-        <div className="flex items-center gap-4">
-          <div className="w-1.5 h-6 bg-primary rounded-full" />
-          <h3 className="text-xl font-bold text-on-surface font-headline uppercase tracking-tight">Бичиг баримт хавсаргах</h3>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="flex items-center gap-4">
+            <div className="w-1.5 h-6 bg-primary rounded-full" />
+            <h3 className="text-xl font-bold text-on-surface font-headline uppercase tracking-tight">Бичиг баримт хавсаргах</h3>
+          </div>
+          <p className="text-xs font-medium text-on-surface-variant">
+            Цээж зураг, Иргэний үнэмлэх, Видео танилцуулга <span className="text-error font-bold">заавал</span> оруулна.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
-          <UploadBlock form={form} uploadingField={uploadingField} onFileUpload={handleFileUpload} fieldName="photoUrl" label="Цээж зураг" icon={Upload} description="3X4 хэмжээтэй зураг" accept="image/*" />
-          <UploadBlock form={form} uploadingField={uploadingField} onFileUpload={handleFileUpload} fieldName="idCardUrl" label="Иргэний үнэмлэх" icon={CreditCard} description="Хуулбар" accept="image/*,application/pdf" />
-          <UploadBlock form={form} uploadingField={uploadingField} onFileUpload={handleFileUpload} fieldName="diplomaUrl" label="Диплом" icon={GraduationCap} description="Хуулбар" accept="image/*,application/pdf" />
-          <UploadBlock form={form} uploadingField={uploadingField} onFileUpload={handleFileUpload} fieldName="videoUrl" label="Видео" icon={Video} description="30 сек бичлэг" accept="video/*" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
+          <UploadBlock form={form} uploadingField={uploadingField} uploadProgress={uploadProgress} onFileUpload={handleFileUpload} fieldName="photoUrl" label="Цээж зураг" icon={Upload} description="3x4 зураг (шахаж хуулна)" accept="image/*" required />
+          <UploadBlock form={form} uploadingField={uploadingField} uploadProgress={uploadProgress} onFileUpload={handleFileUpload} fieldName="idCardUrl" label="Иргэний үнэмлэх" icon={CreditCard} description="Зураг эсвэл PDF" accept="image/*,application/pdf" required />
+          <UploadBlock form={form} uploadingField={uploadingField} uploadProgress={uploadProgress} onFileUpload={handleFileUpload} fieldName="diplomaUrl" label="Диплом" icon={GraduationCap} description="Зураг эсвэл PDF" accept="image/*,application/pdf" />
+          <UploadBlock form={form} uploadingField={uploadingField} uploadProgress={uploadProgress} onFileUpload={handleFileUpload} fieldName="videoUrl" label="Видео танилцуулга" icon={Video} description="30 сек (MP4/MOV, <=25MB)" accept="video/*" required />
         </div>
       </section>
 
@@ -726,7 +772,7 @@ export function OtherInfo({ form }: OtherInfoProps) {
               <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary">Чухал санамж</h4>
             </div>
             <ul className="space-y-3 text-xs font-medium text-on-surface-variant/70">
-              <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary/40" />Их дээд сургуулийн диплом, иргэний үнэмлэхний хуулбар хавсаргана.</li>
+              <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary/40" />Цээж зураг, иргэний үнэмлэхний хуулбар болон 30 секундийн видео танилцуулгыг заавал хавсаргана (диплом сонголттой).</li>
               <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary/40" />Дээрх хуулбар болон энэхүү өргөдлийн маягтыг буцаан олгохгүй.</li>
               <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary/40" />Шаардлагатай тохиолдолд миний болон анкетад бичигдсэн холбогдох этгээдүүдийн Монгол банкны мэдээллийн санг авахыг зөвшөөрч байна.</li>
             </ul>

@@ -117,10 +117,10 @@ export const applicationSchema = z.object({
   }),
 
   // Section 5: Documents & Media
-  photoUrl: z.string().optional(),
+  photoUrl: z.string().min(1, "Цээж зураг заавал оруулна уу"),
   diplomaUrl: z.string().optional(),
-  idCardUrl: z.string().optional(),
-  videoUrl: z.string().optional(),
+  idCardUrl: z.string().min(1, "Иргэний үнэмлэхний хуулбар заавал оруулна уу"),
+  videoUrl: z.string().min(1, "Видео танилцуулга заавал оруулна уу"),
   
   // Health Status
   healthInfo: z.object({

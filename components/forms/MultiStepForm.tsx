@@ -127,6 +127,7 @@ export default function MultiStepForm() {
 
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isUploadingMedia, setIsUploadingMedia] = useState(false);
   const [submittedId, setSubmittedId] = useState<string | null>(null);
   const [submittedToken, setSubmittedToken] = useState<string | null>(null);
   const [isDriverJob, setIsDriverJob] = useState(false);
@@ -233,6 +234,14 @@ export default function MultiStepForm() {
     const firstKey = Object.keys(errors)[0];
     const firstMsg = errors?.[firstKey]?.message || errors?.[firstKey]?.root?.message;
     toast.error(firstMsg ? `Алдаа: ${firstMsg}` : "Заавал бөглөх талбаруудыг шалгана уу.");
+    if (typeof document !== "undefined") {
+      requestAnimationFrame(() => {
+        const el =
+          document.querySelector('[aria-invalid="true"]') ||
+          document.querySelector('[data-field-error="true"]');
+        el?.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    }
   };
 
   const nextStep = async () => {
@@ -378,8 +387,8 @@ export default function MultiStepForm() {
                     </div>
                   )}
                   {currentStep === 4 && <SkillsMatrix form={form as any} />}
-                  {currentStep === 5 && isDriverJob && <DriverInfo form={form as any} />}
-                  {currentStep === totalSteps && <OtherInfo form={form as any} />}
+                  {currentStep === 5 && isDriverJob && <DriverInfo form={form as any} onUploadingChange={setIsUploadingMedia} />}
+                  {currentStep === totalSteps && <OtherInfo form={form as any} onUploadingChange={setIsUploadingMedia} />}
                 </motion.div>
               </AnimatePresence>
 
@@ -388,6 +397,7 @@ export default function MultiStepForm() {
                   <Button
                     type="button"
                     onClick={nextStep}
+                    disabled={isUploadingMedia}
                     className="w-full sm:w-auto h-14 px-10 rounded-full bg-primary text-on-primary font-bold shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-2"
                   >
                     Үргэлжлүүлэх <ArrowRight className="w-5 h-5" />
@@ -395,12 +405,16 @@ export default function MultiStepForm() {
                 ) : (
                   <Button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || isUploadingMedia}
                     className="w-full sm:w-auto h-14 px-10 rounded-full bg-primary text-on-primary font-bold shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-5 h-5 animate-spin" /> Илгээж байна...
+                      </>
+                    ) : isUploadingMedia ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" /> Файл хуулж байна...
                       </>
                     ) : (
                       <>
